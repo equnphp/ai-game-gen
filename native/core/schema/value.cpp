@@ -1,6 +1,5 @@
 // 不依赖解析器的默认覆盖策略，重复键与非有限数字在入口明确拒绝。
 #include "core/schema/value.hpp"
-#include "contracts.hpp"
 #include <algorithm>
 #include <chrono>
 #include <cmath>
@@ -39,11 +38,6 @@ Json parse(std::string_view s, std::size_t limit) {
         normalize(v);
         return v;
     } catch (const Json::exception&) { throw Error("INVALID_MESSAGE"); }
-}
-void request_check(const Json& request) {
-    static const Json schema = parse(message_schema, 1048576);
-    static const Json schema_v1_1 = parse(message_schema_v1_1, 1048576);
-    schema_check(request, request.is_object() && request.value("protocolVersion", "") == "1.1" ? schema_v1_1 : schema);
 }
 bool uuid(std::string_view s) {
     static const std::regex re("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");

@@ -1,6 +1,7 @@
 // 资源采纳只是普通提案中的操作；READY上传不提前成为活跃资产。
 #include "core/application/session.hpp"
 #include "core/assets/logical_path.hpp"
+#include "core/assets/metadata.hpp"
 #include "contracts.hpp"
 #include <algorithm>
 #include <cctype>
@@ -8,32 +9,15 @@
 
 namespace gg {
 namespace {
-const Json& metadata_schema() {
-    static const auto messages=parse(message_schema_v1_1,1048576);
-    static const Json* schema=[] {
-        for (const auto& branch : messages.at("oneOf")) if (branch.at("properties").at("op").at("const")=="document.propose")
-            for (const auto& operation : branch.at("properties").at("params").at("properties").at("operations").at("items").at("oneOf"))
-                if (operation.at("properties").at("kind").at("const")=="attach_asset") return &operation.at("properties").at("metadata");
-        throw Error("UNSUPPORTED_SCHEMA");
-    }();
-    return *schema;
-}
 std::string logical_key(const std::string& value) {
     return logical_path(value).key;
 }
 void check_metadata(const Json& metadata,const AssetVersion& asset,const AssetVersion* previous,bool content_changed) {
-    schema_check(metadata,metadata_schema());
-    require(metadata.dump().size()<=262144,"LIMIT_EXCEEDED");
-    (void)logical_key(text(metadata.at("logicalPath")));
-    std::set<std::string> tags;
-    for (const auto& tag:metadata.at("tags")) require(tags.insert(unicode_search_key(text(tag))).second,"DUPLICATE_TAG");
+    validate_asset_metadata(metadata);
     const auto& provenance=metadata.at("provenance");
     require(provenance.at("sourceHash")==asset.content_hash,"HASH_MISMATCH");
-    const auto type=text(metadata.at("assetType"));
-    const auto& settings=metadata.at("importSettings");
-    // 首个无损默认profile是闭合对象；专用切片/转码profile需注册后才能接受参数。
-    require(settings.at("settingsKind")==type+".default" && settings.at("settingsVersion")==1 &&
-        settings.at("values").is_object() && settings.at("values").empty(),"UNSUPPORTED_SCHEMA");
+    require(provenance.at("sourceName")==asset.source.at("displayName") && provenance.at("licenseId")==asset.license.at("identifier"),"PROVENANCE_REVIEW_REQUIRED");
+    if(asset.license.at("status")=="unknown")require(provenance.at("commercialUse")=="unknown","PROVENANCE_REVIEW_REQUIRED");
     if (previous) {
         const auto& old=previous->metadata.at("provenance");
         if (!content_changed) require(provenance==old,"PROVENANCE_REVIEW_REQUIRED");

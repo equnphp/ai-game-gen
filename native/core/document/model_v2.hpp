@@ -10,4 +10,6 @@ std::vector<ObjectIdentity> model_identities(const Document& document);
 std::vector<std::string> model_field_path(const Document& document, const std::string& path);
 const Json& model_schema();
 std::string model_catalog_hash();
+Json describe_model(const std::string& kind,int schema);
+Json list_models(const Json& params);
 }

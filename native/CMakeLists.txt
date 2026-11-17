@@ -35,35 +35,43 @@ file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/storage/sqlite/schema_v2.sql" GG_DDL
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/schema/messages.schema.json" GG_MESSAGES)
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/schema/messages_v1_1.schema.json" GG_MESSAGES_V1_1)
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/schema/documents_v2.schema.json" GG_DOCUMENTS_V2)
+file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/schema/asset_metadata.schema.json" GG_ASSET_METADATA)
+file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/schema/import_profiles.json" GG_IMPORT_PROFILES)
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/engine/node-catalog.json" GG_NODE_CATALOG)
+file(READ "${CMAKE_CURRENT_SOURCE_DIR}/engine/ir1_2.schema.json" GG_IR_SCHEMA)
+file(READ "${CMAKE_CURRENT_SOURCE_DIR}/engine/runtime_bundle.schema.json" GG_BUNDLE_SCHEMA)
+file(READ "${CMAKE_CURRENT_SOURCE_DIR}/artifact/messages.schema.json" GG_ARTIFACT_SCHEMA)
 configure_file(cmake/contracts.hpp.in generated/contracts.hpp @ONLY)
-# 纯数学基础供领域校验和后续运行时共享，不新增另一份项目状态。
-add_library(gg_engine STATIC engine/math2d.cpp)
-target_include_directories(gg_engine PUBLIC .)
-add_library(gg_values STATIC core/schema/value.cpp core/schema/validator.cpp)
-target_include_directories(gg_values PUBLIC . PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/generated")
-target_link_libraries(gg_values PUBLIC gg_json gg_hash)
-# 游戏运行库不链接SQLite、创作会话或宿主授权，只消费已校验的输入与运行数据。
-add_library(gg_runtime STATIC engine/input.cpp)
-target_include_directories(gg_runtime PUBLIC .)
-target_link_libraries(gg_runtime PUBLIC gg_values gg_engine)
-add_library(gg_compiler STATIC engine/graph.cpp)
-target_include_directories(gg_compiler PUBLIC . PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/generated")
-target_link_libraries(gg_compiler PUBLIC gg_values)
+include(cmake/RuntimeLibraries.cmake)
+# 两个native入口复用同一作者模型/仓储，不复制迁移或快照读取逻辑。
+add_library(gg_repository STATIC
+  core/document/document.cpp core/document/model_v2.cpp core/storage/sqlite/store.cpp core/storage/sqlite/repository.cpp
+  core/assets/logical_path.cpp core/assets/metadata.cpp)
+target_include_directories(gg_repository PUBLIC . PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/generated")
+target_link_libraries(gg_repository PUBLIC gg_sqlite gg_values gg_compiler gg_unicode)
 add_library(ggcore SHARED
-  core/document/document.cpp core/document/model_v2.cpp core/storage/sqlite/store.cpp
-  core/application/session.cpp core/application/migration.cpp core/assets/assets.cpp core/assets/proposal.cpp core/assets/catalog.cpp core/assets/logical_path.cpp core/tasks/core.cpp
+  core/schema/request.cpp
+  core/application/session.cpp core/application/migration.cpp core/application/references.cpp core/assets/assets.cpp core/assets/proposal.cpp core/assets/catalog.cpp core/tasks/core.cpp
   sdk/src/abi.cpp platform/platform.cpp)
 target_include_directories(ggcore PRIVATE . "${CMAKE_CURRENT_BINARY_DIR}/generated")
 target_include_directories(ggcore PUBLIC sdk/include)
 target_compile_definitions(ggcore PRIVATE GG_CORE_BUILD)
-target_link_libraries(ggcore PRIVATE gg_sqlite gg_values gg_runtime gg_compiler gg_unicode)
+target_link_libraries(ggcore PRIVATE gg_repository gg_runtime)
+# 产物桥是独立DLL/SO；游戏WASM入口不包含本目标和SQLite。
+add_library(ggartifact SHARED artifact/abi.cpp artifact/build.cpp platform/platform.cpp)
+target_include_directories(ggartifact PRIVATE . "${CMAKE_CURRENT_BINARY_DIR}/generated")
+target_compile_definitions(ggartifact PRIVATE GG_ARTIFACT_BUILD)
+target_link_libraries(ggartifact PRIVATE gg_repository gg_runtime)
 if(WIN32)
   target_compile_definitions(ggcore PRIVATE WIN32_LEAN_AND_MEAN NOMINMAX _WIN32_WINNT=0x0A00)
   target_link_libraries(ggcore PRIVATE bcrypt)
   set_target_properties(ggcore PROPERTIES PREFIX "")
+  target_compile_definitions(ggartifact PRIVATE WIN32_LEAN_AND_MEAN NOMINMAX _WIN32_WINNT=0x0A00)
+  target_link_libraries(ggartifact PRIVATE bcrypt)
+  set_target_properties(ggartifact PROPERTIES PREFIX "")
 else()
   target_link_options(ggcore PRIVATE "-Wl,-z,max-page-size=16384" "-Wl,--exclude-libs,ALL")
+  target_link_options(ggartifact PRIVATE "-Wl,-z,max-page-size=16384" "-Wl,--exclude-libs,ALL")
 endif()
 option(GG_BUILD_DRIVER "Build the explicit, non-GUI SDK client" OFF)
 if(GG_BUILD_DRIVER)

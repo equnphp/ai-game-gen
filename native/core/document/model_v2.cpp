@@ -4,6 +4,7 @@
 #include "engine/input.hpp"
 #include "engine/graph.hpp"
 #include "core/assets/logical_path.hpp"
+#include "core/assets/metadata.hpp"
 #include "contracts.hpp"
 #include <algorithm>
 #include <set>
@@ -13,6 +14,7 @@ namespace gg {
 const Json& model_schema() { static const auto value = parse(document_schema_v2, 1048576); return value; }
 std::string model_catalog_hash() {
     static const auto value=hash(Json{{"documents",model_schema()},{"nodeCatalogHash",compiler::node_catalog_hash()},
+        {"assetMetadata",asset_metadata_schema()},{"importProfiles",import_profiles()},
         {"pathKeyVersion",path_key_version},{"semanticRulesVersion","core-model.1"}}.dump());
     return value;
 }
@@ -81,7 +83,7 @@ void scene_rules(const Document& doc) {
             if (type == "sprite2d") reference_type(data.at("asset"), "asset", "image");
             if (type == "camera2d") {
                 reference_type(data.at("followEntity"), "entity", "entity");
-                if (data.at("main").get<bool>()) ++main_cameras;
+                if (c.at("enabled").get<bool>() && data.at("main").get<bool>()) ++main_cameras;
             }
             if (type == "graph.behavior") reference_type(data.at("graph"), "document", "graph");
             if (type == "input.controller") reference_type(data.at("map"), "document", "input.map");
@@ -188,5 +190,59 @@ std::vector<std::string> model_field_path(const Document& doc, const std::string
     }
     require(!parts.empty(), "INVALID_PATH");
     return parts;
+}
+namespace {
+void mutable_paths(const Json& input,const std::string& prefix,Json& result) {
+    const auto& schema=resolve(input);
+    if(!prefix.empty())result.push_back(prefix);
+    if(schema.contains("oneOf") || schema.contains("anyOf") || schema.value("type","")=="array")return;
+    if(schema.contains("properties"))for(auto item=schema.at("properties").begin();item!=schema.at("properties").end();++item)
+        if(item.key()!="extensions")mutable_paths(item.value(),prefix+"/"+item.key(),result);
+    if(schema.contains("additionalProperties") && schema.at("additionalProperties").is_object())
+        mutable_paths(schema.at("additionalProperties"),prefix+"/<id>",result);
+}
+}
+Json describe_model(const std::string& kind,int version) {
+    if(kind=="asset.metadata" && version==1)return {{"kind",kind},{"schemaVersion",1},{"namespace","asset_metadata"},
+        {"schemaJson",asset_metadata_schema()},{"schemaHash",hash(asset_metadata_schema().dump())},
+        {"registeredImportProfiles",import_profiles().at("profiles")},{"processorAvailable",false},
+        {"semanticRuleIds",{"asset.provenance.1",path_key_version}},{"referenceRules",Json::array()},
+        {"limits",{{"bytes",262144}}}};
+    Document document;document.kind=kind;document.schema=version;
+    const auto* schema=descriptor(document);require(schema,"UNSUPPORTED_SCHEMA");
+    Json concrete=*schema;concrete["$defs"]=model_schema().at("$defs");
+    Json paths=Json::array();mutable_paths(schema->at("properties").at("body"),"",paths);
+    Json components=Json::array();
+    if(kind=="scene" || kind=="prefab")for(const auto& component:model_schema().at("$defs").at("component").at("oneOf"))
+        components.push_back({{"type",component.at("properties").at("type").at("const")},
+            {"schemaVersion",component.at("properties").at("schemaVersion").at("const")}});
+    // 这里只声明作者Schema处理器。空目标集合明确表示尚未接通运行/Writer能力。
+    return {{"kind",kind},{"schemaVersion",version},{"namespace","document"},{"status","implemented"},
+        {"schemaJson",concrete},{"schemaHash",hash(concrete.dump())},{"mutablePaths",paths},{"componentTypes",components},
+        {"runtimeProfiles",Json::array()},{"writerProfiles",Json::array()},
+        {"semanticRuleIds",{"core-model.1",path_key_version}},{"referenceRules","typed-and-registered-fields-v1"},
+        {"limits",{{"bytes",1048576},{"operations",64},{"entities",10000},{"componentsPerEntity",64}}}};
+}
+Json list_models(const Json& params) {
+    const auto catalog=model_catalog_hash();std::string after;
+    if(!params.at("after").is_null()) {
+        const auto cursor=parse(text(params.at("after")),2048);
+        require(cursor.is_object() && cursor.size()==2 && cursor.value("catalogHash","")==catalog && cursor.contains("key"),"CURSOR_EXPIRED");
+        after=text(cursor.at("key"));
+    }
+    std::map<std::string,Json> entries;
+    for(const auto& schema:model_schema().at("oneOf")) {
+        const auto kind=text(schema.at("properties").at("kind").at("const"));
+        const auto version=schema.at("properties").at("schemaVersion").at("const").get<int>();
+        auto item=describe_model(kind,version);item.erase("schemaJson");
+        entries.emplace(kind+"@"+std::to_string(version),std::move(item));
+    }
+    require(after.empty() || entries.contains(after),"CURSOR_EXPIRED");
+    Json items=Json::array();std::string last;bool more=false;
+    for(const auto& [key,item]:entries)if(key>after) {
+        if(items.size()==params.at("limit").get<std::size_t>()){more=true;break;}
+        items.push_back(item);last=key;
+    }
+    return {{"schemaCatalogHash",catalog},{"items",items},{"nextAfter",more?Json(Json{{"catalogHash",catalog},{"key",last}}.dump()):Json(nullptr)}};
 }
 }

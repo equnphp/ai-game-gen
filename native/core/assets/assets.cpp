@@ -1,6 +1,7 @@
 // SQLite摘要列显式读取为文本，保持严格类型边界，避免依赖JSON隐式比较。
 // 暂存块、READY内容与资产身份分开；只有attach生成可引用的领域成员。
 #include "core/application/session.hpp"
+#include "core/storage/sqlite/repository.hpp"
 #include <algorithm>
 #include <filesystem>
 namespace gg {
@@ -12,20 +13,20 @@ void metadata_string(const Json& value, std::size_t maximum) {
 }
 }
 AssetVersion Session::load_asset_version(const std::string& id, const std::string& version) {
-    const auto rows = store_.query("SELECT a.content_hash,a.media_type,a.metadata_json,a.source_json,a.license_json,b.expected_size "
-        "FROM asset_versions a JOIN blob_objects b ON b.content_hash=a.content_hash AND b.state='READY' "
-        "WHERE a.asset_id=? AND a.asset_version_id=?", {id,version});
-    require(rows.size() == 1, "NOT_FOUND");
-    const auto& row = rows.front();
-    return {version,text(row[0]),text(row[1]),parse(text(row[2]),262144),parse(text(row[3])),parse(text(row[4])),row[5].get<std::uint64_t>(),hash(text(row[2]))};
+    return load_asset_version(store_,id,version);
 }
-Json Session::asset_metadata(const std::string& id, const std::string& version) {
+AssetVersion Session::load_asset_version(Store& reader,const std::string& id,const std::string& version) {
+    return read_asset_version(reader,id,version);
+}
+Json Session::asset_metadata(const std::string& id, const std::string& version,Store* reader) {
+    auto& source=reader?*reader:store_;
     if (format_ == 2) {
-        const auto selected = version.empty() ? text(store_.scalar("SELECT asset_version_id FROM asset_heads WHERE asset_id=?", {id})) : version;
-        const auto asset = load_asset_version(id,selected);
+        const auto selected = version.empty() ? text(source.scalar("SELECT asset_version_id FROM asset_heads WHERE asset_id=?", {id})) : version;
+        const auto asset = load_asset_version(source,id,selected);
         return {{"assetId",id},{"versionId",selected},{"hash",asset.content_hash},{"contentHash",asset.content_hash},
             {"byteLength",std::to_string(asset.bytes)},{"mediaType",asset.media_type},{"metadata",asset.metadata},
-            {"source",asset.source},{"license",asset.license},{"localOnly",true},{"headRevision",std::to_string(head())},
+            {"source",asset.source},{"license",asset.license},{"localOnly",true},
+            {"headRevision",std::to_string(source.scalar("SELECT head_revision FROM project WHERE singleton=1").get<std::int64_t>())},
             {"decodedInfo",{{"kind","binary"},{"mediaType",asset.media_type},{"status","not_decoded"}}}};
     }
     const auto rows=store_.query("SELECT a.content_hash,b.expected_size,a.media_type,a.source_json,a.license_json "
@@ -156,14 +157,21 @@ std::pair<std::string,std::string> Session::blob_read(const std::string& content
         "(SELECT 1 FROM history_entries he JOIN transactions t USING(transaction_id),json_each(json_extract(t.forward_json,'$.assetHeads')) j "
         "WHERE j.key=a.asset_id) OR EXISTS(SELECT 1 FROM history_entries he JOIN transactions t USING(transaction_id),"
         "json_each(json_extract(t.inverse_json,'$.assetHeads')) j WHERE j.key=a.asset_id)))";
-    const auto rows=store_.query(format_==1?legacy_query:
-        "SELECT blob_id,expected_size FROM blob_objects b WHERE content_hash=? AND state='READY' AND EXISTS "
-        "(SELECT 1 FROM asset_versions a WHERE a.content_hash=b.content_hash)",{content});
+    const char* version_query="SELECT blob_id,expected_size FROM blob_objects b WHERE content_hash=? AND state='READY' AND EXISTS "
+        "(SELECT 1 FROM asset_versions a WHERE a.content_hash=b.content_hash)";
+    auto* source=&store_;auto rows=source->query(format_==1?legacy_query:version_query,{content});
+    if(rows.empty() && format_==2) {
+        idle();
+        for(auto& [id,view]:asset_reads_) {
+            auto retained=view.reader->query(version_query,{content});
+            if(!retained.empty()){source=view.reader.get();rows=std::move(retained);break;}
+        }
+    }
     require(rows.size()==1,"NOT_FOUND");const auto size=rows[0][1].get<std::uint64_t>();
     require(offset<=size,"RANGE_ERROR");std::string bytes; const auto end=std::min(size,offset+maximum);
     while (offset+bytes.size()<end) {
         control.checkpoint();const auto position=offset+bytes.size();const auto chunk_offset=(position/1048576)*1048576;
-        const auto rows2=store_.query("SELECT data,chunk_hash FROM blob_chunks WHERE blob_id=? AND byte_offset=?", {rows[0][0],chunk_offset});
+        const auto rows2=source->query("SELECT data,chunk_hash FROM blob_chunks WHERE blob_id=? AND byte_offset=?", {rows[0][0],chunk_offset});
         require(rows2.size()==1,"DATABASE_CORRUPT");const auto block=text(rows2[0][0]);
         require(hash(block)==text(rows2[0][1]),"DATABASE_CORRUPT");const auto start=position-chunk_offset;
         require(start<block.size(),"DATABASE_CORRUPT");bytes.append(block,start,std::min<std::uint64_t>(block.size()-start,end-position));

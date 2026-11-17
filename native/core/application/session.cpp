@@ -2,6 +2,7 @@
 // 只有COMMIT成功后返回持久化收据；历史通过版本指针切换保留旧正文。
 #include "core/application/session.hpp"
 #include "core/document/model_v2.hpp"
+#include "core/storage/sqlite/repository.hpp"
 #include "core/assets/logical_path.hpp"
 #include "contracts.hpp"
 #include <algorithm>
@@ -13,7 +14,8 @@ void Session::writable() {
     location_->verify(); require(location_->available() >= 4194304, "STORAGE_FULL");
 }
 void Session::expected(const Json& r) {
-    require(decimal(r.at("expectedRevision")) == static_cast<std::uint64_t>(head()), "REVISION_CONFLICT");
+    require(decimal(r.at("expectedRevision")) == static_cast<std::uint64_t>(head()),
+        r.at("protocolVersion")=="1.1"?"VERSION_MISMATCH":"REVISION_CONFLICT");
 }
 void Session::expire_proposals() {
     const auto now = std::chrono::steady_clock::now();
@@ -22,58 +24,11 @@ void Session::expire_proposals() {
     }
     for(auto& [id,cached]:volatile_requests_)if(!proposals_.contains(cached.proposal))cached.result.clear();
 }
-Document Session::load_version(const std::string& id, const std::string& version) {
-    const auto rows = store_.query("SELECT kind,schema_version,body_json,content_hash FROM document_versions "
-                                   "WHERE document_id=? AND version_id=?", {id,version});
-    require(rows.size() == 1, "DATABASE_CORRUPT"); const auto& row = rows[0];
-    const auto body = text(row[2]); require(hash(body) == text(row[3]), "DATABASE_CORRUPT");
-    return {id,version,text(row[0]),text(row[3]),row[1].get<int>(),parse(body,1048576)};
+Document Session::load_version(const std::string& id,const std::string& version) {
+    return read_document_version(store_,id,version);
 }
-State Session::load_state(const std::optional<std::string>& snap) {
-    State state; state.format = format_; std::vector<Row> docs;
-    if (snap) {
-        require(!store_.query("SELECT snapshot_id FROM snapshots WHERE snapshot_id=?", {*snap}).empty(), "NOT_FOUND");
-        docs = store_.query("SELECT document_id,version_id FROM snapshot_documents WHERE snapshot_id=? ORDER BY document_id", {*snap});
-        for (const auto& r : store_.query("SELECT asset_id FROM snapshot_assets WHERE snapshot_id=? ORDER BY asset_id", {*snap}))
-            state.assets.insert(text(r[0]));
-    } else {
-        docs = store_.query("SELECT document_id,version_id FROM document_heads ORDER BY document_id");
-        for (const auto& r : store_.query("SELECT asset_id FROM asset_heads ORDER BY asset_id")) state.assets.insert(text(r[0]));
-    }
-    if (format_ == 2) {
-        const auto rows = snap ? store_.query("SELECT asset_id,asset_version_id FROM snapshot_assets WHERE snapshot_id=? ORDER BY asset_id", {*snap}) :
-            store_.query("SELECT asset_id,asset_version_id FROM asset_heads ORDER BY asset_id");
-        for (const auto& row : rows) {
-            const auto id = text(row[0]);
-            auto asset = load_asset_version(id,text(row[1]));
-            state.asset_types[id] = text(asset.metadata.at("assetType"));
-            state.asset_versions.emplace(id,std::move(asset));
-        }
-        if (snap) state.format = store_.scalar("SELECT manifest_format FROM snapshots WHERE snapshot_id=?", {*snap}).get<int>();
-    }
-    require(docs.size() <= 500, "LIMIT_EXCEEDED");
-    for (const auto& row : docs) {
-        auto d = load_version(text(row[0]),text(row[1])); state.documents.emplace(d.id,std::move(d));
-    }
-    if (snap) {
-        const auto revision = store_.scalar("SELECT revision FROM snapshots WHERE snapshot_id=?", {*snap}).get<std::int64_t>();
-        auto m = manifest(state,project_,branch_,revision);
-        if (state.format == 1) for (const auto& id : state.assets)
-            m["assets"].push_back({{"id",id},{"hash",format_ == 2 ? Json(state.asset_versions.at(id).content_hash) : asset_metadata(id).at("hash")}});
-        if (state.format == 1)
-            require(hash(m.dump()) == text(store_.scalar("SELECT manifest_hash FROM snapshots WHERE snapshot_id=?", {*snap})), "DATABASE_CORRUPT");
-        else {
-            const auto receipt = store_.query("SELECT manifest_hash,schema_catalog_hash,manifest_json FROM snapshots WHERE snapshot_id=?", {*snap});
-            require(receipt.size()==1 && receipt[0][1].is_string() && receipt[0][2].is_string(),"SNAPSHOT_CORRUPT");
-            const auto original = text(receipt[0][2]);
-            require(hash(original)==text(receipt[0][0]),"SNAPSHOT_CORRUPT");
-            const auto frozen = parse(original,8388608);
-            // 校验原始字节hash后只比对索引，不用当前目录或序列化器重算历史hash。
-            m["schemaCatalogHash"] = receipt[0][1];
-            require(frozen==m,"SNAPSHOT_CORRUPT");
-        }
-    }
-    return state;
+State Session::load_state(const std::optional<std::string>& snapshot) {
+    return read_repository_state(store_,format_,project_,branch_,snapshot);
 }
 void Session::open_metadata() {
     const auto rows = store_.query("SELECT project_id,branch_id,settings_document_id,initialized,format_version FROM project WHERE singleton=1");
@@ -350,6 +305,7 @@ Json Session::query(const Json& r, const Control&) {
         return asset_metadata(id);
     }
     if (op=="asset.list") {require(format_==2,"FORMAT_UPGRADE_REQUIRED");return list_assets(p);}
+    if (op=="references.read")return read_references(p);
     throw Error("INVALID_MESSAGE");
 }
 std::string Session::operate(const Json& r, const std::string& digest, const Control& control) {
@@ -493,7 +449,7 @@ std::string Session::operate(const Json& r, const std::string& digest, const Con
     if (op=="project.close") {
         const auto revision=head(); control.checkpoint();
         auto result=envelope(r,{{"closed",true},{"lastDurableRevision",std::to_string(revision)}});
-        store_.close(); location_.reset(); project_.clear(); branch_.clear(); settings_.clear();
+        asset_reads_.clear();store_.close(); location_.reset(); project_.clear(); branch_.clear(); settings_.clear();
         proposals_.clear(); volatile_requests_.clear(); asset_reads_.clear();upgrade_plan_.reset();format_=1;
         read_only_=Json::array(); recovery_required_=false; return result;
     }
@@ -502,6 +458,8 @@ std::string Session::operate(const Json& r, const std::string& digest, const Con
 std::string Session::execute(const std::string& raw, const Control& control) {
     Json r=parse(raw); request_check(r); control.checkpoint(); const auto digest=hash(raw); const auto op=text(r.at("op"));
     try {
+        if(op=="schema.catalog.list")return envelope(r,list_models(r.at("params")));
+        if(op=="schema.describe")return envelope(r,describe_model(text(r.at("params").at("kind")),r.at("params").at("schemaVersion").get<int>()));
         if (op=="core.capabilities") return envelope(r,{
             {"abiVersion",65536},{"protocolVersion","1.0"},{"formatVersion",1},{"hashVersion","gg-json-v1"},
             {"schemaVersions",{{"scene",1},{"project.settings",1}}},

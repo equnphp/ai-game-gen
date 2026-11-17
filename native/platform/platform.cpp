@@ -1,10 +1,12 @@
 // 持有目录句柄限制重命名；本库不声称能隔离同用户恶意本机代码。
 #include "platform/platform.hpp"
 #include <array>
+#include <algorithm>
 #include <fstream>
 #include <mutex>
 #include <regex>
 #include <set>
+#include <cstdio>
 #ifdef _WIN32
 #include <windows.h>
 #include <bcrypt.h>
@@ -170,6 +172,9 @@ std::unique_ptr<ProjectLocation> RootGrant::project(const std::string& name, boo
 #endif
     return std::make_unique<ProjectLocation>(std::move(child), writable);
 }
+std::unique_ptr<ProjectLocation> RootGrant::current_project_read_only() {
+    directory_->verify();return std::make_unique<ProjectLocation>(directory_,false);
+}
 ProjectLocation::ProjectLocation(std::shared_ptr<Directory> d, bool writable) : directory_(std::move(d)) {
     verify();
     if (writable) lock_ = std::make_shared<ExclusiveLock>(directory_);
@@ -252,4 +257,77 @@ std::string file_hash(const std::string& path, const std::function<void()>& chec
     while (input) { checkpoint(); input.read(block.data(), block.size()); digest.update({block.data(), static_cast<std::size_t>(input.gcount())}); }
     require(input.eof(), "IO_ERROR"); return digest.finish();
 }
+namespace {
+void durable_bytes(const std::filesystem::path& target,std::string_view bytes) {
+#ifdef _WIN32
+    HANDLE file=CreateFileW(target.c_str(),GENERIC_WRITE,0,nullptr,CREATE_NEW,FILE_ATTRIBUTE_NORMAL|FILE_FLAG_OPEN_REPARSE_POINT,nullptr);
+    require(file!=INVALID_HANDLE_VALUE,"IO_ERROR");
+    try {
+        std::size_t offset=0;
+        while(offset<bytes.size()) {DWORD written=0;const auto size=static_cast<DWORD>(std::min<std::size_t>(1048576,bytes.size()-offset));
+            require(WriteFile(file,bytes.data()+offset,size,&written,nullptr) && written>0,"IO_ERROR");offset+=written;}
+        require(FlushFileBuffers(file),"IO_ERROR");CloseHandle(file);
+    } catch(...) {CloseHandle(file);throw;}
+#else
+    const int fd=open(target.c_str(),O_WRONLY|O_CREAT|O_EXCL|O_NOFOLLOW|O_CLOEXEC,0600);require(fd>=0,"IO_ERROR");
+    try {
+        std::size_t offset=0;
+        while(offset<bytes.size()) {const auto written=::write(fd,bytes.data()+offset,bytes.size()-offset);
+            if(written<0 && errno==EINTR)continue;require(written>0,"IO_ERROR");offset+=static_cast<std::size_t>(written);}
+        require(fsync(fd)==0,"IO_ERROR");require(::close(fd)==0,"IO_ERROR");
+    } catch(...) {::close(fd);throw;}
+#endif
+}
+void publish_file(const std::filesystem::path& from,const std::filesystem::path& to) {
+#ifdef _WIN32
+    require(MoveFileExW(from.c_str(),to.c_str(),MOVEFILE_WRITE_THROUGH),"IO_ERROR");
+#else
+    // link是不覆盖发布；所有目标在同一受管目录，随后同步目录项。
+    require(link(from.c_str(),to.c_str())==0,"IO_ERROR");require(unlink(from.c_str())==0,"IO_ERROR");
+    const int dir=open(to.parent_path().c_str(),O_RDONLY|O_DIRECTORY|O_CLOEXEC|O_NOFOLLOW);require(dir>=0,"IO_ERROR");
+    const int status=fsync(dir);::close(dir);require(status==0,"IO_ERROR");
+#endif
+}
+}
+class ArtifactOutput::Impl {
+public:
+    RootGrant root;
+    std::filesystem::path path;
+    std::shared_ptr<Directory> directory,blocks;
+    std::vector<std::filesystem::path> owned;
+    std::set<std::string> hashes;
+    std::uint64_t total=0;
+    bool ready=false;
+    Impl(const std::string& private_root,const std::string& id):root(private_root) {
+        require(uuid(id),"INVALID_PATH");path=native_path(private_root)/id;
+        require(std::filesystem::create_directory(path),"ALREADY_EXISTS");
+        try {directory=std::make_shared<Directory>(path);require(std::filesystem::create_directory(path/"blocks"),"IO_ERROR");blocks=std::make_shared<Directory>(path/"blocks");}
+        catch(...) {blocks.reset();directory.reset();std::error_code ignored;std::filesystem::remove(path/"blocks",ignored);std::filesystem::remove(path,ignored);throw;}
+    }
+    ~Impl() {
+        if(ready)return;
+        // 不递归删除，不枚举外部文件；只清理自己登记的确定路径与空目录。
+        for(auto entry=owned.rbegin();entry!=owned.rend();++entry){std::error_code ignored;std::filesystem::remove(*entry,ignored);}
+        blocks.reset();directory.reset();std::error_code ignored;std::filesystem::remove(path/"blocks",ignored);std::filesystem::remove(path,ignored);
+    }
+    void write(const std::filesystem::path& target,std::string_view bytes) {
+        require(!ready,"ARTIFACT_ALREADY_READY");directory->verify();blocks->verify();
+        const auto partial=std::filesystem::path(target.native()+native_path(".partial").native());
+        // 在写入前登记，异常时也清除本任务产生的partial；目标目录由本实例独占新建。
+        owned.push_back(partial);owned.push_back(target);durable_bytes(partial,bytes);publish_file(partial,target);total+=bytes.size();
+    }
+};
+ArtifactOutput::ArtifactOutput(const std::string& root,const std::string& id):impl_(std::make_unique<Impl>(root,id)){}
+ArtifactOutput::~ArtifactOutput()=default;
+void ArtifactOutput::block(const std::string& key,std::string_view bytes) {
+    require(content_hash(key) && hash(bytes)==key,"HASH_MISMATCH");if(impl_->hashes.contains(key))return;
+    impl_->write(impl_->path/"blocks"/key.substr(7),bytes);impl_->hashes.insert(key);
+}
+void ArtifactOutput::publish(std::string_view manifest) {
+    require(manifest.size()<=8388608,"LIMIT_EXCEEDED");impl_->write(impl_->path/"manifest.json",manifest);
+    const auto marker=Json{{"manifestHash",hash(manifest)},{"format","gg-artifact-ready-1"}}.dump();
+    // 标记成功后不再执行可能失败的分配或取消检查，避免已发布产物被误删。
+    impl_->write(impl_->path/"ready.json",marker);impl_->ready=true;
+}
+std::uint64_t ArtifactOutput::bytes()const{return impl_->total;}
 }

@@ -1,0 +1,1444 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gamegen.local/contracts/runtime-bundle-1",
+  "type": "object",
+  "properties": {
+    "bundleFormat": {
+      "const": "gg-runtime-bundle-1"
+    },
+    "capabilitySet": {
+      "const": "scene2-graph1-first-path-1"
+    },
+    "unitsVersion": {
+      "const": "gg-plane-down-radian-runtime-1"
+    },
+    "compilerBuild": {
+      "type": "string",
+      "minLength": 1
+    },
+    "catalogHash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "schemaCatalogHash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "runtimeProfileId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtimeProfileHash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "fixedStepHz": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 240
+    },
+    "entrySceneId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "scene": {
+      "type": "object",
+      "properties": {
+        "documentId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "planes": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+          },
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 80
+              },
+              "baseHeight": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "baseHeight"
+            ],
+            "additionalProperties": false
+          },
+          "maxProperties": 64
+        },
+        "entities": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "parentId": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "scheduleOrdinal": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "transform": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  },
+                  "rotationRadians": {
+                    "type": "number"
+                  },
+                  "scaleX": {
+                    "type": "number"
+                  },
+                  "scaleY": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "x",
+                  "y",
+                  "rotationRadians",
+                  "scaleX",
+                  "scaleY"
+                ],
+                "additionalProperties": false
+              },
+              "spatial": {
+                "type": "object",
+                "properties": {
+                  "planeId": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                  },
+                  "heightOffset": {
+                    "type": "number"
+                  },
+                  "vertical": {
+                    "type": "object",
+                    "properties": {
+                      "min": {
+                        "type": "number"
+                      },
+                      "max": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "min",
+                      "max"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "visualOffset": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "planeId",
+                  "heightOffset",
+                  "vertical",
+                  "visualOffset"
+                ],
+                "additionalProperties": false
+              },
+              "components": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "additionalProperties": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                        },
+                        "type": {
+                          "const": "camera2d"
+                        },
+                        "schemaVersion": {
+                          "const": 1
+                        },
+                        "enabled": {
+                          "type": "boolean"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "viewport": {
+                              "type": "object",
+                              "properties": {
+                                "width": {
+                                  "type": "integer",
+                                  "minimum": 1,
+                                  "maximum": 16384
+                                },
+                                "height": {
+                                  "type": "integer",
+                                  "minimum": 1,
+                                  "maximum": 16384
+                                }
+                              },
+                              "required": [
+                                "width",
+                                "height"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "zoom": {
+                              "type": "number",
+                              "exclusiveMinimum": 0,
+                              "maximum": 100
+                            },
+                            "projection": {
+                              "enum": [
+                                "orthographic",
+                                "isometric"
+                              ]
+                            },
+                            "followEntity": {
+                              "anyOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "kind": {
+                                      "enum": [
+                                        "document",
+                                        "entity",
+                                        "asset",
+                                        "subobject"
+                                      ]
+                                    },
+                                    "id": {
+                                      "type": "string",
+                                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                                    },
+                                    "type": {
+                                      "type": "string"
+                                    },
+                                    "scopeDocumentId": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "kind",
+                                    "id",
+                                    "type",
+                                    "scopeDocumentId"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "main": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "viewport",
+                            "zoom",
+                            "projection",
+                            "followEntity",
+                            "main"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "schemaVersion",
+                        "enabled",
+                        "data"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                        },
+                        "type": {
+                          "const": "input.controller"
+                        },
+                        "schemaVersion": {
+                          "const": 1
+                        },
+                        "enabled": {
+                          "type": "boolean"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "map": {
+                              "type": "object",
+                              "properties": {
+                                "kind": {
+                                  "enum": [
+                                    "document",
+                                    "entity",
+                                    "asset",
+                                    "subobject"
+                                  ]
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "scopeDocumentId": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "kind",
+                                "id",
+                                "type",
+                                "scopeDocumentId"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "player": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 7
+                            },
+                            "enabledWhenPaused": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "map",
+                            "player",
+                            "enabledWhenPaused"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "schemaVersion",
+                        "enabled",
+                        "data"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                        },
+                        "type": {
+                          "const": "audio.source"
+                        },
+                        "schemaVersion": {
+                          "const": 1
+                        },
+                        "enabled": {
+                          "type": "boolean"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "clip": {
+                              "type": "object",
+                              "properties": {
+                                "kind": {
+                                  "enum": [
+                                    "document",
+                                    "entity",
+                                    "asset",
+                                    "subobject"
+                                  ]
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "scopeDocumentId": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "kind",
+                                "id",
+                                "type",
+                                "scopeDocumentId"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "bus": {
+                              "type": "string"
+                            },
+                            "volume": {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            },
+                            "loop": {
+                              "type": "boolean"
+                            },
+                            "playOnStart": {
+                              "type": "boolean"
+                            },
+                            "spatial": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "clip",
+                            "bus",
+                            "volume",
+                            "loop",
+                            "playOnStart",
+                            "spatial"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "schemaVersion",
+                        "enabled",
+                        "data"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                        },
+                        "type": {
+                          "const": "physics.body2d"
+                        },
+                        "schemaVersion": {
+                          "const": 1
+                        },
+                        "enabled": {
+                          "type": "boolean"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "mode": {
+                              "enum": [
+                                "static",
+                                "kinematic",
+                                "dynamic"
+                              ]
+                            },
+                            "mass": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "gravityScale": {
+                              "type": "number"
+                            },
+                            "linearDamping": {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            "angularDamping": {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            "fixedRotation": {
+                              "type": "boolean"
+                            },
+                            "continuous": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "mode",
+                            "mass",
+                            "gravityScale",
+                            "linearDamping",
+                            "angularDamping",
+                            "fixedRotation",
+                            "continuous"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "schemaVersion",
+                        "enabled",
+                        "data"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                        },
+                        "type": {
+                          "const": "physics.collider2d"
+                        },
+                        "schemaVersion": {
+                          "const": 1
+                        },
+                        "enabled": {
+                          "type": "boolean"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "shape": {
+                              "enum": [
+                                "box",
+                                "circle",
+                                "polygon"
+                              ]
+                            },
+                            "center": {
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "type": "number"
+                                },
+                                "y": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "x",
+                                "y"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "size": {
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "type": "number"
+                                },
+                                "y": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "x",
+                                "y"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "radius": {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            "vertices": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "x": {
+                                    "type": "number"
+                                  },
+                                  "y": {
+                                    "type": "number"
+                                  }
+                                },
+                                "required": [
+                                  "x",
+                                  "y"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "maxItems": 64
+                            },
+                            "sensor": {
+                              "type": "boolean"
+                            },
+                            "material": {
+                              "anyOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "kind": {
+                                      "enum": [
+                                        "document",
+                                        "entity",
+                                        "asset",
+                                        "subobject"
+                                      ]
+                                    },
+                                    "id": {
+                                      "type": "string",
+                                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                                    },
+                                    "type": {
+                                      "type": "string"
+                                    },
+                                    "scopeDocumentId": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string",
+                                          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "kind",
+                                    "id",
+                                    "type",
+                                    "scopeDocumentId"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "category": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 31
+                            },
+                            "mask": {
+                              "type": "string",
+                              "pattern": "^[0-9a-f]{8}$"
+                            }
+                          },
+                          "required": [
+                            "shape",
+                            "center",
+                            "size",
+                            "radius",
+                            "vertices",
+                            "sensor",
+                            "material",
+                            "category",
+                            "mask"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "schemaVersion",
+                        "enabled",
+                        "data"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "$schema": "https://json-schema.org/draft/2020-12/schema",
+                      "$id": "urn:gamegen:component:sprite2d:2",
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                        },
+                        "type": {
+                          "const": "sprite2d"
+                        },
+                        "schemaVersion": {
+                          "const": 2
+                        },
+                        "enabled": {
+                          "type": "boolean"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "asset": {
+                              "type": "object",
+                              "properties": {
+                                "kind": {
+                                  "enum": [
+                                    "document",
+                                    "entity",
+                                    "asset",
+                                    "subobject"
+                                  ]
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "scopeDocumentId": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "kind",
+                                "id",
+                                "type",
+                                "scopeDocumentId"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "tint": {
+                              "type": "string",
+                              "pattern": "^#[0-9a-f]{8}$"
+                            },
+                            "anchor": {
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "type": "number"
+                                },
+                                "y": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "x",
+                                "y"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "layer": {
+                              "type": "integer",
+                              "minimum": -32768,
+                              "maximum": 32767
+                            },
+                            "order": {
+                              "type": "integer",
+                              "minimum": -32768,
+                              "maximum": 32767
+                            },
+                            "flipX": {
+                              "type": "boolean"
+                            },
+                            "flipY": {
+                              "type": "boolean"
+                            },
+                            "frame": {
+                              "anyOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "kind": {
+                                      "const": "subobject"
+                                    },
+                                    "id": {
+                                      "type": "string",
+                                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                                    },
+                                    "type": {
+                                      "const": "asset.frame"
+                                    },
+                                    "scopeDocumentId": {
+                                      "type": "string",
+                                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                                    }
+                                  },
+                                  "required": [
+                                    "kind",
+                                    "id",
+                                    "type",
+                                    "scopeDocumentId"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "anchorMode": {
+                              "enum": [
+                                "component",
+                                "frame"
+                              ]
+                            },
+                            "renderMode": {
+                              "enum": [
+                                "simple",
+                                "sliced"
+                              ]
+                            },
+                            "size": {
+                              "anyOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number"
+                                    },
+                                    "y": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "x",
+                                    "y"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "asset",
+                            "tint",
+                            "anchor",
+                            "layer",
+                            "order",
+                            "flipX",
+                            "flipY",
+                            "frame",
+                            "anchorMode",
+                            "renderMode",
+                            "size"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "schemaVersion",
+                        "enabled",
+                        "data"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "format": "uuid"
+                        },
+                        "type": {
+                          "const": "graph.behavior"
+                        },
+                        "schemaVersion": {
+                          "const": 1
+                        },
+                        "enabled": {
+                          "type": "boolean"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "graphId": {
+                              "type": "string",
+                              "format": "uuid"
+                            },
+                            "graphIRHash": {
+                              "type": "string",
+                              "pattern": "^sha256:[0-9a-f]{64}$"
+                            },
+                            "defaultEntry": {
+                              "enum": [
+                                "onStart",
+                                "onTick",
+                                "onInput",
+                                "onSignal"
+                              ]
+                            },
+                            "inputControllerId": {
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "format": "uuid"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "initialVariables": {
+                              "type": "object",
+                              "propertyNames": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "additionalProperties": {
+                                "$ref": "#/$defs/value"
+                              },
+                              "maxProperties": 256
+                            }
+                          },
+                          "required": [
+                            "graphId",
+                            "graphIRHash",
+                            "defaultEntry",
+                            "inputControllerId",
+                            "initialVariables"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "schemaVersion",
+                        "enabled",
+                        "data"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "maxProperties": 64
+              }
+            },
+            "required": [
+              "parentId",
+              "scheduleOrdinal",
+              "transform",
+              "spatial",
+              "components"
+            ],
+            "additionalProperties": false
+          },
+          "maxProperties": 10000
+        },
+        "activeCamera": {
+          "type": "object",
+          "properties": {
+            "entityId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "componentId": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "required": [
+            "entityId",
+            "componentId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "documentId",
+        "planes",
+        "entities",
+        "activeCamera"
+      ],
+      "additionalProperties": false
+    },
+    "inputMaps": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "actions": {
+            "type": "object",
+            "propertyNames": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "valueType": {
+                  "enum": [
+                    "bool",
+                    "f64",
+                    "vec2"
+                  ]
+                },
+                "bindings": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "device": {
+                        "enum": [
+                          "keyboard",
+                          "pointer",
+                          "touch",
+                          "gamepad",
+                          "virtual"
+                        ]
+                      },
+                      "control": {
+                        "type": "string"
+                      },
+                      "scale": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "device",
+                      "control",
+                      "scale"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 32
+                }
+              },
+              "required": [
+                "name",
+                "valueType",
+                "bindings"
+              ],
+              "additionalProperties": false
+            },
+            "maxProperties": 128
+          }
+        },
+        "required": [
+          "actions"
+        ],
+        "additionalProperties": false
+      },
+      "maxProperties": 10000
+    },
+    "graphs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sourceVersion": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "graphIRHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "irExecutionHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "documentId",
+          "sourceVersion",
+          "graphIRHash",
+          "irExecutionHash"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 2048
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "assetId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "assetVersionId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sourceBlobHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "sourceMetadataHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "cookProfileId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "blockHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "mediaType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "bytes": {
+            "type": "string",
+            "pattern": "^(0|[1-9][0-9]*)$"
+          }
+        },
+        "required": [
+          "assetId",
+          "assetVersionId",
+          "sourceBlobHash",
+          "sourceMetadataHash",
+          "cookProfileId",
+          "blockHash",
+          "mediaType",
+          "bytes"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 10000
+    },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "hash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "bytes": {
+            "type": "string",
+            "pattern": "^(0|[1-9][0-9]*)$"
+          },
+          "mediaType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "enum": [
+              "graph_ir",
+              "asset"
+            ]
+          }
+        },
+        "required": [
+          "hash",
+          "bytes",
+          "mediaType",
+          "purpose"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 20000
+    }
+  },
+  "required": [
+    "bundleFormat",
+    "capabilitySet",
+    "unitsVersion",
+    "compilerBuild",
+    "catalogHash",
+    "schemaCatalogHash",
+    "runtimeProfileId",
+    "runtimeProfileHash",
+    "fixedStepHz",
+    "entrySceneId",
+    "scene",
+    "inputMaps",
+    "graphs",
+    "assets",
+    "blocks"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "reference": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "document",
+            "entity",
+            "asset",
+            "subobject"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "type": {
+          "type": "string"
+        },
+        "scopeDocumentId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "id",
+        "type",
+        "scopeDocumentId"
+      ],
+      "additionalProperties": false
+    },
+    "value": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "bool"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "type",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "i32"
+            },
+            "value": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          },
+          "required": [
+            "type",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "f64"
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "type",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "string"
+            },
+            "value": {
+              "type": "string",
+              "maxLength": 4096
+            }
+          },
+          "required": [
+            "type",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "vec2"
+            },
+            "value": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "x",
+                "y"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "enum": [
+                "entity",
+                "asset",
+                "document",
+                "subobject"
+              ]
+            },
+            "value": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "enum": [
+                        "document",
+                        "entity",
+                        "asset",
+                        "subobject"
+                      ]
+                    },
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "scopeDocumentId": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "id",
+                    "type",
+                    "scopeDocumentId"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

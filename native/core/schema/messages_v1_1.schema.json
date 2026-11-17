@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:gamegen:core:messages:1.1:format2-final2",
+  "$id": "urn:gamegen:core:messages:1.1:resource-snapshot-contract1",
   "title": "Core JSON1.1草案；C ABI1.0不变",
   "oneOf": [
     {
@@ -495,119 +495,7 @@
                         "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
                       },
                       "metadata": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 80
-                          },
-                          "logicalPath": {
-                            "type": "string",
-                            "maxLength": 512
-                          },
-                          "tags": {
-                            "type": "array",
-                            "items": {
-                              "type": "string",
-                              "maxLength": 64
-                            },
-                            "uniqueItems": true,
-                            "maxItems": 64
-                          },
-                          "favorite": {
-                            "type": "boolean"
-                          },
-                          "assetType": {
-                            "enum": [
-                              "image",
-                              "audio",
-                              "font",
-                              "skeleton",
-                              "atlas",
-                              "tileset",
-                              "data",
-                              "binary"
-                            ]
-                          },
-                          "importSettings": {
-                            "type": "object",
-                            "properties": {
-                              "settingsKind": {
-                                "type": "string"
-                              },
-                              "settingsVersion": {
-                                "type": "integer",
-                                "minimum": 1
-                              },
-                              "values": {
-                                "type": "object"
-                              }
-                            },
-                            "required": [
-                              "settingsKind",
-                              "settingsVersion",
-                              "values"
-                            ],
-                            "additionalProperties": false
-                          },
-                          "provenance": {
-                            "type": "object",
-                            "properties": {
-                              "sourceKind": {
-                                "enum": [
-                                  "local_file",
-                                  "reader",
-                                  "generated",
-                                  "derived"
-                                ]
-                              },
-                              "sourceName": {
-                                "type": "string"
-                              },
-                              "sourceHash": {
-                                "type": "string",
-                                "pattern": "^sha256:[0-9a-f]{64}$"
-                              },
-                              "licenseId": {
-                                "type": "string"
-                              },
-                              "attribution": {
-                                "type": "string"
-                              },
-                              "commercialUse": {
-                                "enum": [
-                                  "allowed",
-                                  "restricted",
-                                  "unknown"
-                                ]
-                              },
-                              "localOnly": {
-                                "const": true
-                              }
-                            },
-                            "required": [
-                              "sourceKind",
-                              "sourceName",
-                              "sourceHash",
-                              "licenseId",
-                              "attribution",
-                              "commercialUse",
-                              "localOnly"
-                            ],
-                            "additionalProperties": false
-                          }
-                        },
-                        "required": [
-                          "name",
-                          "logicalPath",
-                          "tags",
-                          "favorite",
-                          "assetType",
-                          "importSettings",
-                          "provenance"
-                        ],
-                        "additionalProperties": false
+                        "$ref": "#/$defs/assetMetadata"
                       }
                     },
                     "required": [
@@ -636,119 +524,7 @@
                         "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
                       },
                       "metadata": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 80
-                          },
-                          "logicalPath": {
-                            "type": "string",
-                            "maxLength": 512
-                          },
-                          "tags": {
-                            "type": "array",
-                            "items": {
-                              "type": "string",
-                              "maxLength": 64
-                            },
-                            "uniqueItems": true,
-                            "maxItems": 64
-                          },
-                          "favorite": {
-                            "type": "boolean"
-                          },
-                          "assetType": {
-                            "enum": [
-                              "image",
-                              "audio",
-                              "font",
-                              "skeleton",
-                              "atlas",
-                              "tileset",
-                              "data",
-                              "binary"
-                            ]
-                          },
-                          "importSettings": {
-                            "type": "object",
-                            "properties": {
-                              "settingsKind": {
-                                "type": "string"
-                              },
-                              "settingsVersion": {
-                                "type": "integer",
-                                "minimum": 1
-                              },
-                              "values": {
-                                "type": "object"
-                              }
-                            },
-                            "required": [
-                              "settingsKind",
-                              "settingsVersion",
-                              "values"
-                            ],
-                            "additionalProperties": false
-                          },
-                          "provenance": {
-                            "type": "object",
-                            "properties": {
-                              "sourceKind": {
-                                "enum": [
-                                  "local_file",
-                                  "reader",
-                                  "generated",
-                                  "derived"
-                                ]
-                              },
-                              "sourceName": {
-                                "type": "string"
-                              },
-                              "sourceHash": {
-                                "type": "string",
-                                "pattern": "^sha256:[0-9a-f]{64}$"
-                              },
-                              "licenseId": {
-                                "type": "string"
-                              },
-                              "attribution": {
-                                "type": "string"
-                              },
-                              "commercialUse": {
-                                "enum": [
-                                  "allowed",
-                                  "restricted",
-                                  "unknown"
-                                ]
-                              },
-                              "localOnly": {
-                                "const": true
-                              }
-                            },
-                            "required": [
-                              "sourceKind",
-                              "sourceName",
-                              "sourceHash",
-                              "licenseId",
-                              "attribution",
-                              "commercialUse",
-                              "localOnly"
-                            ],
-                            "additionalProperties": false
-                          }
-                        },
-                        "required": [
-                          "name",
-                          "logicalPath",
-                          "tags",
-                          "favorite",
-                          "assetType",
-                          "importSettings",
-                          "provenance"
-                        ],
-                        "additionalProperties": false
+                        "$ref": "#/$defs/assetMetadata"
                       }
                     },
                     "required": [
@@ -775,119 +551,7 @@
                         "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
                       },
                       "metadata": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 80
-                          },
-                          "logicalPath": {
-                            "type": "string",
-                            "maxLength": 512
-                          },
-                          "tags": {
-                            "type": "array",
-                            "items": {
-                              "type": "string",
-                              "maxLength": 64
-                            },
-                            "uniqueItems": true,
-                            "maxItems": 64
-                          },
-                          "favorite": {
-                            "type": "boolean"
-                          },
-                          "assetType": {
-                            "enum": [
-                              "image",
-                              "audio",
-                              "font",
-                              "skeleton",
-                              "atlas",
-                              "tileset",
-                              "data",
-                              "binary"
-                            ]
-                          },
-                          "importSettings": {
-                            "type": "object",
-                            "properties": {
-                              "settingsKind": {
-                                "type": "string"
-                              },
-                              "settingsVersion": {
-                                "type": "integer",
-                                "minimum": 1
-                              },
-                              "values": {
-                                "type": "object"
-                              }
-                            },
-                            "required": [
-                              "settingsKind",
-                              "settingsVersion",
-                              "values"
-                            ],
-                            "additionalProperties": false
-                          },
-                          "provenance": {
-                            "type": "object",
-                            "properties": {
-                              "sourceKind": {
-                                "enum": [
-                                  "local_file",
-                                  "reader",
-                                  "generated",
-                                  "derived"
-                                ]
-                              },
-                              "sourceName": {
-                                "type": "string"
-                              },
-                              "sourceHash": {
-                                "type": "string",
-                                "pattern": "^sha256:[0-9a-f]{64}$"
-                              },
-                              "licenseId": {
-                                "type": "string"
-                              },
-                              "attribution": {
-                                "type": "string"
-                              },
-                              "commercialUse": {
-                                "enum": [
-                                  "allowed",
-                                  "restricted",
-                                  "unknown"
-                                ]
-                              },
-                              "localOnly": {
-                                "const": true
-                              }
-                            },
-                            "required": [
-                              "sourceKind",
-                              "sourceName",
-                              "sourceHash",
-                              "licenseId",
-                              "attribution",
-                              "commercialUse",
-                              "localOnly"
-                            ],
-                            "additionalProperties": false
-                          }
-                        },
-                        "required": [
-                          "name",
-                          "logicalPath",
-                          "tags",
-                          "favorite",
-                          "assetType",
-                          "importSettings",
-                          "provenance"
-                        ],
-                        "additionalProperties": false
+                        "$ref": "#/$defs/assetMetadata"
                       }
                     },
                     "required": [
@@ -2290,5 +1954,1671 @@
       ],
       "additionalProperties": false
     }
-  ]
+  ],
+  "$defs": {
+    "image_default": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "image.default"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "audio_default": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "audio.default"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "font_default": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "font.default"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "skeleton_default": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "skeleton.default"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "atlas_default": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "atlas.default"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "tileset_default": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "tileset.default"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "data_default": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "data.default"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "binary_default": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "binary.default"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "image_import": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "image.import"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {
+            "colorSpace": {
+              "enum": [
+                "srgb",
+                "linear"
+              ]
+            },
+            "alphaMode": {
+              "enum": [
+                "straight",
+                "premultiplied"
+              ]
+            },
+            "filter": {
+              "enum": [
+                "nearest",
+                "linear"
+              ]
+            },
+            "wrap": {
+              "enum": [
+                "clamp",
+                "repeat",
+                "mirror"
+              ]
+            },
+            "mipmaps": {
+              "type": "boolean"
+            },
+            "maxDimension": {
+              "anyOf": [
+                {
+                  "enum": [
+                    256,
+                    512,
+                    1024,
+                    2048,
+                    4096,
+                    8192,
+                    16384
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "compression": {
+              "enum": [
+                "lossless",
+                "target_profile"
+              ]
+            },
+            "pixelsPerMeter": {
+              "type": "number",
+              "minimum": 0.000001,
+              "maximum": 100000
+            }
+          },
+          "required": [
+            "pixelsPerMeter",
+            "colorSpace",
+            "alphaMode",
+            "filter",
+            "wrap",
+            "mipmaps",
+            "maxDimension",
+            "compression"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "audio_import": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "audio.import"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {
+            "channels": {
+              "enum": [
+                "preserve",
+                "mono",
+                "stereo"
+              ]
+            },
+            "sampleRateHz": {
+              "anyOf": [
+                {
+                  "enum": [
+                    8000,
+                    11025,
+                    16000,
+                    22050,
+                    24000,
+                    32000,
+                    44100,
+                    48000,
+                    88200,
+                    96000,
+                    192000
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "normalize": {
+              "type": "object",
+              "properties": {
+                "mode": {
+                  "enum": [
+                    "none",
+                    "peak",
+                    "lufs"
+                  ]
+                },
+                "peakDb": {
+                  "type": "number",
+                  "minimum": -24,
+                  "maximum": 0
+                },
+                "lufs": {
+                  "type": "number",
+                  "minimum": -36,
+                  "maximum": -5
+                }
+              },
+              "required": [
+                "mode",
+                "peakDb",
+                "lufs"
+              ],
+              "additionalProperties": false
+            },
+            "codec": {
+              "enum": [
+                "preserve",
+                "pcm16",
+                "opus",
+                "aac"
+              ]
+            },
+            "quality": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "dither": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "channels",
+            "sampleRateHz",
+            "normalize",
+            "codec",
+            "quality",
+            "dither"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "font_import": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "font.import"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {
+            "faceIndex": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "weight": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "style": {
+              "enum": [
+                "normal",
+                "italic",
+                "oblique"
+              ]
+            },
+            "rasterMode": {
+              "enum": [
+                "vector",
+                "bitmap",
+                "sdf"
+              ]
+            },
+            "renderSizePx": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 512
+            },
+            "sdfRangePx": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 32
+            },
+            "oversample": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4
+            },
+            "hinting": {
+              "enum": [
+                "none",
+                "light",
+                "full"
+              ]
+            },
+            "glyphSet": {
+              "type": "object",
+              "properties": {
+                "mode": {
+                  "enum": [
+                    "all",
+                    "ranges",
+                    "project_text"
+                  ]
+                },
+                "ranges": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "start": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 1114111
+                      },
+                      "end": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 1114111
+                      }
+                    },
+                    "required": [
+                      "start",
+                      "end"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 256
+                },
+                "extraText": {
+                  "type": "string",
+                  "maxLength": 65536
+                }
+              },
+              "required": [
+                "mode",
+                "ranges",
+                "extraText"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "faceIndex",
+            "weight",
+            "style",
+            "rasterMode",
+            "renderSizePx",
+            "sdfRangePx",
+            "oversample",
+            "hinting",
+            "glyphSet"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "skeleton_import": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "skeleton.import"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {
+            "sourceFormat": {
+              "enum": [
+                "gamegen-skeleton-json",
+                "spine-json",
+                "dragonbones-json",
+                "gltf2"
+              ]
+            },
+            "sourceVersion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32,
+              "pattern": "^[A-Za-z0-9._-]+$"
+            },
+            "unitScale": {
+              "type": "number",
+              "minimum": 0.000001,
+              "maximum": 100000
+            },
+            "sourceYAxis": {
+              "enum": [
+                "up",
+                "down"
+              ]
+            },
+            "sourceRotationUnit": {
+              "enum": [
+                "degree",
+                "radian"
+              ]
+            },
+            "selectedAnimations": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              },
+              "maxItems": 1024
+            },
+            "selectedSkins": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              },
+              "maxItems": 1024
+            },
+            "includeEvents": {
+              "type": "boolean"
+            },
+            "includeAttachments": {
+              "type": "boolean"
+            },
+            "boneNameMap": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "sourceName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  },
+                  "targetName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  }
+                },
+                "required": [
+                  "sourceName",
+                  "targetName"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 4096
+            },
+            "animationNameMap": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "sourceName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  },
+                  "targetName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  }
+                },
+                "required": [
+                  "sourceName",
+                  "targetName"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 4096
+            },
+            "weightPolicy": {
+              "enum": [
+                "preserve",
+                "normalize",
+                "reject_nonunit"
+              ]
+            }
+          },
+          "required": [
+            "sourceFormat",
+            "sourceVersion",
+            "unitScale",
+            "sourceYAxis",
+            "sourceRotationUnit",
+            "selectedAnimations",
+            "selectedSkins",
+            "includeEvents",
+            "includeAttachments",
+            "boneNameMap",
+            "animationNameMap",
+            "weightPolicy"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "atlas_import": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "atlas.import"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {
+            "sourceFormat": {
+              "enum": [
+                "gamegen-atlas-json",
+                "texturepacker-json",
+                "plist"
+              ]
+            },
+            "sourceVersion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+            "maxSize": {
+              "enum": [
+                256,
+                512,
+                1024,
+                2048,
+                4096,
+                8192,
+                16384
+              ]
+            },
+            "padding": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 64
+            },
+            "extrude": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 32
+            },
+            "allowRotate": {
+              "type": "boolean"
+            },
+            "powerOfTwo": {
+              "type": "boolean"
+            },
+            "trimTransparent": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "sourceFormat",
+            "sourceVersion",
+            "maxSize",
+            "padding",
+            "extrude",
+            "allowRotate",
+            "powerOfTwo",
+            "trimTransparent"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "tileset_import": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "tileset.import"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {
+            "tileWidth": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16384
+            },
+            "tileHeight": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16384
+            },
+            "offsetX": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 16383
+            },
+            "offsetY": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 16383
+            },
+            "margin": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4096
+            },
+            "spacingX": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4096
+            },
+            "spacingY": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4096
+            },
+            "projection": {
+              "enum": [
+                "orthographic",
+                "isometric"
+              ]
+            },
+            "directionOrder": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "N",
+                  "NE",
+                  "E",
+                  "SE",
+                  "S",
+                  "SW",
+                  "W",
+                  "NW"
+                ]
+              },
+              "uniqueItems": true,
+              "minItems": 1,
+              "maxItems": 8
+            },
+            "mirrorMissingDirections": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "tileWidth",
+            "tileHeight",
+            "offsetX",
+            "offsetY",
+            "margin",
+            "spacingX",
+            "spacingY",
+            "projection",
+            "directionOrder",
+            "mirrorMissingDirections"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "data_import": {
+      "type": "object",
+      "properties": {
+        "settingsKind": {
+          "const": "data.import"
+        },
+        "settingsVersion": {
+          "const": 1
+        },
+        "values": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "enum": [
+                "json",
+                "csv",
+                "tsv"
+              ]
+            },
+            "encoding": {
+              "enum": [
+                "utf-8",
+                "utf-16le",
+                "utf-16be"
+              ]
+            },
+            "delimiter": {
+              "enum": [
+                ",",
+                ";",
+                "\t",
+                "|"
+              ]
+            },
+            "header": {
+              "type": "boolean"
+            },
+            "emptyCell": {
+              "enum": [
+                "empty_string",
+                "null",
+                "missing"
+              ]
+            },
+            "decimalSeparator": {
+              "enum": [
+                "."
+              ]
+            },
+            "maxRows": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            },
+            "maxColumns": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 256
+            }
+          },
+          "required": [
+            "format",
+            "encoding",
+            "delimiter",
+            "header",
+            "emptyCell",
+            "decimalSeparator",
+            "maxRows",
+            "maxColumns"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "settingsKind",
+        "settingsVersion",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "assetMetadata": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "logicalPath": {
+              "type": "string",
+              "maxLength": 512
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "uniqueItems": true,
+              "maxItems": 64
+            },
+            "favorite": {
+              "type": "boolean"
+            },
+            "assetType": {
+              "const": "image"
+            },
+            "importSettings": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/image_default"
+                },
+                {
+                  "$ref": "#/$defs/image_import"
+                }
+              ]
+            },
+            "provenance": {
+              "type": "object",
+              "properties": {
+                "sourceKind": {
+                  "enum": [
+                    "local_file",
+                    "reader",
+                    "generated",
+                    "derived"
+                  ]
+                },
+                "sourceName": {
+                  "type": "string"
+                },
+                "sourceHash": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                "licenseId": {
+                  "type": "string"
+                },
+                "attribution": {
+                  "type": "string"
+                },
+                "commercialUse": {
+                  "enum": [
+                    "allowed",
+                    "restricted",
+                    "unknown"
+                  ]
+                },
+                "localOnly": {
+                  "const": true
+                }
+              },
+              "required": [
+                "sourceKind",
+                "sourceName",
+                "sourceHash",
+                "licenseId",
+                "attribution",
+                "commercialUse",
+                "localOnly"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "logicalPath",
+            "tags",
+            "favorite",
+            "assetType",
+            "importSettings",
+            "provenance"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "logicalPath": {
+              "type": "string",
+              "maxLength": 512
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "uniqueItems": true,
+              "maxItems": 64
+            },
+            "favorite": {
+              "type": "boolean"
+            },
+            "assetType": {
+              "const": "audio"
+            },
+            "importSettings": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/audio_default"
+                },
+                {
+                  "$ref": "#/$defs/audio_import"
+                }
+              ]
+            },
+            "provenance": {
+              "type": "object",
+              "properties": {
+                "sourceKind": {
+                  "enum": [
+                    "local_file",
+                    "reader",
+                    "generated",
+                    "derived"
+                  ]
+                },
+                "sourceName": {
+                  "type": "string"
+                },
+                "sourceHash": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                "licenseId": {
+                  "type": "string"
+                },
+                "attribution": {
+                  "type": "string"
+                },
+                "commercialUse": {
+                  "enum": [
+                    "allowed",
+                    "restricted",
+                    "unknown"
+                  ]
+                },
+                "localOnly": {
+                  "const": true
+                }
+              },
+              "required": [
+                "sourceKind",
+                "sourceName",
+                "sourceHash",
+                "licenseId",
+                "attribution",
+                "commercialUse",
+                "localOnly"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "logicalPath",
+            "tags",
+            "favorite",
+            "assetType",
+            "importSettings",
+            "provenance"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "logicalPath": {
+              "type": "string",
+              "maxLength": 512
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "uniqueItems": true,
+              "maxItems": 64
+            },
+            "favorite": {
+              "type": "boolean"
+            },
+            "assetType": {
+              "const": "font"
+            },
+            "importSettings": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/font_default"
+                },
+                {
+                  "$ref": "#/$defs/font_import"
+                }
+              ]
+            },
+            "provenance": {
+              "type": "object",
+              "properties": {
+                "sourceKind": {
+                  "enum": [
+                    "local_file",
+                    "reader",
+                    "generated",
+                    "derived"
+                  ]
+                },
+                "sourceName": {
+                  "type": "string"
+                },
+                "sourceHash": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                "licenseId": {
+                  "type": "string"
+                },
+                "attribution": {
+                  "type": "string"
+                },
+                "commercialUse": {
+                  "enum": [
+                    "allowed",
+                    "restricted",
+                    "unknown"
+                  ]
+                },
+                "localOnly": {
+                  "const": true
+                }
+              },
+              "required": [
+                "sourceKind",
+                "sourceName",
+                "sourceHash",
+                "licenseId",
+                "attribution",
+                "commercialUse",
+                "localOnly"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "logicalPath",
+            "tags",
+            "favorite",
+            "assetType",
+            "importSettings",
+            "provenance"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "logicalPath": {
+              "type": "string",
+              "maxLength": 512
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "uniqueItems": true,
+              "maxItems": 64
+            },
+            "favorite": {
+              "type": "boolean"
+            },
+            "assetType": {
+              "const": "skeleton"
+            },
+            "importSettings": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/skeleton_default"
+                },
+                {
+                  "$ref": "#/$defs/skeleton_import"
+                }
+              ]
+            },
+            "provenance": {
+              "type": "object",
+              "properties": {
+                "sourceKind": {
+                  "enum": [
+                    "local_file",
+                    "reader",
+                    "generated",
+                    "derived"
+                  ]
+                },
+                "sourceName": {
+                  "type": "string"
+                },
+                "sourceHash": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                "licenseId": {
+                  "type": "string"
+                },
+                "attribution": {
+                  "type": "string"
+                },
+                "commercialUse": {
+                  "enum": [
+                    "allowed",
+                    "restricted",
+                    "unknown"
+                  ]
+                },
+                "localOnly": {
+                  "const": true
+                }
+              },
+              "required": [
+                "sourceKind",
+                "sourceName",
+                "sourceHash",
+                "licenseId",
+                "attribution",
+                "commercialUse",
+                "localOnly"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "logicalPath",
+            "tags",
+            "favorite",
+            "assetType",
+            "importSettings",
+            "provenance"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "logicalPath": {
+              "type": "string",
+              "maxLength": 512
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "uniqueItems": true,
+              "maxItems": 64
+            },
+            "favorite": {
+              "type": "boolean"
+            },
+            "assetType": {
+              "const": "atlas"
+            },
+            "importSettings": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/atlas_default"
+                },
+                {
+                  "$ref": "#/$defs/atlas_import"
+                }
+              ]
+            },
+            "provenance": {
+              "type": "object",
+              "properties": {
+                "sourceKind": {
+                  "enum": [
+                    "local_file",
+                    "reader",
+                    "generated",
+                    "derived"
+                  ]
+                },
+                "sourceName": {
+                  "type": "string"
+                },
+                "sourceHash": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                "licenseId": {
+                  "type": "string"
+                },
+                "attribution": {
+                  "type": "string"
+                },
+                "commercialUse": {
+                  "enum": [
+                    "allowed",
+                    "restricted",
+                    "unknown"
+                  ]
+                },
+                "localOnly": {
+                  "const": true
+                }
+              },
+              "required": [
+                "sourceKind",
+                "sourceName",
+                "sourceHash",
+                "licenseId",
+                "attribution",
+                "commercialUse",
+                "localOnly"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "logicalPath",
+            "tags",
+            "favorite",
+            "assetType",
+            "importSettings",
+            "provenance"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "logicalPath": {
+              "type": "string",
+              "maxLength": 512
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "uniqueItems": true,
+              "maxItems": 64
+            },
+            "favorite": {
+              "type": "boolean"
+            },
+            "assetType": {
+              "const": "tileset"
+            },
+            "importSettings": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/tileset_default"
+                },
+                {
+                  "$ref": "#/$defs/tileset_import"
+                }
+              ]
+            },
+            "provenance": {
+              "type": "object",
+              "properties": {
+                "sourceKind": {
+                  "enum": [
+                    "local_file",
+                    "reader",
+                    "generated",
+                    "derived"
+                  ]
+                },
+                "sourceName": {
+                  "type": "string"
+                },
+                "sourceHash": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                "licenseId": {
+                  "type": "string"
+                },
+                "attribution": {
+                  "type": "string"
+                },
+                "commercialUse": {
+                  "enum": [
+                    "allowed",
+                    "restricted",
+                    "unknown"
+                  ]
+                },
+                "localOnly": {
+                  "const": true
+                }
+              },
+              "required": [
+                "sourceKind",
+                "sourceName",
+                "sourceHash",
+                "licenseId",
+                "attribution",
+                "commercialUse",
+                "localOnly"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "logicalPath",
+            "tags",
+            "favorite",
+            "assetType",
+            "importSettings",
+            "provenance"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "logicalPath": {
+              "type": "string",
+              "maxLength": 512
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "uniqueItems": true,
+              "maxItems": 64
+            },
+            "favorite": {
+              "type": "boolean"
+            },
+            "assetType": {
+              "const": "data"
+            },
+            "importSettings": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/data_default"
+                },
+                {
+                  "$ref": "#/$defs/data_import"
+                }
+              ]
+            },
+            "provenance": {
+              "type": "object",
+              "properties": {
+                "sourceKind": {
+                  "enum": [
+                    "local_file",
+                    "reader",
+                    "generated",
+                    "derived"
+                  ]
+                },
+                "sourceName": {
+                  "type": "string"
+                },
+                "sourceHash": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                "licenseId": {
+                  "type": "string"
+                },
+                "attribution": {
+                  "type": "string"
+                },
+                "commercialUse": {
+                  "enum": [
+                    "allowed",
+                    "restricted",
+                    "unknown"
+                  ]
+                },
+                "localOnly": {
+                  "const": true
+                }
+              },
+              "required": [
+                "sourceKind",
+                "sourceName",
+                "sourceHash",
+                "licenseId",
+                "attribution",
+                "commercialUse",
+                "localOnly"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "logicalPath",
+            "tags",
+            "favorite",
+            "assetType",
+            "importSettings",
+            "provenance"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "logicalPath": {
+              "type": "string",
+              "maxLength": 512
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "uniqueItems": true,
+              "maxItems": 64
+            },
+            "favorite": {
+              "type": "boolean"
+            },
+            "assetType": {
+              "const": "binary"
+            },
+            "importSettings": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/binary_default"
+                }
+              ]
+            },
+            "provenance": {
+              "type": "object",
+              "properties": {
+                "sourceKind": {
+                  "enum": [
+                    "local_file",
+                    "reader",
+                    "generated",
+                    "derived"
+                  ]
+                },
+                "sourceName": {
+                  "type": "string"
+                },
+                "sourceHash": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                "licenseId": {
+                  "type": "string"
+                },
+                "attribution": {
+                  "type": "string"
+                },
+                "commercialUse": {
+                  "enum": [
+                    "allowed",
+                    "restricted",
+                    "unknown"
+                  ]
+                },
+                "localOnly": {
+                  "const": true
+                }
+              },
+              "required": [
+                "sourceKind",
+                "sourceName",
+                "sourceHash",
+                "licenseId",
+                "attribution",
+                "commercialUse",
+                "localOnly"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "logicalPath",
+            "tags",
+            "favorite",
+            "assetType",
+            "importSettings",
+            "provenance"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
 }

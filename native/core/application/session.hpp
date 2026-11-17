@@ -30,6 +30,8 @@ class Session {
     bool recovery_required_ = false;
     std::map<std::string, Proposal> proposals_;
     struct AssetReadView {
+        std::shared_ptr<Store> reader;
+        std::unique_ptr<Transaction> lease;
         std::string filter_hash;
         std::int64_t revision;
         std::vector<std::pair<std::string,std::string>> versions;
@@ -68,11 +70,13 @@ class Session {
     void writable();
     void expected(const Json& request);
     void expire_proposals();
-    Json asset_metadata(const std::string& id, const std::string& version = "");
+    Json asset_metadata(const std::string& id, const std::string& version = "",Store* reader=nullptr);
     AssetVersion load_asset_version(const std::string& id, const std::string& version);
+    AssetVersion load_asset_version(Store& reader,const std::string& id,const std::string& version);
     void apply_proposal(State& state, const Json& operations, const std::vector<std::string>& versions);
     void adopt_uploads(const Json& operations);
     Json list_assets(const Json& params);
+    Json read_references(const Json& params);
     std::string upgrade(const Json& request, const std::string& digest, const Control& control);
     std::string migration_source_hash();
     State upgrade_state(State state, const Json& maps);
@@ -81,6 +85,13 @@ class Session {
 public:
     explicit Session(RootGrant& grant) : root_(grant) {}
     bool is_open() const { return static_cast<bool>(location_); }
+    void idle() {
+        const auto now=std::chrono::steady_clock::now();
+        std::erase_if(asset_reads_,[&](const auto& entry){return entry.second.expires<=now;});
+        if(upgrade_plan_ && upgrade_plan_->expires<=now && !upgrade_plan_->result.empty()) {
+            upgrade_plan_->assets.clear();upgrade_plan_->maps=nullptr;upgrade_plan_->result.clear();
+        }
+    }
     std::int64_t head();
     void failed(const std::string& code) {
         if (code=="IO_ERROR" || code=="STORAGE_FULL" || code=="DATABASE_CORRUPT") recovery_required_=true;

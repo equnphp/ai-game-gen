@@ -1,0 +1,320 @@
+{
+  "version": "resource-snapshot-contract.1",
+  "profiles": [
+    {
+      "assetType": "image",
+      "settingsKind": "image.default",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/image_default",
+      "defaults": {
+        "settingsKind": "image.default",
+        "settingsVersion": 1,
+        "values": {}
+      },
+      "sourceIds": [
+        "ASSET-BASE"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    },
+    {
+      "assetType": "audio",
+      "settingsKind": "audio.default",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/audio_default",
+      "defaults": {
+        "settingsKind": "audio.default",
+        "settingsVersion": 1,
+        "values": {}
+      },
+      "sourceIds": [
+        "ASSET-BASE"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    },
+    {
+      "assetType": "font",
+      "settingsKind": "font.default",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/font_default",
+      "defaults": {
+        "settingsKind": "font.default",
+        "settingsVersion": 1,
+        "values": {}
+      },
+      "sourceIds": [
+        "ASSET-BASE"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    },
+    {
+      "assetType": "skeleton",
+      "settingsKind": "skeleton.default",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/skeleton_default",
+      "defaults": {
+        "settingsKind": "skeleton.default",
+        "settingsVersion": 1,
+        "values": {}
+      },
+      "sourceIds": [
+        "ASSET-BASE"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    },
+    {
+      "assetType": "atlas",
+      "settingsKind": "atlas.default",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/atlas_default",
+      "defaults": {
+        "settingsKind": "atlas.default",
+        "settingsVersion": 1,
+        "values": {}
+      },
+      "sourceIds": [
+        "ASSET-BASE"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    },
+    {
+      "assetType": "tileset",
+      "settingsKind": "tileset.default",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/tileset_default",
+      "defaults": {
+        "settingsKind": "tileset.default",
+        "settingsVersion": 1,
+        "values": {}
+      },
+      "sourceIds": [
+        "ASSET-BASE"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    },
+    {
+      "assetType": "data",
+      "settingsKind": "data.default",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/data_default",
+      "defaults": {
+        "settingsKind": "data.default",
+        "settingsVersion": 1,
+        "values": {}
+      },
+      "sourceIds": [
+        "ASSET-BASE"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    },
+    {
+      "assetType": "binary",
+      "settingsKind": "binary.default",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/binary_default",
+      "defaults": {
+        "settingsKind": "binary.default",
+        "settingsVersion": 1,
+        "values": {}
+      },
+      "sourceIds": [
+        "ASSET-BASE"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    },
+    {
+      "assetType": "image",
+      "settingsKind": "image.import",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/image_import",
+      "defaults": {
+        "settingsKind": "image.import",
+        "settingsVersion": 1,
+        "values": {
+          "colorSpace": "srgb",
+          "alphaMode": "straight",
+          "filter": "linear",
+          "wrap": "clamp",
+          "mipmaps": false,
+          "maxDimension": null,
+          "compression": "lossless",
+          "pixelsPerMeter": 100
+        }
+      },
+      "sourceIds": [
+        "SUR-ST-028#sampling",
+        "SUR-ST-032"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    },
+    {
+      "assetType": "audio",
+      "settingsKind": "audio.import",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/audio_import",
+      "defaults": {
+        "settingsKind": "audio.import",
+        "settingsVersion": 1,
+        "values": {
+          "channels": "preserve",
+          "sampleRateHz": null,
+          "normalize": {
+            "mode": "none",
+            "peakDb": -1,
+            "lufs": -16
+          },
+          "codec": "preserve",
+          "quality": 0.8,
+          "dither": false
+        }
+      },
+      "sourceIds": [
+        "SUR-ST-047#convert",
+        "SUR-ST-032"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    },
+    {
+      "assetType": "font",
+      "settingsKind": "font.import",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/font_import",
+      "defaults": {
+        "settingsKind": "font.import",
+        "settingsVersion": 1,
+        "values": {
+          "faceIndex": 0,
+          "weight": 400,
+          "style": "normal",
+          "rasterMode": "vector",
+          "renderSizePx": 32,
+          "sdfRangePx": 4,
+          "oversample": 1,
+          "hinting": "none",
+          "glyphSet": {
+            "mode": "all",
+            "ranges": [],
+            "extraText": ""
+          }
+        }
+      },
+      "sourceIds": [
+        "SUR-ST-030#font",
+        "SUR-ST-030#charset",
+        "SUR-ST-030#raster"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    },
+    {
+      "assetType": "skeleton",
+      "settingsKind": "skeleton.import",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/skeleton_import",
+      "defaults": {
+        "settingsKind": "skeleton.import",
+        "settingsVersion": 1,
+        "values": {
+          "sourceFormat": "gamegen-skeleton-json",
+          "sourceVersion": "1",
+          "unitScale": 1,
+          "sourceYAxis": "down",
+          "sourceRotationUnit": "degree",
+          "selectedAnimations": [],
+          "selectedSkins": [],
+          "includeEvents": true,
+          "includeAttachments": true,
+          "boneNameMap": [],
+          "animationNameMap": [],
+          "weightPolicy": "preserve"
+        }
+      },
+      "sourceIds": [
+        "SUR-ST-045#format",
+        "SUR-ST-045#contents",
+        "SUR-ST-045#mapping"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    },
+    {
+      "assetType": "atlas",
+      "settingsKind": "atlas.import",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/atlas_import",
+      "defaults": {
+        "settingsKind": "atlas.import",
+        "settingsVersion": 1,
+        "values": {
+          "sourceFormat": "gamegen-atlas-json",
+          "sourceVersion": "1",
+          "maxSize": 2048,
+          "padding": 2,
+          "extrude": 1,
+          "allowRotate": false,
+          "powerOfTwo": false,
+          "trimTransparent": false
+        }
+      },
+      "sourceIds": [
+        "SUR-ST-029#atlas",
+        "SUR-ST-029#limits"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    },
+    {
+      "assetType": "tileset",
+      "settingsKind": "tileset.import",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/tileset_import",
+      "defaults": {
+        "settingsKind": "tileset.import",
+        "settingsVersion": 1,
+        "values": {
+          "tileWidth": 32,
+          "tileHeight": 32,
+          "offsetX": 0,
+          "offsetY": 0,
+          "margin": 0,
+          "spacingX": 0,
+          "spacingY": 0,
+          "projection": "orthographic",
+          "directionOrder": [
+            "S"
+          ],
+          "mirrorMissingDirections": false
+        }
+      },
+      "sourceIds": [
+        "SUR-ST-029#tileSpec",
+        "SUR-ST-029#directions"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    },
+    {
+      "assetType": "data",
+      "settingsKind": "data.import",
+      "settingsVersion": 1,
+      "schemaRef": "#/$defs/data_import",
+      "defaults": {
+        "settingsKind": "data.import",
+        "settingsVersion": 1,
+        "values": {
+          "format": "json",
+          "encoding": "utf-8",
+          "delimiter": ",",
+          "header": true,
+          "emptyCell": "empty_string",
+          "decimalSeparator": ".",
+          "maxRows": 100000,
+          "maxColumns": 256
+        }
+      },
+      "sourceIds": [
+        "SUR-GM-031"
+      ],
+      "implementation_status": "design_registered_not_runtime_verified"
+    }
+  ],
+  "all_fields_required": true,
+  "default_policy": "默认对象由UI/typed builder显式填齐；Core不在validate时偷偷填值；旧default/v1/{}完全保留",
+  "capability_policy": "Schema登记与实际decoder/cooker可用分开，缺handler不宣告profile可运行",
+  "foreign_references": "importSettings无跨asset/document引用；关系在正式文档，用document_refs管理"
+}

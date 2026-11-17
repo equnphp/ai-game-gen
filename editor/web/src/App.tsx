@@ -50,6 +50,7 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
   const [error,setError] = useState<string|null>(null);
   const [unknown,setUnknown] = useState<Unknown|null>(null);
   const [showLanguage,setShowLanguage] = useState(false);
+  const [showWorkspace,setShowWorkspace] = useState(false);
   const [welcome,setWelcome] = useState(true);
   const [form,setForm] = useState<"new"|"open"|null>(null);
   const [name,setName] = useState("");
@@ -236,6 +237,8 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
     <div className="workspace">
       <header className="topbar"><div className="breadcrumb"><Icon name="folder"/><strong>{project?.name ?? t("workspace")}</strong><span>/</span><span>{t(page)}</span></div>
         <div className="top-actions">
+          <button className="button compact mobile-only" aria-label={t("workspace")} aria-haspopup="dialog" aria-expanded={showWorkspace}
+            data-testid="open-workspace-menu" onClick={()=>setShowWorkspace(true)}><Icon name="folder"/></button>
           <button className="button compact" aria-label={t("tasks")} data-testid="open-tasks" onClick={()=>{setPage("tasks");void withWork(refreshTasks);}}><Icon name="clock"/></button>
           {project && <span className={"status-pill "+saveState} role="status">{saveState==="saved"?t("saved"):saveState==="dirty"?t("dirty"):saveState==="saving"?t("saving"):saveState==="unknown"?t("unknown"):t("saveFailed")}</span>}
           <button className="button compact" onClick={()=>setShowLanguage(true)} data-testid="open-language"><Icon name="globe"/><span>{locale.effectiveLocale}</span></button>
@@ -309,6 +312,14 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
       <footer><span>{project?.name ?? "GameGen"} · {t("localOnly")}</span><span>{project?"r"+project.headRevision:""}</span></footer>
     </div>
     {showLanguage && <LanguagePicker onClose={()=>setShowLanguage(false)}/>}
+    {/* 小屏侧栏会收起工作区入口，菜单保留历史/设置等已实现功能的语义导航。 */}
+    {showWorkspace && <Dialog id="workspace-menu" title={t("workspace")} onClose={()=>setShowWorkspace(false)}>
+      <div className="workspace-menu">
+        {(["projects","scene","assets","history","tasks","settings"] as const).map(destination=><button type="button" className="button"
+          key={destination} disabled={!["projects","tasks","settings"].includes(destination)&&!project} aria-current={page===destination?"page":undefined}
+          onClick={()=>{setShowWorkspace(false);setPage(destination);if(destination==="tasks")void withWork(refreshTasks);}}>{t(destination)}</button>)}
+      </div>
+    </Dialog>}
     {form && <Dialog id="project-form" title={t(form==="new"?"newProject":"openProject")} onClose={()=>{if(!busy)setForm(null);}}>
       <form onSubmit={event=>void openProject(event)}><label>{t(form==="new"?"projectName":"directory")}
         <input autoFocus required value={form==="new"?name:directory} maxLength={form==="new"?80:75} data-testid="project-input"

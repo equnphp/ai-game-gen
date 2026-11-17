@@ -15,4 +15,11 @@ struct GraphAnalysis {
 const Json& node_catalog();
 std::string node_catalog_hash();
 GraphAnalysis analyze_graph(const GraphSource& graph,bool require_complete=false);
+struct CompileOptions {
+    std::string runtime_profile,compiler_build;
+    unsigned fixed_step_hz=60;
+    std::map<std::string,std::string> input_actions;
+};
+struct CompiledGraph {Json ir;std::string ir_hash,semantic_hash,execution_hash;};
+CompiledGraph compile_graph(const GraphSource& graph,const CompileOptions& options);
 }

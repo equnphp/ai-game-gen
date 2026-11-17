@@ -51,8 +51,9 @@ InputControl describe_control(const std::string& device, const std::string& cont
 }
 void validate_input_map(const Json& body) {
     std::set<std::string> names;
-    for (const auto& action : body.at("actions")) {
-        require(names.insert(text(action.at("name"))).second, "INVALID_REFERENCE");
+    for (auto entry=body.at("actions").begin();entry!=body.at("actions").end();++entry) {
+        require(uuid(entry.key()),"INVALID_ACTION_ID");const auto& action=entry.value();
+        if(action.contains("name"))require(names.insert(text(action.at("name"))).second, "INVALID_REFERENCE");
         const auto type = text(action.at("valueType"));
         std::optional<InputFamily> family;
         std::map<std::pair<std::string,std::string>,unsigned> position_axes;
@@ -77,7 +78,7 @@ void validate_input_map(const Json& body) {
 }
 void InputRouter::feed(const InputSource& source) {
     require(source.player < 8 && !source.source_id.empty() && source.source_id.size() <= 128 &&
-        source.action.size() <= 80 && std::isfinite(source.value), "INVALID_MESSAGE");
+        (source.action.empty() || uuid(source.action)) && std::isfinite(source.value), "INVALID_MESSAGE");
     const auto control = describe_control(source.device,source.control);
     require(control.family != InputFamily::position || source.game_plane_position, "INVALID_REFERENCE");
     if (control.family == InputFamily::button) require(source.value >= 0 && source.value <= 1, "RANGE_ERROR");
@@ -104,8 +105,8 @@ Json InputRouter::sample(unsigned player, const Json& input_map) const {
     require(player < 8, "RANGE_ERROR");
     validate_input_map(input_map);
     Json output = Json::object();
-    for (const auto& action : input_map.at("actions")) {
-        const auto name = text(action.at("name")), type = text(action.at("valueType"));
+    for (auto entry=input_map.at("actions").begin();entry!=input_map.at("actions").end();++entry) {
+        const auto name=entry.key();const auto& action=entry.value();const auto type = text(action.at("valueType"));
         engine::Vec2 vector{};
         double scalar = 0;
         bool pressed = false;

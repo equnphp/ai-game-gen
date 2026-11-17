@@ -1,10 +1,15 @@
 // 只执行冻结的内置DDL，绝不加载项目目录里的SQL。
 #pragma once
 namespace gg {
+inline constexpr char artifact_bridge_schema[]=R"GGARTIFACT(@GG_ARTIFACT_SCHEMA@)GGARTIFACT";
 inline constexpr char ddl[] = R"GGDDL(@GG_DDL@)GGDDL";
 inline constexpr char ddl_v2[] = R"GGDDL(@GG_DDL_V2@)GGDDL";
 inline constexpr char message_schema[] = R"GGMSG(@GG_MESSAGES@)GGMSG";
 inline constexpr char document_schema_v2[] = R"GGDOC(@GG_DOCUMENTS_V2@)GGDOC";
+inline constexpr char asset_metadata_schema_json[] = R"GGMETA(@GG_ASSET_METADATA@)GGMETA";
+inline constexpr char import_profiles_json[] = R"GGPROF(@GG_IMPORT_PROFILES@)GGPROF";
 inline constexpr char message_schema_v1_1[] = R"GGMSG(@GG_MESSAGES_V1_1@)GGMSG";
 inline constexpr char graph_node_catalog[] = R"GGNODE(@GG_NODE_CATALOG@)GGNODE";
+inline constexpr char graph_ir_schema[] = R"GGIR(@GG_IR_SCHEMA@)GGIR";
+inline constexpr char runtime_bundle_schema[] = R"GGBUNDLE(@GG_BUNDLE_SCHEMA@)GGBUNDLE";
 }

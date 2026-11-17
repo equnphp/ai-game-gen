@@ -36,7 +36,11 @@ class Transaction {
     Store& store_;
     bool done_ = false;
 public:
-    explicit Transaction(Store& s) : store_(s) { store_.exec("BEGIN IMMEDIATE"); }
+    enum class Access {write,read};
+    // 只读视图使用独立连接上的DEFERRED事务，让WAL保留原页而不占作者写锁。
+    explicit Transaction(Store& s,Access access=Access::write) : store_(s) {
+        store_.exec(access==Access::write?"BEGIN IMMEDIATE":"BEGIN");
+    }
     ~Transaction() { if (!done_) { try { store_.exec("ROLLBACK"); } catch (...) {} } }
     void commit() { store_.exec("COMMIT"); done_ = true; }
 };

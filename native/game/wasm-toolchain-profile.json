@@ -1,0 +1,122 @@
+{
+  "schema": "gg-wasm-toolchain-1",
+  "profileId": "gg-wasm32-scalar-js-eh-1",
+  "emscripten": {
+    "version": "6.0.13",
+    "sourceCommit": "e13ee988ce3d87a738dd8f3661d02223308c412a",
+    "emsdkTag": "6.0.13",
+    "payloadRevision": "eb132757325583b787fe9414b09afea9442b72ad",
+    "archiveHashes": null,
+    "archiveHashState": "pending_actual_acquisition",
+    "toolReports": null
+  },
+  "language": "c++20",
+  "compileFlags": [
+    "-std=c++20",
+    "-fexceptions",
+    "-frtti",
+    "-fno-fast-math",
+    "-ffp-contract=off",
+    "-mbulk-memory",
+    "-msign-ext",
+    "-mnontrapping-fptoint",
+    "-mno-simd128",
+    "-mno-relaxed-simd",
+    "-mno-atomics",
+    "-mno-reference-types",
+    "-mno-multivalue",
+    "-mno-tail-call",
+    "-mno-extended-const"
+  ],
+  "linkFlags": [
+    "--no-entry",
+    "-sWASM=1",
+    "-sMEMORY64=0",
+    "-sDISABLE_EXCEPTION_CATCHING=0",
+    "-sMODULARIZE=1",
+    "-sEXPORT_ES6=0",
+    "-sEXPORT_NAME=GameGenRuntimeFactory",
+    "-sENVIRONMENT=shell",
+    "-sINITIAL_MEMORY=33554432",
+    "-sMAXIMUM_MEMORY=268435456",
+    "-sSTACK_SIZE=1048576",
+    "-sALLOW_MEMORY_GROWTH=1",
+    "-sMEMORY_GROWTH_LINEAR_STEP=16777216",
+    "-sABORTING_MALLOC=0",
+    "-sMALLOC=emmalloc",
+    "-sSHARED_MEMORY=0",
+    "-sWASM_WORKERS=0",
+    "-sALLOW_TABLE_GROWTH=0",
+    "-sFILESYSTEM=0",
+    "-sFORCE_FILESYSTEM=0",
+    "-sFETCH=0",
+    "-sASYNCIFY=0",
+    "-sJSPI=0",
+    "-sDYNAMIC_EXECUTION=0",
+    "-sSTANDALONE_WASM=0",
+    "-sSUPPORT_LONGJMP=0",
+    "-sIMPORTED_MEMORY=0",
+    "-sWASM_BIGINT=0",
+    "-sINVOKE_RUN=0",
+    "-sEXIT_RUNTIME=0",
+    "-sEXPORTED_FUNCTIONS=@game-exports.json",
+    "-sEXPORTED_RUNTIME_METHODS=[\"HEAPU8\"]",
+    "-sINCOMING_MODULE_JS_API=[\"instantiateWasm\",\"onAbort\",\"print\",\"printErr\",\"locateFile\"]"
+  ],
+  "variants": {
+    "release": [
+      "-O2",
+      "-sASSERTIONS=0"
+    ],
+    "development": [
+      "-O1",
+      "-g3",
+      "-sASSERTIONS=1",
+      "-sSTACK_OVERFLOW_CHECK=2"
+    ]
+  },
+  "eh": "javascript_emulation",
+  "threads": false,
+  "simd": false,
+  "featuresAllowed": [
+    "mutable-globals",
+    "sign-ext",
+    "nontrapping-fptoint",
+    "bulk-memory"
+  ],
+  "featuresForbidden": [
+    "atomics",
+    "simd128",
+    "relaxed-simd",
+    "memory64",
+    "wasm-exceptions",
+    "reference-types",
+    "multivalue",
+    "gc",
+    "tail-call",
+    "extended-const"
+  ],
+  "runtimeIncludes": [
+    "gg_engine",
+    "gg_values required Runtime subset",
+    "gg_runtime",
+    "game-abi glue"
+  ],
+  "runtimeExcludes": [
+    "SQLite",
+    "AuthoringCore",
+    "gg_compiler",
+    "Agent",
+    "MCP",
+    "Cocos",
+    "filesystem",
+    "editor IPC"
+  ],
+  "outputPair": [
+    "game-runtime.js",
+    "game-runtime.wasm"
+  ],
+  "profileHashRule": "SHA256 gg-json-v1 of profile plus actual toolchain inventory, source/library/link input hashes and selected variant; exclude only measured evidence fields; no ready binary before all actual archive hashes filled",
+  "execution_status": "not_run",
+  "compatibility_verified": false
+}

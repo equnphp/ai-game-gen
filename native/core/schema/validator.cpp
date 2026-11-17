@@ -29,7 +29,7 @@ struct Validation {
             "$schema","$id","title","description","$defs","$ref","type","const","enum",
             "oneOf","anyOf","allOf","not","properties","required","additionalProperties",
             "propertyNames","minProperties","maxProperties","items","minItems","maxItems",
-            "uniqueItems","minLength","maxLength","pattern","minimum","maximum",
+            "uniqueItems","minLength","maxLength","pattern","format","minimum","maximum",
             "exclusiveMinimum","exclusiveMaximum"};
         for (auto it = schema.begin(); it != schema.end(); ++it)
             require(supported.contains(it.key()), "UNSUPPORTED_SCHEMA");
@@ -94,6 +94,10 @@ struct Validation {
                 [](unsigned char ch) { return (ch & 0xc0) != 0x80; }));
             require(size >= schema.value("minLength", std::size_t{0}) &&
                 size <= schema.value("maxLength", std::numeric_limits<std::size_t>::max()), "LIMIT_EXCEEDED");
+            if(schema.contains("format")) {
+                require(schema.at("format")=="uuid","UNSUPPORTED_SCHEMA");
+                require(uuid(str),"INVALID_MESSAGE");
+            }
             if (schema.contains("pattern")) {
                 // 模式来自有界内置注册表，缓存避免逐个实体重复编译相同正则。
                 thread_local std::map<std::string, std::regex> patterns;

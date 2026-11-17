@@ -67,6 +67,8 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:20px;bo
 @media(max-width:700px){.breadcrumb strong{max-width:95px}.status-pill{max-width:70px}}
 
 /* 资源预览限制在面板内，媒体由用户明确操作后播放。 */
+.mobile-only{display:none}.workspace-menu{display:grid;gap:12px}.workspace-menu .button{justify-content:flex-start}
+@media(max-width:700px){.mobile-only{display:inline-flex}.topbar{flex-wrap:wrap}.top-actions{margin-left:auto;flex-wrap:wrap}}
 .asset-preview{margin-top:24px;border-top:1px solid var(--border,#e2e9f2);padding-top:20px}.asset-preview img,.asset-preview video{display:block;max-width:100%;max-height:440px;object-fit:contain;background:#edf4ff;border-radius:8px}.asset-preview audio{width:100%;max-width:560px}.asset-row .button{margin-left:auto;flex-shrink:0}
 
 /* 历史与恢复点共用实时Core记录，小屏下按顺序排列。 */

@@ -1,0 +1,630 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gamegen.local/contracts/artifact-bridge-1",
+  "$defs": {
+    "openConfig": {
+      "type": "object",
+      "properties": {
+        "bridgeVersion": {
+          "const": "1.0"
+        },
+        "projectRootUtf8": {
+          "type": "string",
+          "minLength": 1
+        },
+        "privateArtifactRootUtf8": {
+          "type": "string",
+          "minLength": 1
+        },
+        "snapshot": {
+          "type": "object",
+          "properties": {
+            "projectId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "branchId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "snapshotId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "headRevision": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)$"
+            },
+            "manifestHash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "schemaCatalogHash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "projectId",
+            "branchId",
+            "snapshotId",
+            "headRevision",
+            "manifestHash",
+            "schemaCatalogHash"
+          ],
+          "additionalProperties": false
+        },
+        "consumerId": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [
+        "bridgeVersion",
+        "projectRootUtf8",
+        "privateArtifactRootUtf8",
+        "snapshot",
+        "consumerId"
+      ],
+      "additionalProperties": false
+    },
+    "request": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "protocolVersion": {
+              "const": "1.0"
+            },
+            "requestId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "method": {
+              "const": "prepare"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "entrySceneId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "runtimeProfileId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "runtimeProfileHash": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                "catalogHash": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                "compilerBuild": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "entrySceneId",
+                "runtimeProfileId",
+                "runtimeProfileHash",
+                "catalogHash",
+                "compilerBuild"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "protocolVersion",
+            "requestId",
+            "method",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "protocolVersion": {
+              "const": "1.0"
+            },
+            "requestId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "method": {
+              "const": "execute"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "planId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "planHash": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "planId",
+                "planHash"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "protocolVersion",
+            "requestId",
+            "method",
+            "params"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "reply": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "protocolVersion": {
+              "const": "1.0"
+            },
+            "requestId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "ok": {
+              "const": true
+            },
+            "data": {
+              "type": "object",
+              "properties": {
+                "planId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "planHash": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                "snapshot": {
+                  "type": "object",
+                  "properties": {
+                    "projectId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "branchId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "snapshotId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "headRevision": {
+                      "type": "string",
+                      "pattern": "^(0|[1-9][0-9]*)$"
+                    },
+                    "manifestHash": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    },
+                    "schemaCatalogHash": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    }
+                  },
+                  "required": [
+                    "projectId",
+                    "branchId",
+                    "snapshotId",
+                    "headRevision",
+                    "manifestHash",
+                    "schemaCatalogHash"
+                  ],
+                  "additionalProperties": false
+                },
+                "options": {
+                  "type": "object",
+                  "properties": {
+                    "entrySceneId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "runtimeProfileId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "runtimeProfileHash": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    },
+                    "catalogHash": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    },
+                    "compilerBuild": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "entrySceneId",
+                    "runtimeProfileId",
+                    "runtimeProfileHash",
+                    "catalogHash",
+                    "compilerBuild"
+                  ],
+                  "additionalProperties": false
+                },
+                "diagnostics": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "severity": {
+                        "enum": [
+                          "error",
+                          "warning",
+                          "info"
+                        ]
+                      },
+                      "documentId": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "path": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "sourceIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "maxItems": 256
+                      },
+                      "messageKey": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "args": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "maxProperties": 32
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "severity",
+                      "documentId",
+                      "path",
+                      "sourceIds",
+                      "messageKey",
+                      "args"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 4096
+                }
+              },
+              "required": [
+                "planId",
+                "planHash",
+                "snapshot",
+                "options",
+                "diagnostics"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "protocolVersion",
+            "requestId",
+            "ok",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "protocolVersion": {
+              "const": "1.0"
+            },
+            "requestId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "ok": {
+              "const": true
+            },
+            "data": {
+              "type": "object",
+              "properties": {
+                "artifact": {
+                  "type": "object",
+                  "properties": {
+                    "artifactId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "contentHash": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    },
+                    "manifestHash": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    },
+                    "bytes": {
+                      "type": "string",
+                      "pattern": "^(0|[1-9][0-9]*)$"
+                    },
+                    "kind": {
+                      "const": "runtime_bundle"
+                    }
+                  },
+                  "required": [
+                    "artifactId",
+                    "contentHash",
+                    "manifestHash",
+                    "bytes",
+                    "kind"
+                  ],
+                  "additionalProperties": false
+                },
+                "diagnostics": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "severity": {
+                        "enum": [
+                          "error",
+                          "warning",
+                          "info"
+                        ]
+                      },
+                      "documentId": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "path": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "sourceIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "maxItems": 256
+                      },
+                      "messageKey": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "args": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "maxProperties": 32
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "severity",
+                      "documentId",
+                      "path",
+                      "sourceIds",
+                      "messageKey",
+                      "args"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 4096
+                }
+              },
+              "required": [
+                "artifact",
+                "diagnostics"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "protocolVersion",
+            "requestId",
+            "ok",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "protocolVersion": {
+              "const": "1.0"
+            },
+            "requestId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "ok": {
+              "const": false
+            },
+            "error": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "messageKey": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "outcome": {
+                  "enum": [
+                    "not_submitted",
+                    "known_failure",
+                    "submitted_unknown"
+                  ]
+                },
+                "retryable": {
+                  "type": "boolean"
+                },
+                "diagnostics": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "severity": {
+                        "enum": [
+                          "error",
+                          "warning",
+                          "info"
+                        ]
+                      },
+                      "documentId": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "path": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "sourceIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "maxItems": 256
+                      },
+                      "messageKey": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "args": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "maxProperties": 32
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "severity",
+                      "documentId",
+                      "path",
+                      "sourceIds",
+                      "messageKey",
+                      "args"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 4096
+                }
+              },
+              "required": [
+                "code",
+                "messageKey",
+                "outcome",
+                "retryable",
+                "diagnostics"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "protocolVersion",
+            "requestId",
+            "ok",
+            "error"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/openConfig"
+    },
+    {
+      "$ref": "#/$defs/request"
+    },
+    {
+      "$ref": "#/$defs/reply"
+    }
+  ]
+}

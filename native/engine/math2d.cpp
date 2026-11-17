@@ -15,13 +15,16 @@ Affine2D Affine2D::operator*(const Affine2D& v)const{
     return{a*v.a+c*v.b,b*v.a+d*v.b,a*v.c+c*v.d,b*v.c+d*v.d,a*v.tx+c*v.ty+tx,b*v.tx+d*v.ty+ty};
 }
 std::optional<Affine2D> Affine2D::inverse()const{
+    if(!finite({a,b})||!finite({c,d})||!finite({tx,ty}))return std::nullopt;
     const double determinant=a*d-b*c;
-    if(!std::isfinite(determinant)||std::abs(determinant)<=geometry_epsilon)return std::nullopt;
+    if(!std::isfinite(determinant)||determinant==0)return std::nullopt;
     Affine2D result{d/determinant,-b/determinant,-c/determinant,a/determinant,0,0};
-    const Vec2 offset=result.direction({-tx,-ty});result.tx=offset.x;result.ty=offset.y;return result;
+    const Vec2 offset=result.direction({-tx,-ty});result.tx=offset.x;result.ty=offset.y;
+    if(!finite({result.a,result.b})||!finite({result.c,result.d})||!finite(offset))return std::nullopt;
+    return result;
 }
 Affine2D affine(const Transform2D& value){
-    const double radians=value.rotation_degrees*std::numbers::pi/180;
+    const double radians=value.rotation_degrees*(std::numbers::pi/180);
     const double cosine=std::cos(radians),sine=std::sin(radians);
     return{cosine*value.scale.x,sine*value.scale.x,-sine*value.scale.y,cosine*value.scale.y,value.position.x,value.position.y};
 }

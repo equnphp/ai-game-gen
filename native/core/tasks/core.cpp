@@ -38,7 +38,7 @@ void Core::release(const std::shared_ptr<Task>& t) {
 Json Core::events(std::uint64_t after,std::uint32_t limit) const {
     require(limit>=1 && limit<=100,"INVALID_MESSAGE");
     const bool gap=!events_.empty() && after<events_.front().at("seq").get<std::uint64_t>()-1;
-    Json records=Json::array();std::uint64_t next=after;
+    Json records=Json::array();std::uint64_t next=after>sequence_?sequence_:after;
     for(const auto& e:events_)if(e.at("seq").get<std::uint64_t>()>after && records.size()<limit) {
         records.push_back(e);next=e.at("seq").get<std::uint64_t>();
     }
@@ -56,11 +56,18 @@ Control Core::control(const std::shared_ptr<Task>& t) {
 }
 void Core::run() {
     for(;;) {
+        // 到期只释放本会话的只读租约，不自动提交、GC或改写任何作者数据。
+        session_.idle();
         std::shared_ptr<Task> t;
-        {std::unique_lock lock(mutex);wake_.wait(lock,[this]{return stop_ || !queue_.empty();});
+        {std::unique_lock lock(mutex);
+         if(!wake_.wait_for(lock,std::chrono::seconds(1),[this]{return stop_ || !queue_.empty();}))continue;
          if(stop_ && queue_.empty())return;t=queue_.front();queue_.pop_front();executing_=true;
          t->state="RUNNING";t->phase="execute";}
-        std::string result,binary,state="SUCCEEDED";bool durable=false;
+        std::string result=std::move(t->result),binary,state="SUCCEEDED";bool durable=false;
+        auto internal_failure=[&] {
+            // 使用入队时预留的收据空间，低内存错误路径不再构造JSON对象。
+            result="{\"ok\":false,\"requestId\":\"\",\"op\":\"\",\"data\":null,\"error\":{\"code\":\"INTERNAL_ERROR\",\"messageKey\":\"core.INTERNAL_ERROR\",\"retryable\":false,\"recoveryActions\":[]}}";
+        };
         try {
             const auto c=control(t);c.checkpoint();
             if(t->work==Work::Message)result=session_.execute(t->input,c);
@@ -70,14 +77,26 @@ void Core::run() {
             // 已成功的存储变更不因稍后的取消标志被改报CANCELLED。
             durable=t->committing;
         } catch(const Error& e) {
+            binary.clear();
             session_.failed(e.code);
             state=e.code=="CANCELLED"?"CANCELLED":"FAILED";
-            Json r=Json::object();try{if(t->work==Work::Message){const auto raw=parse(t->input);if(raw.is_object())for(const char* k:{"requestId","op","projectId"})if(raw.contains(k) && raw.at(k).is_string())r[k]=raw.at(k);}}catch(...){}
-            result=Json{{"ok",false},{"requestId",r.value("requestId","")},{"op",r.value("op","")},
-                        {"data",nullptr},{"error",error_json(e.code,r)}}.dump();
+            try {
+                Json r=Json::object();
+                try {
+                    if(t->work==Work::Message) {
+                        const auto raw=parse(t->input);
+                        if(raw.is_object())for(const char* key:{"requestId","op","projectId"})if(raw.contains(key) && raw.at(key).is_string()) {
+                            const auto value=text(raw.at(key));
+                            // 错误回执只保留有界路由元信息，不能回显任意大小的非法字段。
+                            if(std::string_view(key)=="op" ? value.size()<=128 : uuid(value))r[key]=value;
+                        }
+                    }
+                }catch(...){}
+                result=Json{{"ok",false},{"requestId",r.value("requestId","")},{"op",r.value("op","")},
+                            {"data",nullptr},{"error",error_json(e.code,r)}}.dump();
+            }catch(...){internal_failure();}
         } catch(...) {
-            state="FAILED";result=Json{{"ok",false},{"requestId",""},{"op",""},{"data",nullptr},
-                                       {"error",error_json("INTERNAL_ERROR")}}.dump();
+            state="FAILED";binary.clear();internal_failure();
         }
         {std::lock_guard guard(mutex);
          t->result=std::move(result);t->binary=std::move(binary);t->state=state;t->phase="complete";t->durable=durable;

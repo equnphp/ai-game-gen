@@ -63,7 +63,13 @@ gg_status GG_CALL gg_core_create(const gg_core_config_v1* config,gg_core* out,gg
 gg_status GG_CALL gg_submit(gg_core id,gg_bytes_v1 bytes,gg_task* out,gg_buffer_v1* error) {
     return boundary(error,[&]{
         task_output(out);auto c=core(id);auto t=std::make_shared<Task>();t->id=next_handle();
-        t->input=input(bytes,2097152);t->reservation=3145728;c->enqueue(t);*out=t->id;
+        t->input=input(bytes,2097152);t->reservation=3145728;
+        // 升级计划可返回较大的固定ID映射；只用于预留，正式错误仍由执行线程按原字节分类。
+        try {
+            const auto header=gg::parse(t->input);
+            if(header.is_object() && header.value("protocolVersion","")=="1.1" && header.value("op","")=="project.upgrade.plan")t->reservation=8388608;
+        }catch(...){}
+        c->enqueue(t);*out=t->id;
     });
 }
 gg_status GG_CALL gg_upload_write(gg_core id,gg_bytes_v1 upload,uint64_t offset,gg_bytes_v1 bytes,

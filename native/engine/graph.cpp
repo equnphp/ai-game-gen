@@ -1,12 +1,13 @@
 // 数据边严格类型化，exec与data分别禁止自由环；未连完的作者草稿不冒充可编译产物。
 #include "engine/graph.hpp"
+#include "engine/catalog.hpp"
 #include "contracts.hpp"
 #include <algorithm>
 #include <deque>
 
 namespace gg::compiler {
-const Json& node_catalog() {static const auto value=parse(graph_node_catalog,1048576);return value;}
-std::string node_catalog_hash() {static const auto value=hash(node_catalog().dump());return value;}
+const Json& node_catalog() {return contracts::graph_nodes();}
+std::string node_catalog_hash() {return contracts::graph_nodes_hash();}
 namespace {
 const Json& description(const std::string& type) {
     for (const auto& node:node_catalog().at("nodes")) if(node.at("id")==type)return node;
@@ -51,6 +52,7 @@ void check_parameters(const GraphSource& graph,const Json& node,const Json& defi
         } else require(type==rule,"TYPE_MISMATCH");
         if(item.key()=="action" || item.key()=="name") {
             const auto value=text(parameters.at(item.key()).at("value"));require(!value.empty() && value.size()<=320,"LIMIT_EXCEEDED");
+            if(item.key()=="action")require(uuid(value),"INVALID_ACTION_ID");
         }
     }
     (void)node_generic(graph,node);
