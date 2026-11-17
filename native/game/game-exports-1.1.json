@@ -1,0 +1,13 @@
+[
+  "_gg_game_abi_version",
+  "_gg_game_alloc",
+  "_gg_game_free",
+  "_gg_game_submit",
+  "_gg_game_result_size",
+  "_gg_game_result_copy",
+  "_gg_game_result_release",
+  "_gg_game_complete",
+  "_gg_game_pump",
+  "_gg_game_pump_flags",
+  "_gg_game_lifecycle"
+]

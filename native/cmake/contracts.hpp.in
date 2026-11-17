@@ -1,6 +1,9 @@
 // 只执行冻结的内置DDL，绝不加载项目目录里的SQL。
 #pragma once
 namespace gg {
+inline constexpr char runtime_port_1_0_schema[]=R"GGRPC10(@GG_RUNTIME_PORT_1_0@)GGRPC10";
+inline constexpr char runtime_port_1_1_schema[]=R"GGRPC11(@GG_RUNTIME_PORT_1_1@)GGRPC11";
+inline constexpr char runtime_host_resource_schema[]=R"GGRESOURCE(@GG_RUNTIME_RESOURCES_SCHEMA@)GGRESOURCE";
 inline constexpr char artifact_bridge_schema[]=R"GGARTIFACT(@GG_ARTIFACT_SCHEMA@)GGARTIFACT";
 inline constexpr char ddl[] = R"GGDDL(@GG_DDL@)GGDDL";
 inline constexpr char ddl_v2[] = R"GGDDL(@GG_DDL_V2@)GGDDL";

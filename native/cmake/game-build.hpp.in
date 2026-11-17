@@ -1,0 +1,8 @@
+// 构建身份来自固定输入清单，不包含输出二进制hash，避免自引用摘要。
+#pragma once
+namespace gg::game {
+inline constexpr char profile_id[]="@GG_GAME_PROFILE_ID@";
+inline constexpr char profile_hash[]="sha256:@GG_GAME_PROFILE_HASH@";
+inline constexpr char runtime_build[]="@GG_GAME_BUILD_ID@";
+inline constexpr bool development=@GG_GAME_DEVELOPMENT@;
+}

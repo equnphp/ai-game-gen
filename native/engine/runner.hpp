@@ -14,6 +14,7 @@ struct TickReceipt {
     Json diagnostics=Json::array();
     std::optional<PausedLocation> paused;
 };
+struct InputResetReceipt {std::size_t sources=0,future_updates=0;};
 class WorldRunner {
     class Impl;
     std::unique_ptr<Impl> impl_;
@@ -24,8 +25,10 @@ public:
     RunState state()const;
     std::uint64_t next_tick()const;
     void start();void pause();void resume();void stop();
+    InputResetReceipt reset_input();
+    void discard_candidate_tick();
     void physical_input(const InputSource& source);
-    void inject(std::uint64_t at_tick,unsigned player,const Json& actions);
+    std::uint64_t inject(std::uint64_t at_tick,unsigned player,const Json& actions);
     TickReceipt fixed_step(const DebugControl& debug={});
     const SceneWorld& published_scene()const;
     Json variables(const std::string& entity,const std::string& component)const;

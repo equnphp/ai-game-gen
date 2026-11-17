@@ -7,6 +7,9 @@
 
 namespace gg::runtime {
 class WorldRunner::Impl {
+    friend class WorldRunner;
+    struct ActionUpdate {Json value;std::uint64_t sequence;InputFamily family;};
+    using PlayerActions=std::map<unsigned,std::map<std::string,ActionUpdate>>;
     struct Binding;
     struct Behavior {
         std::string entity,component,controller;
@@ -33,6 +36,7 @@ class WorldRunner::Impl {
         std::size_t world_budget=200000,phase=0,cursor=0,signal_cursor=0,subscriber_cursor=0,deliveries=0;
         std::uint64_t signal_sequence=0;
         bool rollback_failed=false;
+        PlayerActions rpc_actions;
     };
     struct Binding final:VMHost {
         Impl& owner;std::size_t index;
@@ -89,7 +93,10 @@ public:
     std::map<std::string,std::string> assets,documents;
     std::vector<Behavior> behaviors;
     InputRouter input;
-    std::map<std::uint64_t,std::map<unsigned,Json>> injected;
+    std::optional<InputRouter> paused_physical;
+    PlayerActions rpc_actions;
+    std::map<std::uint64_t,PlayerActions> injected;
+    std::uint64_t receive_sequence=0;
     std::vector<Signal> pending;
     std::unique_ptr<Work> work;
     RunState state=RunState::ready;
@@ -99,10 +106,12 @@ public:
         require(bundle.at("runtimeProfileId")==profile && bundle.at("runtimeProfileHash")==profile_hash && content_hash(profile_hash) &&
             bundle.at("catalogHash")==contracts::graph_nodes_hash(),"BUNDLE_PROFILE_MISMATCH");
         const auto scene_id=text(bundle.at("scene").at("documentId"));require(bundle.at("entrySceneId")==scene_id,"BUNDLE_SCENE_MISMATCH");
+        std::set<std::string> identities{scene_id};
         documents[scene_id]="scene";
         std::map<std::string,Json> block_index;
         for(const auto& block:bundle.at("blocks"))require(block_index.emplace(text(block.at("hash")),block).second,"BUNDLE_DUPLICATE_BLOCK");
         for(const auto& asset:bundle.at("assets")) {
+            require(identities.insert(text(asset.at("assetId"))).second,"BUNDLE_DUPLICATE_IDENTITY");
             const auto hash=text(asset.at("blockHash")),media=text(asset.at("mediaType"));
             require(block_index.contains(hash) && block_index.at(hash).at("purpose")=="asset" &&
                 block_index.at(hash).at("bytes")==asset.at("bytes"),"BUNDLE_ASSET_MISSING");
@@ -111,17 +120,26 @@ public:
         }
         std::map<std::string,std::shared_ptr<const VerifiedProgram>> programs;
         for(const auto& graph:bundle.at("graphs")) {
+            require(identities.insert(text(graph.at("documentId"))).second,"BUNDLE_DUPLICATE_IDENTITY");
             const auto key=text(graph.at("graphIRHash"));require(block_index.contains(key) && block_index.at(key).at("purpose")=="graph_ir" && blocks.contains(key),"BUNDLE_IR_MISSING");
             const auto& raw=blocks.at(key);require(hash(raw)==key && decimal(block_index.at(key).at("bytes"))==raw.size(),"HASH_MISMATCH");auto ir=parse(raw,1048576);
             require(ir.at("documentId")==graph.at("documentId") && ir.at("sourceVersion")==graph.at("sourceVersion"),"BUNDLE_IR_MISMATCH");
             auto execution=ir;execution.erase("sourceVersion");execution.erase("sourceMap");require(hash(execution.dump())==text(graph.at("irExecutionHash")),"HASH_MISMATCH");
             auto verified=std::make_shared<const VerifiedProgram>(verify_ir(ir,profile));
+            std::set<std::string> node_ids;for(const auto& source:ir.at("sourceMap"))node_ids.insert(text(source.at("nodeId")));
+            for(const auto& node:node_ids)require(identities.insert(node).second,"BUNDLE_DUPLICATE_IDENTITY");
+            for(const auto& variable:ir.at("variables"))require(identities.insert(text(variable.at("id"))).second,"BUNDLE_DUPLICATE_IDENTITY");
             require(programs.emplace(key,std::move(verified)).second,"BUNDLE_DUPLICATE_GRAPH");documents[text(graph.at("documentId"))]="graph";
         }
-        for(auto map=bundle.at("inputMaps").begin();map!=bundle.at("inputMaps").end();++map){validate_input_map(map.value());documents[map.key()]="input.map";}
+        for(auto map=bundle.at("inputMaps").begin();map!=bundle.at("inputMaps").end();++map){
+            require(identities.insert(map.key()).second,"BUNDLE_DUPLICATE_IDENTITY");validate_input_map(map.value());documents[map.key()]="input.map";
+            for(auto action=map.value().at("actions").begin();action!=map.value().at("actions").end();++action)require(identities.insert(action.key()).second,"BUNDLE_DUPLICATE_IDENTITY");
+        }
+        for(auto plane=bundle.at("scene").at("planes").begin();plane!=bundle.at("scene").at("planes").end();++plane)require(identities.insert(plane.key()).second,"BUNDLE_DUPLICATE_IDENTITY");
         std::vector<EntityDefinition> entities;std::uint32_t ordinal=0;std::size_t main_cameras=0;
         const auto& active_camera=bundle.at("scene").at("activeCamera");
         for(auto entry=bundle.at("scene").at("entities").begin();entry!=bundle.at("scene").at("entities").end();++entry) {
+            require(identities.insert(entry.key()).second,"BUNDLE_DUPLICATE_IDENTITY");
             const auto& source=entry.value();require(source.at("scheduleOrdinal")==ordinal++,"BUNDLE_SCHEDULE_INVALID");
             const auto& transform=source.at("transform");const auto& spatial=source.at("spatial");
             const auto plane=text(spatial.at("planeId"));require(bundle.at("scene").at("planes").contains(plane),"BUNDLE_PLANE_MISSING");
@@ -129,11 +147,13 @@ public:
             entity.parent_id=source.at("parentId").is_null()?"":text(source.at("parentId"));
             entity.transform={{transform.at("x"),transform.at("y")},transform.at("rotationRadians"),{transform.at("scaleX"),transform.at("scaleY")}};
             entity.plane_height=bundle.at("scene").at("planes").at(plane).at("baseHeight");entity.height_offset=spatial.at("heightOffset");
+            require(std::isfinite(entity.plane_height+entity.height_offset),"RUNTIME_NON_FINITE");
             entity.vertical_min=spatial.at("vertical").at("min");entity.vertical_max=spatial.at("vertical").at("max");
             entity.visual_offset={spatial.at("visualOffset").at("x"),spatial.at("visualOffset").at("y")};
             std::string controller;std::set<std::string> singleton;
             for(auto component=source.at("components").begin();component!=source.at("components").end();++component) {
                 const auto& value=component.value();require(value.at("id")==component.key() && components.emplace(component.key(),value).second,"BUNDLE_COMPONENT_ID");
+                require(identities.insert(component.key()).second,"BUNDLE_DUPLICATE_IDENTITY");
                 const auto type=text(value.at("type"));if(type!="graph.behavior" && type!="audio.source" && type!="physics.collider2d")require(singleton.insert(type).second,"BUNDLE_DUPLICATE_COMPONENT");
                 if(type=="input.controller") {
                     require(value.at("data").at("map").at("kind")=="document" && value.at("data").at("map").at("type")=="input.map" &&
@@ -197,14 +217,42 @@ public:
     void begin() {
         require(tick<UINT64_MAX,"TICK_U64_OVERFLOW");auto current=std::make_unique<Work>();
         current->previous=std::make_unique<SceneWorld>(*scene);current->signal_sequence=signal_sequence;
+        current->rpc_actions=rpc_actions;
+        if(injected.contains(tick))for(const auto& [player,actions]:injected.at(tick))for(const auto& [id,update]:actions) {
+            if(update.family==InputFamily::delta)continue;
+            const auto& value=update.value;
+            const bool neutral=update.family!=InputFamily::position && ((value.is_boolean() && !value.get<bool>()) ||
+                (value.is_number() && value.get<double>()==0) || (value.is_object() && value.at("x")==0 && value.at("y")==0));
+            if(neutral)current->rpc_actions[player].erase(id);else current->rpc_actions[player].insert_or_assign(id,update);
+        }
         for(auto& behavior:behaviors) {
             current->checkpoints.push_back(behavior.vm->checkpoint());current->budgets.push_back(10000);
             FrameContext context;context.tick=tick;context.self=scene->entity_reference(behavior.entity);
             if(!behavior.controller.empty()) {
                 const auto& control=components.at(behavior.controller);const auto& info=control.at("data");const auto player=info.at("player").get<unsigned>();
-                const auto& map=bundle.at("inputMaps").at(text(info.at("map").at("id")));auto values=input.sample(player,map);
-                if(injected.contains(tick) && injected.at(tick).contains(player))for(auto value=injected.at(tick).at(player).begin();value!=injected.at(tick).at(player).end();++value)
-                    if(values.contains(value.key()))values[value.key()]=value.value();
+                const auto& map=bundle.at("inputMaps").at(text(info.at("map").at("id")));
+                auto sampled=(state==RunState::paused && paused_physical?*paused_physical:input).sample_sources(player,map);auto& values=sampled.values;
+                for(auto action=map.at("actions").begin();action!=map.at("actions").end();++action) {
+                    const auto family=action_family(action.value());const auto type=text(action.value().at("valueType"));const ActionUpdate* rpc=nullptr;
+                    if(family==InputFamily::delta) {
+                        if(injected.contains(tick) && injected.at(tick).contains(player) && injected.at(tick).at(player).contains(action.key()))rpc=&injected.at(tick).at(player).at(action.key());
+                    } else if(current->rpc_actions.contains(player) && current->rpc_actions.at(player).contains(action.key()))rpc=&current->rpc_actions.at(player).at(action.key());
+                    auto& value=values[action.key()];
+                    if(type=="bool") {if(rpc)value=value.get<bool>() || rpc->value.get<bool>();}
+                    else if(type=="f64") {
+                        double scalar=value.get<double>();if(rpc)scalar=family==InputFamily::button?std::max(scalar,rpc->value.get<double>()):scalar+rpc->value.get<double>();
+                        require(std::isfinite(scalar),"RUNTIME_NON_FINITE");value=family==InputFamily::delta?scalar:std::clamp(scalar,family==InputFamily::button?0.0:-1.0,1.0);
+                    } else {
+                        engine::Vec2 vector{value.at("x"),value.at("y")};
+                        if(rpc) {
+                            const engine::Vec2 extra{rpc->value.at("x"),rpc->value.at("y")};
+                            if(family==InputFamily::position){if(!sampled.position_orders.contains(action.key()) || rpc->sequence>sampled.position_orders.at(action.key()))vector=extra;}
+                            else vector=vector+extra;
+                        }
+                        require(engine::finite(vector),"RUNTIME_NON_FINITE");const auto length=engine::length(vector);
+                        if(family==InputFamily::axis && length>1)vector=vector*(1/length);value={{"x",vector.x},{"y",vector.y}};
+                    }
+                }
                 for(auto action=map.at("actions").begin();action!=map.at("actions").end();++action)if(action.value().at("valueType")=="vec2") {
                     const auto& value=values.at(action.key());context.actions[action.key()]=control.at("enabled").get<bool>()?engine::Vec2{value.at("x"),value.at("y")}:engine::Vec2{};
                 }
@@ -268,17 +316,31 @@ WorldRunner::~WorldRunner()=default;
 RunState WorldRunner::state()const{return impl_->state;}
 std::uint64_t WorldRunner::next_tick()const{return impl_->tick;}
 void WorldRunner::start(){require(impl_->state==RunState::ready,"RUNTIME_STATE_INVALID");impl_->state=RunState::running;}
-void WorldRunner::pause(){require(impl_->state==RunState::running,"RUNTIME_STATE_INVALID");impl_->state=RunState::paused;}
-void WorldRunner::resume(){require(impl_->state==RunState::paused,"RUNTIME_STATE_INVALID");impl_->state=RunState::running;}
+void WorldRunner::pause(){require(impl_->state==RunState::running,"RUNTIME_STATE_INVALID");auto frozen=impl_->input;frozen.finish_tick();impl_->paused_physical=std::move(frozen);impl_->state=RunState::paused;}
+void WorldRunner::resume(){require(impl_->state==RunState::paused,"RUNTIME_STATE_INVALID");impl_->paused_physical.reset();impl_->state=RunState::running;}
+InputResetReceipt WorldRunner::reset_input(){
+    require(!impl_->work,"RUNTIME_TICK_PENDING");auto sources=impl_->input.sources();
+    if(impl_->paused_physical){auto locked=impl_->paused_physical->sources();sources.insert(locked.begin(),locked.end());}
+    InputResetReceipt receipt;receipt.sources=sources.size();
+    for(const auto& [player,actions]:impl_->rpc_actions)receipt.sources+=actions.size();
+    for(const auto& [tick,players]:impl_->injected)for(const auto& [player,actions]:players)receipt.future_updates+=actions.size();
+    impl_->input.release_all();impl_->paused_physical.reset();impl_->rpc_actions.clear();impl_->injected.clear();return receipt;
+}
+void WorldRunner::discard_candidate_tick(){impl_->rollback();}
 void WorldRunner::stop(){
-    impl_->rollback();impl_->state=RunState::stopped;impl_->input.release_all();impl_->injected.clear();
+    impl_->rollback();impl_->state=RunState::stopped;reset_input();
     impl_->behaviors.clear();impl_->components.clear();impl_->pending.clear();impl_->scene.reset();impl_->bundle=nullptr;
 }
-void WorldRunner::physical_input(const InputSource& source){require(impl_->state==RunState::running || impl_->state==RunState::paused,"RUNTIME_STATE_INVALID");impl_->input.feed(source);}
-void WorldRunner::inject(std::uint64_t at,unsigned player,const Json& actions) {
+void WorldRunner::physical_input(const InputSource& source){
+    require(impl_->state==RunState::running || impl_->state==RunState::paused,"RUNTIME_STATE_INVALID");
+    if(impl_->state==RunState::paused && describe_control(source.device,source.control).family==InputFamily::delta)return;
+    require(impl_->receive_sequence<UINT64_MAX,"INPUT_SEQUENCE_EXHAUSTED");auto value=source;value.receive_order=++impl_->receive_sequence;impl_->input.feed(value);
+}
+std::uint64_t WorldRunner::inject(std::uint64_t at,unsigned player,const Json& actions) {
     require(impl_->state==RunState::running && player<8 && actions.is_object(),"RUNTIME_STATE_INVALID");
     require(at>=impl_->tick && at-impl_->tick<=120,"INPUT_TICK_RANGE");
-    Json changes=impl_->injected.contains(at) && impl_->injected.at(at).contains(player)?impl_->injected.at(at).at(player):Json::object();
+    require(impl_->receive_sequence<UINT64_MAX,"INPUT_SEQUENCE_EXHAUSTED");const auto sequence=impl_->receive_sequence+1;
+    auto changes=impl_->injected.contains(at) && impl_->injected.at(at).contains(player)?impl_->injected.at(at).at(player):std::map<std::string,Impl::ActionUpdate>{};
     for(auto action=actions.begin();action!=actions.end();++action) {
         require(uuid(action.key()),"INVALID_ACTION_ID");std::string type;auto family=InputFamily::axis;
         for(const auto& [id,control]:impl_->components)if(control.at("type")=="input.controller" && control.at("data").at("player")==player) {
@@ -286,16 +348,16 @@ void WorldRunner::inject(std::uint64_t at,unsigned player,const Json& actions) {
             if(entries.contains(action.key())) {
                 const auto& definition=entries.at(action.key());const auto found=text(definition.at("valueType"));
                 require(type.empty() || type==found,"INPUT_ACTION_AMBIGUOUS");type=found;
-                if(!definition.at("bindings").empty()) {
-                    const auto& first=definition.at("bindings").front();family=describe_control(text(first.at("device")),text(first.at("control"))).family;
-                }
+                family=action_family(definition);
             }
         }
         require(!type.empty(),"INPUT_ACTION_UNRESOLVED");validate_typed_value(Json{{"type",type},{"value",action.value()}});
         if(type=="vec2" && family==InputFamily::axis)require(engine::length({action.value().at("x"),action.value().at("y")})<=1+1e-9,"INPUT_RANGE");
-        if(type=="f64")require(std::abs(action.value().get<double>())<=1,"INPUT_RANGE");changes[action.key()]=action.value();
+        if(type=="f64" && family!=InputFamily::delta)require(action.value().get<double>()>=(family==InputFamily::button?0:-1) && action.value().get<double>()<=1,"INPUT_RANGE");
+        changes.insert_or_assign(action.key(),Impl::ActionUpdate{action.value(),sequence,family});
     }
     impl_->injected[at][player]=std::move(changes);
+    impl_->receive_sequence=sequence;return sequence;
 }
 TickReceipt WorldRunner::fixed_step(const DebugControl& debug) {
     require(impl_->state==RunState::running || impl_->state==RunState::paused,"RUNTIME_STATE_INVALID");TickReceipt receipt;
@@ -310,6 +372,7 @@ TickReceipt WorldRunner::fixed_step(const DebugControl& debug) {
             work.budgets[call.behavior]=budget.instance;work.world_budget=budget.world;
             require(!work.rollback_failed,"WORLD_ROLLBACK_FAILED");
             if(result.status==VMStatus::paused) {
+                if(impl_->state==RunState::running){auto frozen=impl_->input;frozen.finish_tick();impl_->paused_physical=std::move(frozen);}
                 const auto& ir=behavior.program->ir();
                 receipt.paused=PausedLocation{result.pause_reason,behavior.entity,behavior.component,text(ir.at("documentId")),
                     text(ir.at("sourceMap").at(result.pc).at("nodeId")),result.pc};
@@ -323,6 +386,7 @@ TickReceipt WorldRunner::fixed_step(const DebugControl& debug) {
         }
         for(std::size_t i=0;i<impl_->behaviors.size();++i){impl_->behaviors[i].started=true;impl_->behaviors[i].previous_actions=std::move(work.contexts[i].actions);}
         impl_->pending=std::move(work.emitted);impl_->signal_sequence=work.signal_sequence;
+        impl_->rpc_actions=std::move(work.rpc_actions);
         receipt.outputs=std::move(work.outputs);receipt.diagnostics=std::move(work.diagnostics);receipt.completed=true;
         impl_->input.finish_tick();impl_->injected.erase(impl_->tick);receipt.next_tick=++impl_->tick;impl_->work.reset();return receipt;
     } catch(const Error& error) {impl_->rollback();impl_->state=RunState::failed;receipt.diagnostics.push_back({{"code",error.code},{"scope","world"}});return receipt;}

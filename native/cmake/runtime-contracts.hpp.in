@@ -1,6 +1,9 @@
 // 游戏运行库只嵌入指令和值合同，不带作者数据库/消息/编辑器授权定义。
 #pragma once
 namespace gg {
+inline constexpr char runtime_port_1_0_schema[]=R"GGRPC10(@GG_RUNTIME_PORT_1_0@)GGRPC10";
+inline constexpr char runtime_port_1_1_schema[]=R"GGRPC11(@GG_RUNTIME_PORT_1_1@)GGRPC11";
+inline constexpr char runtime_host_resource_schema[]=R"GGRESOURCE(@GG_RUNTIME_RESOURCES_SCHEMA@)GGRESOURCE";
 inline constexpr char graph_node_catalog[]=R"GGNODE(@GG_NODE_CATALOG@)GGNODE";
 inline constexpr char graph_ir_schema[]=R"GGIR(@GG_IR_SCHEMA@)GGIR";
 inline constexpr char runtime_bundle_schema[]=R"GGBUNDLE(@GG_BUNDLE_SCHEMA@)GGBUNDLE";

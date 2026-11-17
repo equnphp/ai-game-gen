@@ -1,0 +1,24 @@
+{
+  "version": "3.6.7",
+  "purpose": "WASM identity CTR_DRBG, no TLS/network",
+  "files": [
+    {
+      "path": "library/aes.c",
+      "source": "https://raw.githubusercontent.com/Mbed-TLS/mbedtls/v3.6.7/library/aes.c",
+      "bytes": 78798,
+      "sha256": "f30e6b7139527b41c32f68cc5430ceafa213e7fdf7a39bf4981f6a20cd0e77a1"
+    },
+    {
+      "path": "library/ctr_drbg.c",
+      "source": "https://raw.githubusercontent.com/Mbed-TLS/mbedtls/v3.6.7/library/ctr_drbg.c",
+      "bytes": 32567,
+      "sha256": "2b074c5ed907b092ad28449361af822fdd78710606263453f8348421ca4ab6f0"
+    },
+    {
+      "path": "library/ctr.h",
+      "source": "https://raw.githubusercontent.com/Mbed-TLS/mbedtls/v3.6.7/library/ctr.h",
+      "bytes": 947,
+      "sha256": "63331eb36d8ea69b4b4dcd2ec059582bcabf51a8ea891db26d37ab033967789f"
+    }
+  ]
+}

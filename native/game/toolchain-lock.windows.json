@@ -1,0 +1,33 @@
+{
+  "version": "6.0.13",
+  "commit": "e13ee988ce3d87a738dd8f3661d02223308c412a",
+  "payload": "eb132757325583b787fe9414b09afea9442b72ad",
+  "archives": [
+    {
+      "file": "emsdk-6.0.13.zip",
+      "bytes": 213271,
+      "sha256": "6c84ec9326701c0bc27719ecd7662d4f033eb42519897d3d88aa88e1e781b6bd"
+    },
+    {
+      "file": "payload-eb132757325583b787fe9414b09afea9442b72ad.zip",
+      "bytes": 701262388,
+      "sha256": "937b834b397e33645923794c1a20566a86c63ebc02b213e537c0a86dd380ab6c"
+    },
+    {
+      "file": "node-v24.19.0-win-x64.zip",
+      "bytes": 37304352,
+      "sha256": "57f71ab3652e797d84acddc79c81cc9ff1c6ddb2a1974cdb83f00fee9bff4c73"
+    },
+    {
+      "file": "python-3.13.3-0-win-amd64.zip",
+      "bytes": 29736374,
+      "sha256": "6fe7a540c6b8b185780467cf7495e884ee62316ec4abb19e1c735b8a77c62465"
+    }
+  ],
+  "tools": {
+    "emcc": "6.0.13 e13ee988ce3d87a738dd8f3661d02223308c412a",
+    "clang": "24.0.0git 83ee07799c341b60965f07892f7bb3d175da05be",
+    "wasm_opt": "133 version_133-96-ga631c1445"
+  },
+  "reacquired_after_installer_removed_cache": true
+}

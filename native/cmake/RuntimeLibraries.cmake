@@ -7,6 +7,8 @@ target_include_directories(gg_values PUBLIC "${GG_SOURCE_ROOT}" PRIVATE "${CMAKE
 target_link_libraries(gg_values PUBLIC gg_json gg_hash)
 add_library(gg_runtime STATIC "${GG_SOURCE_ROOT}/engine/input.cpp" "${GG_SOURCE_ROOT}/engine/ir.cpp" "${GG_SOURCE_ROOT}/engine/vm.cpp" "${GG_SOURCE_ROOT}/engine/world.cpp" "${GG_SOURCE_ROOT}/engine/camera.cpp")
 target_sources(gg_runtime PRIVATE "${GG_SOURCE_ROOT}/engine/runner.cpp")
+target_sources(gg_runtime PRIVATE "${GG_SOURCE_ROOT}/engine/resource.cpp")
+target_sources(gg_runtime PRIVATE "${GG_SOURCE_ROOT}/engine/port.cpp")
 target_include_directories(gg_runtime PUBLIC "${GG_SOURCE_ROOT}")
 target_link_libraries(gg_runtime PUBLIC gg_values gg_engine)
 if(NOT GG_RUNTIME_ONLY)

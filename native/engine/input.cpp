@@ -64,8 +64,8 @@ void validate_input_map(const Json& body) {
             require(std::isfinite(scale) && scale >= -10 && scale <= 10, "LIMIT_EXCEEDED");
             if (type == "bool") require(control.family == InputFamily::button && scale == 1, "TYPE_MISMATCH");
             else if (type == "vec2") require(control.component >= 0 && control.family != InputFamily::button, "TYPE_MISMATCH");
-            else require(type == "f64" && control.component < 0 &&
-                (control.family == InputFamily::button || control.family == InputFamily::axis), "TYPE_MISMATCH");
+            else require(type == "f64" && ((control.component < 0 &&
+                (control.family == InputFamily::button || control.family == InputFamily::axis)) || control.family==InputFamily::delta), "TYPE_MISMATCH");
             if (family) require(*family == control.family, "TYPE_MISMATCH");
             family = control.family;
             if (control.family == InputFamily::position) {
@@ -74,7 +74,15 @@ void validate_input_map(const Json& body) {
             }
         }
         for (const auto& [key,axes] : position_axes) require(axes == 3, "TYPE_MISMATCH");
+        if(action.contains("family")) {
+            const auto expected=action_family(action);const auto name=expected==InputFamily::button?"button":expected==InputFamily::axis?"axis":expected==InputFamily::position?"position":"delta";
+            require(action.at("family")==name,"TYPE_MISMATCH");
+        }
     }
+}
+InputFamily action_family(const Json& action) {
+    if(action.at("bindings").empty())return action.at("valueType")=="bool"?InputFamily::button:InputFamily::axis;
+    const auto& binding=action.at("bindings").front();return describe_control(text(binding.at("device")),text(binding.at("control"))).family;
 }
 void InputRouter::feed(const InputSource& source) {
     require(source.player < 8 && !source.source_id.empty() && source.source_id.size() <= 128 &&
@@ -91,7 +99,7 @@ void InputRouter::feed(const InputSource& source) {
     if (control.family == InputFamily::delta && existing != channels_.end()) value += existing->second.value;
     require(std::isfinite(value), "LIMIT_EXCEEDED");
     require(existing != channels_.end() || channels_.size() < 4096, "LIMIT_EXCEEDED");
-    channels_[key] = {value,source.sequence,source.game_plane_position,control.family};
+    channels_[key] = {value,source.sequence,source.game_plane_position,control.family,source.receive_order?source.receive_order:source.sequence};
 }
 void InputRouter::gamepad_stick(unsigned player, const std::string& source, unsigned stick, engine::Vec2 axes, std::uint64_t sequence) {
     require(stick < 2 && engine::finite(axes) && std::abs(axes.x) <= 1 && std::abs(axes.y) <= 1, "RANGE_ERROR");
@@ -101,23 +109,22 @@ void InputRouter::gamepad_stick(unsigned player, const std::string& source, unsi
     feed({player,"gamepad",source,"axis/"+std::to_string(stick*2),axes.x,sequence});
     feed({player,"gamepad",source,"axis/"+std::to_string(stick*2+1),axes.y,sequence});
 }
-Json InputRouter::sample(unsigned player, const Json& input_map) const {
+InputSample InputRouter::sample_sources(unsigned player,const Json& input_map)const {
     require(player < 8, "RANGE_ERROR");
     validate_input_map(input_map);
-    Json output = Json::object();
+    InputSample sampled;auto& output=sampled.values;
     for (auto entry=input_map.at("actions").begin();entry!=input_map.at("actions").end();++entry) {
         const auto name=entry.key();const auto& action=entry.value();const auto type = text(action.at("valueType"));
         engine::Vec2 vector{};
         double scalar = 0;
         bool pressed = false;
-        std::optional<InputFamily> family;
+        const auto family=action_family(action);
         struct Position {engine::Vec2 value{};std::uint64_t sequence=0;unsigned axes=0;};
         std::map<std::pair<std::string,std::string>,Position> positions;
         for (const auto& binding : action.at("bindings")) {
             const auto device = text(binding.at("device"));
             const auto control = describe_control(device,text(binding.at("control")));
             const auto scale = binding.at("scale").get<double>();
-            family = control.family;
             for (const auto& [key,channel] : channels_) {
                 if (key.player != player || key.device != device || key.channel != control.channel ||
                     (!key.action.empty() && key.action != name)) continue;
@@ -125,10 +132,10 @@ Json InputRouter::sample(unsigned player, const Json& input_map) const {
                 if (control.family == InputFamily::position) {
                     auto& position = positions[{key.device,key.source}];
                     (control.component == 0 ? position.value.x : position.value.y) = value;
-                    position.sequence = std::max(position.sequence,channel.sequence);
+                    position.sequence = std::max(position.sequence,channel.receive_order);
                     position.axes |= 1u << control.component;
                 } else if (type == "bool") pressed = pressed || value > 0;
-                else if (type == "f64") scalar += value;
+                else if (type == "f64") {if(family==InputFamily::button)scalar=std::max(scalar,value);else scalar+=value;}
                 else (control.component == 0 ? vector.x : vector.y) += value;
             }
         }
@@ -137,15 +144,24 @@ Json InputRouter::sample(unsigned player, const Json& input_map) const {
             // 有序map使同序输入按sourceId稳定决胜，不把两个触点的x/y拼在一起。
             for (const auto& [source,position] : positions)
                 if (position.axes == 3 && (!selected || position.sequence > selected->sequence)) selected = &position;
-            if (selected) vector = selected->value;
+            if (selected){vector=selected->value;sampled.position_orders[name]=selected->sequence;}
         }
         if (type == "bool") output[name] = pressed;
-        else if (type == "f64") output[name] = std::clamp(scalar,-1.0,1.0);
+        else if (type == "f64") {require(std::isfinite(scalar),"LIMIT_EXCEEDED");output[name]=scalar;}
         else {
-            if (family == InputFamily::axis && engine::length(vector) > 1) vector = vector * (1 / engine::length(vector));
             require(engine::finite(vector), "LIMIT_EXCEEDED");
             output[name] = {{"x",vector.x},{"y",vector.y}};
         }
+    }
+    return sampled;
+}
+Json InputRouter::sample(unsigned player,const Json& map)const {
+    auto output=sample_sources(player,map).values;
+    for(auto item=map.at("actions").begin();item!=map.at("actions").end();++item) {
+        const auto family=action_family(item.value());const auto type=text(item.value().at("valueType"));auto& value=output[item.key()];
+        if(type=="f64" && family!=InputFamily::delta)value=std::clamp(value.get<double>(),family==InputFamily::button?0.0:-1.0,1.0);
+        if(type=="vec2" && family==InputFamily::axis) {engine::Vec2 vector{value.at("x"),value.at("y")};const auto length=engine::length(vector);
+            if(length>1){vector=vector*(1/length);value={{"x",vector.x},{"y",vector.y}};}}
     }
     return output;
 }
@@ -155,5 +171,9 @@ void InputRouter::release_source(unsigned player, const std::string& device, con
 void InputRouter::release_all() { channels_.clear(); }
 void InputRouter::finish_tick() {
     std::erase_if(channels_,[](const auto& entry) { return entry.second.family == InputFamily::delta; });
+}
+std::set<std::tuple<unsigned,std::string,std::string>> InputRouter::sources()const {
+    std::set<std::tuple<unsigned,std::string,std::string>> result;
+    for(const auto& [key,channel]:channels_)result.emplace(key.player,key.device,key.source);return result;
 }
 }

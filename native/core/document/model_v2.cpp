@@ -15,7 +15,7 @@ const Json& model_schema() { static const auto value = parse(document_schema_v2,
 std::string model_catalog_hash() {
     static const auto value=hash(Json{{"documents",model_schema()},{"nodeCatalogHash",compiler::node_catalog_hash()},
         {"assetMetadata",asset_metadata_schema()},{"importProfiles",import_profiles()},
-        {"pathKeyVersion",path_key_version},{"semanticRulesVersion","core-model.1"}}.dump());
+        {"pathKeyVersion",path_key_version},{"semanticRulesVersion","core-model.2"}}.dump());
     return value;
 }
 namespace {

@@ -20,6 +20,8 @@ struct Error : std::runtime_error {
 inline void require(bool b, const char* code) { if (!b) throw Error(code); }
 Json parse(std::string_view s, std::size_t limit = 2097152);
 void schema_check(const Json& value, const Json& schema);
+// 在同一不可变根中选择定义，避免端口逐请求复制整份合同并破坏本地$ref根。
+void schema_check_definition(const Json& value,const Json& root,const std::string& pointer);
 void request_check(const Json& request);
 bool uuid(std::string_view s);
 bool content_hash(std::string_view s);

@@ -122,4 +122,9 @@ struct Validation {
 };
 }
 void schema_check(const Json& value, const Json& schema) { Validation{schema}.check(value, schema, 0); }
+void schema_check_definition(const Json& value,const Json& root,const std::string& pointer) {
+    require(pointer.starts_with("/$defs/"),"UNSUPPORTED_SCHEMA");
+    const auto location=Json::json_pointer(pointer);require(root.contains(location),"UNSUPPORTED_SCHEMA");
+    Validation{root}.check(value,root.at(location),0);
+}
 }
