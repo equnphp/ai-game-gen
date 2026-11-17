@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "vite --config web/vite.config.ts",
     "build": "tsc --noEmit && vite build --config web/vite.config.ts",
-    "tauri": "tauri --config hosts/tauri/tauri.conf.json"
+    "tauri": "cd hosts/tauri && tauri"
   },
   "dependencies": {
     "@tauri-apps/api": "2.12.5",

@@ -7,6 +7,13 @@ rust-version = "1.100"
 [lib]
 name = "gamegen_editor_host"
 crate-type = ["staticlib", "cdylib", "rlib"]
+# 二进制和库使用不同名称，避免Windows调试符号文件冲突。
+[[bin]]
+name = "gamegen-editor"
+path = "src/main.rs"
+[features]
+# 独立运行时内嵌生产资源，不要求常驻开发服务器。
+custom-protocol = ["tauri/custom-protocol"]
 [build-dependencies]
 tauri-build = { version = "=2.7.4", features = [] }
 [dependencies]

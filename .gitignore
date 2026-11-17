@@ -54,3 +54,11 @@ github.txt
 
 # 旧界面审阅目录仅在本机保留
 /gallery.html
+
+# 本机组装的原生运行制品不提交；应用图标保留最小运行集合
+/editor/hosts/tauri/resources/native/windows-x86_64/*.dll
+/editor/hosts/tauri/resources/native/windows-x86_64/core-artifact.json
+/editor/hosts/tauri/icons/*
+!/editor/hosts/tauri/icons/图标.svg
+!/editor/hosts/tauri/icons/icon.ico
+!/editor/hosts/tauri/icons/icon.png

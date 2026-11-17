@@ -1,3 +1,4 @@
+// SQLite摘要列显式读取为文本，保持严格类型边界，避免依赖JSON隐式比较。
 // 暂存块、READY内容与资产身份分开；只有attach生成可引用的领域成员。
 #include "core/application/session.hpp"
 #include <algorithm>
@@ -75,10 +76,10 @@ std::string Session::asset_command(const Json& r, const std::string& digest, con
             control.checkpoint();const auto block=store_.query("SELECT data,chunk_hash FROM blob_chunks WHERE blob_id=? AND byte_offset=?",
                                                              {x[0],offset});
             require(block.size()==1,"UPLOAD_INCOMPLETE");const auto bytes=text(block[0][0]);
-            require(hash(bytes)==block[0][1],"HASH_MISMATCH");h.update(bytes);offset+=bytes.size();
+            require(hash(bytes)==text(block[0][1]),"HASH_MISMATCH");h.update(bytes);offset+=bytes.size();
         }
         require(offset==x[4].get<std::uint64_t>(),"UPLOAD_INCOMPLETE");content=h.finish();
-        if(!x[3].is_null())require(content==x[3],"HASH_MISMATCH");
+        if(!x[3].is_null())require(content==text(x[3]),"HASH_MISMATCH");
     }
     auto result=envelope(r,{{"contentHash",content},{"byteLength",std::to_string(x[4].get<std::int64_t>())},{"state","READY"}});
     control.checkpoint();control.commit_gate();Transaction tx(store_);
@@ -129,7 +130,7 @@ std::pair<std::string,std::string> Session::blob_read(const std::string& content
         control.checkpoint();const auto position=offset+bytes.size();const auto chunk_offset=(position/1048576)*1048576;
         const auto rows2=store_.query("SELECT data,chunk_hash FROM blob_chunks WHERE blob_id=? AND byte_offset=?", {rows[0][0],chunk_offset});
         require(rows2.size()==1,"DATABASE_CORRUPT");const auto block=text(rows2[0][0]);
-        require(hash(block)==rows2[0][1],"DATABASE_CORRUPT");const auto start=position-chunk_offset;
+        require(hash(block)==text(rows2[0][1]),"DATABASE_CORRUPT");const auto start=position-chunk_offset;
         require(start<block.size(),"DATABASE_CORRUPT");bytes.append(block,start,std::min<std::uint64_t>(block.size()-start,end-position));
     }
     Json r={{"op","asset.blob_read"},{"requestId",""}};

@@ -1,3 +1,4 @@
+// 摘要使用既有text校验后比较，不依赖JSON到std::string的隐式转换。
 // 只有COMMIT成功后返回持久化收据；历史通过版本指针切换保留旧正文。
 #include "core/application/session.hpp"
 #include "contracts.hpp"
@@ -23,7 +24,7 @@ Document Session::load_version(const std::string& id, const std::string& version
     const auto rows = store_.query("SELECT kind,schema_version,body_json,content_hash FROM document_versions "
                                    "WHERE document_id=? AND version_id=?", {id,version});
     require(rows.size() == 1, "DATABASE_CORRUPT"); const auto& row = rows[0];
-    const auto body = text(row[2]); require(hash(body) == row[3], "DATABASE_CORRUPT");
+    const auto body = text(row[2]); require(hash(body) == text(row[3]), "DATABASE_CORRUPT");
     return {id,version,text(row[0]),text(row[3]),row[1].get<int>(),parse(body,1048576)};
 }
 State Session::load_state(const std::optional<std::string>& snap) {
@@ -45,7 +46,7 @@ State Session::load_state(const std::optional<std::string>& snap) {
         const auto revision = store_.scalar("SELECT revision FROM snapshots WHERE snapshot_id=?", {*snap}).get<std::int64_t>();
         auto m = manifest(state,project_,branch_,revision);
         for (const auto& id : state.assets) m["assets"].push_back({{"id",id},{"hash",asset_metadata(id).at("hash")}});
-        require(hash(m.dump()) == store_.scalar("SELECT manifest_hash FROM snapshots WHERE snapshot_id=?", {*snap}), "DATABASE_CORRUPT");
+        require(hash(m.dump()) == text(store_.scalar("SELECT manifest_hash FROM snapshots WHERE snapshot_id=?", {*snap})), "DATABASE_CORRUPT");
     }
     return state;
 }
@@ -280,7 +281,7 @@ std::string Session::operate(const Json& r, const std::string& digest, const Con
             proposals_.emplace(id,std::move(prop));
         } else {
             id=text(p.at("proposalId")); require(proposals_.contains(id),"PROPOSAL_EXPIRED");
-            auto& prop=proposals_.at(id); require(prop.digest==p.at("proposalHash"),"PROPOSAL_EXPIRED");
+            auto& prop=proposals_.at(id); require(prop.digest==text(p.at("proposalHash")),"PROPOSAL_EXPIRED");
             auto state=load_state(); const auto before=state; apply_operations(state,prop.operations); validate_state(state,settings_);
             record_identities(before,state,head(),false,true);
             prop.validated=hash(Json{{"proposalId",id},{"proposalHash",prop.digest},{"baseRevision",std::to_string(prop.base)}}.dump());
@@ -301,7 +302,7 @@ std::string Session::operate(const Json& r, const std::string& digest, const Con
     if (op=="document.commit") {
         expire_proposals(); expected(r); const auto id=text(p.at("proposalId"));
         require(proposals_.contains(id),"PROPOSAL_EXPIRED"); const auto prop=proposals_.at(id);
-        require(!prop.validated.empty() && prop.validated==p.at("validatedHash"),"PROPOSAL_EXPIRED");
+        require(!prop.validated.empty() && prop.validated==text(p.at("validatedHash")),"PROPOSAL_EXPIRED");
         auto next=load_state(); apply_operations(next,prop.operations);
         auto result=commit(r,digest,std::move(next),"edit",control); proposals_.erase(id); return result;
     }

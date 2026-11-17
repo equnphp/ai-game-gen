@@ -1,0 +1,2 @@
+<!-- 运行图标复用编辑器的蓝色与G标记；此文件是构建资源，不是设计稿。 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><rect x="16" y="16" width="480" height="480" rx="112" fill="#246BEE"/><path d="M352 164a136 136 0 1 0 22 174v-92H256v56h58v18a76 76 0 1 1-3-114z" fill="#fff"/></svg>

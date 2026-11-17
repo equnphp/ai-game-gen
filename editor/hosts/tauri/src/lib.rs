@@ -33,12 +33,13 @@ async fn host_bootstrap(window:tauri::WebviewWindow,state:tauri::State<'_,Arc<Ap
     }).await.map_err(|_|"INTERNAL_ERROR".to_string())?
 }
 #[tauri::command]
-async fn core_dispatch(window:tauri::WebviewWindow,state:tauri::State<'_,Arc<AppState>>,request:Value)->Value{
-    if window.label()!="main"{return host_error(&request,Fault::new("PERMISSION_DENIED").at_submission(request["method"].as_str().unwrap_or(""),false));}
+async fn core_dispatch(window:tauri::WebviewWindow,state:tauri::State<'_,Arc<AppState>>,request:Value)->std::result::Result<Value,String>{
+    if window.label()!="main"{return Ok(host_error(&request,Fault::new("PERMISSION_DENIED").at_submission(request["method"].as_str().unwrap_or(""),false)));}
     let state=state.inner().clone();
-    let guard=match permit(&state){Ok(p)=>p,Err(e)=>return host_error(&request,e.at_submission(request["method"].as_str().unwrap_or(""),false))};
+    let guard=match permit(&state){Ok(p)=>p,Err(e)=>return Ok(host_error(&request,e.at_submission(request["method"].as_str().unwrap_or(""),false)))};
     let fallback=request.clone();
-    tauri::async_runtime::spawn_blocking(move||{
+    // 异步State借用须以Result返回；协议失败仍放在Value中，保持前端线协议不变。
+    let response=tauri::async_runtime::spawn_blocking(move||{
         let _guard=guard;
         let result=std::panic::catch_unwind(std::panic::AssertUnwindSafe(||->Result<Value>{
             // 尚未进入actor/native的限额拒绝是确定未受理，不能让UI进入结果未知。
@@ -65,18 +66,20 @@ async fn core_dispatch(window:tauri::WebviewWindow,state:tauri::State<'_,Arc<App
         match result{Ok(Ok(value))=>value,Ok(Err(f))=>host_error(&request,f),Err(_)=>{
             // panic/join失败无法证明原生未受理，保留原请求供确认。
             host_error(&request,Fault::new("INTERNAL_ERROR").at_submission(request["method"].as_str().unwrap_or(""),true))}}
-    }).await.unwrap_or_else(|_|host_error(&fallback,Fault::new("INTERNAL_ERROR").at_submission(fallback["method"].as_str().unwrap_or(""),true)))
+    }).await.unwrap_or_else(|_|host_error(&fallback,Fault::new("INTERNAL_ERROR").at_submission(fallback["method"].as_str().unwrap_or(""),true)));
+    Ok(response)
 }
 #[tauri::command]
-async fn ux_dispatch(window:tauri::WebviewWindow,state:tauri::State<'_,Arc<AppState>>,request:Value)->Value{
+async fn ux_dispatch(window:tauri::WebviewWindow,state:tauri::State<'_,Arc<AppState>>,request:Value)->std::result::Result<Value,String>{
     let principal=window.label().to_owned();
-    if principal!="main"{return json!({"uxProtocol":"1.1","callId":request["callId"],"method":request["method"],
-        "ok":false,"error":{"code":"PERMISSION_DENIED","messageKey":"ux.PERMISSION_DENIED","retryable":false}});}
+    if principal!="main"{return Ok(json!({"uxProtocol":"1.1","callId":request["callId"],"method":request["method"],
+        "ok":false,"error":{"code":"PERMISSION_DENIED","messageKey":"ux.PERMISSION_DENIED","retryable":false}}));}
     let state=state.inner().clone();
-    let guard=match permit(&state){Ok(p)=>p,Err(_)=>return json!({"uxProtocol":"1.1","callId":request["callId"],"method":request["method"],"ok":false,
-        "error":{"code":"PROFILE_LIMIT","messageKey":"ux.pendingCalls","retryable":false}})};
+    let guard=match permit(&state){Ok(p)=>p,Err(_)=>return Ok(json!({"uxProtocol":"1.1","callId":request["callId"],"method":request["method"],"ok":false,
+        "error":{"code":"PROFILE_LIMIT","messageKey":"ux.pendingCalls","retryable":false}}))};
     let fallback=request.clone();
-    tauri::async_runtime::spawn_blocking(move||{
+    // Result只适配Tauri异步命令生命周期，UX错误收据继续原样返回。
+    let response=tauri::async_runtime::spawn_blocking(move||{
         let _guard=guard;
         if serde_json::to_vec(&request).map(|b|b.len()>65536).unwrap_or(true){
             return json!({"uxProtocol":"1.1","callId":request["callId"],"method":request["method"],"ok":false,
@@ -86,7 +89,8 @@ async fn ux_dispatch(window:tauri::WebviewWindow,state:tauri::State<'_,Arc<AppSt
             .unwrap_or_else(|_|json!({"uxProtocol":"1.1","callId":request["callId"],"method":request["method"],"ok":false,
                 "error":{"code":"INTERNAL_ERROR","messageKey":"ux.INTERNAL_ERROR","retryable":false}}))
     }).await.unwrap_or_else(|_|json!({"uxProtocol":"1.1","callId":fallback["callId"],"method":fallback["method"],"ok":false,
-        "error":{"code":"INTERNAL_ERROR","messageKey":"ux.INTERNAL_ERROR","retryable":false}}))
+        "error":{"code":"INTERNAL_ERROR","messageKey":"ux.INTERNAL_ERROR","retryable":false}}));
+    Ok(response)
 }
 #[cfg_attr(mobile,tauri::mobile_entry_point)]
 pub fn run(){
