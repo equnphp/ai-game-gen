@@ -1,0 +1,351 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gamegen.local/contracts/compiler-component/1",
+  "type": "object",
+  "properties": {
+    "metadataVersion": {
+      "const": "gg-compiler-component-1"
+    },
+    "declarationKind": {
+      "const": "build_declaration"
+    },
+    "nativeBuildId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "platform": {
+      "enum": [
+        "windows-x64",
+        "windows-arm64",
+        "android-arm64-v8a",
+        "android-x86_64",
+        "linux-x64",
+        "macos-arm64",
+        "macos-x64"
+      ]
+    },
+    "nativeBundle": {
+      "type": "object",
+      "properties": {
+        "relativeFile": {
+          "const": "native-runtime-bundle.json"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "bytes": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        }
+      },
+      "required": [
+        "relativeFile",
+        "sha256",
+        "bytes"
+      ],
+      "additionalProperties": false
+    },
+    "artifactAbi": {
+      "const": "1.0"
+    },
+    "artifactLibrary": {
+      "type": "object",
+      "properties": {
+        "relativeFile": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240,
+          "pattern": "^[a-zA-Z0-9_-]+(?:[./-][a-zA-Z0-9_-]+)*$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "bytes": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        }
+      },
+      "required": [
+        "relativeFile",
+        "sha256",
+        "bytes"
+      ],
+      "additionalProperties": false
+    },
+    "artifactJsonProtocols": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "1.0",
+          "1.1"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 2,
+      "uniqueItems": true
+    },
+    "compilerBuild": {
+      "type": "string",
+      "pattern": "^gg-compiler-1-[0-9a-f]{64}$"
+    },
+    "compilerBuildInputs": {
+      "type": "object",
+      "properties": {
+        "relativeFile": {
+          "const": "compiler-build-inputs.json"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "bytes": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        }
+      },
+      "required": [
+        "relativeFile",
+        "sha256",
+        "bytes"
+      ],
+      "additionalProperties": false
+    },
+    "compilerBuildInputsHash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "catalog": {
+      "type": "object",
+      "properties": {
+        "catalogHash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "hashPolicy": {
+          "const": "gg-embedded-catalog-json-dump-1"
+        },
+        "file": {
+          "type": "object",
+          "properties": {
+            "relativeFile": {
+              "const": "compiler-catalog.json"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "bytes": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            }
+          },
+          "required": [
+            "relativeFile",
+            "sha256",
+            "bytes"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "catalogHash",
+        "hashPolicy",
+        "file"
+      ],
+      "additionalProperties": false
+    },
+    "runtimeProfiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "runtimeProfileId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "runtimeProfileHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "runtimeBuild": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "variant": {
+            "enum": [
+              "development",
+              "release"
+            ]
+          },
+          "runtimeAbi": {
+            "const": "1.1"
+          },
+          "runtimePortProtocol": {
+            "enum": [
+              "1.0",
+              "1.1",
+              "1.2"
+            ]
+          },
+          "bundleFormat": {
+            "enum": [
+              "gg-runtime-bundle-1",
+              "gg-runtime-bundle-1.1",
+              "gg-runtime-bundle-1.2",
+              "gg-runtime-bundle-1.3"
+            ]
+          },
+          "irVersion": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2
+          },
+          "irRevision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 65535
+          },
+          "runtimeInventory": {
+            "type": "object",
+            "properties": {
+              "relativeFile": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240,
+                "pattern": "^[a-zA-Z0-9_-]+(?:[./-][a-zA-Z0-9_-]+)*$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              },
+              "bytes": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]{0,19})$"
+              }
+            },
+            "required": [
+              "relativeFile",
+              "sha256",
+              "bytes"
+            ],
+            "additionalProperties": false
+          },
+          "runtimePairReceipt": {
+            "type": "object",
+            "properties": {
+              "relativeFile": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240,
+                "pattern": "^[a-zA-Z0-9_-]+(?:[./-][a-zA-Z0-9_-]+)*$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              },
+              "bytes": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]{0,19})$"
+              }
+            },
+            "required": [
+              "relativeFile",
+              "sha256",
+              "bytes"
+            ],
+            "additionalProperties": false
+          },
+          "runtimeJs": {
+            "type": "object",
+            "properties": {
+              "relativeFile": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240,
+                "pattern": "^[a-zA-Z0-9_-]+(?:[./-][a-zA-Z0-9_-]+)*$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              },
+              "bytes": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]{0,19})$"
+              }
+            },
+            "required": [
+              "relativeFile",
+              "sha256",
+              "bytes"
+            ],
+            "additionalProperties": false
+          },
+          "runtimeWasm": {
+            "type": "object",
+            "properties": {
+              "relativeFile": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240,
+                "pattern": "^[a-zA-Z0-9_-]+(?:[./-][a-zA-Z0-9_-]+)*$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              },
+              "bytes": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]{0,19})$"
+              }
+            },
+            "required": [
+              "relativeFile",
+              "sha256",
+              "bytes"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "runtimeProfileId",
+          "runtimeProfileHash",
+          "runtimeBuild",
+          "variant",
+          "runtimeAbi",
+          "runtimePortProtocol",
+          "bundleFormat",
+          "irVersion",
+          "irRevision",
+          "runtimeInventory",
+          "runtimePairReceipt",
+          "runtimeJs",
+          "runtimeWasm"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 16
+    }
+  },
+  "required": [
+    "metadataVersion",
+    "declarationKind",
+    "nativeBuildId",
+    "platform",
+    "nativeBundle",
+    "artifactAbi",
+    "artifactLibrary",
+    "artifactJsonProtocols",
+    "compilerBuild",
+    "compilerBuildInputs",
+    "compilerBuildInputsHash",
+    "catalog",
+    "runtimeProfiles"
+  ],
+  "additionalProperties": false
+}

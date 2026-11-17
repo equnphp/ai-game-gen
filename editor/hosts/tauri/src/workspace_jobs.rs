@@ -1,6 +1,6 @@
 // Workspace用户意图与Core观察分开记账；重启不重放打开，历史成功不恢复旧会话令牌。
 use super::*;
-use crate::core::Host;
+use crate::{core::Host,store_io::{directory_lease as directory_handle,directory_identity as identity}};
 use std::{sync::{Arc,Mutex,atomic::{AtomicBool,Ordering}},thread};
 
 pub(crate) struct OpenWork {
@@ -14,25 +14,6 @@ pub(crate) struct ScanWork{pub id:String,pub root:PathBuf,pub _guard:File,pub ca
 pub(super) struct ScanSnapshot{pub id:String,pub scan:String,pub created:Instant,pub candidates:Vec<Value>}
 // 受限路径的字符串检查之外还持有真实目录句柄；Core随后复用自己的no-follow校验。
 pub(crate) struct LocationGuard {pub root:File,pub project:File,pub directory:String}
-#[cfg(windows)]
-pub(super) fn identity(file:&File)->Result<String>{
-    use std::{os::windows::io::AsRawHandle,ffi::c_void};
-    #[repr(C)]struct Info{attributes:u32,created:[u32;2],accessed:[u32;2],modified:[u32;2],volume:u32,size_high:u32,size_low:u32,links:u32,index_high:u32,index_low:u32}
-    #[link(name="kernel32")]extern "system"{fn GetFileInformationByHandle(file:*mut c_void,out:*mut Info)->i32;}
-    let mut info=Info{attributes:0,created:[0;2],accessed:[0;2],modified:[0;2],volume:0,size_high:0,size_low:0,links:0,index_high:0,index_low:0};
-    need(unsafe{GetFileInformationByHandle(file.as_raw_handle(),&mut info)}!=0 && info.attributes&0x10!=0 && info.attributes&0x400==0,"PATH_UNSAFE")?;
-    Ok(format!("{}:{}:{}",info.volume,info.index_high,info.index_low))
-}
-#[cfg(not(windows))]
-pub(super) fn identity(_: &File)->Result<String>{Err(Fault::new("WORKSPACE_UNAVAILABLE"))}
-#[cfg(windows)]
-pub(super) fn directory_handle(path:&Path)->Result<File>{
-    use std::os::windows::fs::OpenOptionsExt;
-    need(safe_ancestors(path) && safe_metadata(path).is_ok_and(|m|m.is_dir()),"PATH_UNSAFE")?;
-    let file=OpenOptions::new().access_mode(0x80).share_mode(1|2).custom_flags(0x02000000|0x00200000).open(path).map_err(|_|Fault::new("WORKSPACE_UNAVAILABLE"))?;identity(&file)?;Ok(file)
-}
-#[cfg(not(windows))]
-pub(super) fn directory_handle(_: &Path)->Result<File>{Err(Fault::new("WORKSPACE_UNAVAILABLE"))}
 impl LocationGuard {
     pub(super) fn open(root:&Path,directory:&str)->Result<Self>{
         need(directory_name(directory),"PATH_UNSAFE")?;

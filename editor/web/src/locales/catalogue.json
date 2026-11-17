@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": "editor-locales-workspace.1",
-  "hash": "sha256:b8a1469023f2ae655a9188c0e23236197cfaa140bf7da7a20b67207e602a0823",
+  "version": "editor-locales-compiler.1",
+  "hash": "sha256:e23128e8f2983251afcdf175d8fefe877d7ae8894bf92befe3b21f88b34fe900",
   "locales": [
     "en",
     "zh-Hans",
@@ -192,7 +192,18 @@
     "workspaceScanSUCCEEDED",
     "workspaceScanFAILED",
     "workspaceScanCANCELLED",
-    "workspaceScanPARTIAL"
+    "workspaceScanPARTIAL",
+    "localCompiler",
+    "localCompilerNote",
+    "compilerChecking",
+    "compilerUnavailable",
+    "compilerDamaged",
+    "compilerInstalled",
+    "compilerVersion",
+    "runtimeConfiguration",
+    "runtimeDevelopment",
+    "runtimeRelease",
+    "compilerReading"
   ],
   "coverage": "Implemented editor increment only; remaining product surfaces not translated here",
   "translationReview": "draft_not_human_reviewed",

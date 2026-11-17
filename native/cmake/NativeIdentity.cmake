@@ -1,7 +1,7 @@
 # 身份绑定当前受控源码、依赖、合同及编译配置；不使用尚未提交的Git HEAD冒充源码内容。
 file(GLOB_RECURSE GG_IDENTITY_FILES CONFIGURE_DEPENDS RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}"
   "core/*.cpp" "core/*.hpp" "core/*.json" "core/*.sql" "engine/*.cpp" "engine/*.hpp" "engine/*.json"
-  "artifact/*.cpp" "artifact/*.h" "artifact/*.json" "platform/*.cpp" "platform/*.hpp" "sdk/*.cpp" "sdk/*.h"
+  "artifact/*.cpp" "artifact/*.h" "artifact/*.hpp" "artifact/*.json" "platform/*.cpp" "platform/*.hpp" "sdk/*.cpp" "sdk/*.h"
   "third_party/*.c" "third_party/*.h" "cmake/*.cmake" "cmake/*.in" "CMakeLists.txt")
 list(SORT GG_IDENTITY_FILES)
 set(GG_SOURCE_PREIMAGE "${CMAKE_CXX_COMPILER_ID}/${CMAKE_CXX_COMPILER_VERSION}/${CMAKE_BUILD_TYPE}/${CMAKE_SYSTEM_NAME}/${CMAKE_SYSTEM_PROCESSOR}/${CMAKE_C_FLAGS}/${CMAKE_CXX_FLAGS}\n")

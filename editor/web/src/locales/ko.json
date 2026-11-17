@@ -179,5 +179,16 @@
   "workspaceScanSUCCEEDED": "검색 완료",
   "workspaceScanFAILED": "검색 실패",
   "workspaceScanCANCELLED": "검색이 취소되었습니다. 일부 결과만 표시됩니다",
-  "workspaceScanPARTIAL": "검색 한도에 도달했습니다. 일부 결과만 표시됩니다"
+  "workspaceScanPARTIAL": "검색 한도에 도달했습니다. 일부 결과만 표시됩니다",
+  "localCompiler": "로컬 컴파일러 구성 요소",
+  "localCompilerNote": "미리 보기와 내보내기는 이 기기에 설치된 컴파일러와 런타임을 사용합니다.",
+  "compilerChecking": "구성 요소를 확인 중입니다. 잠시 후 다시 읽어 주세요.",
+  "compilerUnavailable": "설치된 로컬 컴파일러 구성 요소가 없습니다.",
+  "compilerDamaged": "구성 요소 파일이 불완전하거나 변경되었습니다. 일치하는 구성 요소를 다시 설치해 주세요.",
+  "compilerInstalled": "설치됨",
+  "compilerVersion": "컴파일러 버전",
+  "runtimeConfiguration": "런타임 구성",
+  "runtimeDevelopment": "개발용",
+  "runtimeRelease": "배포용",
+  "compilerReading": "확인 중…"
 }

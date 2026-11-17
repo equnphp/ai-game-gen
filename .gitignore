@@ -59,6 +59,8 @@ github.txt
 /editor/hosts/tauri/resources/native/windows-x86_64/*.dll
 /editor/hosts/tauri/resources/native/windows-x86_64/core-artifact.json
 /editor/hosts/tauri/resources/native/windows-x86_64/native-runtime-bundle.json
+/editor/hosts/tauri/resources/native/windows-x86_64/active-component.json
+/editor/hosts/tauri/resources/native/windows-x86_64/components/
 /editor/hosts/tauri/icons/*
 !/editor/hosts/tauri/icons/图标.svg
 !/editor/hosts/tauri/icons/icon.ico

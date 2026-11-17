@@ -15,3 +15,7 @@ commands.allow = ["host_bootstrap"]
 identifier = "allow-workspace-dispatch"
 description = "Access bounded local project discovery and verified opening jobs"
 commands.allow = ["workspace_dispatch"]
+[[permission]]
+identifier = "allow-compiler-component"
+description = "Read a bounded projection of the installed compiler and runtime identities"
+commands.allow = ["compiler_component_rpc"]

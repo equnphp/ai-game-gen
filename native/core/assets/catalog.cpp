@@ -29,6 +29,7 @@ Json Session::list_assets(const Json& params) {
         require(params.at("afterId").is_null(),"CURSOR_EXPIRED");
         require(asset_reads_.size()<2,"LIMIT_EXCEEDED");
         AssetReadView view;view.revision=head();view.filter_hash=filter;view.expires=now+std::chrono::seconds(60);
+        view.maintenance=location_->maintenance_fence(false);
         if(!params.at("snapshotId").is_null())(void)load_state(text(params.at("snapshotId")));
         view.reader=std::make_shared<Store>();location_->verify();view.reader->open(location_->database,false,true);
         view.lease=std::make_unique<Transaction>(*view.reader,Transaction::Access::read);

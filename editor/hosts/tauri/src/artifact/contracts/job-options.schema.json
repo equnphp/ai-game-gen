@@ -1,0 +1,416 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gamegen.local/contracts/artifact-options/2",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "compile"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "entrySceneId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "runtimeProfileId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "runtimeProfileHash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "catalogHash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "compilerBuild": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "entrySceneId",
+            "runtimeProfileId",
+            "runtimeProfileHash",
+            "catalogHash",
+            "compilerBuild"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "kind",
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "game_export"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "targetProfileId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "targetRulesetHash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "exportConfigDocumentId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "buildType": {
+              "enum": [
+                "debug",
+                "release"
+              ]
+            },
+            "includeSourceMaps": {
+              "type": "boolean"
+            },
+            "signingCredentialRef": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "targetProfileId",
+            "targetRulesetHash",
+            "exportConfigDocumentId",
+            "buildType",
+            "includeSourceMaps",
+            "signingCredentialRef"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "kind",
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "project_writer"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "targetProfileId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "targetExactVersion": {
+              "type": "string",
+              "minLength": 1
+            },
+            "writerBuild": {
+              "type": "string",
+              "minLength": 1
+            },
+            "mappingMode": {
+              "const": "strict"
+            },
+            "includeAuthoringGraph": {
+              "const": true
+            },
+            "exportConfigDocumentId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "targetProfileId",
+            "targetExactVersion",
+            "writerBuild",
+            "mappingMode",
+            "includeAuthoringGraph",
+            "exportConfigDocumentId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "kind",
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "reader"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "readerProfileId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sourceVersion": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sourceFingerprintHash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "conversionMode": {
+              "enum": [
+                "new_project",
+                "reimport"
+              ]
+            },
+            "mappingPlanHash": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "readerProfileId",
+            "sourceVersion",
+            "sourceFingerprintHash",
+            "conversionMode",
+            "mappingPlanHash"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "kind",
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "asset_process"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "assetVersionId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "recipeId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "recipeHash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "settingsHash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "assetVersionId",
+            "recipeId",
+            "recipeHash",
+            "settingsHash"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "kind",
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "archive"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "enum": [
+                "snapshot",
+                "retained_history"
+              ]
+            },
+            "containerFormat": {
+              "const": "gg-project-archive-1"
+            },
+            "identityPolicy": {
+              "enum": [
+                "new_identity_heads",
+                "preserve_identity_recovery"
+              ]
+            }
+          },
+          "required": [
+            "scope",
+            "containerFormat",
+            "identityPolicy"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "kind",
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "lan_sync"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "peerId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "direction": {
+              "enum": [
+                "send",
+                "receive"
+              ]
+            },
+            "transferPlanHash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "peerConsentReceiptId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "scopeHash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "peerId",
+            "direction",
+            "transferPlanHash",
+            "peerConsentReceiptId",
+            "scopeHash"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "kind",
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "media_generate"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "mediaType": {
+              "enum": [
+                "image",
+                "audio"
+              ]
+            },
+            "providerProfileId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "modelVersion": {
+              "type": "string",
+              "minLength": 1
+            },
+            "prompt": {
+              "type": "string",
+              "maxLength": 8192
+            },
+            "seed": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "width": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4096
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4096
+            },
+            "durationMs": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 600000
+            },
+            "outputMediaType": {
+              "enum": [
+                "image/png",
+                "audio/wav"
+              ]
+            }
+          },
+          "required": [
+            "mediaType",
+            "providerProfileId",
+            "modelVersion",
+            "prompt",
+            "seed",
+            "width",
+            "height",
+            "durationMs",
+            "outputMediaType"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "kind",
+        "options"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

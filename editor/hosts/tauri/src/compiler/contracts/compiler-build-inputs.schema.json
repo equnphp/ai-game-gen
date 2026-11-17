@@ -1,0 +1,336 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gamegen.local/contracts/compiler-build-inputs/1",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "gg-compiler-build-inputs-1"
+    },
+    "configuration": {
+      "type": "object",
+      "properties": {
+        "platform": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "buildType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "cmakeGenerator": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "cmakeVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "targetTriple": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "sysrootInputHash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "environment": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 512
+              },
+              "value": {
+                "type": "string",
+                "maxLength": 8192
+              }
+            },
+            "required": [
+              "name",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 128
+        }
+      },
+      "required": [
+        "platform",
+        "buildType",
+        "cmakeGenerator",
+        "cmakeVersion",
+        "targetTriple",
+        "sysrootInputHash",
+        "environment"
+      ],
+      "additionalProperties": false
+    },
+    "sourceFiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "logicalPath": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "bytes": {
+            "type": "string",
+            "pattern": "^(0|[1-9][0-9]{0,19})$"
+          }
+        },
+        "required": [
+          "logicalPath",
+          "sha256",
+          "bytes"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 100000
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "binarySha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "versionReportSha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "packageInputHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "id",
+          "version",
+          "target",
+          "binarySha256",
+          "versionReportSha256",
+          "packageInputHash"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 64
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "sourceInputHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "configHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "linkInputHashes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "minItems": 0,
+            "maxItems": 128
+          }
+        },
+        "required": [
+          "id",
+          "version",
+          "sourceInputHash",
+          "configHash",
+          "linkInputHashes"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 256
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "enum": [
+              "compile",
+              "link",
+              "archive",
+              "generate"
+            ]
+          },
+          "language": {
+            "enum": [
+              "c",
+              "cpp",
+              "assembler",
+              "none"
+            ]
+          },
+          "toolId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "inputPaths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "minItems": 0,
+            "maxItems": 10000
+          },
+          "arguments": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 8192
+            },
+            "minItems": 0,
+            "maxItems": 4096
+          },
+          "responseFiles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "logicalPath": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 512
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                "bytes": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,19})$"
+                }
+              },
+              "required": [
+                "logicalPath",
+                "sha256",
+                "bytes"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0,
+            "maxItems": 128
+          },
+          "actionId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": [
+          "kind",
+          "language",
+          "toolId",
+          "inputPaths",
+          "arguments",
+          "responseFiles",
+          "actionId"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 100000
+    },
+    "catalogHash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "contractFiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "logicalPath": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "bytes": {
+            "type": "string",
+            "pattern": "^(0|[1-9][0-9]{0,19})$"
+          }
+        },
+        "required": [
+          "logicalPath",
+          "sha256",
+          "bytes"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 1024
+    }
+  },
+  "required": [
+    "schema",
+    "configuration",
+    "sourceFiles",
+    "tools",
+    "dependencies",
+    "actions",
+    "catalogHash",
+    "contractFiles"
+  ],
+  "additionalProperties": false
+}

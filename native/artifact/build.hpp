@@ -2,8 +2,9 @@
 #pragma once
 #include "core/storage/sqlite/repository.hpp"
 #include <map>
+#include "compiler-build.hpp"
 namespace gg::artifact {
-inline constexpr char compiler_build[]="gg-compiler-ir1.2-local-1";
+inline constexpr auto& compiler_build=gg_compiler_build;
 struct BuildPlan {
     std::string id,hash;
     Json options,diagnostics=Json::array();

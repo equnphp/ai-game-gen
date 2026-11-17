@@ -24,5 +24,7 @@ uuid = { version = "=1.18.1", features = ["v4"] }
 base64 = "=0.22.1"
 sha2 = "=0.10.9"
 fs2 = "=0.4.3"
+# 仅校验编译进程序内的受信合同；禁用HTTP/文件引用，不能读取工程自带Schema。
+jsonschema = { version = "=0.61.2", default-features = false }
 [profile.release]
 panic = "unwind"

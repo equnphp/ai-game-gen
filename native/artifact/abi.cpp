@@ -16,6 +16,7 @@ struct GgaContext {
     std::atomic_bool cancelled=false;
     gg::RootGrant root;
     std::unique_ptr<gg::ProjectLocation> location;
+    std::shared_ptr<void> read_fence;
     gg::Store store;
     std::unique_ptr<gg::Transaction> transaction;
     std::unique_ptr<gg::SnapshotReadPort> source;
@@ -26,7 +27,10 @@ struct GgaContext {
     std::size_t cached_bytes=0;
     bool failed=false;
     explicit GgaContext(const gg::Json& config):root(gg::text(config.at("projectRootUtf8"))),artifact_root(gg::text(config.at("privateArtifactRootUtf8"))) {
-        location=root.current_project_read_only();location->verify();store.open(location->database,false,true);store.verify_structure();
+        location=root.current_project_read_only();location->verify();
+        // 锁先于SQLite连接取得、后于连接析构释放；独立SDK入口同样遵守维护栅栏。
+        read_fence=location->maintenance_fence(false);
+        store.open(location->database,false,true);store.verify_structure();
         transaction=std::make_unique<gg::Transaction>(store,gg::Transaction::Access::read);
         source=std::make_unique<gg::SnapshotReadPort>(store,config.at("snapshot"),gg::text(config.at("consumerId")),[this]{checkpoint();});
         settings=gg::text(store.scalar("SELECT settings_document_id FROM project WHERE singleton=1"));

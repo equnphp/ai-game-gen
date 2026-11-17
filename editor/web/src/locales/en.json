@@ -179,5 +179,16 @@
   "workspaceScanSUCCEEDED": "Search completed",
   "workspaceScanFAILED": "Search failed",
   "workspaceScanCANCELLED": "Search cancelled; results are incomplete",
-  "workspaceScanPARTIAL": "Search limit reached; results are incomplete"
+  "workspaceScanPARTIAL": "Search limit reached; results are incomplete",
+  "localCompiler": "Local compiler components",
+  "localCompilerNote": "Preview and export use the compiler and runtime installed on this device.",
+  "compilerChecking": "Checking components. Read again shortly.",
+  "compilerUnavailable": "No local compiler component is installed.",
+  "compilerDamaged": "Component files are incomplete or have changed. Reinstall a matching component.",
+  "compilerInstalled": "Installed",
+  "compilerVersion": "Compiler version",
+  "runtimeConfiguration": "Runtime configuration",
+  "runtimeDevelopment": "Development",
+  "runtimeRelease": "Release",
+  "compilerReading": "Checking…"
 }

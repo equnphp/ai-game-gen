@@ -179,5 +179,16 @@
   "workspaceScanSUCCEEDED": "Búsqueda completada",
   "workspaceScanFAILED": "Búsqueda fallida",
   "workspaceScanCANCELLED": "Búsqueda cancelada; resultados parciales",
-  "workspaceScanPARTIAL": "Límite de búsqueda alcanzado; resultados parciales"
+  "workspaceScanPARTIAL": "Límite de búsqueda alcanzado; resultados parciales",
+  "localCompiler": "Compilador local",
+  "localCompilerNote": "La vista previa y la exportación usan el compilador y el entorno de ejecución instalados en este dispositivo.",
+  "compilerChecking": "Comprobando los componentes. Vuelve a leer en unos instantes.",
+  "compilerUnavailable": "No hay un compilador local instalado.",
+  "compilerDamaged": "Los archivos están incompletos o han cambiado. Reinstala un componente compatible.",
+  "compilerInstalled": "Instalado",
+  "compilerVersion": "Versión del compilador",
+  "runtimeConfiguration": "Configuración de ejecución",
+  "runtimeDevelopment": "Desarrollo",
+  "runtimeRelease": "Publicación",
+  "compilerReading": "Comprobando…"
 }

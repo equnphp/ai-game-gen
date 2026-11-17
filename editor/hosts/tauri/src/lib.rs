@@ -6,11 +6,16 @@ mod locale;
 mod store_io;
 mod workspace;
 mod artifact_bridge;
+mod sqlite;
+mod source_lease;
+mod artifact_store;
+mod compiler_component;
+mod contracts;
 use crate::{core::Host,locale::LocalUX,wire::*,workspace::Workspace};
 use serde_json::{json,Value};
 use std::{sync::{Arc,Mutex,atomic::{AtomicUsize,Ordering}},time::{Instant,Duration}};
 use tauri::{Manager,Emitter};
-struct AppState { host:Mutex<Host>,ux:LocalUX,workspace:Arc<Mutex<Workspace>>,pending:AtomicUsize }
+struct AppState { host:Mutex<Host>,ux:LocalUX,workspace:Arc<Mutex<Workspace>>,components:Arc<compiler_component::CompilerComponents>,pending:AtomicUsize }
 struct Permit(Arc<AppState>);
 impl Drop for Permit {fn drop(&mut self){self.0.pending.fetch_sub(1,Ordering::AcqRel);}}
 fn permit(state:&Arc<AppState>)->Result<Permit>{
@@ -24,6 +29,25 @@ fn permit(state:&Arc<AppState>)->Result<Permit>{
 }
 fn host_error(request:&Value,fault:Fault)->Value{
     json!({"protocol":"1.0","callId":request["callId"],"method":request["method"],"ok":false,"error":fault.value()})
+}
+#[tauri::command]
+async fn compiler_component_rpc(window:tauri::WebviewWindow,state:tauri::State<'_,Arc<AppState>>,request:Value)->std::result::Result<Value,String>{
+    fn failed(request:&Value,code:&str)->Value{json!({"protocolVersion":"1.0","requestId":request["requestId"],"ok":false,"error":{"code":code,"messageKey":format!("compiler.{code}"),"retryable":code=="TIMEOUT"}})}
+    if window.label()!="main"{return Ok(failed(&request,"COMPONENT_UNAVAILABLE"));}
+    let state=state.inner().clone();let permit=match permit(&state){Ok(p)=>p,Err(_)=>return Ok(failed(&request,"LIMIT_EXCEEDED"))};let fallback=request.clone();
+    Ok(tauri::async_runtime::spawn_blocking(move||{
+        let _permit=permit;
+        let result=std::panic::catch_unwind(std::panic::AssertUnwindSafe(||->Result<Value>{
+            let encoded=serde_json::to_vec(&request).map_err(|_|Fault::new("INVALID_MESSAGE"))?;parse(&encoded,65536)?;
+            shape(&request,&["protocolVersion","requestId","method","params"])?;need(request["requestId"].as_str().is_some_and(uuid),"INVALID_MESSAGE")?;
+            need(request["protocolVersion"]=="1.0","UNSUPPORTED_PROTOCOL")?;need(request["method"]=="compiler.component.read","UNSUPPORTED_METHOD")?;shape(&request["params"],&[])?;
+            crate::contracts::check(crate::contracts::Contract::CompilerPort,&request)?;
+            // 初始化受控组件不建立Core会话；耗时hash工作由单一组件worker处理。
+            let provider=state.host.lock().map_err(|_|Fault::new("INTERNAL_ERROR"))?.native_api().map_err(|_|Fault::new("COMPONENT_UNAVAILABLE"))?;
+            let component=state.components.read(provider)?;Ok(json!({"protocolVersion":"1.0","requestId":request["requestId"],"ok":true,"data":component.projection}))
+        }));
+        match result{Ok(Ok(v))=>v,Ok(Err(f))=>{let code=if ["INVALID_MESSAGE","UNSUPPORTED_PROTOCOL","UNSUPPORTED_METHOD","COMPONENT_UNAVAILABLE","COMPONENT_INTEGRITY_ERROR","COMPONENT_CHANGED","LIMIT_EXCEEDED","TIMEOUT","INTERNAL_ERROR"].contains(&f.code.as_str()){f.code.as_str()}else{"COMPONENT_INTEGRITY_ERROR"};failed(&request,code)},Err(_)=>failed(&request,"INTERNAL_ERROR")}
+    }).await.unwrap_or_else(|_|failed(&fallback,"INTERNAL_ERROR")))
 }
 #[tauri::command]
 async fn host_bootstrap(window:tauri::WebviewWindow,state:tauri::State<'_,Arc<AppState>>)->std::result::Result<Value,String>{
@@ -134,7 +158,7 @@ pub fn run(){
             let library=app.path().resource_dir()?.join("native/windows-x86_64");
             let workspace=Arc::new(Mutex::new(Workspace::new(projects.clone(),app_data.join("workspace"))));
             let state=Arc::new(AppState{host:Mutex::new(Host::new(projects,library,workspace.clone())),workspace,
-                ux:LocalUX::new(app_data.join("editor-profile")),pending:AtomicUsize::new(0)});
+                ux:LocalUX::new(app_data.join("editor-profile")),components:Arc::new(compiler_component::CompilerComponents::default()),pending:AtomicUsize::new(0)});
             app.manage(state);Ok(())
         })
         .on_window_event(|window,event|{
@@ -149,7 +173,7 @@ pub fn run(){
                 }
             }
         })
-        .invoke_handler(tauri::generate_handler![host_bootstrap,core_dispatch,ux_dispatch,workspace_dispatch])
+        .invoke_handler(tauri::generate_handler![host_bootstrap,core_dispatch,ux_dispatch,workspace_dispatch,compiler_component_rpc])
         .run(tauri::generate_context!())
         .expect("GameGen host startup failed");
 }

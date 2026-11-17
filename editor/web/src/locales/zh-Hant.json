@@ -179,5 +179,16 @@
   "workspaceScanSUCCEEDED": "尋找已完成",
   "workspaceScanFAILED": "尋找失敗",
   "workspaceScanCANCELLED": "尋找已取消，結果不完整",
-  "workspaceScanPARTIAL": "已達尋找限額，結果不完整"
+  "workspaceScanPARTIAL": "已達尋找限額，結果不完整",
+  "localCompiler": "本機編譯元件",
+  "localCompilerNote": "預覽與匯出使用本機安裝的編譯器與執行階段。",
+  "compilerChecking": "正在核對元件，請稍後重新讀取。",
+  "compilerUnavailable": "尚未安裝可用的本機編譯元件。",
+  "compilerDamaged": "元件檔案不完整或已變更，請重新安裝相符元件。",
+  "compilerInstalled": "已安裝",
+  "compilerVersion": "編譯器版本",
+  "runtimeConfiguration": "執行階段設定",
+  "runtimeDevelopment": "開發版",
+  "runtimeRelease": "發行版",
+  "compilerReading": "核對中…"
 }

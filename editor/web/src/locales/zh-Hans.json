@@ -179,5 +179,16 @@
   "workspaceScanSUCCEEDED": "查找已完成",
   "workspaceScanFAILED": "查找失败",
   "workspaceScanCANCELLED": "查找已取消，结果不完整",
-  "workspaceScanPARTIAL": "已达到查找限额，结果不完整"
+  "workspaceScanPARTIAL": "已达到查找限额，结果不完整",
+  "localCompiler": "本地编译组件",
+  "localCompilerNote": "预览和导出使用本机安装的编译器与运行时。",
+  "compilerChecking": "正在校核组件，请稍后重新读取。",
+  "compilerUnavailable": "尚未安装可用的本地编译组件。",
+  "compilerDamaged": "组件文件不完整或已改变，请重新安装匹配组件。",
+  "compilerInstalled": "已安装",
+  "compilerVersion": "编译器版本",
+  "runtimeConfiguration": "运行时配置",
+  "runtimeDevelopment": "开发版",
+  "runtimeRelease": "发布版",
+  "compilerReading": "校核中…"
 }

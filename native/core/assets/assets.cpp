@@ -210,9 +210,51 @@ std::string Session::maintenance(const Json& r, const std::string& digest, const
                                       {"checksum",checksum},{"relativePath",file.relative}});
         control.checkpoint();control.commit_gate();Transaction tx(store_);save_request(r,digest,result);tx.commit();return result;
     }
-    require(op=="maintenance.gc","INVALID_MESSAGE");expire_proposals();
+    require(op=="maintenance.gc","INVALID_MESSAGE");expire_proposals();idle();
+    // 即使通过裸Core SDK调用，也不能越过另一个进程的快照读取。
+    const auto maintenance=location_->maintenance_fence(true);
+    if(format_==2) {
+        // 每个保留快照都按仓储同源规则核对原manifest与索引，不能只相信FK存在。
+        const auto snapshots=store_.query("SELECT snapshot_id FROM snapshots ORDER BY snapshot_id");
+        require(snapshots.size()<=10000,"GC_RETENTION_UNRESOLVED");
+        for(const auto& row:snapshots){
+            control.checkpoint();
+            try{(void)read_repository_state(store_,format_,project_,branch_,text(row[0]));}
+            catch(...){throw Error("GC_RETENTION_UNRESOLVED");}
+        }
+    }
     const auto active=store_.scalar("SELECT COUNT(*) FROM uploads WHERE state IN('UPLOADING','READY')").get<int>();
     if(!p.at("dryRun").get<bool>())require(proposals_.empty() && active==0 && control.sole_task(),"PROJECT_BUSY");
+    if(!asset_reads_.empty()) {
+        // 目录租约仍可请求旧版本的blob；暂不能完整覆盖其后续读集时保守延迟回收。
+        require(p.at("dryRun").get<bool>(),"BUSY");
+        Json reasons={"ACTIVE_READ_LEASES"};if(active)reasons.push_back("ACTIVE_UPLOADS");if(!proposals_.empty())reasons.push_back("ACTIVE_PROPOSALS");
+        return envelope(r,{{"dryRun",true},{"documentVersions",0},{"assets",0},{"documentBytes","0"},{"blobObjects",0},{"blobBytes","0"},{"reclaimableBytes","0"},{"retainedReasons",reasons}});
+    }
+    if(format_==2)for(const auto& row:store_.query("SELECT t.forward_json,t.inverse_json FROM history_entries h JOIN transactions t USING(transaction_id)")) {
+        control.checkpoint();
+        for(const auto& raw:row) {
+            Json projection;
+            try{projection=parse(text(raw));}catch(...){throw Error("GC_RETENTION_UNRESOLVED");}
+            require(projection.is_object() && projection.contains("documentHeads") && projection.at("documentHeads").is_object() &&
+                projection.contains("assetHeads") && projection.at("assetHeads").is_object(),"GC_RETENTION_UNRESOLVED");
+            const auto version=projection.value("dataVersion",Json(1));
+            require(version.is_number_integer() && (version==1 || version==2),"GC_RETENTION_UNRESOLVED");
+            for(auto head=projection.at("documentHeads").begin();head!=projection.at("documentHeads").end();++head) {
+                require(uuid(head.key()),"GC_RETENTION_UNRESOLVED");if(head.value().is_null())continue;
+                require(head.value().is_string() && uuid(text(head.value())) && store_.query("SELECT version_id FROM document_versions WHERE document_id=? AND version_id=?",{head.key(),head.value()}).size()==1,"GC_RETENTION_UNRESOLVED");
+            }
+            for(auto head=projection.at("assetHeads").begin();head!=projection.at("assetHeads").end();++head) {
+                require(uuid(head.key()),"GC_RETENTION_UNRESOLVED");
+                if(version==1) {
+                    require(head.value().is_boolean(),"GC_RETENTION_UNRESOLVED");if(head.value()==false)continue;
+                    const auto mapping=store_.query("SELECT generated_id FROM format_migration_maps WHERE map_kind='asset_initial_version' AND source_stable_id=?",{head.key()});
+                    require(mapping.size()==1 && store_.query("SELECT asset_version_id FROM asset_versions WHERE asset_id=? AND asset_version_id=?",{head.key(),mapping[0][0]}).size()==1,"GC_RETENTION_UNRESOLVED");
+                }else if(!head.value().is_null())require(head.value().is_string() && uuid(text(head.value())) &&
+                    store_.query("SELECT asset_version_id FROM asset_versions WHERE asset_id=? AND asset_version_id=?",{head.key(),head.value()}).size()==1,"GC_RETENTION_UNRESOLVED");
+            }
+        }
+    }
     const char* unreachable_docs =
         "SELECT version_id,length(CAST(body_json AS BLOB)) FROM document_versions WHERE version_id NOT IN "
         "(SELECT version_id FROM document_heads UNION SELECT version_id FROM snapshot_documents UNION "
@@ -238,14 +280,45 @@ std::string Session::maintenance(const Json& r, const std::string& digest, const
             "json_each(json_extract(t.inverse_json,'$.assetHeads')) j WHERE j.type='text' UNION "
             "SELECT m.generated_id FROM format_migration_maps m WHERE m.map_kind='asset_initial_version' AND m.source_stable_id IN ("
             "SELECT j.key FROM history_entries h JOIN transactions t USING(transaction_id),"
-            "json_each(json_extract(t.forward_json,'$.assetHeads')) j WHERE j.type IN('true','false') UNION "
+            "json_each(json_extract(t.forward_json,'$.assetHeads')) j WHERE j.type='true' UNION "
             "SELECT j.key FROM history_entries h JOIN transactions t USING(transaction_id),"
-            "json_each(json_extract(t.inverse_json,'$.assetHeads')) j WHERE j.type IN('true','false')))" );
+            "json_each(json_extract(t.inverse_json,'$.assetHeads')) j WHERE j.type='true'))" );
     }
     std::uint64_t bytes=0;for(const auto& row:docs)bytes+=row[1].get<std::uint64_t>();
     std::set<std::string> deleting_assets;for(const auto& row:assets)deleting_assets.insert(text(row[0]));
     std::set<std::string> deleting_versions;for(const auto& row:asset_versions)deleting_versions.insert(text(row[0]));
     if(format_==2) {
+        std::set<std::string> deleting_documents;for(const auto& row:docs)deleting_documents.insert(text(row[0]));
+        // 删除前重算所有保留版本的引用；未知Extractor或旧索引不完整时不猜测读集。
+        std::size_t checked=0;
+        for(const auto& row:store_.query("SELECT document_id,version_id FROM document_versions ORDER BY version_id"))if(!deleting_documents.contains(text(row[1]))) {
+            control.checkpoint();require(++checked<=10000,"GC_RETENTION_UNRESOLVED");
+            try {
+                const auto document=read_document_version(store_,text(row[0]),text(row[1]));
+                require(known_document(document),"GC_RETENTION_UNRESOLVED");validate_document(document);
+                std::vector<Row> expected;
+                for(const auto& ref:references(document)) {
+                    const auto type=ref.expected_type.empty()?(ref.kind=="document"?"scene":ref.kind=="asset"?"image":"entity"):ref.expected_type;
+                    const Json scope=ref.kind=="entity"||ref.kind=="subobject"?Json(ref.scope_document.empty()?document.id:ref.scope_document):Json(nullptr);
+                    expected.push_back({ref.path,ref.kind,ref.target,type,scope,ref.required?1:0});
+                }
+                std::sort(expected.begin(),expected.end(),[](const auto& a,const auto& b){return text(a[0])<text(b[0]);});
+                require(expected==store_.query("SELECT field_path,target_kind,target_id,expected_type,scope_document_id,required FROM document_refs WHERE version_id=? ORDER BY field_path",{document.version}),"GC_RETENTION_UNRESOLVED");
+            }catch(...){throw Error("GC_RETENTION_UNRESOLVED");}
+        }
+        for(const auto& row:store_.query("SELECT asset_id,asset_version_id FROM asset_versions"))if(!deleting_versions.contains(text(row[1]))) {
+            control.checkpoint();
+            try {
+                const auto version=read_asset_version(store_,text(row[0]),text(row[1]));
+                require(store_.scalar("SELECT COALESCE(SUM(length(c.data)),0) FROM blob_chunks c JOIN blob_objects b USING(blob_id) WHERE b.content_hash=?",{version.content_hash})==version.bytes,"GC_RETENTION_UNRESOLVED");
+            }catch(...){throw Error("GC_RETENTION_UNRESOLVED");}
+        }
+        for(const auto& ref:store_.query("SELECT version_id,target_id FROM document_refs WHERE target_kind='asset'"))if(!deleting_documents.contains(text(ref[0]))) {
+            control.checkpoint();const auto versions=store_.query("SELECT asset_version_id FROM asset_versions WHERE asset_id=?",{ref[1]});
+            // 无法从当前/快照/历史确定仍活跃版本时拒绝整个GC，不凭逻辑ID猜默认内容。
+            require(!versions.empty() && std::any_of(versions.begin(),versions.end(),[&](const auto& version){return !deleting_versions.contains(text(version[0]));}),"GC_RETENTION_UNRESOLVED");
+            deleting_assets.erase(text(ref[1]));
+        }
         // 即使索引出现未来兼容保留来源，也不在父记录仍被版本FK引用时删逻辑资产。
         for(const auto& row:store_.query("SELECT asset_id,asset_version_id FROM asset_versions"))
             if(!deleting_versions.contains(text(row[1])))deleting_assets.erase(text(row[0]));

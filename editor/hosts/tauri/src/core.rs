@@ -1,5 +1,5 @@
 // 单一宿主会话管理器串行调用FFI；等待任务由调用端分轮查询，不占住actor。
-use crate::{ffi::{Api,Buffer,Config,bytes},wire::*,workspace::Workspace};
+use crate::{ffi::{Api,Buffer,Config,bytes},wire::*,workspace::Workspace,source_lease::{SourceLeases,SourceLease}};
 use serde_json::{json,Value};
 use std::{collections::HashMap,path::PathBuf,sync::{Arc,Mutex},time::{Duration,Instant}};
 
@@ -9,9 +9,9 @@ fn limits()->Value {json!({"requestJsonBytes":2097152,"binaryChunkBytes":1048576
     "coreTaskSlots":32,"hostPendingCalls":16,"coreEventRing":256,"eventPollItems":100,"eventDecodedBytes":1048576,
     "resultCacheSlots":1,"resultCacheDecodedBytes":8388608,"wireLineBytes":16777216,"uploadPendingChunks":4,
     "driverMaxRequestIds":65536,"driverNewWorkThreshold":65000})}
-struct Ticket { native:u64,reference:String,request_id:Option<String>,origin:String,op:String,protocol:String,directory:Option<String> }
+struct Ticket { native:u64,reference:String,request_id:Option<String>,origin:String,op:String,protocol:String,directory:Option<String>,source_owned:bool }
 struct OpenObservation {request:String,directory:String,protocol:String,operation:String,verified:Option<Value>}
-pub(crate) struct NativeProjectContext {pub api:Arc<Api>,pub directory:PathBuf,pub project_id:String,pub protocol:String,pub session_id:String,pub core_id:String}
+pub(crate) struct NativeProjectContext {pub api:Arc<Api>,pub directory:PathBuf,pub project_id:String,pub branch_id:String,pub protocol:String,pub session_id:String,pub core_id:String,pub host_id:String,pub binding_id:String,pub token:String}
 struct Cache { task:String,state:String,json:Vec<u8>,binary:Option<Vec<u8>> }
 struct Session {
     api:Arc<Api>,native:u64,token:String,id:String,core_id:String,state:String,
@@ -19,6 +19,7 @@ struct Session {
     host_id:String,workspace:Arc<Mutex<Workspace>>,pending_open:Option<OpenObservation>,
     verified_directory:Option<String>,
     expected_project:Option<String>,expected_format:Option<u64>,
+    opened_directory:Option<String>,branch_id:Option<String>,binding_id:String,last_open_request:Option<String>,source_leases:SourceLeases,
 }
 impl Session {
     fn poll(&self,native:u64)->Result<(String,Value)> {
@@ -46,16 +47,25 @@ impl Session {
         if value["ok"]!=true{return Ok(());}
         let data=&value["data"];
         if matches!(op,"project.create"|"project.open"){
+            need(data["projectId"].as_str().is_some_and(uuid)&&data["branchId"].as_str().is_some_and(uuid),"CORE_CONTRACT_VIOLATION")?;
+            let new_binding=self.project.is_none()||self.project.as_deref()!=data["projectId"].as_str();
             self.project=data["projectId"].as_str().map(str::to_owned);
-            self.verified_directory=None;
+            self.branch_id=data["branchId"].as_str().map(str::to_owned);
+            if new_binding{self.verified_directory=None;self.binding_id=id();}
             if let (Some(request),Some(directory))=(request,directory){
                 let directory=self.workspace.lock().ok().and_then(|w|w.canonical_directory(directory).ok()).unwrap_or_else(||directory.into());
-                self.pending_open=Some(OpenObservation{request:request.into(),directory,protocol:protocol.into(),operation:op.into(),verified:None});}
+                self.opened_directory=Some(directory.clone());
+                // 原创建回执重读不是新打开意图，不能更换观察来源或使已有SourceLease失效。
+                if self.last_open_request.as_deref()!=Some(request){self.last_open_request=Some(request.into());self.pending_open=Some(OpenObservation{request:request.into(),directory,protocol:protocol.into(),operation:op.into(),verified:None});}}
         }
-        if op=="project.read" && self.pending_open.as_ref().is_some_and(|o|o.protocol==protocol) && self.project.as_deref()==data["id"].as_str() &&
-            self.expected_project.as_ref().is_none_or(|p|data["id"]==*p) && self.expected_format.is_none_or(|f|data["formatVersion"]==f){
+        let verified_read=op=="project.read" && self.project.as_deref()==data["id"].as_str() &&
+            self.expected_project.as_ref().is_none_or(|p|data["id"]==*p) && self.expected_format.is_none_or(|f|data["formatVersion"]==f);
+        if verified_read {
             need(data["id"].as_str().is_some_and(uuid) && data["name"].as_str().is_some_and(|n|!n.is_empty()&&n.chars().count()<=80) && matches!(data["formatVersion"].as_u64(),Some(1|2)),"CORE_CONTRACT_VIOLATION")?;
             u64_string(&data["headRevision"]).map_err(|_|Fault::new("CORE_CONTRACT_VIOLATION"))?;
+            self.verified_directory=self.opened_directory.clone();
+        }
+        if verified_read && self.pending_open.as_ref().is_some_and(|o|o.protocol==protocol){
             let observed=self.pending_open.as_mut().unwrap();
             self.verified_directory=Some(observed.directory.clone());
             if observed.verified.is_none(){
@@ -70,7 +80,7 @@ impl Session {
         }
         // 关闭使用已成功访问项目的消息版本；format2不能再被M1关闭命令误拒绝。
         if matches!(op,"project.create"|"project.open"|"project.read"|"project.upgrade.commit") && !protocol.is_empty(){self.protocol=protocol.into();}
-        if op=="project.close"{self.project=None;self.pending_open=None;self.verified_directory=None;}
+        if op=="project.close"{self.project=None;self.pending_open=None;self.verified_directory=None;self.opened_directory=None;self.branch_id=None;}
         if let Some(v)=data.get("revision").or_else(||data.get("headRevision")).and_then(Value::as_str){
             u64_string(&json!(v))?;self.durable=Some(v.into());
         }
@@ -108,10 +118,12 @@ impl Session {
     }
     fn close_step(&mut self,cancel:bool)->Result<Option<Value>>{
         self.state="CLOSING".into();
+        if cancel{self.source_leases.cancel();}
         let keys:Vec<_>=self.tasks.keys().cloned().collect();
         let mut waiting=false;
         for key in keys{
             let Some(task)=self.tasks.get(&key)else{continue;};
+            if task.source_owned && self.source_leases.active(){waiting=true;continue;}
             let native=task.native;let (state,_)=self.poll(native)?;
             if !["SUCCEEDED","FAILED","CANCELLED"].contains(&state.as_str()){
                 if cancel{
@@ -120,11 +132,12 @@ impl Session {
                 }waiting=true;continue;
             }
             if self.cache.as_ref().is_some_and(|x|x.task!=key){
+                if self.cache.as_ref().and_then(|c|self.tasks.get(&c.task)).is_some_and(|t|t.source_owned) && self.source_leases.active(){waiting=true;continue;}
                 let cached=self.cache.as_ref().map(|x|x.task.clone()).unwrap();self.release(&cached)?;
             }
             self.result(&key)?;self.release(&key)?;
         }
-        if waiting{return Ok(None);}
+        if waiting || self.source_leases.active(){return Ok(None);}
         if let Some(project)=&self.project{
             if self.closing_task.is_none(){
                 let raw=serde_json::to_vec(&json!({"protocolVersion":self.protocol,"requestId":id(),"op":"project.close",
@@ -156,6 +169,7 @@ impl Host {
     pub fn has_session(&self)->bool{self.session.is_some() || self.quarantined.is_some() || self.workspace_gate.is_some()}
     pub(crate) fn session_is_current(&self,token:&str)->bool{self.session.as_ref().is_some_and(|s|s.token==token&&s.state=="OPEN")}
     pub(crate) fn ensure_components(&mut self)->Result<()>{self.load().map(|_|())}
+    pub(crate) fn native_api(&mut self)->Result<Arc<Api>>{self.load()}
     pub(crate) fn reserve_workspace_gate(&mut self,operation:&str)->Result<()>{need(!self.has_session(),"SESSION_LIMIT")?;self.workspace_gate=Some(operation.into());Ok(())}
     pub(crate) fn release_workspace_gate(&mut self,operation:&str){if self.workspace_gate.as_deref()==Some(operation){self.workspace_gate=None;}}
     pub(crate) fn open_for_workspace(&mut self,operation:&str,capabilities:Value,expected_project:Option<String>,expected_format:Option<u64>)->Result<Value>{
@@ -171,7 +185,26 @@ impl Host {
         let directory=session.verified_directory.as_ref().ok_or_else(||Fault::new("NOT_READY"))?;
         need(crate::workspace::directory_name(directory),"PERMISSION_DENIED")?;
         // 目录只来自同会话成功open+read，WebView提供的项目ID不能转成任意磁盘路径。
-        Ok(NativeProjectContext{api:session.api.clone(),directory:self.root.join(directory),project_id:project.into(),protocol:session.protocol.clone(),session_id:session.id.clone(),core_id:session.core_id.clone()})
+        Ok(NativeProjectContext{api:session.api.clone(),directory:self.root.join(directory),project_id:project.into(),branch_id:session.branch_id.clone().ok_or_else(||Fault::new("NOT_READY"))?,protocol:session.protocol.clone(),session_id:session.id.clone(),core_id:session.core_id.clone(),host_id:self.host_id.clone(),binding_id:session.binding_id.clone(),token:session.token.clone()})
+    }
+    pub(crate) fn acquire_source(&self,project:&str,branch:&str,cancel:Arc<dyn Fn()+Send+Sync>)->Result<(NativeProjectContext,SourceLease)>{
+        need(self.workspace_gate.is_none(),"BUSY")?;let session=self.session.as_ref().ok_or_else(||Fault::new("SESSION_REQUIRED"))?;
+        need(!session.tasks.values().any(|t|matches!(t.op.as_str(),"project.close"|"project.open"|"project.create"|"project.upgrade.commit")),"BUSY")?;
+        let context=self.native_project_context(&session.token,project)?;need(context.branch_id==branch,"SESSION_CHANGED")?;
+        let lease=session.source_leases.acquire(cancel)?;Ok((context,lease))
+    }
+    pub(crate) fn source_submit(&mut self,binding:&str,request:&Value)->Result<Value>{
+        let session=self.session.as_ref().ok_or_else(||Fault::new("SESSION_CHANGED"))?;
+        need(session.binding_id==binding&&session.source_leases.active()&&request["projectId"]==session.project.as_deref().unwrap_or(""),"SESSION_CHANGED")?;
+        need(["snapshot.capture","snapshot.retain","snapshot.release","request.lookup"].contains(&request["op"].as_str().unwrap_or("")),"PERMISSION_DENIED")?;
+        let p=json!({"sessionToken":session.token,"requestUtf8":blob(&serde_json::to_vec(request).map_err(|_|Fault::new("INVALID_MESSAGE"))?)});
+        let mut accepted=false;self.operate("core.submit",&p,&id(),&mut accepted,true).map_err(|f|f.at_submission("core.submit",accepted))
+    }
+    pub(crate) fn source_task(&mut self,binding:&str,method:&str,reference:&str)->Result<Value>{
+        need(["task.status","task.result","task.cancel","task.release"].contains(&method),"PERMISSION_DENIED")?;
+        let session=self.session.as_ref().filter(|s|s.binding_id==binding&&s.source_leases.active()).ok_or_else(||Fault::new("SESSION_CHANGED"))?;
+        need(session.tasks.get(reference).is_some_and(|t|t.source_owned),"TASK_INVALID")?;
+        let params=json!({"sessionToken":session.token,"taskRef":reference});self.operate(method,&params,&id(),&mut false,true)
     }
     pub fn grant(&self)->String{self.grant.clone()}
     fn load(&mut self)->Result<Arc<Api>>{
@@ -203,7 +236,8 @@ impl Host {
         api.checked(status,error).map_err(|mut f|{if status==3{f.code="SESSION_INVALID".into();}f})?;
         let mut session=Session{api:api.clone(),native:core,token:String::new(),id:id(),core_id:String::new(),state:"OPEN".into(),
             tasks:HashMap::new(),cache:None,project:None,durable:None,closing_task:None,protocol:"1.0".into(),
-            host_id:self.host_id.clone(),workspace:self.workspace.clone(),pending_open:None,verified_directory:None,expected_project:None,expected_format:None};
+            host_id:self.host_id.clone(),workspace:self.workspace.clone(),pending_open:None,verified_directory:None,expected_project:None,expected_format:None,
+            opened_directory:None,branch_id:None,binding_id:id(),last_open_request:None,source_leases:SourceLeases::new()};
         let initialized=(||->Result<()>{
             let request=serde_json::to_vec(&json!({"protocolVersion":"1.0","requestId":id(),"op":"core.capabilities","params":{}}))
                 .map_err(|_|Fault::new("INTERNAL_ERROR"))?;
@@ -232,7 +266,7 @@ impl Host {
             "sessionId":session.id,"coreInstanceId":session.core_id,"afterSeq":"0"}});
         self.session=Some(session);Ok(result)
     }
-    fn operate(&mut self,method:&str,p:&Value,call:&str,accepted:&mut bool)->Result<Value>{
+    fn operate(&mut self,method:&str,p:&Value,call:&str,accepted:&mut bool,native_source:bool)->Result<Value>{
         if method=="host.describe"{
             shape(p,&[])?;let _=self.load();
             return Ok(json!({"contractVersion":"1.0","hostInstanceId":self.host_id,"adapterKind":"tauri-native",
@@ -267,18 +301,20 @@ impl Host {
         match method{
             "session.state"=>{
                 shape(p,&["sessionToken"])?;
-                let tasks:Vec<_>=session.tasks.values().map(|t|json!({"taskRef":t.reference,"coreRequestId":t.request_id,"originCallId":t.origin})).collect();
+                // 后台服务的原Core句柄不交给UI；其取消/结果通过各自job端口归属控制。
+                let tasks:Vec<_>=session.tasks.values().filter(|t|!t.source_owned).map(|t|json!({"taskRef":t.reference,"coreRequestId":t.request_id,"originCallId":t.origin})).collect();
                 Ok(json!({"state":session.state,"sessionId":session.id,"coreInstanceId":session.core_id,
                     "projectState":if session.tasks.values().any(|t|matches!(t.op.as_str(),"project.create"|"project.open"|"project.close")){"UNKNOWN"}else if session.project.is_some(){"OPEN"}else{"NONE"},"activeTasks":tasks.len(),"tasks":tasks,
                     "resultSlotTask":session.cache.as_ref().map(|c|c.task.clone())}))
             },
             "core.submit"|"upload.write"|"blob.read"=>{
-                need(session.state=="OPEN","SESSION_CLOSING")?;need(session.tasks.len()<32,"QUEUE_FULL")?;
+                need(session.state=="OPEN" || native_source&&session.state=="CLOSING","SESSION_CLOSING")?;need(session.tasks.len()<32,"QUEUE_FULL")?;
                 let (mut native,mut error)=(0,Buffer::default());let request_id;let op;let protocol;let directory;
                 let code=if method=="core.submit"{
                     shape(p,&["sessionToken","requestUtf8"])?;let raw=unblob(&p["requestUtf8"],2097152)?;
                     let value=parse(&raw,2097152)?;let rid=string(&value,"requestId")?;
                     need(uuid(rid),"INVALID_MESSAGE")?;request_id=Some(rid.to_owned());op=string(&value,"op")?.to_owned();
+                    if matches!(op.as_str(),"project.close"|"project.upgrade.commit"|"maintenance.gc"){need(!session.source_leases.active(),"BUSY")?;}
                     protocol=value["protocolVersion"].as_str().filter(|v|v.len()<=16).unwrap_or("").to_owned();
                     directory=if matches!(op.as_str(),"project.create"|"project.open"){value["params"]["directory"].as_str().filter(|s|s.len()<=74).map(str::to_owned)}else{None};
                     unsafe{(session.api.submit)(session.native,bytes(&raw),&mut native,&mut error)}
@@ -301,11 +337,12 @@ impl Host {
                 session.api.checked(code,error)?;need(native!=0,"CORE_CONTRACT_VIOLATION")?;
                 let reference=format!("t1.{}.{}",session.id,id());
                 let result=json!({"taskRef":reference,"coreRequestId":request_id,"originCallId":call});
-                session.tasks.insert(reference.clone(),Ticket{native,reference,request_id,origin:call.into(),op,protocol,directory});Ok(result)
+                session.tasks.insert(reference.clone(),Ticket{native,reference,request_id,origin:call.into(),op,protocol,directory,source_owned:native_source});Ok(result)
             },
             "task.status"|"task.result"|"task.cancel"|"task.release"=>{
                 shape(p,&["sessionToken","taskRef"])?;let reference=string(p,"taskRef")?;
                 let task=session.tasks.get(reference).ok_or_else(||Fault::new("TASK_INVALID"))?;
+                need(!task.source_owned||native_source,"PERMISSION_DENIED")?;
                 let native=task.native;
                 match method{
                     "task.status"=>{let(state,v)=session.poll(native)?;Ok(json!({"state":state,"cancellable":v["cancellable"],
@@ -327,7 +364,7 @@ impl Host {
             need(request["protocol"]=="1.0","UNSUPPORTED_PROTOCOL")?;
             shape(request,&["protocol","callId","method","params"])?;need(uuid(&call),"INVALID_MESSAGE")?;
             need(METHODS.contains(&method.as_str()),"INVALID_MESSAGE")?;
-            self.operate(&method,&request["params"],&call,&mut accepted)
+            self.operate(&method,&request["params"],&call,&mut accepted,false)
         })();
         match result{
             Ok(value)=>json!({"protocol":"1.0","callId":call,"method":method,"ok":true,"result":value}),

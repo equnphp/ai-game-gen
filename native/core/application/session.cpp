@@ -449,7 +449,7 @@ std::string Session::operate(const Json& r, const std::string& digest, const Con
     if (op=="project.close") {
         const auto revision=head(); control.checkpoint();
         auto result=envelope(r,{{"closed",true},{"lastDurableRevision",std::to_string(revision)}});
-        asset_reads_.clear();store_.close(); location_.reset(); project_.clear(); branch_.clear(); settings_.clear();
+        asset_reads_.clear();store_.close();project_read_fence_.reset();location_.reset(); project_.clear(); branch_.clear(); settings_.clear();
         proposals_.clear(); volatile_requests_.clear(); asset_reads_.clear();upgrade_plan_.reset();format_=1;
         read_only_=Json::array(); recovery_required_=false; return result;
     }
@@ -476,11 +476,12 @@ std::string Session::execute(const std::string& raw, const Control& control) {
             require(!is_open(),"PROJECT_BUSY"); const auto& p=r.at("params"); const bool ro=p.at("mode")=="read_only";
             location_=root_.project(text(p.at("directory")),false,!ro);
             try {
+                if(ro)project_read_fence_=location_->maintenance_fence(false);
                 store_.open(location_->database,false,ro); if(ro)read_only_.push_back("HOST_READ_ONLY"); open_metadata();
                 require(format_ == 1 || r.at("protocolVersion") == "1.1", "FORMAT_UPGRADE_REQUIRED");
                 return envelope(r,{{"projectId",project_},{"branchId",branch_},{"headRevision",std::to_string(head())},
                     {"recoverySummary",{{"strategy","sqlite_wal"},{"status","opened"}}},{"readOnlyReasons",read_only_}});
-            } catch (...) {store_.close();location_.reset();read_only_=Json::array();throw;}
+            } catch (...) {store_.close();project_read_fence_.reset();location_.reset();read_only_=Json::array();throw;}
         }
         require(is_open(),"NOT_FOUND"); require(r.at("projectId")==project_,"PERMISSION_DENIED");
         require(format_ == 1 || r.at("protocolVersion") == "1.1", "FORMAT_UPGRADE_REQUIRED");

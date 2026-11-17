@@ -1,5 +1,5 @@
 // 最近索引只接受原生Core回执；列表是历史缓存，不能代替重新打开时的工程身份验证。
-use crate::{store_io::{write_new,replace},wire::*};
+use crate::{store_io::{write_new,replace,safe_metadata,safe_ancestors},wire::*};
 use fs2::FileExt;
 use serde_json::{json,Value};
 use sha2::{Digest,Sha256};
@@ -24,12 +24,6 @@ pub(crate) fn now()->String {
     let month=mp+if mp<10{3}else{-9};if month<=2{year+=1;}
     format!("{year:04}-{month:02}-{day:02}T{:02}:{:02}:{:02}Z",secs/3600%24,secs/60%60,secs%60)
 }
-fn safe_metadata(path:&Path)->std::io::Result<fs::Metadata>{
-    let m=fs::symlink_metadata(path)?;
-    #[cfg(windows)]{use std::os::windows::fs::MetadataExt;if m.file_attributes()&0x400!=0{return Err(std::io::ErrorKind::PermissionDenied.into());}}
-    if m.file_type().is_symlink(){return Err(std::io::ErrorKind::PermissionDenied.into());}Ok(m)
-}
-fn safe_ancestors(path:&Path)->bool {path.ancestors().all(|p|safe_metadata(p).is_ok())}
 fn validate_store(v:&Value)->Result<()> {
     shape(v,&["schemaVersion","storeId","revision","lastOpenOrdinal","entries","lastCommit"])?;
     need(v["schemaVersion"]==1 && uuid(string(v,"storeId")?),"STORE_CORRUPT")?;

@@ -34,6 +34,8 @@ pub struct Api {
     pub protocols:Vec<&'static str>,
     pub artifact_library:Option<PathBuf>,
     pub artifact_sha256:Option<String>,
+    pub bundle_directory:PathBuf,
+    pub installation_sha256:Option<String>,
 }
 struct Lease<'a>{api:&'a Api,buffer:Buffer}
 impl Drop for Lease<'_>{fn drop(&mut self){unsafe{(self.api.free)(&mut self.buffer);}}}
@@ -60,7 +62,8 @@ impl Api {
             fn GetModuleFileNameW(module:*mut std::ffi::c_void,out:*mut u16,size:u32)->u32;
         }
         need(directory.is_dir(),"LIBRARY_NOT_FOUND")?;
-        let directory=fs::canonicalize(directory).map_err(|_|Fault::new("LIBRARY_NOT_FOUND"))?;
+        let (selected,installation_sha256)=crate::compiler_component::selected_directory(directory)?;
+        let directory=fs::canonicalize(selected).map_err(|_|Fault::new("LIBRARY_NOT_FOUND"))?;
         for ancestor in directory.ancestors(){
             let m=fs::symlink_metadata(ancestor).map_err(|_|Fault::new("LIBRARY_INVALID"))?;
             need(m.file_attributes() & 0x400==0,"LIBRARY_INVALID")?;
@@ -187,7 +190,7 @@ impl Api {
             release:symbol!("gg_task_release",unsafe extern "C" fn(u64,u64,*mut Buffer)->i32),
             events:symbol!("gg_read_events",unsafe extern "C" fn(u64,u64,u32,*mut Buffer,*mut Buffer)->i32),
             destroy:symbol!("gg_core_destroy",unsafe extern "C" fn(u64,*mut Buffer)->i32),
-            free:symbol!("gg_buffer_release",unsafe extern "C" fn(*mut Buffer)->i32),build_id,sqlite_module,protocols,artifact_library,artifact_sha256};
+            free:symbol!("gg_buffer_release",unsafe extern "C" fn(*mut Buffer)->i32),build_id,sqlite_module,protocols,artifact_library,artifact_sha256,bundle_directory:directory,installation_sha256};
         need(unsafe{(api.version)()}==0x10000,"VERSION_MISMATCH")?;Ok(Arc::new(api))
     }
     #[cfg(not(windows))]

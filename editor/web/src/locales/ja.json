@@ -179,5 +179,16 @@
   "workspaceScanSUCCEEDED": "検索完了",
   "workspaceScanFAILED": "検索失敗",
   "workspaceScanCANCELLED": "検索をキャンセルしました。結果は一部です",
-  "workspaceScanPARTIAL": "検索上限に達しました。結果は一部です"
+  "workspaceScanPARTIAL": "検索上限に達しました。結果は一部です",
+  "localCompiler": "ローカルコンパイラー",
+  "localCompilerNote": "プレビューとエクスポートには、この端末のコンパイラーとランタイムを使用します。",
+  "compilerChecking": "構成を確認しています。しばらくして再読み込みしてください。",
+  "compilerUnavailable": "ローカルコンパイラーがインストールされていません。",
+  "compilerDamaged": "構成ファイルが不完全か変更されています。一致する構成を再インストールしてください。",
+  "compilerInstalled": "インストール済み",
+  "compilerVersion": "コンパイラーのバージョン",
+  "runtimeConfiguration": "ランタイム構成",
+  "runtimeDevelopment": "開発版",
+  "runtimeRelease": "リリース版",
+  "compilerReading": "確認中…"
 }

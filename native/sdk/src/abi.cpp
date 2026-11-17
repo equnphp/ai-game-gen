@@ -34,7 +34,7 @@ gg_status status(const std::string& code) {
     if(code=="ABI_MISMATCH")return GG_E_ABI;
     if(code=="QUEUE_FULL")return GG_E_QUEUE_FULL;
     if(code=="TASK_NOT_READY")return GG_E_NOT_READY;
-    if(code=="CANCEL_TOO_LATE" || code=="ALREADY_COMMITTED" || code=="PROJECT_BUSY")return GG_E_BUSY;
+    if(code=="CANCEL_TOO_LATE" || code=="ALREADY_COMMITTED" || code=="PROJECT_BUSY" || code=="BUSY")return GG_E_BUSY;
     if(code=="LIMIT_EXCEEDED")return GG_E_LIMIT;
     if(code=="INVALID_ARGUMENT" || code=="INVALID_MESSAGE" || code=="INVALID_PATH" || code=="PERMISSION_DENIED")
         return GG_E_ARGUMENT;

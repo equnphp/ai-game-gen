@@ -22,6 +22,8 @@ struct Proposal {
 };
 class Session {
     RootGrant& root_;
+    // 只读Core本身也可能跨请求读取旧版本，持有至其SQLite连接真正关闭。
+    std::shared_ptr<void> project_read_fence_;
     Store store_;
     std::unique_ptr<ProjectLocation> location_;
     std::string project_, branch_, settings_;
@@ -30,6 +32,8 @@ class Session {
     bool recovery_required_ = false;
     std::map<std::string, Proposal> proposals_;
     struct AssetReadView {
+        // 活动目录读视图同样参与跨Core/进程维护栅栏，不能只依赖本Session的计数。
+        std::shared_ptr<void> maintenance;
         std::shared_ptr<Store> reader;
         std::unique_ptr<Transaction> lease;
         std::string filter_hash;

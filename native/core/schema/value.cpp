@@ -80,7 +80,7 @@ std::string Hasher::finish() {
 }
 std::string hash(std::string_view bytes) { Hasher h; h.update(bytes); return h.finish(); }
 Json error_json(std::string_view code, const Json& request) {
-    Json e = {{"code", code}, {"messageKey", "core." + std::string(code)}, {"retryable", code == "QUEUE_FULL"},
+    Json e = {{"code", code}, {"messageKey", "core." + std::string(code)}, {"retryable", code == "QUEUE_FULL" || code == "BUSY"},
               {"recoveryActions", Json::array()}};
     for (const char* key : {"requestId", "projectId"}) if (request.contains(key)) e[key] = request.at(key);
     if (code == "IO_ERROR" || code == "DATABASE_CORRUPT" || code == "STORAGE_FULL")

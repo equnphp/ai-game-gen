@@ -14,6 +14,8 @@ public:
     ~ProjectLocation();
     void verify() const;
     std::uintmax_t available() const;
+    // 维护锁与作者写锁独立；共享读不阻塞普通编辑，但阻止GC/移动删除。
+    std::shared_ptr<void> maintenance_fence(bool exclusive) const;
 };
 class RootGrant {
     std::shared_ptr<Directory> directory_;

@@ -140,6 +140,47 @@ struct ExclusiveLock {
         process_locks.erase(identity);
     }
 };
+// 不删除锁文件：崩溃仅由OS释放锁，防止替换inode后出现两套互不相见的栅栏。
+struct MaintenanceFence {
+#ifdef _WIN32
+    HANDLE file=INVALID_HANDLE_VALUE;
+#else
+    int fd=-1;
+#endif
+    explicit MaintenanceFence(const std::shared_ptr<Directory>& dir,bool exclusive) {
+        dir->verify();dir->verify_file(".gg-maintenance-read.lock");
+#ifdef _WIN32
+        const auto path=dir->path/L".gg-maintenance-read.lock";
+        file=CreateFileW(path.c_str(),GENERIC_READ,FILE_SHARE_READ|FILE_SHARE_WRITE,nullptr,OPEN_EXISTING,
+            FILE_ATTRIBUTE_NORMAL|FILE_FLAG_OPEN_REPARSE_POINT,nullptr);
+        if(file==INVALID_HANDLE_VALUE && GetLastError()==ERROR_FILE_NOT_FOUND)
+            file=CreateFileW(path.c_str(),GENERIC_READ|GENERIC_WRITE,FILE_SHARE_READ|FILE_SHARE_WRITE,nullptr,OPEN_ALWAYS,
+                FILE_ATTRIBUTE_NORMAL|FILE_FLAG_OPEN_REPARSE_POINT,nullptr);
+        require(file!=INVALID_HANDLE_VALUE,"BUSY");
+        BY_HANDLE_FILE_INFORMATION info{};OVERLAPPED position{};
+        const bool regular=GetFileInformationByHandle(file,&info) && info.nNumberOfLinks==1 &&
+            !(info.dwFileAttributes&(FILE_ATTRIBUTE_DIRECTORY|FILE_ATTRIBUTE_REPARSE_POINT));
+        if(!regular || !LockFileEx(file,LOCKFILE_FAIL_IMMEDIATELY|(exclusive?LOCKFILE_EXCLUSIVE_LOCK:0),0,1,0,&position)) {
+            CloseHandle(file);file=INVALID_HANDLE_VALUE;throw Error("BUSY");
+        }
+#else
+        fd=openat(dir->fd,".gg-maintenance-read.lock",O_RDONLY|O_CLOEXEC|O_NOFOLLOW);
+        if(fd<0 && errno==ENOENT)fd=openat(dir->fd,".gg-maintenance-read.lock",O_RDWR|O_CREAT|O_CLOEXEC|O_NOFOLLOW,0600);
+        require(fd>=0,"BUSY");
+        struct stat opened{},current{};
+        const bool same=fstat(fd,&opened)==0 && fstatat(dir->fd,".gg-maintenance-read.lock",&current,AT_SYMLINK_NOFOLLOW)==0 &&
+            S_ISREG(opened.st_mode) && opened.st_nlink==1 && opened.st_dev==current.st_dev && opened.st_ino==current.st_ino;
+        if(!same || flock(fd,(exclusive?LOCK_EX:LOCK_SH)|LOCK_NB)!=0){::close(fd);fd=-1;throw Error("BUSY");}
+#endif
+    }
+    ~MaintenanceFence(){
+#ifdef _WIN32
+        if(file!=INVALID_HANDLE_VALUE)CloseHandle(file);
+#else
+        if(fd>=0)::close(fd);
+#endif
+    }
+};
 }
 RootGrant::RootGrant(const std::string& root) {
     auto p = native_path(root);
@@ -181,6 +222,9 @@ ProjectLocation::ProjectLocation(std::shared_ptr<Directory> d, bool writable) : 
     database = directory_->child_path("project.sqlite");
 }
 ProjectLocation::~ProjectLocation() = default;
+std::shared_ptr<void> ProjectLocation::maintenance_fence(bool exclusive) const {
+    return std::make_shared<MaintenanceFence>(directory_,exclusive);
+}
 void ProjectLocation::verify() const {
     directory_->verify();
     for (const char* f : {"project.sqlite", "project.sqlite-wal", "project.sqlite-shm"}) directory_->verify_file(f);

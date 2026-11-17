@@ -15,6 +15,7 @@ import { ComponentInspector } from "./ComponentInspector";
 import type {Entity,Scene,NumberDraft} from './scene-model';
 import {WorkspaceClient,type OpenIntent} from './workspace-client';
 import {ProjectBrowser} from './ProjectBrowser';
+import {CompilerComponentPanel} from './CompilerComponentPanel';
 import type {WorkspaceOpenOperation} from '../../host-contract/workspace-port';
 type Document = {documentId:string;body:Scene;schemaVersion:number;versionId:string;revision:string};
 type Project = {id:string;name:string;formatVersion:number;headRevision:string;rootDocuments:{settingsId:string;defaultSceneId:string};readOnlyReasons:string[]};
@@ -369,7 +370,7 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
           <section className="panel">{!session?.tasks.length ? <p className="empty-note">{t("noTasks")}</p> : session.tasks.map(task=><article className="task-row" key={task.taskRef}><Icon name="clock"/><div><code>{task.coreRequestId ?? task.taskRef}</code><p>{session.state}</p></div>
             <button className="button" disabled={busy} onClick={()=>void withWork(async()=>{const confirmed=await client.confirm({ticket:task});await refreshTasks();if(current.current.project)await loadProject();else if(typeof confirmed.data?.projectId==="string")await refreshProject(confirmed.data.projectId);setUnknown(null);})}>{t("checkResult")}</button>
             <button className="button" disabled={busy} onClick={()=>void withWork(async()=>{await client.call("task.cancel",{sessionToken:client.session!,taskRef:task.taskRef});setError("CANCEL_REQUESTED");await refreshTasks();})}>{t("requestCancel")}</button></article>)}</section></>}
-        {page==="settings" && <><div className="page-heading"><h1>{t("settings")}</h1></div><section className="panel settings-panel"><div><h2>{t("language")}</h2><p className="muted">{t("languageNote")}</p></div><button className="button" onClick={()=>setShowLanguage(true)}>{locale.effectiveLocale}</button></section></>}
+        {page==="settings" && <><div className="page-heading"><h1>{t("settings")}</h1></div><section className="panel settings-panel"><div><h2>{t("language")}</h2><p className="muted">{t("languageNote")}</p></div><button className="button" onClick={()=>setShowLanguage(true)}>{locale.effectiveLocale}</button></section><CompilerComponentPanel/></>}
       </main>
       <footer><span>{project?.name ?? "GameGen"} · {t("localOnly")}</span><span>{project?"r"+project.headRevision:""}</span></footer>
     </div>
