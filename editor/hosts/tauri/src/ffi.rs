@@ -33,6 +33,7 @@ pub struct Api {
     pub sqlite_module:Option<usize>,
     pub protocols:Vec<&'static str>,
     pub artifact_library:Option<PathBuf>,
+    pub artifact_sha256:Option<String>,
 }
 struct Lease<'a>{api:&'a Api,buffer:Buffer}
 impl Drop for Lease<'_>{fn drop(&mut self){unsafe{(self.api.free)(&mut self.buffer);}}}
@@ -86,7 +87,7 @@ impl Api {
         }
         let build_id=manifest["buildId"].as_str().filter(|s|!s.is_empty()).ok_or_else(||Fault::new("LIBRARY_INVALID"))?.to_owned();
         let bundle=if directory.join("native-runtime-bundle.json").exists(){Some(parse(&fs::read(directory.join("native-runtime-bundle.json")).map_err(|_|Fault::new("LIBRARY_INVALID"))?,65536)?)}else{None};
-        let mut protocols=vec!["1.0"];let mut artifact_library=None;
+        let mut protocols=vec!["1.0"];let mut artifact_library=None;let mut artifact_sha256=None;
         if let Some(bundle)=&bundle {
             crate::wire::shape(bundle,&["manifestVersion","buildId","platform","libraries","sqlite","coreProtocolManifest"])?;
             need(bundle["manifestVersion"]=="gg-native-runtime-bundle-2" && bundle["buildId"]==build_id && bundle["platform"]=="windows-x64","LIBRARY_INVALID")?;
@@ -102,7 +103,7 @@ impl Api {
                     crate::wire::u64_string(&library["bytes"])?==fs::metadata(directory.join(name)).map_err(|_|Fault::new("LIBRARY_INVALID"))?.len(),"LIBRARY_INVALID")?;
                 need(library["dependencies"]==if id=="SQLITE"{serde_json::json!([])}else{serde_json::json!(["SQLITE"])},"LIBRARY_INVALID")?;
                 if id=="CORE"{need(name==entry,"LIBRARY_INVALID")?;}
-                if id=="ARTIFACT"{need(manifest["artifactLibrary"]==name,"LIBRARY_INVALID")?;artifact_library=Some(directory.join(name));}
+                if id=="ARTIFACT"{need(manifest["artifactLibrary"]==name,"LIBRARY_INVALID")?;artifact_library=Some(directory.join(name));artifact_sha256=item["sha256"].as_str().map(str::to_owned);}
                 if id=="SQLITE"{need(name=="gg_sqlite3.dll","SQLITE_RUNTIME_INVALID")?;}
             }
             let declaration=&bundle["coreProtocolManifest"];
@@ -186,7 +187,7 @@ impl Api {
             release:symbol!("gg_task_release",unsafe extern "C" fn(u64,u64,*mut Buffer)->i32),
             events:symbol!("gg_read_events",unsafe extern "C" fn(u64,u64,u32,*mut Buffer,*mut Buffer)->i32),
             destroy:symbol!("gg_core_destroy",unsafe extern "C" fn(u64,*mut Buffer)->i32),
-            free:symbol!("gg_buffer_release",unsafe extern "C" fn(*mut Buffer)->i32),build_id,sqlite_module,protocols,artifact_library};
+            free:symbol!("gg_buffer_release",unsafe extern "C" fn(*mut Buffer)->i32),build_id,sqlite_module,protocols,artifact_library,artifact_sha256};
         need(unsafe{(api.version)()}==0x10000,"VERSION_MISMATCH")?;Ok(Arc::new(api))
     }
     #[cfg(not(windows))]

@@ -3,12 +3,15 @@ use crate::{store_io::{write_new,replace},wire::*};
 use fs2::FileExt;
 use serde_json::{json,Value};
 use sha2::{Digest,Sha256};
-use std::{collections::HashSet,fs::{self,File,OpenOptions},path::{Path,PathBuf},time::{Instant,Duration,SystemTime,UNIX_EPOCH}};
+use std::{collections::{HashSet,HashMap},fs::{self,File,OpenOptions},path::{Path,PathBuf},time::{Instant,Duration,SystemTime,UNIX_EPOCH}};
+#[path="workspace_jobs.rs"]mod jobs;
+pub(crate) use jobs::{run_open,run_scan};
+use jobs::{OpenState,OpenWork,ScanState,ScanWork,ScanSnapshot};
 
 // 受管工作区及当前OS用户主体由宿主配置绑定，不从网页或最近文件取得路径权限。
 pub(crate) const WORKSPACE_ID:&str="19e213fb-d005-4ca9-803d-e4ba2a7b862b";
 const PRINCIPAL_ID:&str="a772f58f-fcee-46ca-8ac3-404f2228c984";
-const METHODS:[&str;3]=["workspace.describe","workspace.roots.list","workspace.recent.list"];
+const METHODS:[&str;11]=["workspace.describe","workspace.roots.list","workspace.recent.list","workspace.recent.forget","workspace.open.start","workspace.operation.read","workspace.operation.cancel","workspace.request.lookup","workspace.discovery.start","workspace.discovery.read","workspace.discovery.cancel"];
 pub(crate) fn directory_name(s:&str)->bool {
     s.strip_suffix(".ggproject").is_some_and(|v|!v.is_empty() && v.len()<=64 && v.bytes().all(|c|c.is_ascii_alphanumeric()||c==b'_'||c==b'-'))
 }
@@ -72,17 +75,17 @@ fn validate_observation(v:&Value)->Result<()> {
         matches!(v["projectFormat"].as_u64(),Some(1|2)) && !string(v,"name")?.is_empty() && string(v,"name")?.chars().count()<=80 && string(v,"observedAt")?.len()<=40,"INTERNAL_ERROR")?;
     u64_string(&v["headRevision"])?;Ok(())
 }
-fn read_journal(path:&Path)->Result<Value>{
-    let m=safe_metadata(path).map_err(|_|Fault::new("STORE_CORRUPT"))?;need(m.is_file()&&m.len()<=8388608,"STORE_CORRUPT")?;
-    let v=parse(&fs::read(path).map_err(|_|Fault::new("STORE_CORRUPT"))?,8388608)?;
+fn validate_journal(v:&Value)->Result<()>{
     if v["schemaVersion"]!=2{return Err(Fault::new(if v["schemaVersion"].as_u64().is_some_and(|n|n>2){"FUTURE_STORE_SCHEMA"}else{"STORE_READ_ONLY"}));}
-    shape(&v,&["schemaVersion","journalId","revision","nextCommandOrdinal","records"])?;
-    need(uuid(string(&v,"journalId")?),"STORE_CORRUPT")?;u64_string(&v["revision"])?;
+    shape(v,&["schemaVersion","journalId","revision","nextCommandOrdinal","records"])?;
+    need(uuid(string(v,"journalId")?),"STORE_CORRUPT")?;u64_string(&v["revision"])?;
     let ordinal=u64_string(&v["nextCommandOrdinal"])?;
     let records=v["records"].as_array().filter(|a|a.len()<=128).ok_or_else(||Fault::new("STORE_CORRUPT"))?;
     let mut ids=HashSet::new();let mut keys=HashSet::new();let mut ordinals=HashSet::new();
     for r in records {
-        // 用户命令作业接入前保留其日志为只读，不把未知记录当空文件覆盖。
+        if r["recordKind"]=="user_command"{jobs::validate_record(r)?;
+            need(ids.insert(string(r,"commandId")?.to_owned()),"STORE_CORRUPT")?;
+            let n=u64_string(&r["commandOrdinal"])?;need(n<ordinal&&ordinals.insert(n),"STORE_CORRUPT")?;continue;}
         need(r["recordKind"]=="core_observation","STORE_READ_ONLY")?;
         shape(r,&["recordKind","observationId","observationOrdinal","principalScopeId","originServiceInstanceId","observation","status","target","error","createdAt","updatedAt"])?;
         for k in ["observationId","principalScopeId","originServiceInstanceId"]{need(uuid(string(r,k)?),"STORE_CORRUPT")?;}
@@ -96,15 +99,43 @@ fn read_journal(path:&Path)->Result<Value>{
             for k in ["baseRevision","nextRevision","nextEntryRevision","nextLastOpenOrdinal"]{u64_string(&t[k])?;}
             let h=string(t,"projectionHash")?;need(h.len()==71&&h.starts_with("sha256:")&&h[7..].bytes().all(|c|c.is_ascii_digit()||(b'a'..=b'f').contains(&c)),"STORE_CORRUPT")?;
         }else{need(["VERIFIED","UNKNOWN"].contains(&string(r,"status")?),"STORE_CORRUPT")?;}
-    }Ok(v)
+    }Ok(())
+}
+fn read_journal(path:&Path)->Result<Value>{
+    let m=safe_metadata(path).map_err(|_|Fault::new("STORE_CORRUPT"))?;need(m.is_file()&&m.len()<=8388608,"STORE_CORRUPT")?;
+    let v=parse(&fs::read(path).map_err(|_|Fault::new("STORE_CORRUPT"))?,8388608)?;validate_journal(&v)?;Ok(v)
+}
+fn load_journal(path:&Path,writable:bool)->Result<Value>{
+    let m=safe_metadata(path).map_err(|_|Fault::new("STORE_CORRUPT"))?;need(m.is_file()&&m.len()<=8388608,"STORE_CORRUPT")?;
+    let raw=fs::read(path).map_err(|_|Fault::new("STORE_CORRUPT"))?;let mut v=parse(&raw,8388608)?;
+    if v["schemaVersion"]!=1{validate_journal(&v)?;return Ok(v);}
+    // 设备日志升级保留每个原始意图，只增加分型；不合成内部观察或重放Core。
+    let records=v["records"].as_array_mut().ok_or_else(||Fault::new("STORE_CORRUPT"))?;
+    for record in records{need(record.is_object()&&record.get("recordKind").is_none(),"STORE_CORRUPT")?;record["recordKind"]=json!("user_command");}
+    v["schemaVersion"]=json!(2);validate_journal(&v)?;
+    if !writable{return Ok(v);}
+    v["revision"]=json!(u64_string(&v["revision"])?.checked_add(1).ok_or_else(||Fault::new("LIMIT_EXCEEDED"))?.to_string());validate_journal(&v)?;
+    let directory=path.parent().ok_or_else(||Fault::new("STORE_WRITE_FAILED"))?;
+    let backup=directory.join(format!("workspace-operations-schema1-{}.backup.json",id()));
+    write_new(&backup,&raw).map_err(|_|Fault::new("STORE_WRITE_FAILED"))?;
+    need(fs::read(path).is_ok_and(|bytes|bytes==raw),"RESULT_UNKNOWN")?;
+    let next=serde_json::to_vec(&v).map_err(|_|Fault::new("STORE_WRITE_FAILED"))?;
+    let temp=directory.join(format!(".workspace-upgrade-{}.tmp",id()));
+    if write_new(&temp,&next).and_then(|_|replace(&temp,path)).is_err(){let _=fs::remove_file(&temp);return Err(Fault::new("RESULT_UNKNOWN"));}
+    need(read_journal(path).is_ok_and(|stored|stored==v),"RESULT_UNKNOWN")?;Ok(v)
 }
 struct Snapshot {id:String,created:Instant,entries:Vec<Value>,store:Value}
 pub(crate) struct Workspace {
     pub service:String,root:PathBuf,directory:PathBuf,store:Value,availability:String,persistence:String,last_error:Option<String>,
     _lock:Option<File>,snapshot:Option<Snapshot>,calls:HashSet<String>,core_protocols:Vec<&'static str>,
     journal:Value,journal_error:Option<String>,
+    operations:HashMap<String,OpenState>,pending_open_work:Option<OpenWork>,
+    scans:Vec<ScanState>,pending_scan_work:Option<ScanWork>,scan_snapshot:Option<ScanSnapshot>,
 }
 impl Workspace {
+    pub(crate) fn canonical_directory(&self,directory:&str)->Result<String>{
+        let guard=jobs::LocationGuard::open(&self.root,directory)?;Ok(guard.directory.clone())
+    }
     pub fn new(root:PathBuf,directory:PathBuf)->Self {
         let mut store=json!({"schemaVersion":1,"storeId":id(),"revision":"0","lastOpenOrdinal":"0","entries":[],"lastCommit":null});
         let mut availability="new".to_owned();let mut error=None;
@@ -115,11 +146,11 @@ impl Workspace {
         if lock.is_none() && !["corrupt","future_schema"].contains(&availability.as_str()){availability="read_only".into();error=Some("STORE_READ_ONLY".into());}
         let journal_path=directory.join("workspace-operations-v1.json");
         let mut journal=json!({"schemaVersion":2,"journalId":id(),"revision":"0","nextCommandOrdinal":"1","records":[]});let mut journal_error=None;
-        if journal_path.exists(){match read_journal(&journal_path){Ok(v)=>journal=v,Err(f)=>journal_error=Some(f.code)}}
-        let mut service=Self{service:id(),root,directory,store,availability,persistence:"clean".into(),last_error:error,_lock:lock,snapshot:None,calls:HashSet::new(),core_protocols:Vec::new(),journal,journal_error};
-        if service.journal_error.is_none() && service._lock.is_some(){service.reconcile_observations();}service
+        if journal_path.exists(){match load_journal(&journal_path,lock.is_some()){Ok(v)=>journal=v,Err(f)=>journal_error=Some(f.code)}}
+        let mut service=Self{service:id(),root,directory,store,availability,persistence:"clean".into(),last_error:error,_lock:lock,snapshot:None,calls:HashSet::new(),core_protocols:Vec::new(),journal,journal_error,operations:HashMap::new(),pending_open_work:None,scans:Vec::new(),pending_scan_work:None,scan_snapshot:None};
+        if service.journal_error.is_none(){if service._lock.is_some(){service.reconcile_observations();}if let Err(f)=jobs::restore(&mut service){service.journal_error=Some(f.code);}}service
     }
-    pub fn bind(&mut self){self.snapshot=None;self.calls.clear();}
+    pub fn bind(&mut self){self.snapshot=None;self.scan_snapshot=None;self.calls.clear();}
     pub fn core_loaded(&mut self,protocols:Vec<&'static str>){self.core_protocols=protocols;}
     fn writable(&self)->Result<()>{
         if let Some(error)=&self.journal_error{return Err(Fault::new(error));}
@@ -138,11 +169,12 @@ impl Workspace {
         if write_new(&temp,&raw).is_err(){let _=fs::remove_file(&temp);return Err(Fault::new("STORE_WRITE_FAILED"));}
         if replace(&temp,&target).is_err(){let _=fs::remove_file(&temp);self.journal_error=Some("RESULT_UNKNOWN".into());return Err(Fault::new("RESULT_UNKNOWN"));}
         if !read_journal(&target).is_ok_and(|v|v==next){self.journal_error=Some("RESULT_UNKNOWN".into());return Err(Fault::new("RESULT_UNKNOWN"));}
-        self.journal=next;Ok(())
+        self.journal=next;self.prune_operations();Ok(())
     }
     fn reconcile_observations(&mut self){
         let mut next=self.journal.clone();let mut changed=false;
         for r in next["records"].as_array_mut().unwrap(){
+            if r["recordKind"]!="core_observation"{continue;}
             if r["status"]=="RECENT_RECORDED"{continue;}let t=&r["target"];
             let matched=!t.is_null() && self.store["storeId"]==t["storeId"] && self.store["lastCommit"]["coreOpenRequestId"]==r["observation"]["openRequestId"] && self.store["entries"].as_array().unwrap().iter().any(|i|
                 i["entry"]["entryId"]==t["entryId"] && i["lastObservedOpen"]==observation_key(&r["observation"]) && projection_hash(&i["entry"])==t["projectionHash"]);
@@ -157,7 +189,7 @@ impl Workspace {
             need(self.journal["records"][index]["observation"]==*observation,"INTERNAL_ERROR")?;return Ok(index);
         }
         let mut next=self.journal.clone();let records=next["records"].as_array_mut().unwrap();
-        if records.len()>=128 {let index=records.iter().enumerate().filter(|(_,r)|r["status"]=="RECENT_RECORDED").min_by_key(|(_,r)|u64_string(&r["observationOrdinal"]).unwrap()).map(|(i,_)|i).ok_or_else(||Fault::new("LIMIT_EXCEEDED"))?;records.remove(index);}
+        if records.len()>=128 {let index=records.iter().enumerate().filter(|(_,r)|self.can_evict_record(r)).min_by_key(|(_,r)|jobs::ordinal(r)).map(|(i,_)|i).ok_or_else(||Fault::new("LIMIT_EXCEEDED"))?;records.remove(index);}
         let ordinal=u64_string(&next["nextCommandOrdinal"])?;let following=ordinal.checked_add(1).ok_or_else(||Fault::new("LIMIT_EXCEEDED"))?;
         next["nextCommandOrdinal"]=json!(following.to_string());let time=now();
         let records=next["records"].as_array_mut().unwrap();let index=records.len();
@@ -221,7 +253,7 @@ impl Workspace {
         self.commit(next)?;
         let mut journal=self.journal.clone();journal["records"][record]["status"]=json!("RECENT_RECORDED");journal["records"][record]["updatedAt"]=json!(now());self.journal_commit(journal)?;Ok(entry_id)
     }
-    pub fn dispatch(&mut self,request:&Value)->Value {
+    pub fn dispatch(&mut self,request:&Value,session_free:bool)->Value {
         let call=request["callId"].as_str().unwrap_or("");let method=request["method"].as_str().unwrap_or("");
         let result=(||->Result<Value>{
             shape(request,&["workspaceProtocol","callId","method","params"])?;
@@ -248,10 +280,15 @@ impl Workspace {
                     let end=(after+limit).min(s.entries.len());let next=if end<s.entries.len(){json!({"serviceInstanceId":self.service,"snapshotId":s.id,"afterIndex":end})}else{Value::Null};
                     Ok(json!({"store":s.store,"snapshotId":s.id,"entries":&s.entries[after..end],"nextCursor":next}))
                 },
-                _=>Err(Fault::new("UNSUPPORTED_METHOD"))
+                _=>jobs::dispatch(self,method,p,session_free)
             }
         })();
         match result {Ok(result)=>json!({"workspaceProtocol":"1.0","callId":call,"method":method,"ok":true,"result":result}),
-            Err(f)=>json!({"workspaceProtocol":"1.0","callId":call,"method":method,"ok":false,"error":{"code":f.code,"messageKey":format!("workspace.{}",f.code),"retryable":false,"outcome":f.outcome,"operationId":null,"coreRequestId":null}})}
+            Err(f)=>{
+                let mutation=["workspace.recent.forget","workspace.open.start","workspace.operation.cancel","workspace.discovery.start","workspace.discovery.cancel"].contains(&method);
+                let recorded=request["params"]["commandId"].as_str().is_some_and(|command|self.journal["records"].as_array().unwrap().iter().any(|r|r["recordKind"]=="user_command"&&r["commandId"]==command));
+                let outcome=if mutation{if f.code=="RESULT_UNKNOWN"||recorded{"submitted_unknown"}else{"not_submitted"}}else{f.outcome};
+                json!({"workspaceProtocol":"1.0","callId":call,"method":method,"ok":false,"error":{"code":f.code,"messageKey":format!("workspace.{}",f.code),"retryable":false,"outcome":outcome,"operationId":null,"coreRequestId":null}})
+            }}
     }
 }

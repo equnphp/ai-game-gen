@@ -224,15 +224,42 @@ std::string Session::maintenance(const Json& r, const std::string& digest, const
         "SELECT asset_id FROM assets WHERE asset_id NOT IN (SELECT asset_id FROM asset_heads UNION SELECT asset_id FROM snapshot_assets UNION "
         "SELECT j.key FROM history_entries h JOIN transactions t USING(transaction_id),json_each(json_extract(t.forward_json,'$.assetHeads')) j UNION "
         "SELECT j.key FROM history_entries h JOIN transactions t USING(transaction_id),json_each(json_extract(t.inverse_json,'$.assetHeads')) j)";
-    const auto docs=store_.query(unreachable_docs),assets=store_.query(unreachable_assets);
+    const auto docs=store_.query(unreachable_docs);auto assets=store_.query(unreachable_assets);
+    std::vector<Row> asset_versions;
+    if(format_==2) {
+        // 版本才是format2的内容权威；当前头、固定快照和Undo/Redo分别持有精确版本。
+        // 升级前历史仍可能使用bool，必须通过持久迁移映射保留其初始版本。
+        asset_versions=store_.query(
+            "SELECT asset_version_id,asset_id FROM asset_versions WHERE asset_version_id NOT IN ("
+            "SELECT asset_version_id FROM asset_heads UNION SELECT asset_version_id FROM snapshot_assets UNION "
+            "SELECT j.value FROM history_entries h JOIN transactions t USING(transaction_id),"
+            "json_each(json_extract(t.forward_json,'$.assetHeads')) j WHERE j.type='text' UNION "
+            "SELECT j.value FROM history_entries h JOIN transactions t USING(transaction_id),"
+            "json_each(json_extract(t.inverse_json,'$.assetHeads')) j WHERE j.type='text' UNION "
+            "SELECT m.generated_id FROM format_migration_maps m WHERE m.map_kind='asset_initial_version' AND m.source_stable_id IN ("
+            "SELECT j.key FROM history_entries h JOIN transactions t USING(transaction_id),"
+            "json_each(json_extract(t.forward_json,'$.assetHeads')) j WHERE j.type IN('true','false') UNION "
+            "SELECT j.key FROM history_entries h JOIN transactions t USING(transaction_id),"
+            "json_each(json_extract(t.inverse_json,'$.assetHeads')) j WHERE j.type IN('true','false')))" );
+    }
     std::uint64_t bytes=0;for(const auto& row:docs)bytes+=row[1].get<std::uint64_t>();
     std::set<std::string> deleting_assets;for(const auto& row:assets)deleting_assets.insert(text(row[0]));
+    std::set<std::string> deleting_versions;for(const auto& row:asset_versions)deleting_versions.insert(text(row[0]));
+    if(format_==2) {
+        // 即使索引出现未来兼容保留来源，也不在父记录仍被版本FK引用时删逻辑资产。
+        for(const auto& row:store_.query("SELECT asset_id,asset_version_id FROM asset_versions"))
+            if(!deleting_versions.contains(text(row[1])))deleting_assets.erase(text(row[0]));
+        std::erase_if(assets,[&](const auto& row){return !deleting_assets.contains(text(row[0]));});
+    }
     std::vector<Row> blobs;std::uint64_t blob_bytes=0;
     for(const auto& row:store_.query("SELECT blob_id,content_hash,expected_size FROM blob_objects")) {
+        control.checkpoint();
         if(!store_.query("SELECT upload_id FROM uploads WHERE blob_id=? AND state IN('UPLOADING','READY')", {row[0]}).empty())continue;
         bool kept=false;
         if(!row[1].is_null())for(const auto& asset:store_.query("SELECT asset_id FROM assets WHERE content_hash=?", {row[1]}))
             if(!deleting_assets.contains(text(asset[0])))kept=true;
+        if(format_==2 && !row[1].is_null())for(const auto& version:store_.query("SELECT asset_version_id FROM asset_versions WHERE content_hash=?", {row[1]}))
+            if(!deleting_versions.contains(text(version[0])))kept=true;
         if(!kept){blobs.push_back(row);blob_bytes+=row[2].get<std::uint64_t>();}
     }
     Json reasons=Json::array();if(active)reasons.push_back("ACTIVE_UPLOADS");if(!proposals_.empty())reasons.push_back("ACTIVE_PROPOSALS");
@@ -244,6 +271,8 @@ std::string Session::maintenance(const Json& r, const std::string& digest, const
     control.checkpoint();control.commit_gate();Transaction tx(store_);
     store_.run("DELETE FROM uploads WHERE state IN('CANCELLED','ATTACHED')");
     for(const auto& row:docs)store_.run("DELETE FROM document_versions WHERE version_id=?", {row[0]});
+    // 子版本先于assets/blob删除；assets初始内容的FK仍独立参与上面的blob保留判断。
+    for(const auto& row:asset_versions)store_.run("DELETE FROM asset_versions WHERE asset_version_id=?", {row[0]});
     for(const auto& row:assets)store_.run("DELETE FROM assets WHERE asset_id=?", {row[0]});
     for(const auto& row:blobs)store_.run("DELETE FROM blob_objects WHERE blob_id=?", {row[0]});
     auto result=envelope(r,data);save_request(r,digest,result);tx.commit();return result;

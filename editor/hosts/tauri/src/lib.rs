@@ -5,6 +5,7 @@ mod core;
 mod locale;
 mod store_io;
 mod workspace;
+mod artifact_bridge;
 use crate::{core::Host,locale::LocalUX,wire::*,workspace::Workspace};
 use serde_json::{json,Value};
 use std::{sync::{Arc,Mutex,atomic::{AtomicUsize,Ordering}},time::{Instant,Duration}};
@@ -45,8 +46,20 @@ async fn workspace_dispatch(window:tauri::WebviewWindow,state:tauri::State<'_,Ar
     let response=tauri::async_runtime::spawn_blocking(move||{
         let _guard=guard;
         std::panic::catch_unwind(std::panic::AssertUnwindSafe(||{
-            if serde_json::to_vec(&request).map(|b|b.len()>65536).unwrap_or(true){return failure(&request,"LIMIT_EXCEEDED");}
-            let response=match state.workspace.lock(){Ok(mut workspace)=>workspace.dispatch(&request),Err(_)=>return failure(&request,"INTERNAL_ERROR")};
+            let encoded=match serde_json::to_vec(&request){Ok(bytes)=>bytes,Err(_)=>return failure(&request,"INVALID_MESSAGE")};
+            if encoded.len()>65536{return failure(&request,"LIMIT_EXCEEDED");}
+            if parse(&encoded,65536).is_err(){return failure(&request,"INVALID_MESSAGE");}
+            let (response,work,scan)={
+                // 全部双锁按Host→Workspace顺序，观察器也沿同一顺序进入，不反向等待。
+                let mut host=match state.host.lock(){Ok(h)=>h,Err(_)=>return failure(&request,"INTERNAL_ERROR")};
+                if request["method"]=="workspace.describe"{let _=host.ensure_components();}
+                let mut workspace=match state.workspace.lock(){Ok(w)=>w,Err(_)=>return failure(&request,"INTERNAL_ERROR")};
+                workspace.refresh_sessions(&host);let response=workspace.dispatch(&request,!host.has_session());let work=workspace.take_open_work();
+                if let Some(work)=&work{if host.reserve_workspace_gate(&work.id).is_err(){return failure(&request,"RESULT_UNKNOWN");}}
+                let scan=workspace.take_scan_work();(response,work,scan)
+            };
+            if let Some(work)=work{let worker_state=state.clone();tauri::async_runtime::spawn_blocking(move||workspace::run_open(&worker_state.host,&worker_state.workspace,work));}
+            if let Some(scan)=scan{let worker_state=state.clone();tauri::async_runtime::spawn_blocking(move||workspace::run_scan(&worker_state.workspace,scan));}
             if serde_json::to_vec(&response).map(|b|b.len()>524288).unwrap_or(true){return failure(&request,"LIMIT_EXCEEDED");}response
         })).unwrap_or_else(|_|failure(&request,"INTERNAL_ERROR"))
     }).await.unwrap_or_else(|_|failure(&fallback,"INTERNAL_ERROR"));Ok(response)

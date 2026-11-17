@@ -13,6 +13,9 @@ import { AssetPreview,type Asset } from "./AssetPreview";
 import { HistoryPanel } from "./HistoryPanel";
 import { ComponentInspector } from "./ComponentInspector";
 import type {Entity,Scene,NumberDraft} from './scene-model';
+import {WorkspaceClient,type OpenIntent} from './workspace-client';
+import {ProjectBrowser} from './ProjectBrowser';
+import type {WorkspaceOpenOperation} from '../../host-contract/workspace-port';
 type Document = {documentId:string;body:Scene;schemaVersion:number;versionId:string;revision:string};
 type Project = {id:string;name:string;formatVersion:number;headRevision:string;rootDocuments:{settingsId:string;defaultSceneId:string};readOnlyReasons:string[]};
 type Page = "projects"|"scene"|"tasks"|"assets"|"settings"|"history";
@@ -40,6 +43,9 @@ export default function App() {
 function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:string|null}}) {
   const {t,state:locale} = useLocale();
   const client = useRef(new CoreClient(new TauriHost())).current;
+  const workspaceClient=useRef(new WorkspaceClient()).current;
+  const [workspaceOperation,setWorkspaceOperation]=useState<WorkspaceOpenOperation|null>(null);
+  const [workspacePending,setWorkspacePending]=useState(false),[workspaceRefresh,setWorkspaceRefresh]=useState(0);
   const [host,setHost] = useState<host_describe_Result|null>(null);
   const [page,setPage] = useState<Page>("projects");
   const [project,setProject] = useState<Project|null>(null);
@@ -72,6 +78,7 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
   useEffect(() => {
     if (!boot.connected) return;
     client.call("host.describe",{}).then(setHost).catch(error => setError(errorCode(error)));
+    try{setWorkspacePending(workspaceClient.pending()!==null);}catch(failure){setError(errorCode(failure));}
   }, [boot.connected]);
   async function withWork(action:()=>Promise<void>) {
     if (working.current) return; working.current=true;setBusy(true);setError(null);
@@ -119,8 +126,35 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
       const response=await client.submit<{projectId:string}>(client.request(form==="new"?"project.create":"project.open",params));
       if(!response.data)throw new Error("CORE_CONTRACT_VIOLATION");
       await refreshProject(response.data.projectId);setPage("scene");setForm(null);setWelcome(false);
+      setWorkspaceRefresh(previous=>previous+1);
       setName("");setDirectory("");setSelected(null);setAssets([]);setPreviewAssetId(null);
     });
+  }
+  async function finishWorkspaceOpen(operation:WorkspaceOpenOperation){
+    setWorkspaceOperation(operation);
+    if(operation.state==='READY'){
+      if(operation.sessionAvailability!=='current'||!operation.session||!operation.opened){workspaceClient.acknowledge();setWorkspacePending(false);throw new Error('WORKSPACE_SESSION_LOST');}
+      await client.adopt(operation.session.sessionToken,operation.coreProtocol);await refreshProject(operation.opened.projectId);
+      workspaceClient.acknowledge();setWorkspacePending(false);setWorkspaceRefresh(previous=>previous+1);setPage('scene');setForm(null);setWelcome(false);setSelected(null);setAssets([]);setPreviewAssetId(null);return;
+    }
+    if(operation.state==='FAILED'||operation.state==='CANCELLED'){
+      workspaceClient.acknowledge();setWorkspacePending(false);if(operation.state==='FAILED')throw new Error(operation.error?.code??'CORE_FAILURE');return;
+    }
+    throw new Error('WORKSPACE_RESULT_UNKNOWN');
+  }
+  function openFromWorkspace(intent:OpenIntent){
+    guardLeave(async()=>{
+      if(client.session)await closeProject();setWorkspaceOperation(null);
+      try{const operation=await workspaceClient.begin(intent);setWorkspacePending(true);await finishWorkspaceOpen(await workspaceClient.wait(operation,setWorkspaceOperation));}
+      finally{setWorkspacePending(workspaceClient.pending()!==null);}
+    });
+  }
+  function recoverWorkspaceOpen(){
+    void withWork(async()=>{const operation=await workspaceClient.recover();await finishWorkspaceOpen(await workspaceClient.wait(operation,setWorkspaceOperation));});
+  }
+  async function cancelWorkspaceOpen(){
+    if(!workspaceOperation)return;try{const result=await workspaceClient.cancel(workspaceOperation.operationId);setWorkspaceOperation(result.operation);}
+    catch(failure){setError(errorCode(failure));}
   }
   function updateDraft(next:Scene) {setDraft(next);setSaveState("dirty");}
   function updateEntity(patch:Partial<Entity>) {
@@ -267,9 +301,11 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
         {page==="projects" && <>
           <div className="page-heading"><div><h1>{t("projects")}</h1><p>{t("localOnly")}</p></div><div className="toolbar"><button className="button" disabled={unavailable||busy} onClick={()=>guardLeave(async()=>{if(project)await closeProject();setForm("open");})}>{t("openProject")}</button>
             <button className="button primary" disabled={unavailable||busy} onClick={()=>guardLeave(async()=>{if(project)await closeProject();setForm("new");})}>{t("newProject")}</button></div></div>
-          {!project ? <section className="panel empty-project"><div className="sparkle" aria-hidden="true">✧</div><h2>{t("emptyProjects")}</h2><p>{t("emptyProjectsBody")}</p>
-            <button className="button primary large" data-testid="new-project" disabled={unavailable||busy} onClick={()=>setForm("new")}>{t("newProject")}</button></section>
+          {!project ? <section className="panel project-create-banner"><div className="sparkle" aria-hidden="true">✧</div><div><h2>{t("chooseLocalProject")}</h2><p>{t("localOnly")}</p></div>
+            <button className="button primary large" data-testid="new-project" disabled={unavailable||busy||workspacePending} onClick={()=>setForm("new")}>{t("newProject")}</button></section>
             : <section className="panel project-card"><Icon name="folder"/><div><p className="eyebrow">{t("currentProject")}</p><h2>{project.name}</h2><p>{t("saved")} · r{project.headRevision}</p></div><button className="button primary" onClick={()=>setPage("scene")}>{t("scene")}</button><button className="button" disabled={busy} onClick={()=>guardLeave(closeProject)}>{t("close")}</button></section>}
+          <ProjectBrowser client={workspaceClient} connected={boot.connected} refreshVersion={workspaceRefresh} busy={busy} operation={workspaceOperation} pending={workspacePending}
+            onOpen={openFromWorkspace} onRecover={recoverWorkspaceOpen} onCancel={()=>void cancelWorkspaceOpen()}/>
           {welcome && <section className="welcome-card"><Icon name="help"/><div><h2>{t("welcome")}</h2><p>{t("welcomeBody")}</p></div><button className="button" onClick={()=>setShowLanguage(true)}>{t("language")}</button><button className="text-button" onClick={()=>setWelcome(false)}>{t("skip")}</button></section>}
         </>}
         {page==="scene" && project && draft && <><div className="page-heading"><div><h1>{t("scene")}</h1><p>{readOnly?t("readOnly"):t("autoSave")}</p></div>

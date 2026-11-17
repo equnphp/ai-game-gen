@@ -11,11 +11,14 @@ fn limits()->Value {json!({"requestJsonBytes":2097152,"binaryChunkBytes":1048576
     "driverMaxRequestIds":65536,"driverNewWorkThreshold":65000})}
 struct Ticket { native:u64,reference:String,request_id:Option<String>,origin:String,op:String,protocol:String,directory:Option<String> }
 struct OpenObservation {request:String,directory:String,protocol:String,operation:String,verified:Option<Value>}
+pub(crate) struct NativeProjectContext {pub api:Arc<Api>,pub directory:PathBuf,pub project_id:String,pub protocol:String,pub session_id:String,pub core_id:String}
 struct Cache { task:String,state:String,json:Vec<u8>,binary:Option<Vec<u8>> }
 struct Session {
     api:Arc<Api>,native:u64,token:String,id:String,core_id:String,state:String,
     tasks:HashMap<String,Ticket>,cache:Option<Cache>,project:Option<String>,durable:Option<String>,closing_task:Option<u64>,protocol:String,
     host_id:String,workspace:Arc<Mutex<Workspace>>,pending_open:Option<OpenObservation>,
+    verified_directory:Option<String>,
+    expected_project:Option<String>,expected_format:Option<u64>,
 }
 impl Session {
     fn poll(&self,native:u64)->Result<(String,Value)> {
@@ -44,10 +47,17 @@ impl Session {
         let data=&value["data"];
         if matches!(op,"project.create"|"project.open"){
             self.project=data["projectId"].as_str().map(str::to_owned);
-            if let (Some(request),Some(directory))=(request,directory){self.pending_open=Some(OpenObservation{request:request.into(),directory:directory.into(),protocol:protocol.into(),operation:op.into(),verified:None});}
+            self.verified_directory=None;
+            if let (Some(request),Some(directory))=(request,directory){
+                let directory=self.workspace.lock().ok().and_then(|w|w.canonical_directory(directory).ok()).unwrap_or_else(||directory.into());
+                self.pending_open=Some(OpenObservation{request:request.into(),directory,protocol:protocol.into(),operation:op.into(),verified:None});}
         }
-        if op=="project.read" && self.pending_open.as_ref().is_some_and(|o|o.protocol==protocol) && self.project.as_deref()==data["id"].as_str(){
+        if op=="project.read" && self.pending_open.as_ref().is_some_and(|o|o.protocol==protocol) && self.project.as_deref()==data["id"].as_str() &&
+            self.expected_project.as_ref().is_none_or(|p|data["id"]==*p) && self.expected_format.is_none_or(|f|data["formatVersion"]==f){
+            need(data["id"].as_str().is_some_and(uuid) && data["name"].as_str().is_some_and(|n|!n.is_empty()&&n.chars().count()<=80) && matches!(data["formatVersion"].as_u64(),Some(1|2)),"CORE_CONTRACT_VIOLATION")?;
+            u64_string(&data["headRevision"]).map_err(|_|Fault::new("CORE_CONTRACT_VIOLATION"))?;
             let observed=self.pending_open.as_mut().unwrap();
+            self.verified_directory=Some(observed.directory.clone());
             if observed.verified.is_none(){
                 // 一次open固定首个成功read的来源；缓存失败后的重试不能偷换成后来head。
                 if let Some(read_request)=request{observed.verified=Some(json!({"event":"verified_project_open","hostInstanceId":self.host_id,"sessionId":self.id,"coreInstanceId":self.core_id,
@@ -60,7 +70,7 @@ impl Session {
         }
         // 关闭使用已成功访问项目的消息版本；format2不能再被M1关闭命令误拒绝。
         if matches!(op,"project.create"|"project.open"|"project.read"|"project.upgrade.commit") && !protocol.is_empty(){self.protocol=protocol.into();}
-        if op=="project.close"{self.project=None;self.pending_open=None;}
+        if op=="project.close"{self.project=None;self.pending_open=None;self.verified_directory=None;}
         if let Some(v)=data.get("revision").or_else(||data.get("headRevision")).and_then(Value::as_str){
             u64_string(&json!(v))?;self.durable=Some(v.into());
         }
@@ -137,13 +147,32 @@ impl Session {
 }
 pub struct Host {
     host_id:String,grant:String,root:PathBuf,library:PathBuf,api:Option<Arc<Api>>,
-    session:Option<Session>,quarantined:Option<(Arc<Api>,u64)>,load_error:Option<Fault>,workspace:Arc<Mutex<Workspace>>,
+    session:Option<Session>,quarantined:Option<(Arc<Api>,u64)>,load_error:Option<Fault>,workspace:Arc<Mutex<Workspace>>,workspace_gate:Option<String>,
 }
 impl Host {
     pub fn new(root:PathBuf,library:PathBuf,workspace:Arc<Mutex<Workspace>>)->Self{
-        Self{host_id:id(),grant:format!("g1.{}",id()),root,library,api:None,session:None,quarantined:None,load_error:None,workspace}
+        Self{host_id:id(),grant:format!("g1.{}",id()),root,library,api:None,session:None,quarantined:None,load_error:None,workspace,workspace_gate:None}
     }
-    pub fn has_session(&self)->bool{self.session.is_some() || self.quarantined.is_some()}
+    pub fn has_session(&self)->bool{self.session.is_some() || self.quarantined.is_some() || self.workspace_gate.is_some()}
+    pub(crate) fn session_is_current(&self,token:&str)->bool{self.session.as_ref().is_some_and(|s|s.token==token&&s.state=="OPEN")}
+    pub(crate) fn ensure_components(&mut self)->Result<()>{self.load().map(|_|())}
+    pub(crate) fn reserve_workspace_gate(&mut self,operation:&str)->Result<()>{need(!self.has_session(),"SESSION_LIMIT")?;self.workspace_gate=Some(operation.into());Ok(())}
+    pub(crate) fn release_workspace_gate(&mut self,operation:&str){if self.workspace_gate.as_deref()==Some(operation){self.workspace_gate=None;}}
+    pub(crate) fn open_for_workspace(&mut self,operation:&str,capabilities:Value,expected_project:Option<String>,expected_format:Option<u64>)->Result<Value>{
+        need(self.workspace_gate.as_deref()==Some(operation),"PERMISSION_DENIED")?;
+        let grant=format!("g1.{}",id());
+        let opened=self.open_with_grant(&json!({"grantRef":grant,"requiredCapabilities":capabilities}),&grant)?;
+        // 预设身份在原生结果观察之前绑定；身份不符的read不能先污染最近索引。
+        if let Some(session)=&mut self.session{session.expected_project=expected_project;session.expected_format=expected_format;}Ok(opened)
+    }
+    pub(crate) fn native_project_context(&self,token:&str,project:&str)->Result<NativeProjectContext>{
+        let session=self.session.as_ref().filter(|s|s.token==token).ok_or_else(||Fault::new("SESSION_INVALID"))?;
+        need(session.state=="OPEN" && session.project.as_deref()==Some(project),"PERMISSION_DENIED")?;
+        let directory=session.verified_directory.as_ref().ok_or_else(||Fault::new("NOT_READY"))?;
+        need(crate::workspace::directory_name(directory),"PERMISSION_DENIED")?;
+        // 目录只来自同会话成功open+read，WebView提供的项目ID不能转成任意磁盘路径。
+        Ok(NativeProjectContext{api:session.api.clone(),directory:self.root.join(directory),project_id:project.into(),protocol:session.protocol.clone(),session_id:session.id.clone(),core_id:session.core_id.clone()})
+    }
     pub fn grant(&self)->String{self.grant.clone()}
     fn load(&mut self)->Result<Arc<Api>>{
         if let Some(api)=&self.api{return Ok(api.clone());}
@@ -156,9 +185,13 @@ impl Host {
         self.session.as_mut().filter(|s|s.token==token).ok_or_else(||Fault::new("SESSION_INVALID"))
     }
     fn open(&mut self,p:&Value)->Result<Value>{
+        let grant=self.grant.clone();self.open_with_grant(p,&grant)
+    }
+    fn open_with_grant(&mut self,p:&Value,grant:&str)->Result<Value>{
         shape(p,&["grantRef","requiredCapabilities"])?;
         need(self.session.is_none() && self.quarantined.is_none(),"SESSION_LIMIT")?;
-        need(string(p,"grantRef")?==self.grant,"PERMISSION_DENIED")?;
+        // Workspace内部grant只在当前作业/受管根/可信main主体中使用，不向网页发放。
+        need(string(p,"grantRef")?==grant,"PERMISSION_DENIED")?;
         let required=p["requiredCapabilities"].as_array().ok_or_else(||Fault::new("INVALID_MESSAGE"))?;
         let offered=["core.project_store","core.scene_documents","core.asset_stream","core.events"];
         for capability in required{need(offered.contains(&capability.as_str().unwrap_or("")),"UNSUPPORTED")?;}
@@ -170,7 +203,7 @@ impl Host {
         api.checked(status,error).map_err(|mut f|{if status==3{f.code="SESSION_INVALID".into();}f})?;
         let mut session=Session{api:api.clone(),native:core,token:String::new(),id:id(),core_id:String::new(),state:"OPEN".into(),
             tasks:HashMap::new(),cache:None,project:None,durable:None,closing_task:None,protocol:"1.0".into(),
-            host_id:self.host_id.clone(),workspace:self.workspace.clone(),pending_open:None};
+            host_id:self.host_id.clone(),workspace:self.workspace.clone(),pending_open:None,verified_directory:None,expected_project:None,expected_format:None};
         let initialized=(||->Result<()>{
             let request=serde_json::to_vec(&json!({"protocolVersion":"1.0","requestId":id(),"op":"core.capabilities","params":{}}))
                 .map_err(|_|Fault::new("INTERNAL_ERROR"))?;
@@ -206,7 +239,7 @@ impl Host {
                 "hostBuildId":null,"coreBuildId":self.api.as_ref().map(|a|a.build_id.clone()),
                 "coreAbi":self.api.as_ref().map(|_|"1.0"),"implementedMethods":METHODS,"limits":limits()}));
         }
-        if method=="session.open"{return self.open(p);}
+        if method=="session.open"{need(self.workspace_gate.is_none(),"SESSION_LIMIT")?;return self.open(p);}
         if method=="events.read"{
             shape(p,&["sessionToken","cursor","limit"])?;
             let host_id=self.host_id.clone();let session=self.get(p)?;

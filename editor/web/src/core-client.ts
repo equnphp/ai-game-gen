@@ -30,6 +30,14 @@ export class CoreClient {
     this.session = result.sessionToken;
     await this.negotiateModels();
   }
+  async adopt(sessionToken:SessionToken,protocol:'1.0'|'1.1'):Promise<void>{
+    if(this.session&&this.session!==sessionToken)throw new Error('SESSION_LIMIT');
+    this.session=sessionToken;this.protocolVersion=protocol;this.negotiated=false;
+    // 接管原生作业已经打开的会话；先查真实状态，不能再session.open创建第二个Core。
+    const actual=await this.call('session.state',{sessionToken});
+    if(actual.state!=='OPEN'||actual.projectState!=='OPEN')throw new Error('SESSION_INVALID');
+    await this.negotiateModels();
+  }
   async negotiateModels():Promise<void> {
     if(this.negotiated)return;
     // 新协议只通过真实只读目录探测协商，旧核心明确拒绝后才保留M1模式。

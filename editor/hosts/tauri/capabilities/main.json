@@ -9,6 +9,7 @@
     "allow-core-dispatch",
     "allow-ux-dispatch",
     "allow-host-bootstrap",
+    "allow-workspace-dispatch",
     "core:window:allow-close"
   ]
 }

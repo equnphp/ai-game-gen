@@ -11,3 +11,7 @@ commands.allow = ["ux_dispatch"]
 identifier = "allow-host-bootstrap"
 description = "Receive this window's private grant reference"
 commands.allow = ["host_bootstrap"]
+[[permission]]
+identifier = "allow-workspace-dispatch"
+description = "Access bounded local project discovery and verified opening jobs"
+commands.allow = ["workspace_dispatch"]
