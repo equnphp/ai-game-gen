@@ -1,0 +1,41 @@
+{
+  "version": "localization-20261117-draft.1",
+  "date": "2026-11-17",
+  "source": "本轮真实用户消息；非用户研究或正式版本审批",
+  "requests": [
+    "需要支持多语言，默认为英文。可以保存选择的语言设定",
+    "中、英、日文、韩文、西班牙文",
+    "还有法文",
+    "继续，还要加繁体中文"
+  ],
+  "resolution": "七语言：en/zh-Hans/zh-Hant/ja/ko/es/fr；默认英文；自动持久化用户选择",
+  "inputs": [
+    {
+      "path": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/.product-mcp.json",
+      "bytes": 99634,
+      "sha256": "3b84a6310b8512fc9c9c93814083a6004ef41cfc7c6488ba21124340f49e67e1"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/PROGRESSIVE-DISCLOSURE.md",
+      "bytes": 4946,
+      "sha256": "900e5beb63ad616607a134e3d9b00e01f556667ed1dd661733dbb97222254547"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/review/onboarding-20261117-draft.1/.product-mcp.json",
+      "bytes": 68138,
+      "sha256": "43d15ec81d1b3857bd6c7ef5735a44c3d07618c3ada0b1cba2ae4ade94810488"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/review/onboarding-20261117-draft.1/ONBOARDING.md",
+      "bytes": 16402,
+      "sha256": "b09895c05751970a7d9ba45b9204f3006deaf8ba9619658454bd5a09ab26b7e1"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "bytes": 5950,
+      "sha256": "74f11f9061a8e1aa8f47c4e816e6bac16cbcc29216333bcfa46db08c49511970"
+    }
+  ],
+  "preservation": "作为独立增量覆盖旧四语的后续交接口径；不覆盖已冻结原文件或M1根清单",
+  "execution_status": "not_run"
+}

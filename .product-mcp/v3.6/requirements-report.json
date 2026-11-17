@@ -1,0 +1,108 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"acceptance_count\":57,\"acceptance_with_test_count\":0,\"baseline_sha256\":\"a89183191ab9b20d54c23b1488db2ec09c326a430c032584652177e6a8ab18b8\",\"complete\":false,\"downstream\":{},\"in_scope_requirements\":37,\"issues\":[{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-001].approved_by\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-001].approved_at\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-002].approved_by\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-002].approved_at\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-003].approved_by\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-003].approved_at\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-004].approved_by\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-004].approved_at\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-005].approved_by\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-005].approved_at\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-006].approved_by\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-006].approved_at\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-007].approved_by\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-007].approved_at\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-008].approved_by\"},{\"code\":\"required_text\",\"message\":\"必须填写非空文字\",\"path\":\"$.changes[CHG-008].approved_at\"}],\"limits\":[\"只核验声明范围、文件摘要与记录关联，不能证明内容真实或需求完整\",\"审批人身份、用户研究质量、业务价值及运行效果需要人员确认\",\"本工具不会执行构建、研究任务、交互或发布操作\"],\"passed\":false,\"product_version\":\"v3.6-assistant-prototype\",\"root\":\"I:\\\\code\\\\GameGen\",\"stage\":\"design\"}"
+    }
+  ],
+  "structuredContent": {
+    "acceptance_count": 57,
+    "acceptance_with_test_count": 0,
+    "baseline_sha256": "a89183191ab9b20d54c23b1488db2ec09c326a430c032584652177e6a8ab18b8",
+    "complete": false,
+    "downstream": {},
+    "in_scope_requirements": 37,
+    "issues": [
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-001].approved_by"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-001].approved_at"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-002].approved_by"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-002].approved_at"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-003].approved_by"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-003].approved_at"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-004].approved_by"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-004].approved_at"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-005].approved_by"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-005].approved_at"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-006].approved_by"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-006].approved_at"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-007].approved_by"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-007].approved_at"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-008].approved_by"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "$.changes[CHG-008].approved_at"
+      }
+    ],
+    "limits": [
+      "只核验声明范围、文件摘要与记录关联，不能证明内容真实或需求完整",
+      "审批人身份、用户研究质量、业务价值及运行效果需要人员确认",
+      "本工具不会执行构建、研究任务、交互或发布操作"
+    ],
+    "passed": false,
+    "product_version": "v3.6-assistant-prototype",
+    "root": "I:\\code\\GameGen",
+    "stage": "design"
+  },
+  "isError": false
+}

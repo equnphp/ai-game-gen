@@ -1,0 +1,369 @@
+{
+  "phase": "planning",
+  "root": "I:\\code\\GameGen",
+  "version": "ui-full-20261117-draft.2",
+  "inspect": {
+    "approval_identity_verified": false,
+    "baseline_sha256": "",
+    "complete": false,
+    "documents_ready": false,
+    "execution_status": "not_run",
+    "execution_verified": false,
+    "gate_kind": "documentation",
+    "handoff": {
+      "asset_count": 25,
+      "complete": false,
+      "covered_count": 535,
+      "design_version": "ui-full-20261117-draft.2",
+      "inventory_count": 535,
+      "issues": [
+        "design 缺少 version、source 或 approved_by"
+      ],
+      "phase": "planning",
+      "release_build_id": "",
+      "root": "I:\\code\\GameGen",
+      "scenario_count": 535
+    },
+    "issues": [
+      "design 缺少 version、source 或 approved_by"
+    ],
+    "limits": [
+      "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+      "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+      "审批记录和证据真实性须由实际负责人确认"
+    ],
+    "module": "design",
+    "passed": false,
+    "quality_verified": false,
+    "release_permitted": false,
+    "root": "I:\\code\\GameGen",
+    "stage": "planning",
+    "status": "documents_incomplete"
+  },
+  "design_gate": {
+    "approval_identity_verified": false,
+    "baseline_sha256": "",
+    "complete": false,
+    "documents_ready": false,
+    "execution_status": "not_run",
+    "execution_verified": false,
+    "gate_kind": "documentation",
+    "handoff": {
+      "asset_count": 25,
+      "complete": false,
+      "covered_count": 535,
+      "design_version": "ui-full-20261117-draft.2",
+      "inventory_count": 535,
+      "issues": [
+        "design 缺少 version、source 或 approved_by"
+      ],
+      "phase": "planning",
+      "release_build_id": "",
+      "root": "I:\\code\\GameGen",
+      "scenario_count": 535
+    },
+    "issues": [
+      "design 缺少 version、source 或 approved_by"
+    ],
+    "limits": [
+      "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+      "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+      "审批记录和证据真实性须由实际负责人确认"
+    ],
+    "module": "design",
+    "passed": false,
+    "quality_verified": false,
+    "release_permitted": false,
+    "root": "I:\\code\\GameGen",
+    "stage": "planning",
+    "status": "documents_incomplete"
+  },
+  "workflow_gate": {
+    "approval_identity_verified": false,
+    "baseline_sha256": "",
+    "complete": false,
+    "completion_scope": "当前迭代声明范围的文档、记录与交接，不含实际验证和发布许可",
+    "documents_ready": false,
+    "downstream": {
+      "architecture": {
+        "approval_identity_verified": false,
+        "baseline_sha256": "0e101c1ef571dae06293dce63a73fb1ab88417c7eddbeccf9aef7598a54c132c",
+        "build_id": "",
+        "complete": false,
+        "delivery_identity": {
+          "actual_build_declared": false,
+          "artifact_verified": false,
+          "consistent": false,
+          "declarations": {
+            ".architecture-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".coding-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".product-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".quality-plan-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".workflow-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            }
+          },
+          "issues": [
+            {
+              "code": "identity_manifest",
+              "message": "产品、架构和流程的交付物归属不一致",
+              "path": ".design-mcp.json"
+            }
+          ]
+        },
+        "documents_ready": false,
+        "downstream": {},
+        "execution_status": "not_run",
+        "execution_verified": false,
+        "gate_kind": "documentation",
+        "issues": [
+          {
+            "code": "approval_missing",
+            "message": "缺少当前基线审批: architecture",
+            "path": "$.reviews"
+          },
+          {
+            "code": "approval_missing",
+            "message": "缺少当前基线审批: product",
+            "path": "$.reviews"
+          },
+          {
+            "code": "identity_manifest",
+            "message": "产品、架构和流程的交付物归属不一致",
+            "path": ".design-mcp.json"
+          }
+        ],
+        "limits": [
+          "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+          "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+          "审批记录和证据真实性须由实际负责人确认"
+        ],
+        "module": "architecture",
+        "passed": false,
+        "quality_verified": false,
+        "release_permitted": false,
+        "root": "I:\\code\\GameGen",
+        "stage": "design",
+        "status": "documents_incomplete",
+        "version": "local-core-v1-handoff.3"
+      },
+      "delivery_identity": {
+        "actual_build_declared": false,
+        "artifact_verified": false,
+        "consistent": false,
+        "declarations": {
+          ".architecture-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".coding-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".product-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".quality-plan-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".workflow-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": [
+          {
+            "code": "identity_manifest",
+            "message": "产品、架构和流程的交付物归属不一致",
+            "path": ".design-mcp.json"
+          }
+        ]
+      },
+      "product": {
+        "acceptance_count": 14,
+        "acceptance_with_test_count": 0,
+        "approval_identity_verified": false,
+        "baseline_sha256": "4124cd5b84f3bbb01fa8d9726cd94a66f0649f1bff3848fab7219b37bf9ecaed",
+        "complete": false,
+        "delivery_identity": {
+          "actual_build_declared": false,
+          "artifact_verified": false,
+          "consistent": false,
+          "declarations": {
+            ".architecture-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".coding-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".product-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".quality-plan-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".workflow-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            }
+          },
+          "issues": [
+            {
+              "code": "identity_manifest",
+              "message": "产品、架构和流程的交付物归属不一致",
+              "path": ".design-mcp.json"
+            }
+          ]
+        },
+        "documents_ready": false,
+        "downstream": {},
+        "execution_status": "not_run",
+        "execution_verified": false,
+        "gate_kind": "documentation",
+        "in_scope_requirements": 7,
+        "issues": [
+          {
+            "code": "identity_manifest",
+            "message": "产品、架构和流程的交付物归属不一致",
+            "path": ".design-mcp.json"
+          }
+        ],
+        "limits": [
+          "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+          "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+          "审批记录和证据真实性须由实际负责人确认"
+        ],
+        "module": "product",
+        "passed": false,
+        "product_version": "local-core-v1-draft.2",
+        "quality_verified": false,
+        "release_permitted": false,
+        "root": "I:\\code\\GameGen",
+        "stage": "design",
+        "status": "documents_incomplete"
+      }
+    },
+    "execution_status": "not_run",
+    "execution_verified": false,
+    "gate_kind": "documentation",
+    "issues": [
+      {
+        "code": "module_gate",
+        "message": "对应模块检查未通过: product",
+        "path": "requirements"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: product",
+        "path": "requirements"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: user",
+        "path": "requirements"
+      },
+      {
+        "code": "module_gate",
+        "message": "对应模块检查未通过: architecture",
+        "path": "architecture"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: architecture",
+        "path": "architecture"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: product",
+        "path": "architecture"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: architecture",
+        "path": "ui"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: product",
+        "path": "ui"
+      },
+      {
+        "code": "identity_manifest",
+        "message": "产品、架构和流程的交付物归属不一致",
+        "path": ".design-mcp.json"
+      }
+    ],
+    "limits": [
+      "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+      "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+      "审批记录和证据真实性须由实际负责人确认"
+    ],
+    "module": "workflow",
+    "passed": false,
+    "quality_verified": false,
+    "question_routes": {
+      "architecture": [
+        "product",
+        "user"
+      ],
+      "backend": [
+        "architecture"
+      ],
+      "frontend": [
+        "architecture"
+      ],
+      "product": [
+        "user"
+      ],
+      "ui": [
+        "product"
+      ]
+    },
+    "ready_for_stage": false,
+    "release_permitted": false,
+    "root": "I:\\code\\GameGen",
+    "stage": "ui",
+    "stage_baselines": {
+      "architecture": "c310bec8591cd4d70316e9bca81a7aa3be98b336f8029c36cbd4455926d825b0",
+      "development": "5bb87a8a005413f799f541fc471f26e9fdd17c90f50f5eba26712d2ae205770c",
+      "requirements": "0885aebe690a2cfc97611c2f558ad675c7e99d2435a7ddc3a65a80637807a970",
+      "ui": "09e26b2c2199ee5ca916bb881e4f639d8dcc1f37d24b2557027d6ad79dfd271c"
+    },
+    "status": "documents_incomplete"
+  },
+  "interpretation": "Design asset and scenario records supplied. Real owner approval is pending; root workflow still belongs to no-GUI M1. No stage advancement, actual tests, screen comparisons or release permission."
+}

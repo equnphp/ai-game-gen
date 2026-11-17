@@ -1,0 +1,866 @@
+[
+  {
+    "scenario": "desktop-projects-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-projects-first_use",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-projects-empty",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-projects-no_results",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-workspace-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-workspace-loading",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-workspace-clarification",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-workspace-offline",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-workspace-error_timeout",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-workspace-interrupted",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-workspace-success",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-workspace-duplicate",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-scene-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-scene-selected",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-workflow-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-workflow-selected",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-workflow-invalid",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-assets-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-assets-empty",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-assets-no_results",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-assets-permission_denied",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-generate-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-generate-loading",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-generate-success",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-generate-error_timeout",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-generate-insufficient",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-publish-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-publish-offline",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-publish-loading",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-publish-interrupted",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-publish-error_timeout",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-publish-success",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-history-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-history-conflict",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-settings-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "desktop-settings-unauthenticated",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-projects-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-projects-first_use",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-projects-empty",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-projects-no_results",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-workspace-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-workspace-loading",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-workspace-clarification",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-workspace-offline",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-workspace-error_timeout",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-workspace-interrupted",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-workspace-success",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-workspace-duplicate",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-scene-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-scene-selected",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-workflow-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-workflow-selected",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-workflow-invalid",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-assets-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-assets-empty",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-assets-no_results",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-assets-permission_denied",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-generate-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-generate-loading",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-generate-success",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-generate-error_timeout",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-generate-insufficient",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-publish-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-publish-offline",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-publish-loading",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-publish-interrupted",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-publish-error_timeout",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-publish-success",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-history-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-history-conflict",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-settings-normal",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  },
+  {
+    "scenario": "android-settings-unauthenticated",
+    "result": {
+      "content": [
+        {
+          "text": "项目内路径不能为空",
+          "type": "text"
+        }
+      ],
+      "isError": true
+    }
+  }
+]

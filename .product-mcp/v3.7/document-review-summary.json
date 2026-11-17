@@ -1,0 +1,40 @@
+{
+  "version": "v3.7-import-local-sync-requirements",
+  "date": "2026-11-14",
+  "baseline_sha256": "244a7ff2e2048ae2e775cfbbfdf4c11e099f5c07330542ca206614aa065e1346",
+  "scope": "产品需求与产品到架构交接文档；无代码/原型实现",
+  "documentation_status": "draft_for_human_review",
+  "discovery_document_status": "documents_ready",
+  "requirements_review": "pending_change_approvals",
+  "unresolved_change_approval_fields": 18,
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "new_requirements": [
+    "REQ-038",
+    "REQ-039"
+  ],
+  "new_acceptance_ids": [
+    "AC-058",
+    "AC-059",
+    "AC-060",
+    "AC-061",
+    "AC-062",
+    "AC-063",
+    "AC-064",
+    "AC-065",
+    "AC-066",
+    "AC-067",
+    "AC-068",
+    "AC-069",
+    "AC-070",
+    "AC-071",
+    "AC-072"
+  ],
+  "ui_status": "planned；当前原型仍V3.6",
+  "automation_executed": [],
+  "tool_limitations": [
+    "architecture_mcp、workflow_mcp、独立quality_mcp没有提供可调用工具；未模拟其交接或批准。",
+    "product_mcp当前为旧版规则，仅读取文档检查/discovery结果，不以其发布门禁要求触发执行。"
+  ]
+}

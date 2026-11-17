@@ -1,0 +1,11 @@
+/* 文案允许换行；语言切换控件在手机占独立一行，避免挤压主要创作按钮。 */
+.language-picker { display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted); }
+.language-picker select { min-width:130px;max-width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface,#fff);color:var(--text);font:inherit; }
+.locale-strip { display:flex;justify-content:flex-end;padding:8px 24px;background:var(--surface,#fff);border-bottom:1px solid var(--line); }
+html[lang="en-US"] body { font-family:Inter,Arial,sans-serif; }
+html[lang="ja-JP"] body { font-family:"Noto Sans JP","Yu Gothic",Meiryo,sans-serif; }
+html[lang="ko-KR"] body { font-family:"Noto Sans KR","Malgun Gothic",sans-serif; }
+html[lang] button,html[lang] summary { overflow-wrap:anywhere; }
+html[lang] .rail button { white-space:normal; }
+html[lang] .field,html[lang] .setting-row>div,html[lang] .page-heading>div { min-width:0; }
+@media(max-width:700px) { .locale-strip { padding:6px 14px; } .language-picker { width:100%;justify-content:space-between; } }

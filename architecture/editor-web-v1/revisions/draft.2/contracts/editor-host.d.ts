@@ -1,0 +1,72 @@
+/* 架构契约声明，未编译；Schema与CONTRACT.md共同约束。数值字符串、Base64长度和生命周期仍需运行时校验。 */
+export type UUID = string;
+export type U64 = string;
+export type SessionToken = string;
+export type TaskRef = string;
+export type GrantRef = string;
+export type ContentHash = string;
+export type Json2 = { "decodedBytes": number; "base64": string; };
+export type Json8 = { "decodedBytes": number; "base64": string; };
+export type EventJson = { "decodedBytes": number; "base64": string; };
+export type BinaryChunk = { "decodedBytes": number; "base64": string; };
+export type InputChunk = { "decodedBytes": number; "base64": string; };
+export type Capability = "core.project_store" | "core.scene_documents" | "core.asset_stream" | "core.events" | "editor.graph" | "preview.control";
+export type AdapterKind = "tauri-native" | "browser-real-core" | "mock";
+export type TaskState = "QUEUED" | "RUNNING" | "COMMITTING" | "SUCCEEDED" | "FAILED" | "CANCELLED";
+export type TerminalState = "SUCCEEDED" | "FAILED" | "CANCELLED";
+export type SessionState = "OPEN" | "CLOSING" | "FAILED";
+export type Cursor = { "hostInstanceId": UUID; "sessionId": UUID; "coreInstanceId": UUID; "afterSeq": U64; };
+export type Limits = { "requestJsonBytes": 2097152; "binaryChunkBytes": 1048576; "resultDecodedBytes": 8388608; "coreTaskSlots": 32; "hostPendingCalls": 16; "coreEventRing": 256; "eventPollItems": 100; "eventDecodedBytes": 1048576; "resultCacheSlots": 1; "resultCacheDecodedBytes": 8388608; "wireLineBytes": 16777216; "uploadPendingChunks": 4; "driverMaxRequestIds": 65536; "driverNewWorkThreshold": 65000; };
+export type HostError = { "code": "INVALID_MESSAGE" | "UNSUPPORTED_PROTOCOL" | "UNSUPPORTED" | "VERSION_MISMATCH" | "PERMISSION_DENIED" | "SESSION_LIMIT" | "SESSION_INVALID" | "SESSION_CLOSING" | "TASK_INVALID" | "NOT_READY" | "BUSY" | "LIMIT_EXCEEDED" | "QUEUE_FULL" | "CORE_ABI" | "CORE_CONTRACT_VIOLATION" | "TRANSPORT_LOST" | "TIMEOUT" | "LIBRARY_NOT_FOUND" | "LIBRARY_INVALID" | "SHUTTING_DOWN" | "INTERNAL_ERROR" | "PROTOCOL_ERROR" | "CURSOR_INVALID"; "messageKey": string; "retryable": boolean; "outcome": "not_submitted" | "submitted_unknown" | "not_applicable"; "coreStatus"?: number; "coreErrorJson"?: Json2; "affectedCoreRequestId"?: UUID; "sessionState"?: SessionState; };
+export type TaskTicket = { taskRef: TaskRef; coreRequestId: UUID | null; originCallId: UUID; };
+export type SessionInfo = { state: SessionState; sessionId: UUID; coreInstanceId: UUID; projectState: "NONE" | "OPEN" | "UNKNOWN"; activeTasks: number; resultSlotTask: TaskRef | null; tasks: ReadonlyArray<TaskTicket>; };
+export type CoreEvent = { "seq": U64; "jsonUtf8": EventJson; };
+export type HostMethod = "host.describe" | "session.open" | "session.state" | "session.close" | "core.submit" | "upload.write" | "blob.read" | "task.status" | "task.result" | "task.cancel" | "task.release" | "events.read";
+export type host_describe_Params = {  };
+export type host_describe_Result = { "contractVersion": "1.0"; "hostInstanceId": UUID; "adapterKind": AdapterKind; "hostBuildId": string | null; "coreBuildId": string | null; "coreAbi": "1.0" | null; "implementedMethods": ReadonlyArray<HostMethod>; "limits": Limits; };
+export type session_open_Params = { "grantRef": GrantRef; "requiredCapabilities": ReadonlyArray<Capability>; };
+export type session_open_Result = { "state": "OPEN"; "sessionToken": SessionToken; "sessionId": UUID; "hostInstanceId": UUID; "coreInstanceId": UUID; "capabilities": ReadonlyArray<Capability>; "cursor": Cursor; };
+export type session_state_Params = { "sessionToken": SessionToken; };
+export type session_state_Result = SessionInfo;
+export type session_close_Params = { "sessionToken": SessionToken; "mode": "drain" | "cancel"; "deadlineMs": number; };
+export type session_close_Result = { "state": "CLOSED"; "lastDurableRevision": U64 | null; };
+export type core_submit_Params = { "sessionToken": SessionToken; "requestUtf8": Json2; };
+export type core_submit_Result = TaskTicket;
+export type upload_write_Params = { "sessionToken": SessionToken; "uploadId": UUID; "offset": U64; "chunk": InputChunk; };
+export type upload_write_Result = TaskTicket;
+export type blob_read_Params = { "sessionToken": SessionToken; "contentHash": ContentHash; "offset": U64; "maxBytes": number; };
+export type blob_read_Result = TaskTicket;
+export type task_status_Params = { "sessionToken": SessionToken; "taskRef": TaskRef; };
+export type task_status_Result = { "state": TaskState; "cancellable": boolean; "coreStateUtf8": Json2; };
+export type task_result_Params = { "sessionToken": SessionToken; "taskRef": TaskRef; };
+export type task_result_Result = { "state": TerminalState; "coreResultUtf8": Json8; "binary": BinaryChunk | null; };
+export type task_cancel_Params = { "sessionToken": SessionToken; "taskRef": TaskRef; };
+export type task_cancel_Result = { "cancelRequested": true; };
+export type task_release_Params = { "sessionToken": SessionToken; "taskRef": TaskRef; };
+export type task_release_Result = { "released": true; };
+export type events_read_Params = { "sessionToken": SessionToken; "cursor": Cursor | null; "limit": number; };
+export type events_read_Result = { "nextCursor": Cursor; "gap": boolean; "events": ReadonlyArray<CoreEvent>; };
+export interface HostMethodMap {
+  "host.describe": { params: host_describe_Params; result: host_describe_Result; };
+  "session.open": { params: session_open_Params; result: session_open_Result; };
+  "session.state": { params: session_state_Params; result: session_state_Result; };
+  "session.close": { params: session_close_Params; result: session_close_Result; };
+  "core.submit": { params: core_submit_Params; result: core_submit_Result; };
+  "upload.write": { params: upload_write_Params; result: upload_write_Result; };
+  "blob.read": { params: blob_read_Params; result: blob_read_Result; };
+  "task.status": { params: task_status_Params; result: task_status_Result; };
+  "task.result": { params: task_result_Params; result: task_result_Result; };
+  "task.cancel": { params: task_cancel_Params; result: task_cancel_Result; };
+  "task.release": { params: task_release_Params; result: task_release_Result; };
+  "events.read": { params: events_read_Params; result: events_read_Result; };
+}
+export type HostRequest<M extends keyof HostMethodMap = keyof HostMethodMap> = { [K in M]: { protocol: "1.0"; callId: UUID; method: K; params: HostMethodMap[K]["params"]; } }[M];
+export type HostResponse<M extends keyof HostMethodMap = keyof HostMethodMap> = { [K in M]: { protocol: "1.0"; callId: UUID; method: K; ok: true; result: HostMethodMap[K]["result"]; } | { protocol: "1.0"; callId: UUID; method: K; ok: false; error: HostError; } }[M];
+export interface EditorHostPort { dispatch<M extends keyof HostMethodMap>(request: HostRequest<M>): Promise<HostResponse<M>>; }
+export interface DriverMethodMap extends HostMethodMap {
+  "driver.describe": { params: {  }; result: { "driverProtocol": "1.0"; "hostInstanceId": UUID; "fixtureGrant": GrantRef; "adapterKind": "browser-real-core" | "mock"; "implementedMethods": ReadonlyArray<"host.describe" | "session.open" | "session.state" | "session.close" | "core.submit" | "upload.write" | "blob.read" | "task.status" | "task.result" | "task.cancel" | "task.release" | "events.read" | "driver.describe" | "driver.shutdown">; "limits": Limits; }; };
+  "driver.shutdown": { params: { "deadlineMs": number; }; result: { "state": "STOPPED"; }; };
+}
+export type DriverRequest<M extends keyof DriverMethodMap = keyof DriverMethodMap> = { [K in M]: { driverProtocol: "1.0"; driverRequestId: UUID; method: K; params: DriverMethodMap[K]["params"]; } }[M];
+export type DriverResponse<M extends keyof DriverMethodMap = keyof DriverMethodMap> = { [K in M]: { driverProtocol: "1.0"; driverRequestId: UUID; method: K; ok: true; result: DriverMethodMap[K]["result"]; } | { driverProtocol: "1.0"; driverRequestId: UUID; method: K; ok: false; error: HostError; } }[M];
+export type DriverProtocolError = { driverProtocol: "1.0"; kind: "protocol_error"; driverRequestId: null; error: HostError; };

@@ -1,0 +1,102 @@
+{
+  "version": "v3.8-core-editor-extension-draft.1",
+  "artifacts": [
+    {
+      "path": ".product-mcp.json",
+      "version": "v3.8-core-editor-extension-draft.1",
+      "owner": "product",
+      "sha256": "7a215b47873610cf82c99acc5cd21520248c8c7f05e595aafb85f630c3d7e064",
+      "bytes": 87694
+    },
+    {
+      "path": "PRODUCT.md",
+      "version": "v3.8-core-editor-extension-draft.1",
+      "owner": "product",
+      "sha256": "f5e92ec5b460424149c13f4d41cf30e3cb92c1fb9967c09d604157ed8b04bd3e",
+      "bytes": 2287
+    },
+    {
+      "path": "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md",
+      "version": "v3.8-core-editor-extension-draft.1",
+      "owner": "product",
+      "sha256": "9cc242933c9b994aeef93394a32baf3b57f589329b1bb13c86de5677ffbc2f90",
+      "bytes": 19556
+    },
+    {
+      "path": "HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+      "version": "v3.8-core-editor-extension-draft.1",
+      "owner": "product",
+      "sha256": "711cf8d9e5eda64569d18b9a7b55227f5336715d5ba6b90a1a2896a99a93b5a0",
+      "bytes": 12311
+    },
+    {
+      "path": ".product-mcp/v3.8/SOURCE-DECISIONS.json",
+      "version": "v3.8-core-editor-extension-draft.1",
+      "owner": "product",
+      "sha256": "ad3618a46004f20d5d9d1046b4b3d4a2ac29cd40cf92f3dc8932636362c88b0e",
+      "bytes": 2779
+    },
+    {
+      "path": ".product-mcp/v3.8/QUESTIONS.json",
+      "version": "v3.8-core-editor-extension-draft.1",
+      "owner": "product",
+      "sha256": "5b6b62304bdf5f332e5e1a7f110b36966dfc6ab0ec6d1c55a2f462d91a4121b0",
+      "bytes": 6817
+    },
+    {
+      "path": ".product-mcp/v3.8/INPUT-BASELINES.json",
+      "version": "v3.8-core-editor-extension-draft.1",
+      "owner": "product",
+      "sha256": "7ac3253eabf263de28838e0cbb2b1f3469dd60ce631ea5ae507bfe04c11e228f",
+      "bytes": 2695
+    },
+    {
+      "path": ".product-mcp/v3.8/DOCUMENT-CHECKS.md",
+      "version": "v3.8-core-editor-extension-draft.1",
+      "owner": "product",
+      "sha256": "555b2dc74680d10e7b694a4c44d7f964882cc66f10b69a3bbe04e53cc5d2f9e1",
+      "bytes": 1277
+    },
+    {
+      "path": ".product-mcp/v3.8/document-checks/inspect-initial.json",
+      "version": "v3.8-core-editor-extension-draft.1",
+      "owner": "product",
+      "sha256": "0adc6b23acd20c727044e4cd343a362e688550070e4ca71dcb905874b35a80c2",
+      "bytes": 2481
+    },
+    {
+      "path": ".product-mcp/v3.8/document-checks/requirements-review-initial.json",
+      "version": "v3.8-core-editor-extension-draft.1",
+      "owner": "product",
+      "sha256": "00a0998f8f3b6016f69ba9b2fe493639baf91ec5c0d14e40baae6f4ef5ef3156",
+      "bytes": 2751
+    },
+    {
+      "path": ".product-mcp/v3.8/document-checks/inspect-final.json",
+      "version": "v3.8-core-editor-extension-draft.1",
+      "owner": "product",
+      "sha256": "f8492220257776e5787525b7d28499b25a7729a4ec80258a812f18709d12b4b2",
+      "bytes": 655
+    },
+    {
+      "path": ".product-mcp/v3.8/document-checks/requirements-review-final.json",
+      "version": "v3.8-core-editor-extension-draft.1",
+      "owner": "product",
+      "sha256": "613cae87213b8dc22caeff9bf7821141ad88dff08e1108572506332451cd5f09",
+      "bytes": 929
+    },
+    {
+      "path": ".product-mcp/v3.8/document-checks/discovery-gate.json",
+      "version": "v3.8-core-editor-extension-draft.1",
+      "owner": "product",
+      "sha256": "f8492220257776e5787525b7d28499b25a7729a4ec80258a812f18709d12b4b2",
+      "bytes": 655
+    }
+  ],
+  "input_baselines": ".product-mcp/v3.8/INPUT-BASELINES.json",
+  "native_discovery_baseline_sha256": "1ac0286ac0fcbf16aa203021a0d340b99aadd2f740db2d22527fb9c95fa1e42d",
+  "document_status": "draft_documents_complete_reviews_pending",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

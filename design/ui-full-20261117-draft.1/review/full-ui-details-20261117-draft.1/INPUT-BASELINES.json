@@ -1,0 +1,134 @@
+{
+  "version": "full-ui-details-20261117-draft.1",
+  "date": "2026-11-17",
+  "user_request": "继续，你要考虑所有细节的界面",
+  "source": "当前真实用户消息；继承此前多角色补充要求，非用户研究",
+  "inputs": [
+    {
+      "path": "PRODUCT-REQUIREMENTS-V3.5.md",
+      "bytes": 36996,
+      "sha256": "fc31b95d692b0284527ccd40a9c021000ac4f1ce931bd68314f953678b060d75"
+    },
+    {
+      "path": "MAP-LEVEL-REQUIREMENTS-V3.5.md",
+      "bytes": 30671,
+      "sha256": "0c39f3654ddfd3d60c59b5ac152a66d4e9a9e5300b074161f6d5a588b62df0b9"
+    },
+    {
+      "path": "STUDIO-ENGINE-REQUIREMENTS-V3.5.md",
+      "bytes": 26528,
+      "sha256": "e3ce58ebd69de68585f7c03b6b818cac2449467f6f5d264ddda0b02c434647d7"
+    },
+    {
+      "path": "WORKFLOW-NETWORK-REQUIREMENTS-V3.5.md",
+      "bytes": 25992,
+      "sha256": "5b24c0bf22244d86e73b432e0c2ec42530fdac761e2abe6a0677e6565b563169"
+    },
+    {
+      "path": "GENRE-MODULE-REQUIREMENTS-V3.5.md",
+      "bytes": 10155,
+      "sha256": "7fcbdf7b9b939d5d5bd2997280c3f02211dcaeb9e5e9423eeca93c1db22caf86"
+    },
+    {
+      "path": "ASSISTANT-EXTENSIONS-REQUIREMENTS-V3.6.md",
+      "bytes": 13855,
+      "sha256": "5d75f04a37002e8382711e1d224744d954e80109b07a78b504990cd8f9a0fa21"
+    },
+    {
+      "path": "PROJECT-IMPORT-REQUIREMENTS-V3.7.md",
+      "bytes": 15657,
+      "sha256": "480e898528e984bee97a81ef6a4838c56c5b9c70465713b81b1d93e17a6d9d9f"
+    },
+    {
+      "path": "LOCAL-LAN-SYNC-REQUIREMENTS-V3.7.md",
+      "bytes": 17057,
+      "sha256": "7628e4f6251cdbf144c5bacbed04b396a4dab215dbcfef815bfcf20cd8148b35"
+    },
+    {
+      "path": "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md",
+      "bytes": 19556,
+      "sha256": "9cc242933c9b994aeef93394a32baf3b57f589329b1bb13c86de5677ffbc2f90"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "bytes": 4401,
+      "sha256": "2b20be1c5e6a5b974e18b46ae3c03ec2fd33c3392de9e9be631babdb907fab2e"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/source/screens.json",
+      "bytes": 28188,
+      "sha256": "455f3794c9e63449aa9b3ae85512e0db819bf20211a5585428976e6dab3a142f"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/source/scenarios.json",
+      "bytes": 313940,
+      "sha256": "abef73273da71fca51c0ceffb4c8a9650b9b5c994c462af605490eadc77882ca"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/tokens.json",
+      "bytes": 2184,
+      "sha256": "9085c9211181f8fb06b4b3431251b3d573fe450fd94bcb908453367fe94ef697"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/DESIGN-SPEC.md",
+      "bytes": 12908,
+      "sha256": "970c5173e9474ad5b2bb02827d4e53301af3c3cc4da6f27927137aa4a55f80f0"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/review/product-scope-review-20261117.md",
+      "bytes": 100878,
+      "sha256": "f9a2a3d5c9e2fb0e24cf8334eebf042a6ebee3ebd81fb9a830829b125bbe65d7"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/review/chat-states-20261117-draft.1/chat-state-catalog.json",
+      "bytes": 62784,
+      "sha256": "203e0ceef3435ee63717e0b56b7f0fd57bcd35a6552922d810a31d884306e8b5"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/requirements-trace.json",
+      "bytes": 10782,
+      "sha256": "85695d4973c76c00c687478fa5d21d7badc9523b0580a0a9b89e9c2feaedfb07"
+    }
+  ],
+  "modules": [
+    {
+      "id": "global",
+      "json": "global-surfaces.json",
+      "json_sha256": "5e8f08a79eaa1cc10192e9aee8f576c110dc7e81c15fc1e8e908a052b15c0dc7",
+      "md": "GLOBAL-SURFACES.md",
+      "md_sha256": "195d8dce393ab037ffa7600885e5ad8e0506b50fa59536d8a3dc8f97e6097d21"
+    },
+    {
+      "id": "chat",
+      "json": "chat-surfaces.json",
+      "json_sha256": "5f295dde3db6804fcff963f6d9fa8c8645e175e4c12c6f25424496a95365cf29",
+      "md": "CHAT-CONTROLS.md",
+      "md_sha256": "858a10f071670a7b0df8435c9445a7bc90dca640f4e760af9af38313a6fa0dbb"
+    },
+    {
+      "id": "studio",
+      "json": "studio/surfaces.json",
+      "json_sha256": "b93384f67596cd50c94590049e379fc494692c953dd5fab4d1a8e08dd28f7c3c",
+      "md": "studio/DETAILS.md",
+      "md_sha256": "27a7406c614243b94d92625535a873947d73b9229a48f54fc8e4fbe22cdd0559"
+    },
+    {
+      "id": "gameplay",
+      "json": "gameplay/surfaces.json",
+      "json_sha256": "719371aa827fae082dbb3ff4b108bd2e697ae67b04a8db48ec4cd23adc969c97",
+      "md": "gameplay/DETAILS.md",
+      "md_sha256": "ac5e60f5734b37f16e2ffecd012a65f81fcdb56bd4c09e9cf9baa6b0b1191248"
+    },
+    {
+      "id": "workflow",
+      "json": "workflow/surfaces.json",
+      "json_sha256": "5a770d83518c3880e7c39daa2aaedd2784cf505e92d165fa258c506495098b7b",
+      "md": "workflow/DETAILS.md",
+      "md_sha256": "cdf7536144be4ba996c986f4130b862f500944d0283001ee5ea6609d32015be8"
+    }
+  ],
+  "status": "product_detail_spec_prepared_artboards_not_drawn",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

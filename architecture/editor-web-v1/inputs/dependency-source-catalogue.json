@@ -1,0 +1,166 @@
+{
+  "version": "editor-web-v1-draft.1",
+  "date": "2026-11-17",
+  "meaning": "官方注册表读取到的版本/许可元数据目录；不是兼容性验证结果或已生效依赖锁",
+  "packages": [
+    {
+      "name": "react",
+      "url": "https://registry.npmjs.org/react/latest",
+      "version": "19.3.1",
+      "license": "MIT",
+      "engines": {
+        "node": ">=0.10.0"
+      },
+      "repository": {
+        "url": "git+https://github.com/react/react.git",
+        "type": "git",
+        "directory": "packages/react"
+      },
+      "upstream_dist_integrity": "sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw==",
+      "upstream_dist_sha1": "26e9523fc36ea06be5050ebb780249a133260ad7",
+      "observed_package_archive_sha256": null,
+      "status": "official_registry_metadata_only_not_downloaded_or_tested"
+    },
+    {
+      "name": "react-dom",
+      "url": "https://registry.npmjs.org/react-dom/latest",
+      "version": "19.3.1",
+      "license": "MIT",
+      "engines": {},
+      "repository": {
+        "url": "git+https://github.com/react/react.git",
+        "type": "git",
+        "directory": "packages/react-dom"
+      },
+      "upstream_dist_integrity": "sha512-Y0bARz53lhEC1NMCASs0/j+faB/zqt3R8hpvg1e8+61ZVJ4UL0UdC4cBbXfZMcIuhrfgeILTLe+ZeBCavQPtKQ==",
+      "upstream_dist_sha1": "b384c53cfcbe9c2a5d09d863b98455de9d68afe2",
+      "observed_package_archive_sha256": null,
+      "status": "official_registry_metadata_only_not_downloaded_or_tested"
+    },
+    {
+      "name": "typescript",
+      "url": "https://registry.npmjs.org/typescript/latest",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=16.20.0"
+      },
+      "repository": {
+        "url": "git+https://github.com/microsoft/TypeScript.git",
+        "type": "git"
+      },
+      "upstream_dist_integrity": "sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==",
+      "upstream_dist_sha1": "9ec773d7954a8c182c17cc5bbd575aa28bc51582",
+      "observed_package_archive_sha256": null,
+      "status": "official_registry_metadata_only_not_downloaded_or_tested"
+    },
+    {
+      "name": "vite",
+      "url": "https://registry.npmjs.org/vite/latest",
+      "version": "8.3.8",
+      "license": "MIT",
+      "engines": {
+        "node": "^20.19.0 || >=22.12.0"
+      },
+      "repository": {
+        "url": "git+https://github.com/vitejs/vite.git",
+        "type": "git",
+        "directory": "packages/vite"
+      },
+      "upstream_dist_integrity": "sha512-LzOn3h9rG/0vhLdXrV4yJ4QFA9eEoqCl+Yx+kGJd7aB9w6nfNgVHKSYwLPZUHrz4ZGa+t+kXjV9itvcHDLQouA==",
+      "upstream_dist_sha1": "ad713bf2e46c241f344b5e50401297b77a08621d",
+      "observed_package_archive_sha256": null,
+      "status": "official_registry_metadata_only_not_downloaded_or_tested"
+    },
+    {
+      "name": "@tauri-apps/api",
+      "url": "https://registry.npmjs.org/@tauri-apps%2fapi/latest",
+      "version": "2.12.5",
+      "license": "Apache-2.0 OR MIT",
+      "engines": {},
+      "repository": {
+        "url": "git+https://github.com/tauri-apps/tauri.git",
+        "type": "git"
+      },
+      "upstream_dist_integrity": "sha512-G9QIMt5fzED+aS4QhVK3w1HWLKpLIwH/MnpCr9z1ugGEHnS2ORmqrLkc0uALOjRK4qXJy+4Yiw8LDl/KicC1Hg==",
+      "upstream_dist_sha1": "e7484e38aede505c74ec258b10b703262dcda787",
+      "observed_package_archive_sha256": null,
+      "status": "official_registry_metadata_only_not_downloaded_or_tested"
+    },
+    {
+      "name": "@tauri-apps/cli",
+      "url": "https://registry.npmjs.org/@tauri-apps%2fcli/latest",
+      "version": "2.12.5",
+      "license": "Apache-2.0 OR MIT",
+      "engines": {
+        "node": ">= 10"
+      },
+      "repository": {
+        "url": "git+https://github.com/tauri-apps/tauri.git",
+        "type": "git"
+      },
+      "upstream_dist_integrity": "sha512-Dm8s/4aiE52HsBh+Gz3uSrh+fEykRICA1VoAnQA80IqHoTRncPg+q4rGvuhmyNsHUPg3QrPjUrTUSfWmXLVVEw==",
+      "upstream_dist_sha1": "6f18e78a5ac54b4cb97f5703178e0955003e9a30",
+      "observed_package_archive_sha256": null,
+      "status": "official_registry_metadata_only_not_downloaded_or_tested"
+    },
+    {
+      "name": "@playwright/test",
+      "url": "https://registry.npmjs.org/@playwright%2ftest/latest",
+      "version": "1.65.1",
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=20"
+      },
+      "repository": {
+        "url": "git+https://github.com/microsoft/playwright.git",
+        "type": "git"
+      },
+      "upstream_dist_integrity": "sha512-y+NCIRm2LvY4slUVWvGh1nujJ8RF/hEisIsq2mtUPgdQC4L701bq5hZGMhrpeXjACvwvO9tj5dJqhvM6TP9lbw==",
+      "upstream_dist_sha1": "822b1ee23f210bde543297d31993e912be8a3bbc",
+      "observed_package_archive_sha256": null,
+      "status": "official_registry_metadata_only_not_downloaded_or_tested"
+    },
+    {
+      "name": "webdriverio",
+      "url": "https://registry.npmjs.org/webdriverio/latest",
+      "version": "10.2.0",
+      "license": "MIT",
+      "engines": {
+        "node": ">=22.23.4 <23 || >=24.22.1 <25 || >=26.12.1"
+      },
+      "repository": {
+        "url": "git+https://github.com/webdriverio/webdriverio.git",
+        "type": "git",
+        "directory": "packages/webdriverio"
+      },
+      "upstream_dist_integrity": "sha512-efmXasjo/+tWN+C5HCqsaPIJDJLH7smua1aeizL/DoEDg7f4YYVLgD9Zhav9DYrrouag9C04Mmj6bo6a2KA3hA==",
+      "upstream_dist_sha1": "9ecef48e110cab74775310a654734a9153ce7e3d",
+      "observed_package_archive_sha256": null,
+      "status": "official_registry_metadata_only_not_downloaded_or_tested"
+    },
+    {
+      "name": "appium",
+      "url": "https://registry.npmjs.org/appium/latest",
+      "version": "4.0.0",
+      "license": "Apache-2.0",
+      "engines": {
+        "npm": ">=10",
+        "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+      },
+      "repository": {
+        "url": "git+https://github.com/appium/appium.git",
+        "type": "git",
+        "directory": "packages/appium"
+      },
+      "upstream_dist_integrity": "sha512-8Ev8mJAMWFQhht2fL7UtjHocsdfTfec+xd2aydSZbcJJIs3JKudP8UPH867Rv1feeXD1hd2K4SJh5JF5u1hOaA==",
+      "upstream_dist_sha1": "3394f62dd70857cf94a9195c2382949502b8aae4",
+      "observed_package_archive_sha256": null,
+      "status": "official_registry_metadata_only_not_downloaded_or_tested"
+    }
+  ],
+  "archive_bytes_downloaded": false,
+  "installed": false,
+  "executed": false,
+  "version_lock_required_before_implementation": true
+}

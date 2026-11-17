@@ -1,0 +1,211 @@
+{
+  "version": "local-core-v1-handoff.3",
+  "revision": "final-metadata.2",
+  "check_kind": "read_only_document_json_links_hashes_and_history",
+  "document_integrity_status": "passed",
+  "does_not_mean_formal_documents_ready_or_verified_quality": true,
+  "baseline": {
+    "path": "handoff/local-core-v1/supplements/handoff-v3/baseline.final.json",
+    "file_sha256": "f1ca2b9e2cc540e86035c384bddeed904556a5dda5ece966752ca171ae823ea0",
+    "payload_sha256": "01c7bda982d6d3bebd49897b4950e0e609ae7f42a7db0040fc894e208d846dc1",
+    "canonical_payload_matches": true,
+    "artifact_count": 62,
+    "all_hashes_match": true
+  },
+  "current_owner_files": [
+    {
+      "path": ".architecture-mcp.json",
+      "sha256": "324f34e878a7faf860a5ec098694b82b5b99b7fcfbf046b18099afaca773d08f",
+      "bytes": 45916
+    },
+    {
+      "path": ".workflow-mcp.json",
+      "sha256": "c37f9d7e16ec7644111982cee642352412a66adbc242b2a29aaf907f3034b589",
+      "bytes": 30044
+    },
+    {
+      "path": ".product-mcp.json",
+      "sha256": "68f07612ea33e5dd8fe4e72f90c15a10bff79daab900ebdff379b34582ca10e4",
+      "bytes": 61971
+    },
+    {
+      "path": ".quality-plan-mcp.json",
+      "sha256": "d772158e914ad32376b9bf0d1061668af1efb5046ea064b4b8a9c8fdd03efc56",
+      "bytes": 28593
+    },
+    {
+      "path": ".coding-mcp.json",
+      "sha256": "fd1f3f3f91e9d063363fb584f73fe4155522a38cd308bb66f9785abd75115fc9",
+      "bytes": 15669
+    }
+  ],
+  "current_artifact_refs_checked": 42,
+  "immutable_history_records_checked": 77,
+  "json_files_parsed": 49,
+  "local_links": [
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/RESULT.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/remaining-items.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/final-implementation-notes.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/authorization.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/ui-not-applicable.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/dependency-receipt.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/dependencies.receipt.lock.json",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/hash-subset.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/vendor-source-note.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/evidence/developer-implementation-receipt.json",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/evidence/scope-sync-receipt.json",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/evidence/final-product-metadata-receipt.json",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/baseline.final.json",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/documentation-check.final.json",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/tool-reports.final.json",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/README.md",
+      "target": "handoff/local-core-v1/requirements.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/README.md",
+      "target": "handoff/local-core-v1/architecture.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/README.md",
+      "target": "handoff/local-core-v1/api.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/README.md",
+      "target": "handoff/local-core-v1/spec/gg_core_v1.h",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/README.md",
+      "target": "handoff/local-core-v1/storage.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/README.md",
+      "target": "handoff/local-core-v1/spec/project_v1.sql",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/README.md",
+      "target": "handoff/local-core-v1/transactions.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/README.md",
+      "target": "handoff/local-core-v1/platforms.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/README.md",
+      "target": "handoff/local-core-v1/work-items.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/README.md",
+      "target": "handoff/local-core-v1/quality/basic-self-check.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/README.md",
+      "target": "handoff/local-core-v1/quality/strategy.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/README.md",
+      "target": "architecture/v3.7/ARCHITECTURE.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "exists": true
+    },
+    {
+      "source": "handoff/local-core-v1/README.md",
+      "target": "handoff/local-core-v1/supplements/handoff-v3/RESULT.md",
+      "exists": true
+    }
+  ],
+  "stage_inputs_match": true,
+  "delivery_identity_consistent": true,
+  "product_five_metadata_fields_closed": true,
+  "formal_gates": {
+    "ready_for_coding": false,
+    "ready_for_stage": false,
+    "documents_ready": false,
+    "remaining": "actual role reviews/receipts and derived module gates"
+  },
+  "architecture_writes": {
+    "native": false,
+    "coding": false,
+    "product": false,
+    "quality": false
+  },
+  "quality_operations_executed": [],
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

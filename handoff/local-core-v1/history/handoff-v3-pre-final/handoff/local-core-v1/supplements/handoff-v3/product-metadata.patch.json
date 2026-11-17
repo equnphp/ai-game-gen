@@ -1,0 +1,37 @@
+{
+  "version": "local-core-v1-handoff.3",
+  "status": "prepared_not_applied_owner_writeback_required",
+  "target": ".product-mcp.json",
+  "expected_base_sha256": "51039e97a85b8514c2bf1288de7b8c278a6fb218ba8015d815a8bb1aac540b45",
+  "reason": "开发交付门禁发现的现有元信息缺项；不改业务范围、不代填reviews、不改产品所有者文件。",
+  "operations": [
+    {
+      "op": "add",
+      "path": "/risks/0/category",
+      "value": "compatibility_and_environment"
+    },
+    {
+      "op": "add",
+      "path": "/risks/1/category",
+      "value": "baseline_review_and_handoff"
+    },
+    {
+      "op": "add",
+      "path": "/dependencies/0/due",
+      "value": "LC-T01固定依赖接收完成、相应库接入之前"
+    },
+    {
+      "op": "add",
+      "path": "/dependencies/0/fallback",
+      "value": "按官方固定来源/校验规则重试或挂起对应依赖接入；不漂移到系统库/其他版本，不以先运行构建测试替代接收说明。"
+    },
+    {
+      "op": "add",
+      "path": "/dependencies/0/status",
+      "value": "open"
+    }
+  ],
+  "application_rule": "由产品清单当前单写者先核对id分别为R-LC-ENV、R-LC-REVIEW和DEP-LC-01及base hash，保存旧版，升新版本后应用；重新冻结product_spec并顺序重绑workflow上游摘要。",
+  "business_decision_needed": false,
+  "real_review_records": "product/qa/engineering真实评审仍待登记；不包含任何批准补丁。"
+}

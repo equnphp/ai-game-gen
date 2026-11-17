@@ -1,0 +1,497 @@
+{
+  "version": "editor-web-v1-draft.2",
+  "date": "2026-11-17",
+  "check_kind": "document_JSON_parsing_local_links_schema_reference_existence_and_hashes_only",
+  "document_integrity_status": "passed",
+  "not_schema_instance_validation_or_typecheck": true,
+  "artifact_count": 21,
+  "json_files_parsed": 13,
+  "local_links": [
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/DECISIONS.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/CONTRACT.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/DEVELOPMENT-HANDOFF.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/.architecture-mcp.json",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/baseline.json",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/documentation-check.json",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/ABI-INTEGRATION.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/DRIVER-PROTOCOL.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/editor-host.d.ts",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/host.schema.json",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/driver.schema.json",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/COMPATIBILITY-INTAKE.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "handoff/local-core-v1/CURRENT-HANDOFF.json",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "handoff/local-core-v1/requirements.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "handoff/local-core-v1/architecture.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "handoff/local-core-v1/api.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "handoff/local-core-v1/storage.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "handoff/local-core-v1/transactions.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "handoff/local-core-v1/platforms.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "handoff/local-core-v1/work-items.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/v3.7/ARCHITECTURE.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/v3.7/FOUR-TARGET-ARCHITECTURE.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/v3.7/PROJECT-EXPORT-EXTENSION.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/v3.7/FEATURE-COVERAGE.md",
+      "exists": true
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "target": "architecture/v3.7/OPEN-SOURCE-BOUNDARY.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ABI-INTEGRATION.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/inputs/source-observation.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ABI-INTEGRATION.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/COMPATIBILITY-INTAKE.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ABI-INTEGRATION.md",
+      "target": "native/sdk/include/gg_core_v1.h",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ABI-INTEGRATION.md",
+      "target": "handoff/local-core-v1/spec/gg_core_v1.h",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/ARCHITECTURE.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/ABI-INTEGRATION.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/ABI-INTEGRATION.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/CONTRACT.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/editor-host.d.ts",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/host.schema.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/DRIVER-PROTOCOL.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/driver.schema.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/COMPATIBILITY-INTAKE.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/compatibility-candidates.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/DEVELOPMENT-HANDOFF.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/inputs/source-observation.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "handoff/local-core-v1/CURRENT-HANDOFF.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/baseline.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/documentation-check.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/COMPATIBILITY-INTAKE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/inputs/cohort-metadata.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/COMPATIBILITY-INTAKE.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/inputs/tauri-crate-source.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/CONTRACT.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/host.schema.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/CONTRACT.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/editor-host.d.ts",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/DEVELOPMENT-HANDOFF.md",
+      "target": "architecture/editor-web-v1/DEVELOPMENT-HANDOFF.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/DEVELOPMENT-HANDOFF.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/ABI-INTEGRATION.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/DEVELOPMENT-HANDOFF.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/CONTRACT.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/DEVELOPMENT-HANDOFF.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/editor-host.d.ts",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/DEVELOPMENT-HANDOFF.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/host.schema.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/DEVELOPMENT-HANDOFF.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/DRIVER-PROTOCOL.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/DEVELOPMENT-HANDOFF.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/driver.schema.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/DEVELOPMENT-HANDOFF.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/COMPATIBILITY-INTAKE.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/DEVELOPMENT-HANDOFF.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/compatibility-candidates.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/DRIVER-PROTOCOL.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/driver.schema.json",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/DRIVER-PROTOCOL.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/contracts/editor-host.d.ts",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/DRIVER-PROTOCOL.md",
+      "target": "architecture/editor-web-v1/revisions/draft.2/CONTRACT.md",
+      "exists": true
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/DRIVER-PROTOCOL.md",
+      "target": "native/tools/core-driver/main.cpp",
+      "exists": true
+    }
+  ],
+  "schema_reference_count": 244,
+  "schema_references_exist": true,
+  "parent_artifacts_unchanged": [
+    {
+      "path": "architecture/editor-web-v1/.architecture-mcp.json",
+      "sha256": "faf1a5fe387fcc67f6b8073a7ad61a56daad4ada8b09905b0aa816de12365e94",
+      "matches": true
+    },
+    {
+      "path": "architecture/editor-web-v1/ARCHITECTURE.md",
+      "sha256": "58edc6f41da8e6eab8722781239e70ce19b142e48beb6008f81fe7fe719cc97a",
+      "matches": true
+    },
+    {
+      "path": "architecture/editor-web-v1/DECISIONS.md",
+      "sha256": "fc76b0dbf23b48a9716b9ea2a33eecda47fec9d31824255274d6e5b3845d736f",
+      "matches": true
+    },
+    {
+      "path": "architecture/editor-web-v1/DEVELOPMENT-HANDOFF.md",
+      "sha256": "de26c543cee3afa3c7159fe27cbb5e89293bb89874664eede45a73e0c83e192c",
+      "matches": true
+    },
+    {
+      "path": "architecture/editor-web-v1/INTERFACES.md",
+      "sha256": "46b9704e66541417e87f2ea410b52ade94eb4d5a0605bb841f643ce1f579f85e",
+      "matches": true
+    },
+    {
+      "path": "architecture/editor-web-v1/inputs/.architecture-root.before.json",
+      "sha256": "324f34e878a7faf860a5ec098694b82b5b99b7fcfbf046b18099afaca773d08f",
+      "matches": true
+    },
+    {
+      "path": "architecture/editor-web-v1/inputs/ARCHITECTURE.before.md",
+      "sha256": "3468e3a78adf5ac68d1f5cad688dd6f373070b0cf9f31ea0876cfbb822129ca9",
+      "matches": true
+    },
+    {
+      "path": "architecture/editor-web-v1/inputs/ARCHITECTURE.entry.snapshot.md",
+      "sha256": "86d7bdc584872b822230f486c052699a2b5d4ded72ac5f9cd5276c2f2c28e390",
+      "matches": true
+    },
+    {
+      "path": "architecture/editor-web-v1/inputs/active-core-document-gate.json",
+      "sha256": "d1dc34c593ab8e281a5fe1940041d80b823af946477367dd874273bc216e41a6",
+      "matches": true
+    },
+    {
+      "path": "architecture/editor-web-v1/inputs/dependency-source-catalogue.json",
+      "sha256": "6a37feb82ca84e2fd235499a221b754ec4439b2ea67a4befac0e344750377bd2",
+      "matches": true
+    },
+    {
+      "path": "architecture/editor-web-v1/inputs/local-core-index.before.json",
+      "sha256": "a1f39333e5b7dcfef2321cb1c9ed061135a197ac6fcd09a5cf3b0fe565f0b836",
+      "matches": true
+    },
+    {
+      "path": "architecture/editor-web-v1/inputs/upstream.json",
+      "sha256": "0b53c30734f43cdc1d03493ebcddb6f41f9a3754f0b301287642fb040d25f74e",
+      "matches": true
+    },
+    {
+      "path": "architecture/editor-web-v1/inputs/user-decision.json",
+      "sha256": "9f5ac34ded1cac6181075ebf89d056e8d63e4ac7d275abffc461079d7c37e1be",
+      "matches": true
+    }
+  ],
+  "protected_files": [
+    {
+      "path": "architecture/editor-web-v1/ARCHITECTURE.md",
+      "sha256": "58edc6f41da8e6eab8722781239e70ce19b142e48beb6008f81fe7fe719cc97a",
+      "unchanged": true
+    },
+    {
+      "path": "architecture/editor-web-v1/INTERFACES.md",
+      "sha256": "46b9704e66541417e87f2ea410b52ade94eb4d5a0605bb841f643ce1f579f85e",
+      "unchanged": true
+    },
+    {
+      "path": "architecture/editor-web-v1/DEVELOPMENT-HANDOFF.md",
+      "sha256": "de26c543cee3afa3c7159fe27cbb5e89293bb89874664eede45a73e0c83e192c",
+      "unchanged": true
+    },
+    {
+      "path": "architecture/editor-web-v1/.architecture-mcp.json",
+      "sha256": "faf1a5fe387fcc67f6b8073a7ad61a56daad4ada8b09905b0aa816de12365e94",
+      "unchanged": true
+    },
+    {
+      "path": "native/CMakeLists.txt",
+      "sha256": "ea9f7869916072b02009e5b329a94ec9f113dfac9d0a1f11e85c90f84c0c19d2",
+      "unchanged": true
+    },
+    {
+      "path": "native/cmake/Dependencies.cmake",
+      "sha256": "4fdb8a9919a8caf9c2f10d96c69eabf78f3a40bcf0c68d1f75bf1b3d04f03655",
+      "unchanged": true
+    },
+    {
+      "path": "native/tools/core-driver/main.cpp",
+      "sha256": "a5ddab0dc1ef6fa7bf6cf01a81a0815478fd78c61eeea93971dba2749e2faa87",
+      "unchanged": true
+    },
+    {
+      "path": "handoff/local-core-v1/spec/gg_core_v1.h",
+      "sha256": "1901976042a3324a11c44d8d770dc8082e4f9b77ad9a4d50d94c8b1e2e019ef5",
+      "unchanged": true
+    },
+    {
+      "path": ".architecture-mcp.json",
+      "sha256": "324f34e878a7faf860a5ec098694b82b5b99b7fcfbf046b18099afaca773d08f",
+      "unchanged": true
+    },
+    {
+      "path": ".workflow-mcp.json",
+      "sha256": "c37f9d7e16ec7644111982cee642352412a66adbc242b2a29aaf907f3034b589",
+      "unchanged": true
+    },
+    {
+      "path": ".coding-mcp.json",
+      "sha256": "fd1f3f3f91e9d063363fb584f73fe4155522a38cd308bb66f9785abd75115fc9",
+      "unchanged": true
+    },
+    {
+      "path": ".product-mcp.json",
+      "sha256": "68f07612ea33e5dd8fe4e72f90c15a10bff79daab900ebdff379b34582ca10e4",
+      "unchanged": true
+    },
+    {
+      "path": ".quality-plan-mcp.json",
+      "sha256": "d772158e914ad32376b9bf0d1061668af1efb5046ea064b4b8a9c8fdd03efc56",
+      "unchanged": true
+    },
+    {
+      "path": "handoff/local-core-v1/CURRENT-HANDOFF.json",
+      "sha256": "a1f39333e5b7dcfef2321cb1c9ed061135a197ac6fcd09a5cf3b0fe565f0b836",
+      "unchanged": true
+    },
+    {
+      "path": "native/sdk/include/gg_core_v1.h",
+      "sha256": "6f19dfc956e3e1dba0421ddfa77eb27182a88a019f473774fe86bbc8d6105276",
+      "unchanged": true
+    },
+    {
+      "path": "native/bindings/android/jni.cpp",
+      "sha256": "e99a082d0a239cfa2623cf2813c546c115846dc65f870ddea296dc259ec55aca",
+      "unchanged": true
+    },
+    {
+      "path": "handoff/local-core-v1/api.md",
+      "sha256": "674e4d9169090abdaf1a7195e4398b7270f40cd872dd76d93ac41b4f3b7fc7be",
+      "unchanged": true
+    },
+    {
+      "path": "architecture/editor-web-v1/baseline.json",
+      "sha256": "b4d4928350346448888eb82c30342b27a21c46c587f64ed14197428db9cf1d43",
+      "unchanged": true
+    }
+  ],
+  "baseline": {
+    "path": "architecture/editor-web-v1/revisions/draft.2/baseline.json",
+    "file_sha256": "ec44501f31e480d6e0179e23a160e759c3455a02edcadc3b5c48141bbaf1e83d",
+    "payload_sha256": "cc7333d7e4f0d7d4e5ce081589064afb07bd31a59d21710dd93f5877e8e24a6b",
+    "canonical_payload_matches": true
+  },
+  "new_package_formal_gate": "independent architecture package not activated as root workflow",
+  "existing_root_gate_report": "architecture/editor-web-v1/revisions/draft.2/inputs/active-M1-document-gate.json",
+  "implementation_code_written": false,
+  "project_commands_executed": [],
+  "schema_validator_executed": false,
+  "typescript_compiled": false,
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

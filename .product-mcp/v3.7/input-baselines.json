@@ -1,0 +1,39 @@
+{
+  "version": "v3.7-import-local-sync-requirements",
+  "date": "2026-11-14",
+  "inputs": [
+    {
+      "path": ".product-mcp.json",
+      "snapshot": ".product-mcp/v3.7/inputs/product-v3.6.json",
+      "sha256": "1e7afc33ce624bf0069cc417286577937d16c4320053b42c6a7b63482a1dd9dd"
+    },
+    {
+      "path": "PRODUCT.md",
+      "snapshot": ".product-mcp/v3.7/inputs/PRODUCT-before-v3.7.md",
+      "sha256": "85bcf6be0d3e7e87da7d02fd487675acfc5966cc796e351b0c881c930ec8041c"
+    },
+    {
+      "path": "README.md",
+      "snapshot": ".product-mcp/v3.7/inputs/README-before-v3.7.md",
+      "sha256": "89a4d065bc880d46484b5a8c948dc1a1f8b83e8da880dd896bb3b9e78e0bb808"
+    },
+    {
+      "path": "architecture/v3.6/baseline.json",
+      "snapshot": ".product-mcp/v3.7/inputs/architecture-v3.6-baseline.json",
+      "sha256": "b264f4ee831bfc03661047e805c914f0d308f7ea0d487410842ebe6c1fee7dae"
+    },
+    {
+      "path": "architecture/v3.6/CONTRACTS.md",
+      "snapshot": ".product-mcp/v3.7/inputs/architecture-v3.6-CONTRACTS.md",
+      "sha256": "3857edada8500e146e1c9dff676152b3f43e6194804add24fc27d455b60ee174"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "snapshot": ".product-mcp/v3.7/inputs/ARCHITECTURE-entry.md",
+      "sha256": "c0d4950538e0d956487276d71d401af18a3c355d02deb4de0b299e8d993269dc"
+    }
+  ],
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

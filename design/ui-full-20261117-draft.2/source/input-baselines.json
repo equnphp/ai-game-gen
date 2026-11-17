@@ -1,0 +1,184 @@
+{
+  "version": "ui-full-20261117-draft.2",
+  "inputs": [
+    {
+      "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/surface-index.json",
+      "snapshot": "source/inputs/full/surface-index.json",
+      "sha256": "cde68596075c436fa2104862688bcc65e598337a53b6526559f994d22a9aea1a",
+      "bytes": 236113
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/global-surfaces.json",
+      "snapshot": "source/inputs/full/global-surfaces.json",
+      "sha256": "5e8f08a79eaa1cc10192e9aee8f576c110dc7e81c15fc1e8e908a052b15c0dc7",
+      "bytes": 35603
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/chat-surfaces.json",
+      "snapshot": "source/inputs/full/chat-surfaces.json",
+      "sha256": "5f295dde3db6804fcff963f6d9fa8c8645e175e4c12c6f25424496a95365cf29",
+      "bytes": 40081
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/studio/surfaces.json",
+      "snapshot": "source/inputs/full/studio/surfaces.json",
+      "sha256": "b93384f67596cd50c94590049e379fc494692c953dd5fab4d1a8e08dd28f7c3c",
+      "bytes": 447088
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/gameplay/surfaces.json",
+      "snapshot": "source/inputs/full/gameplay/surfaces.json",
+      "sha256": "719371aa827fae082dbb3ff4b108bd2e697ae67b04a8db48ec4cd23adc969c97",
+      "bytes": 640625
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/workflow/surfaces.json",
+      "snapshot": "source/inputs/full/workflow/surfaces.json",
+      "sha256": "5a770d83518c3880e7c39daa2aaedd2784cf505e92d165fa258c506495098b7b",
+      "bytes": 466416
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/shared-components.json",
+      "snapshot": "source/inputs/full/shared-components.json",
+      "sha256": "a412d800ace8b602530dc5fa515177d220955fc133d04f75c07c8caeba0653df",
+      "bytes": 20101
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/GLOBAL-INTERACTIONS.md",
+      "snapshot": "source/inputs/full/GLOBAL-INTERACTIONS.md",
+      "sha256": "55cacfa68964c03bd6cfccb4a205de1967df658241eb587e947909d90b13284f",
+      "bytes": 21238
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/PROGRESSIVE-DISCLOSURE.md",
+      "snapshot": "source/inputs/full/PROGRESSIVE-DISCLOSURE.md",
+      "sha256": "900e5beb63ad616607a134e3d9b00e01f556667ed1dd661733dbb97222254547",
+      "bytes": 4946
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/USER-JOURNEYS.md",
+      "snapshot": "source/inputs/full/USER-JOURNEYS.md",
+      "sha256": "d568fb48968cc399446d009442af53c55664d331fce550b5539dd1d8f6c4c54f",
+      "bytes": 12747
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/COMMON-SPACE.md",
+      "snapshot": "source/inputs/full/COMMON-SPACE.md",
+      "sha256": "718b646ae13e607cfbeb8e0099e49ef31c89f2413dcdf65120b900772cde224c",
+      "bytes": 2152
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/FIXTURE-PLAN.md",
+      "snapshot": "source/inputs/full/FIXTURE-PLAN.md",
+      "sha256": "4d33a1e3bef488020bf1d1b07a1ce9abecf7fac84324169958d72c73a76a0229",
+      "bytes": 3761
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/UI-HANDOFF.md",
+      "snapshot": "source/inputs/full/UI-HANDOFF.md",
+      "sha256": "82e5935aef7bfb1358a8dc7271ef27d6fb723678a5035c073a7920622da7a44a",
+      "bytes": 4171
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/chat-states-20261117-draft.1/chat-state-catalog.json",
+      "snapshot": "source/inputs/chat/chat-state-catalog.json",
+      "sha256": "203e0ceef3435ee63717e0b56b7f0fd57bcd35a6552922d810a31d884306e8b5",
+      "bytes": 62784
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/onboarding-20261117-draft.1/onboarding.json",
+      "snapshot": "source/inputs/guide/onboarding.json",
+      "sha256": "84996c4fa90c0eb3ab21219c9eb5e261da8ac3356bd6a338036d37c2f98a2922",
+      "bytes": 19382
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/onboarding-20261117-draft.1/ONBOARDING.md",
+      "snapshot": "source/inputs/guide/ONBOARDING.md",
+      "sha256": "b09895c05751970a7d9ba45b9204f3006deaf8ba9619658454bd5a09ab26b7e1",
+      "bytes": 16402
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/onboarding-20261117-draft.1/UI-HANDOFF.md",
+      "snapshot": "source/inputs/guide/UI-HANDOFF.md",
+      "sha256": "3e6bd48aedb77841c1e39f8414866286f80fe631ccf16c1e72cf84b255ed0ce2",
+      "bytes": 3824
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "snapshot": "source/inputs/architecture/ARCHITECTURE.md",
+      "sha256": "2b20be1c5e6a5b974e18b46ae3c03ec2fd33c3392de9e9be631babdb907fab2e",
+      "bytes": 4401,
+      "status": "superseded_during_authoring_preserved"
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/CONTRACT.md",
+      "snapshot": "source/inputs/architecture/CONTRACT.md",
+      "sha256": "26eb0b51bad96805bed0c59dc444fd8e3ef32fbe05e2dc6adffabaceb0ba0247",
+      "bytes": 11254
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "snapshot": "source/inputs/architecture-draft.3/ARCHITECTURE-entry.md",
+      "sha256": "74f11f9061a8e1aa8f47c4e816e6bac16cbcc29216333bcfa46db08c49511970",
+      "bytes": 5950,
+      "status": "current_at_delivery"
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.3/ARCHITECTURE.md",
+      "snapshot": "source/inputs/architecture-draft.3/ARCHITECTURE.md",
+      "sha256": "cc4532c67bd4ba0eafb76c6b6c02af17bfea3133817eb88f5038b9c6eeb694a3",
+      "bytes": 5666,
+      "status": "current_at_delivery"
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.3/ONBOARDING.md",
+      "snapshot": "source/inputs/architecture-draft.3/ONBOARDING.md",
+      "sha256": "1bed2cd1977aec7c28846dd4ee06f0e1bce53d64329df35e814efc74fc4d5c62",
+      "bytes": 9480,
+      "status": "current_at_delivery"
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.3/EDITOR-STATE.md",
+      "snapshot": "source/inputs/architecture-draft.3/EDITOR-STATE.md",
+      "sha256": "76de1781f7ddf5e23ace7dd959e7682143ee98e12f3314243740ab11ff846ea2",
+      "bytes": 8998,
+      "status": "current_at_delivery"
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.3/UX-CONTRACTS.md",
+      "snapshot": "source/inputs/architecture-draft.3/UX-CONTRACTS.md",
+      "sha256": "580f323ef7e37de68c3af6b3abd9bbd7426c2022f70a5ca4458f4b8ad922d8c0",
+      "bytes": 12225,
+      "status": "current_at_delivery"
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.3/DEVELOPMENT-HANDOFF.md",
+      "snapshot": "source/inputs/architecture-draft.3/DEVELOPMENT-HANDOFF.md",
+      "sha256": "6b7c09af3d26f606b00fcc9045f1abfa16680ecfd541ac20af0b3a47ce9cda77",
+      "bytes": 8836,
+      "status": "current_at_delivery"
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.3/contracts/editor-ux.schema.json",
+      "snapshot": "source/inputs/architecture-draft.3/editor-ux.schema.json",
+      "sha256": "dda30c95e4f3c2e493ec2dc845c05b42f37c78832df35d115fb8df3f5b9e7b2f",
+      "bytes": 34083,
+      "status": "current_at_delivery"
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.3/contracts/editor-ux.d.ts",
+      "snapshot": "source/inputs/architecture-draft.3/editor-ux.d.ts",
+      "sha256": "ac92ee0bd4fb2d901eaf22d0de782c5518e625ca9f7a6d0de706f621c5e7d5d3",
+      "bytes": 6421,
+      "status": "current_at_delivery"
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.3/contracts/product-architecture-map.json",
+      "snapshot": "source/inputs/architecture-draft.3/product-architecture-map.json",
+      "sha256": "c06a54f5e2b67bd41bdb2e790274dedb7713a5ae87df726b3c6f60a0bc556877",
+      "bytes": 400491,
+      "status": "current_at_delivery"
+    }
+  ],
+  "prior_design_manifest_sha256": "616f89aa56cab99450b24819d23635953c51eec08e6ca2f2fa1c4a3bf0509e23"
+}

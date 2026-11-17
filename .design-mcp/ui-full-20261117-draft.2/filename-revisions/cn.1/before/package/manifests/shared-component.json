@@ -1,0 +1,955 @@
+{
+  "schema_version": 1,
+  "version": "ui-full-20261117-draft.2",
+  "kind": "supplemental_design_acceptance_matrix",
+  "design": {
+    "version": "ui-full-20261117-draft.2",
+    "source": "design/ui-full-20261117-draft.2/index.html",
+    "approved_by": "",
+    "status": "draft_for_review"
+  },
+  "inventory": [
+    {
+      "page": "component-CMP-01",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-02",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-03",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-04",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-05",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-06",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-07",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-08",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-09",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-10",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-11",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-12",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-13",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-14",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-15",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-16",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-17",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-18",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-19",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-20",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-21",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-22",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-23",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "component-CMP-24",
+      "states": [
+        "normal"
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "component-CMP-01",
+      "page": "component-CMP-01",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1000
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-01.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-01.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "43c7005fa592982e28f1c86581552ce6595178f63b6d9a6d2c96a4abc76bd035",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-02",
+      "page": "component-CMP-02",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1263
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-02.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-02.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "b899e20a8512c8d375b8a1a9b72a73c68446f065d97db65bc9d86f15e8bd7258",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-03",
+      "page": "component-CMP-03",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1069
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-03.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-03.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "24f307854a8c8817615bb967ee7428b8154786dcfb38e8f7487a2c8905e7ed71",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-04",
+      "page": "component-CMP-04",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1000
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-04.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-04.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "6e93217c0fa61f145ab71b2c34d98513003322d165fcd46106d2ffe613602d50",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-05",
+      "page": "component-CMP-05",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1000
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-05.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-05.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "0e6c02092bc7d4e37f5d4052518a94b7f26e9a5bfd26c6ee4318ea55c9b71eea",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-06",
+      "page": "component-CMP-06",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1017
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-06.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-06.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "e97f269e4dcf3f829438bffebef0a60e92f97caba97e5a506d389afbf5c3c0db",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-07",
+      "page": "component-CMP-07",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1000
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-07.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-07.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "2809fb5f44cf71245980a9ba026f16091c489b020ec64c0f7a1118918935340c",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-08",
+      "page": "component-CMP-08",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1021
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-08.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-08.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "d4abaaf18a785c346fbd1f2b09c0b578525c1214d2f783771ddbcd7b5de2a925",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-09",
+      "page": "component-CMP-09",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1021
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-09.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-09.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "b7965fb0b81f219ed0c437a86699dc71d7f8f7adbfad13684b52cf5a5ba8039c",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-10",
+      "page": "component-CMP-10",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1000
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-10.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-10.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "fa5cc07b27248dfc85eb7bff2e1dfa1341b37ba04bafee0c6b457b2e4fab3c87",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-11",
+      "page": "component-CMP-11",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1000
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-11.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-11.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "18e607ae2b32553f9e46e41aa9dfc212a69b325db41468cf1215f6a57c3a38a3",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-12",
+      "page": "component-CMP-12",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1064
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-12.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-12.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "8f045cddf8a4025d5e44aa4ada5d3fb2ceeb096928a68d9624eddfd23c9ac52a",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-13",
+      "page": "component-CMP-13",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1000
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-13.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-13.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "a2165deaf60e9a9a023e56a51d7e4c76e466b65bb9e1bb4c15d1b3a652341145",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-14",
+      "page": "component-CMP-14",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1234
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-14.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-14.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "b9065aa77815188c4de4144d1e1a6c2310efab09386af45ef5b34c3dbf47c4d6",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-15",
+      "page": "component-CMP-15",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1000
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-15.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-15.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "50a692c308945191ea5a0848d05e498f697fb2a6eff25d13b6c3c951174389c3",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-16",
+      "page": "component-CMP-16",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1000
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-16.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-16.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "2f8a989dee3405a7241c44f54a5b77d5803c03ae0775acc47fd91c6fdcd742cb",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-17",
+      "page": "component-CMP-17",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1021
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-17.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-17.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "cd75bde0e40be526439aa299a24681ea90c62ba9ac722e671c6f78d5cfdbaaaa",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-18",
+      "page": "component-CMP-18",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1021
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-18.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-18.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "df0bc37678f937ebc76235dac179b4df54273abd4eb5bef20faa6a512031f2e2",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-19",
+      "page": "component-CMP-19",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1000
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-19.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-19.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "217bbb3418fed8f4889a69b82c1588c459f47d5746a6026a7ee70ce9ed06d597",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-20",
+      "page": "component-CMP-20",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1000
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-20.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-20.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "d247b892d07dded0f3e4ff90dbdb53092ef274087cd07d3b8b91e098a13c1c5a",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-21",
+      "page": "component-CMP-21",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1000
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-21.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-21.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "9c8f2569d2a092ee04cb722a4195eca086c60be6847c9e17d6c5d24cf339195b",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-22",
+      "page": "component-CMP-22",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1000
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-22.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-22.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "6b30308f776c82daa56811c04d8df603308246ef3f4a1c9fd13d4d777f486298",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-23",
+      "page": "component-CMP-23",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1021
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-23.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-23.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "b18849092c2dd60e3d609965d10144df339819827a901e97a878be0493e88495",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "component-CMP-24",
+      "page": "component-CMP-24",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          1100,
+          1021
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/component-CMP-24.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/component-CMP-24.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "4385ddb8100a4d41cecd9828e3549781c5efe11c185ab2408edcbef6870792b9",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    }
+  ],
+  "execution_policy": "documentation_only",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

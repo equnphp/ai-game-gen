@@ -1,0 +1,1871 @@
+{
+  "date": "2026-11-17",
+  "version": "local-core-v1-draft.2",
+  "scope": "document checks only; no build/test/scan/device execution",
+  "reports": {
+    "product-inspect": {
+      "acceptance_count": 0,
+      "acceptance_with_test_count": 0,
+      "approval_identity_verified": false,
+      "baseline_sha256": "a71e00c9cfcbed55da2e20a41143f1ff01e4a1ad70f726aa200ee9f3f29971e8",
+      "complete": true,
+      "delivery_identity": {
+        "actual_build_declared": true,
+        "artifact_verified": false,
+        "consistent": true,
+        "declarations": {
+          ".architecture-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".coding-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".design-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "gamegen-prototype-v3.6-20261114-01",
+            "source_revision": ""
+          },
+          ".product-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".quality-plan-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".workflow-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": []
+      },
+      "documents_ready": true,
+      "downstream": {},
+      "execution_status": "not_run",
+      "execution_verified": false,
+      "gate_kind": "documentation",
+      "in_scope_requirements": 0,
+      "issues": [],
+      "limits": [
+        "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+        "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+        "审批记录和证据真实性须由实际负责人确认"
+      ],
+      "module": "product",
+      "passed": true,
+      "product_version": "local-core-v1-draft.2",
+      "quality_verified": false,
+      "release_permitted": false,
+      "root": "I:\\code\\GameGen",
+      "stage": "discovery",
+      "status": "documents_ready"
+    },
+    "product-review": {
+      "acceptance_count": 14,
+      "acceptance_with_test_count": 0,
+      "approval_identity_verified": false,
+      "baseline_sha256": "a71e00c9cfcbed55da2e20a41143f1ff01e4a1ad70f726aa200ee9f3f29971e8",
+      "complete": true,
+      "delivery_identity": {
+        "actual_build_declared": true,
+        "artifact_verified": false,
+        "consistent": true,
+        "declarations": {
+          ".architecture-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".coding-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".design-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "gamegen-prototype-v3.6-20261114-01",
+            "source_revision": ""
+          },
+          ".product-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".quality-plan-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".workflow-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": []
+      },
+      "documents_ready": true,
+      "downstream": {},
+      "execution_status": "not_run",
+      "execution_verified": false,
+      "gate_kind": "documentation",
+      "in_scope_requirements": 7,
+      "issues": [],
+      "limits": [
+        "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+        "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+        "审批记录和证据真实性须由实际负责人确认"
+      ],
+      "module": "product",
+      "passed": true,
+      "product_version": "local-core-v1-draft.2",
+      "quality_verified": false,
+      "release_permitted": false,
+      "root": "I:\\code\\GameGen",
+      "stage": "design",
+      "status": "documents_ready"
+    },
+    "product-design-gate": {
+      "acceptance_count": 14,
+      "acceptance_with_test_count": 0,
+      "approval_identity_verified": false,
+      "baseline_sha256": "a71e00c9cfcbed55da2e20a41143f1ff01e4a1ad70f726aa200ee9f3f29971e8",
+      "complete": true,
+      "delivery_identity": {
+        "actual_build_declared": true,
+        "artifact_verified": false,
+        "consistent": true,
+        "declarations": {
+          ".architecture-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".coding-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".design-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "gamegen-prototype-v3.6-20261114-01",
+            "source_revision": ""
+          },
+          ".product-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".quality-plan-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".workflow-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": []
+      },
+      "documents_ready": true,
+      "downstream": {},
+      "execution_status": "not_run",
+      "execution_verified": false,
+      "gate_kind": "documentation",
+      "in_scope_requirements": 7,
+      "issues": [],
+      "limits": [
+        "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+        "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+        "审批记录和证据真实性须由实际负责人确认"
+      ],
+      "module": "product",
+      "passed": true,
+      "product_version": "local-core-v1-draft.2",
+      "quality_verified": false,
+      "release_permitted": false,
+      "root": "I:\\code\\GameGen",
+      "stage": "design",
+      "status": "documents_ready"
+    },
+    "architecture-inspect": {
+      "approval_identity_verified": false,
+      "baseline_sha256": "6f78e58046be1895f9bea52f6f9eb49e80e23ef226a7060c86cde1cc7fb3c379",
+      "build_id": "",
+      "complete": false,
+      "delivery_identity": {
+        "actual_build_declared": true,
+        "artifact_verified": false,
+        "consistent": true,
+        "declarations": {
+          ".architecture-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".coding-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".design-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "gamegen-prototype-v3.6-20261114-01",
+            "source_revision": ""
+          },
+          ".product-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".quality-plan-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".workflow-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": []
+      },
+      "documents_ready": false,
+      "downstream": {},
+      "execution_status": "not_run",
+      "execution_verified": false,
+      "gate_kind": "documentation",
+      "issues": [
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: architecture",
+          "path": "$.reviews"
+        },
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: product",
+          "path": "$.reviews"
+        }
+      ],
+      "limits": [
+        "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+        "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+        "审批记录和证据真实性须由实际负责人确认"
+      ],
+      "module": "architecture",
+      "passed": false,
+      "quality_verified": false,
+      "release_permitted": false,
+      "root": "I:\\code\\GameGen",
+      "stage": "design",
+      "status": "documents_incomplete",
+      "version": "local-core-v1-draft.2"
+    },
+    "architecture-review": {
+      "approval_identity_verified": false,
+      "baseline_sha256": "6f78e58046be1895f9bea52f6f9eb49e80e23ef226a7060c86cde1cc7fb3c379",
+      "build_id": "",
+      "complete": false,
+      "delivery_identity": {
+        "actual_build_declared": true,
+        "artifact_verified": false,
+        "consistent": true,
+        "declarations": {
+          ".architecture-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".coding-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".design-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "gamegen-prototype-v3.6-20261114-01",
+            "source_revision": ""
+          },
+          ".product-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".quality-plan-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".workflow-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": []
+      },
+      "documents_ready": false,
+      "downstream": {},
+      "execution_status": "not_run",
+      "execution_verified": false,
+      "gate_kind": "documentation",
+      "issues": [
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: architecture",
+          "path": "$.reviews"
+        },
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: engineering",
+          "path": "$.reviews"
+        },
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: product",
+          "path": "$.reviews"
+        },
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: qa",
+          "path": "$.reviews"
+        }
+      ],
+      "limits": [
+        "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+        "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+        "审批记录和证据真实性须由实际负责人确认"
+      ],
+      "module": "architecture",
+      "passed": false,
+      "quality_verified": false,
+      "release_permitted": false,
+      "root": "I:\\code\\GameGen",
+      "stage": "development",
+      "status": "documents_incomplete",
+      "version": "local-core-v1-draft.2"
+    },
+    "architecture-design-gate": {
+      "approval_identity_verified": false,
+      "baseline_sha256": "6f78e58046be1895f9bea52f6f9eb49e80e23ef226a7060c86cde1cc7fb3c379",
+      "build_id": "",
+      "complete": false,
+      "delivery_identity": {
+        "actual_build_declared": true,
+        "artifact_verified": false,
+        "consistent": true,
+        "declarations": {
+          ".architecture-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".coding-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".design-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "gamegen-prototype-v3.6-20261114-01",
+            "source_revision": ""
+          },
+          ".product-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".quality-plan-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".workflow-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": []
+      },
+      "documents_ready": false,
+      "downstream": {},
+      "execution_status": "not_run",
+      "execution_verified": false,
+      "gate_kind": "documentation",
+      "issues": [
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: architecture",
+          "path": "$.reviews"
+        },
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: product",
+          "path": "$.reviews"
+        }
+      ],
+      "limits": [
+        "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+        "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+        "审批记录和证据真实性须由实际负责人确认"
+      ],
+      "module": "architecture",
+      "passed": false,
+      "quality_verified": false,
+      "release_permitted": false,
+      "root": "I:\\code\\GameGen",
+      "stage": "design",
+      "status": "documents_incomplete",
+      "version": "local-core-v1-draft.2"
+    },
+    "basic-self-check-documents": {
+      "approval_identity_verified": false,
+      "baseline_sha256": "5d48f69f27c214df08b9d4b55ff5437ee8253f73fae6a8af521678ca1583f384",
+      "complete": true,
+      "delivery_identity": {
+        "actual_build_declared": true,
+        "artifact_verified": false,
+        "consistent": true,
+        "declarations": {
+          ".architecture-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".coding-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".design-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "gamegen-prototype-v3.6-20261114-01",
+            "source_revision": ""
+          },
+          ".product-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".quality-plan-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".workflow-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": []
+      },
+      "documents_ready": true,
+      "execution_records_present": false,
+      "execution_records_trust": "记录仅作为未认证材料；文档检查不会将其认定为实际通过",
+      "execution_status": "not_run",
+      "execution_verified": false,
+      "gate_kind": "documentation",
+      "issues": [],
+      "limits": [
+        "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+        "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+        "审批记录和证据真实性须由实际负责人确认"
+      ],
+      "module": "coding_basic",
+      "passed": true,
+      "quality_verified": false,
+      "release_permitted": false,
+      "root": "I:\\code\\GameGen",
+      "stage": "development",
+      "status": "documents_ready"
+    },
+    "quality-inspect": {
+      "approval_identity_verified": false,
+      "baseline_sha256": "9011df3e4acae201ade8d1c2fb3be93504b0c57af0736faee2bf4f3d1ea7b746",
+      "complete": true,
+      "delivery_identity": {
+        "actual_build_declared": true,
+        "artifact_verified": false,
+        "consistent": true,
+        "declarations": {
+          ".architecture-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".coding-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".design-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "gamegen-prototype-v3.6-20261114-01",
+            "source_revision": ""
+          },
+          ".product-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".quality-plan-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".workflow-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": []
+      },
+      "documents_ready": true,
+      "execution_records_present": false,
+      "execution_records_trust": "记录仅作为未认证材料；文档检查不会将其认定为实际通过",
+      "execution_status": "not_run",
+      "execution_verified": false,
+      "gate_kind": "documentation",
+      "issues": [],
+      "limits": [
+        "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+        "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+        "审批记录和证据真实性须由实际负责人确认"
+      ],
+      "module": "quality",
+      "passed": true,
+      "quality_verified": false,
+      "release_permitted": false,
+      "root": "I:\\code\\GameGen",
+      "stage": "planning",
+      "status": "documents_ready"
+    },
+    "quality-planning-gate": {
+      "approval_identity_verified": false,
+      "baseline_sha256": "9011df3e4acae201ade8d1c2fb3be93504b0c57af0736faee2bf4f3d1ea7b746",
+      "complete": true,
+      "delivery_identity": {
+        "actual_build_declared": true,
+        "artifact_verified": false,
+        "consistent": true,
+        "declarations": {
+          ".architecture-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".coding-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".design-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "gamegen-prototype-v3.6-20261114-01",
+            "source_revision": ""
+          },
+          ".product-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".quality-plan-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".workflow-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": []
+      },
+      "documents_ready": true,
+      "execution_records_present": false,
+      "execution_records_trust": "记录仅作为未认证材料；文档检查不会将其认定为实际通过",
+      "execution_status": "not_run",
+      "execution_verified": false,
+      "gate_kind": "documentation",
+      "issues": [],
+      "limits": [
+        "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+        "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+        "审批记录和证据真实性须由实际负责人确认"
+      ],
+      "module": "quality",
+      "passed": true,
+      "quality_verified": false,
+      "release_permitted": false,
+      "root": "I:\\code\\GameGen",
+      "stage": "planning",
+      "status": "documents_ready"
+    },
+    "workflow-architecture-gate": {
+      "approval_identity_verified": false,
+      "baseline_sha256": "",
+      "complete": false,
+      "completion_scope": "当前迭代声明范围的文档、记录与交接，不含实际验证和发布许可",
+      "documents_ready": false,
+      "downstream": {
+        "architecture": {
+          "approval_identity_verified": false,
+          "baseline_sha256": "6f78e58046be1895f9bea52f6f9eb49e80e23ef226a7060c86cde1cc7fb3c379",
+          "build_id": "",
+          "complete": false,
+          "delivery_identity": {
+            "actual_build_declared": true,
+            "artifact_verified": false,
+            "consistent": true,
+            "declarations": {
+              ".architecture-mcp.json": {
+                "artifact_sha256": "",
+                "build_id": "",
+                "source_revision": ""
+              },
+              ".coding-mcp.json": {
+                "artifact_sha256": "",
+                "build_id": "",
+                "source_revision": ""
+              },
+              ".design-mcp.json": {
+                "artifact_sha256": "",
+                "build_id": "gamegen-prototype-v3.6-20261114-01",
+                "source_revision": ""
+              },
+              ".product-mcp.json": {
+                "artifact_sha256": "",
+                "build_id": "",
+                "source_revision": ""
+              },
+              ".quality-plan-mcp.json": {
+                "artifact_sha256": "",
+                "build_id": "",
+                "source_revision": ""
+              },
+              ".workflow-mcp.json": {
+                "artifact_sha256": "",
+                "build_id": "",
+                "source_revision": ""
+              }
+            },
+            "issues": []
+          },
+          "documents_ready": false,
+          "downstream": {},
+          "execution_status": "not_run",
+          "execution_verified": false,
+          "gate_kind": "documentation",
+          "issues": [
+            {
+              "code": "approval_missing",
+              "message": "缺少当前基线审批: architecture",
+              "path": "$.reviews"
+            },
+            {
+              "code": "approval_missing",
+              "message": "缺少当前基线审批: product",
+              "path": "$.reviews"
+            }
+          ],
+          "limits": [
+            "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+            "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+            "审批记录和证据真实性须由实际负责人确认"
+          ],
+          "module": "architecture",
+          "passed": false,
+          "quality_verified": false,
+          "release_permitted": false,
+          "root": "I:\\code\\GameGen",
+          "stage": "design",
+          "status": "documents_incomplete",
+          "version": "local-core-v1-draft.2"
+        },
+        "delivery_identity": {
+          "actual_build_declared": true,
+          "artifact_verified": false,
+          "consistent": true,
+          "declarations": {
+            ".architecture-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".coding-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".design-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "gamegen-prototype-v3.6-20261114-01",
+              "source_revision": ""
+            },
+            ".product-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".quality-plan-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".workflow-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            }
+          },
+          "issues": []
+        },
+        "product": {
+          "acceptance_count": 14,
+          "acceptance_with_test_count": 0,
+          "approval_identity_verified": false,
+          "baseline_sha256": "a71e00c9cfcbed55da2e20a41143f1ff01e4a1ad70f726aa200ee9f3f29971e8",
+          "complete": true,
+          "delivery_identity": {
+            "actual_build_declared": true,
+            "artifact_verified": false,
+            "consistent": true,
+            "declarations": {
+              ".architecture-mcp.json": {
+                "artifact_sha256": "",
+                "build_id": "",
+                "source_revision": ""
+              },
+              ".coding-mcp.json": {
+                "artifact_sha256": "",
+                "build_id": "",
+                "source_revision": ""
+              },
+              ".design-mcp.json": {
+                "artifact_sha256": "",
+                "build_id": "gamegen-prototype-v3.6-20261114-01",
+                "source_revision": ""
+              },
+              ".product-mcp.json": {
+                "artifact_sha256": "",
+                "build_id": "",
+                "source_revision": ""
+              },
+              ".quality-plan-mcp.json": {
+                "artifact_sha256": "",
+                "build_id": "",
+                "source_revision": ""
+              },
+              ".workflow-mcp.json": {
+                "artifact_sha256": "",
+                "build_id": "",
+                "source_revision": ""
+              }
+            },
+            "issues": []
+          },
+          "documents_ready": true,
+          "downstream": {},
+          "execution_status": "not_run",
+          "execution_verified": false,
+          "gate_kind": "documentation",
+          "in_scope_requirements": 7,
+          "issues": [],
+          "limits": [
+            "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+            "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+            "审批记录和证据真实性须由实际负责人确认"
+          ],
+          "module": "product",
+          "passed": true,
+          "product_version": "local-core-v1-draft.2",
+          "quality_verified": false,
+          "release_permitted": false,
+          "root": "I:\\code\\GameGen",
+          "stage": "design",
+          "status": "documents_ready"
+        }
+      },
+      "execution_status": "not_run",
+      "execution_verified": false,
+      "gate_kind": "documentation",
+      "issues": [
+        {
+          "code": "predecessor_incomplete",
+          "message": "必须先完成前序阶段并保留当前批准",
+          "path": "requirements"
+        },
+        {
+          "code": "review_missing",
+          "message": "缺少交付/接收确认: product",
+          "path": "requirements"
+        },
+        {
+          "code": "review_missing",
+          "message": "缺少交付/接收确认: user",
+          "path": "requirements"
+        },
+        {
+          "code": "module_gate",
+          "message": "对应模块检查未通过: architecture",
+          "path": "architecture"
+        },
+        {
+          "code": "review_missing",
+          "message": "缺少交付/接收确认: architecture",
+          "path": "architecture"
+        },
+        {
+          "code": "review_missing",
+          "message": "缺少交付/接收确认: product",
+          "path": "architecture"
+        }
+      ],
+      "limits": [
+        "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+        "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+        "审批记录和证据真实性须由实际负责人确认"
+      ],
+      "module": "workflow",
+      "passed": false,
+      "quality_verified": false,
+      "question_routes": {
+        "architecture": [
+          "product",
+          "user"
+        ],
+        "backend": [
+          "architecture"
+        ],
+        "frontend": [
+          "architecture"
+        ],
+        "product": [
+          "user"
+        ],
+        "ui": [
+          "product"
+        ]
+      },
+      "ready_for_stage": false,
+      "release_permitted": false,
+      "root": "I:\\code\\GameGen",
+      "stage": "architecture",
+      "stage_baselines": {
+        "architecture": "7596cfef05ab38f12c7dc42b0f3cf602a03311e3c7e242bdd6996a103158e666",
+        "development": "6798bfa24b3b2083292d042c0a72225470486cf144a9db8929e9a5a2e7987ce2",
+        "requirements": "881d2c2ef7ac2ddf1f7f90d9bde8193a623a080362f2d3f73b88e7ae88ecafe3",
+        "ui": "cb16106dbcd87508f66284afb2140e97518953667693f4db8d1bd0207e360805"
+      },
+      "status": "documents_incomplete"
+    },
+    "coding-handoff": {
+      "agile": {
+        "cadence": "八个有界任务按依赖，文档先行；实际执行另授权",
+        "definition_of_done": "契约与来源/计划齐全、实际审批与未执行状态如实记录；本次不实施",
+        "feedback": "前后端技术问题回架构，业务问题回产品/用户，不自行变更语义",
+        "fitness_checks": "SDK/DDL/依赖/引用和容量计划；当前不自动执行",
+        "wip_limit": "1主要实现/人；最多2个待集成改动"
+      },
+      "components": [
+        {
+          "id": "SDK",
+          "kind": "backend",
+          "owner": "coding/architecture",
+          "responsibility": "字节/句柄/租约/队列边界，不属于HTTP后端；无GUI",
+          "technology": "C ABI 1.0 / C++20",
+          "version": "1.0"
+        },
+        {
+          "id": "APP",
+          "kind": "backend",
+          "owner": "coding/architecture",
+          "responsibility": "项目会话/统一命令/事务/历史/快照/资源引用",
+          "technology": "C++20",
+          "version": "1.0"
+        },
+        {
+          "id": "STORE",
+          "kind": "backend",
+          "owner": "coding/architecture",
+          "responsibility": "唯一存储所有者、DDL/幂等/资源分块/备份/GC",
+          "technology": "C++20 + SQLite封装",
+          "version": "1.0"
+        },
+        {
+          "id": "HOSTPORT",
+          "kind": "backend",
+          "owner": "coding/architecture",
+          "responsibility": "RootGrant/独占锁/空间/时钟/RNG，薄平台适配",
+          "technology": "Win32 / Android NDK",
+          "version": "1.0"
+        },
+        {
+          "id": "SQLITE",
+          "kind": "external",
+          "owner": "upstream/coding vendor",
+          "responsibility": "标准VFS、WAL/FULL原子与恢复",
+          "technology": "SQLite",
+          "version": "3.54.1"
+        },
+        {
+          "id": "JSON",
+          "kind": "external",
+          "owner": "upstream/coding vendor",
+          "responsibility": "固定JSON解析/序列化；严格输入规则由SDK补充",
+          "technology": "nlohmann/json",
+          "version": "3.12.0"
+        },
+        {
+          "id": "HASH",
+          "kind": "external",
+          "owner": "upstream/coding vendor",
+          "responsibility": "SHA-256；不启用网络/TLS",
+          "technology": "Mbed TLS hash subset",
+          "version": "3.6.7"
+        }
+      ],
+      "delivery": {
+        "code_author_role": "engineering",
+        "deliverables": [
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-01",
+            "paths": [
+              "handoff/local-core-v1/README.md"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-02",
+            "paths": [
+              "handoff/local-core-v1/requirements.md"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-03",
+            "paths": [
+              "handoff/local-core-v1/architecture.md"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-04",
+            "paths": [
+              "handoff/local-core-v1/api.md"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-05",
+            "paths": [
+              "handoff/local-core-v1/storage.md"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-06",
+            "paths": [
+              "handoff/local-core-v1/transactions.md"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-07",
+            "paths": [
+              "handoff/local-core-v1/platforms.md"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-08",
+            "paths": [
+              "handoff/local-core-v1/work-items.md"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-09",
+            "paths": [
+              "handoff/local-core-v1/quality/basic-self-check.md"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-10",
+            "paths": [
+              "handoff/local-core-v1/quality/strategy.md"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-11",
+            "paths": [
+              "handoff/local-core-v1/quality/cases.json"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-12",
+            "paths": [
+              "handoff/local-core-v1/spec/gg_core_v1.h"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-13",
+            "paths": [
+              "handoff/local-core-v1/spec/project_v1.sql"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-14",
+            "paths": [
+              "handoff/local-core-v1/spec/messages.schema.json"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-15",
+            "paths": [
+              "handoff/local-core-v1/spec/dependencies.lock.json"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-D-16",
+            "paths": [
+              "handoff/local-core-v1/examples/sequence.json"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-M-product_mcpjson",
+            "paths": [
+              ".product-mcp.json"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-M-architecture_mcpjson",
+            "paths": [
+              ".architecture-mcp.json"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-M-workflow_mcpjson",
+            "paths": [
+              ".workflow-mcp.json"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-M-coding_mcpjson",
+            "paths": [
+              ".coding-mcp.json"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-M-quality_plan_mcpjson",
+            "paths": [
+              ".quality-plan-mcp.json"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-M-ARCHITECTUREmd",
+            "paths": [
+              "ARCHITECTURE.md"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-Q-LOAD",
+            "paths": [
+              "handoff/local-core-v1/quality/load.md"
+            ]
+          },
+          {
+            "code_author_role": "engineering",
+            "id": "LC-Q-SECURITY",
+            "paths": [
+              "handoff/local-core-v1/quality/security.md"
+            ]
+          }
+        ],
+        "design_version": "not_applicable_headless_M1",
+        "has_ui": false,
+        "implementation_status": "not_started",
+        "iteration_kind": "engineering_design_handoff_only",
+        "platforms": "Windows x64 / Android arm64-v8a native core",
+        "requires_code": true,
+        "ui_exclusion_reason": "本包是无GUI共享核心，完整编辑器UI后包仍适用；旧原型非本包实现。"
+      },
+      "gate": {
+        "approval_identity_verified": false,
+        "baseline_sha256": "6f78e58046be1895f9bea52f6f9eb49e80e23ef226a7060c86cde1cc7fb3c379",
+        "build_id": "",
+        "complete": false,
+        "delivery_identity": {
+          "actual_build_declared": true,
+          "artifact_verified": false,
+          "consistent": true,
+          "declarations": {
+            ".architecture-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".coding-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".design-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "gamegen-prototype-v3.6-20261114-01",
+              "source_revision": ""
+            },
+            ".product-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".quality-plan-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".workflow-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            }
+          },
+          "issues": []
+        },
+        "documents_ready": false,
+        "downstream": {},
+        "execution_status": "not_run",
+        "execution_verified": false,
+        "gate_kind": "documentation",
+        "issues": [
+          {
+            "code": "approval_missing",
+            "message": "缺少当前基线审批: architecture",
+            "path": "$.reviews"
+          },
+          {
+            "code": "approval_missing",
+            "message": "缺少当前基线审批: engineering",
+            "path": "$.reviews"
+          },
+          {
+            "code": "approval_missing",
+            "message": "缺少当前基线审批: product",
+            "path": "$.reviews"
+          },
+          {
+            "code": "approval_missing",
+            "message": "缺少当前基线审批: qa",
+            "path": "$.reviews"
+          }
+        ],
+        "limits": [
+          "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+          "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+          "审批记录和证据真实性须由实际负责人确认"
+        ],
+        "module": "architecture",
+        "passed": false,
+        "quality_verified": false,
+        "release_permitted": false,
+        "root": "I:\\code\\GameGen",
+        "stage": "development",
+        "status": "documents_incomplete",
+        "version": "local-core-v1-draft.2"
+      },
+      "go_frontend": {
+        "automated": [
+          "Go 沿用 gofmt、go vet、govulncheck；混合 JS/TS 沿用 ESLint",
+          "识别 go.mod、wails.json、templ、Fyne、Gio、html/template 和 syscall/js 线索",
+          "原始模板输出只产生人工审查提示，不能证明输入已被利用"
+        ],
+        "common_rules": [
+          "先确认业务与目标平台，再比较渲染路线、团队能力、维护与分发成本",
+          "UI、应用服务、领域与基础设施分离；复用现有组件和设计变量",
+          "状态清单覆盖加载、空值、超时、权限、离线、中断和恢复",
+          "context 取消、超时、有限并发、资源释放与数据竞争必须评审",
+          "Go、框架、生成器、前端包和系统依赖锁定版本并记录支持范围",
+          "先按产品规模实现最小可用方案，性能扩展以测量和阈值为依据"
+        ],
+        "limits": [
+          "检测是文本线索，不推断完整依赖图、绑定权限或线程安全",
+          "不会安装框架、生成代码、执行 UI 测试或编译用户项目",
+          "原生渲染、WASM 和模板没有统一完整分析器；必须查看实际 coverage"
+        ],
+        "profiles": {
+          "fyne": {
+            "rendering": "Go 原生 GUI 控件与画布",
+            "requirements": [
+              "按锁定版本的 UI 调度约定更新控件；后台任务可取消",
+              "资源嵌入、DPI、主题、字体、键盘与无障碍逐环境验证",
+              "UI 自动测试不替代目标设备与图形驱动上的打包运行"
+            ]
+          },
+          "gio": {
+            "rendering": "Go 即时模式布局、状态与绘制",
+            "requirements": [
+              "事件循环不阻塞，状态所有权和跨协程通信清晰",
+              "窗口与 GPU 资源生命周期、帧时间和失效刷新可验证",
+              "按目标平台验证输入法、焦点、缩放和辅助功能"
+            ]
+          },
+          "go_wasm": {
+            "rendering": "Go js/wasm 与浏览器宿主交互",
+            "requirements": [
+              "锁定 Go 工具链与配套 wasm_exec.js，管理 JS 回调释放",
+              "评估下载体积、启动、主线程阻塞、缓存及浏览器支持",
+              "客户端代码与 WebAssembly 均不能保存可信服务端密钥"
+            ]
+          },
+          "go_web": {
+            "rendering": "Go html/template 或 templ 服务端渲染，可结合 htmx",
+            "requirements": [
+              "上下文转义与 CSP，原始 HTML 必须审查数据来源",
+              "CSRF、会话、服务端授权及片段更新后的焦点和错误恢复",
+              "模板生成产物与源码一致，静态资源版本与缓存策略"
+            ]
+          },
+          "wails": {
+            "rendering": "Go 应用服务加 WebView 中的 HTML/CSS/JS/TS 界面",
+            "requirements": [
+              "绑定方法、参数、错误、权限和生命周期明确，桥接输入不可信",
+              "限制外部导航、资源来源、文件和进程能力，评审 CSP",
+              "同时检查 Go 与前端工程，锁定绑定生成器和 WebView 环境"
+            ]
+          }
+        },
+        "required_verification": [
+          "目标 OS/浏览器/WebView、DPI、字体、语言、主题及资源清单",
+          "Go 测试与适用的竞态检查、绑定契约、取消和泄漏验证",
+          "截图、交互、无障碍、性能、安装升级及回退，绑定最终 build_id"
+        ],
+        "sources": [
+          "https://pkg.go.dev/html/template",
+          "https://templ.guide/security/injection-attacks/",
+          "https://wails.io/concepts/architecture/",
+          "https://docs.fyne.io/started/goroutines/",
+          "https://gioui.org/doc/architecture",
+          "https://go.dev/wiki/WebAssembly"
+        ]
+      },
+      "increments": [
+        {
+          "acceptance": "work-items.md对应LC-AC条件和产物，不以文档通过冒充运行",
+          "decision_ids": [
+            "ADR-LC-01",
+            "ADR-LC-02"
+          ],
+          "depends_on": [],
+          "goal": "SDK与工具链",
+          "id": "LC-T01",
+          "iteration": "local-core-v1-draft.2",
+          "owner": "coding；接收者待指派",
+          "quality_ids": [
+            "Q-PERF",
+            "Q-AVAIL",
+            "Q-CONC",
+            "Q-EXT",
+            "Q-SEC",
+            "Q-MAINT"
+          ],
+          "rollback": "对应任务的副本/旧库/旧制品/版本化契约保留，不删除原数据",
+          "scope": "work-items.md对应任务，生产路径native/待实施",
+          "validation": "coding基础计划+独立quality用例，全部not_run",
+          "verification_ids": [
+            "V-LC-functional",
+            "V-LC-recovery"
+          ]
+        },
+        {
+          "acceptance": "work-items.md对应LC-AC条件和产物，不以文档通过冒充运行",
+          "decision_ids": [
+            "ADR-LC-01",
+            "ADR-LC-02"
+          ],
+          "depends_on": [
+            "LC-T01"
+          ],
+          "goal": "项目会话与存储",
+          "id": "LC-T02",
+          "iteration": "local-core-v1-draft.2",
+          "owner": "coding；接收者待指派",
+          "quality_ids": [
+            "Q-PERF",
+            "Q-AVAIL",
+            "Q-CONC",
+            "Q-EXT",
+            "Q-SEC",
+            "Q-MAINT"
+          ],
+          "rollback": "对应任务的副本/旧库/旧制品/版本化契约保留，不删除原数据",
+          "scope": "work-items.md对应任务，生产路径native/待实施",
+          "validation": "coding基础计划+独立quality用例，全部not_run",
+          "verification_ids": [
+            "V-LC-functional",
+            "V-LC-recovery"
+          ]
+        },
+        {
+          "acceptance": "work-items.md对应LC-AC条件和产物，不以文档通过冒充运行",
+          "decision_ids": [
+            "ADR-LC-01",
+            "ADR-LC-02"
+          ],
+          "depends_on": [
+            "LC-T02"
+          ],
+          "goal": "文档与事务",
+          "id": "LC-T03",
+          "iteration": "local-core-v1-draft.2",
+          "owner": "coding；接收者待指派",
+          "quality_ids": [
+            "Q-PERF",
+            "Q-AVAIL",
+            "Q-CONC",
+            "Q-EXT",
+            "Q-SEC",
+            "Q-MAINT"
+          ],
+          "rollback": "对应任务的副本/旧库/旧制品/版本化契约保留，不删除原数据",
+          "scope": "work-items.md对应任务，生产路径native/待实施",
+          "validation": "coding基础计划+独立quality用例，全部not_run",
+          "verification_ids": [
+            "V-LC-functional",
+            "V-LC-recovery"
+          ]
+        },
+        {
+          "acceptance": "work-items.md对应LC-AC条件和产物，不以文档通过冒充运行",
+          "decision_ids": [
+            "ADR-LC-01",
+            "ADR-LC-02"
+          ],
+          "depends_on": [
+            "LC-T03"
+          ],
+          "goal": "历史与快照",
+          "id": "LC-T04",
+          "iteration": "local-core-v1-draft.2",
+          "owner": "coding；接收者待指派",
+          "quality_ids": [
+            "Q-PERF",
+            "Q-AVAIL",
+            "Q-CONC",
+            "Q-EXT",
+            "Q-SEC",
+            "Q-MAINT"
+          ],
+          "rollback": "对应任务的副本/旧库/旧制品/版本化契约保留，不删除原数据",
+          "scope": "work-items.md对应任务，生产路径native/待实施",
+          "validation": "coding基础计划+独立quality用例，全部not_run",
+          "verification_ids": [
+            "V-LC-functional",
+            "V-LC-recovery"
+          ]
+        },
+        {
+          "acceptance": "work-items.md对应LC-AC条件和产物，不以文档通过冒充运行",
+          "decision_ids": [
+            "ADR-LC-01",
+            "ADR-LC-02"
+          ],
+          "depends_on": [
+            "LC-T04"
+          ],
+          "goal": "资源与引用",
+          "id": "LC-T05",
+          "iteration": "local-core-v1-draft.2",
+          "owner": "coding；接收者待指派",
+          "quality_ids": [
+            "Q-PERF",
+            "Q-AVAIL",
+            "Q-CONC",
+            "Q-EXT",
+            "Q-SEC",
+            "Q-MAINT"
+          ],
+          "rollback": "对应任务的副本/旧库/旧制品/版本化契约保留，不删除原数据",
+          "scope": "work-items.md对应任务，生产路径native/待实施",
+          "validation": "coding基础计划+独立quality用例，全部not_run",
+          "verification_ids": [
+            "V-LC-functional",
+            "V-LC-recovery"
+          ]
+        },
+        {
+          "acceptance": "work-items.md对应LC-AC条件和产物，不以文档通过冒充运行",
+          "decision_ids": [
+            "ADR-LC-01",
+            "ADR-LC-02"
+          ],
+          "depends_on": [
+            "LC-T05"
+          ],
+          "goal": "恢复与维护",
+          "id": "LC-T06",
+          "iteration": "local-core-v1-draft.2",
+          "owner": "coding；接收者待指派",
+          "quality_ids": [
+            "Q-PERF",
+            "Q-AVAIL",
+            "Q-CONC",
+            "Q-EXT",
+            "Q-SEC",
+            "Q-MAINT"
+          ],
+          "rollback": "对应任务的副本/旧库/旧制品/版本化契约保留，不删除原数据",
+          "scope": "work-items.md对应任务，生产路径native/待实施",
+          "validation": "coding基础计划+独立quality用例，全部not_run",
+          "verification_ids": [
+            "V-LC-functional",
+            "V-LC-recovery"
+          ]
+        },
+        {
+          "acceptance": "work-items.md对应LC-AC条件和产物，不以文档通过冒充运行",
+          "decision_ids": [
+            "ADR-LC-01",
+            "ADR-LC-02"
+          ],
+          "depends_on": [
+            "LC-T06"
+          ],
+          "goal": "双宿主绑定",
+          "id": "LC-T07",
+          "iteration": "local-core-v1-draft.2",
+          "owner": "coding；接收者待指派",
+          "quality_ids": [
+            "Q-PERF",
+            "Q-AVAIL",
+            "Q-CONC",
+            "Q-EXT",
+            "Q-SEC",
+            "Q-MAINT"
+          ],
+          "rollback": "对应任务的副本/旧库/旧制品/版本化契约保留，不删除原数据",
+          "scope": "work-items.md对应任务，生产路径native/待实施",
+          "validation": "coding基础计划+独立quality用例，全部not_run",
+          "verification_ids": [
+            "V-LC-functional",
+            "V-LC-recovery"
+          ]
+        },
+        {
+          "acceptance": "work-items.md对应LC-AC条件和产物，不以文档通过冒充运行",
+          "decision_ids": [
+            "ADR-LC-01",
+            "ADR-LC-02"
+          ],
+          "depends_on": [
+            "LC-T07"
+          ],
+          "goal": "交接差异关闭",
+          "id": "LC-T08",
+          "iteration": "local-core-v1-draft.2",
+          "owner": "coding；接收者待指派",
+          "quality_ids": [
+            "Q-PERF",
+            "Q-AVAIL",
+            "Q-CONC",
+            "Q-EXT",
+            "Q-SEC",
+            "Q-MAINT"
+          ],
+          "rollback": "对应任务的副本/旧库/旧制品/版本化契约保留，不删除原数据",
+          "scope": "work-items.md对应任务，生产路径native/待实施",
+          "validation": "coding基础计划+独立quality用例，全部not_run",
+          "verification_ids": [
+            "V-LC-functional",
+            "V-LC-recovery"
+          ]
+        }
+      ],
+      "interfaces": [
+        {
+          "authentication": "可信本机宿主的授权根+Core句柄；未来不可信Agent还需工具/OS隔离",
+          "authorization": "只在授权根和当前项目访问；无shell/SQL/网络",
+          "compatibility": "ABI major不同拒绝；minor只增可选能力；format/schema未知必需版本不强写；固定hashVersion和消息1.0",
+          "contract": "handoff/local-core-v1/api.md / spec/gg_core_v1.h / messages.schema.json",
+          "errors": "api.md结构化错误、ABI受理错误和任务领域错误分开",
+          "from": "SDK",
+          "id": "I-CABI",
+          "idempotency": "同项目持久化成功请求摘要与revision同事务；二进制按offset/块字节",
+          "owner": "architecture",
+          "protocol": "稳定C ABI+UTF8 JSON1.0+二进制块",
+          "retry": "保持原JSON字节和requestId，未知提交先lookup；原样失败不盲重放",
+          "timeout": "任务取消闸门；UI不等待I/O；时延目标见架构，系统不支持时保留缺口",
+          "to": "APP",
+          "validation": "ABI/句柄/字节/JSON/Schema/revision/引用/能力/预算，在commit前再次核对",
+          "version": "1.0"
+        }
+      ],
+      "modularity": {
+        "boundaries": "schema/document/application/storage/assets/tasks/sdk/platform目录，见architecture.md",
+        "change_scenarios": "后续UI/图/Reader/LAN/四目标使用同一事务；外部CAS需独立原子方案",
+        "contract_versioning": "ABI/protocol 1.0，format/schema1；major不兼容拒绝，minor新增可选能力",
+        "dependency_rules": "Host→SDK→APP→Domain/STORE/Ports；核心无Qt/Dart/JNI类型；无私有云依赖",
+        "extension_points": "Schema registry / BlobStore / C ABI /平台端口，不做任意动态插件",
+        "migration_exit": "保留旧库/快照/源码；外部BlobStore替换不改assetId/hash，迁移包另审"
+      },
+      "operations": {
+        "alerts": "IOERR/FULL/坏库/不确定COMMIT停写并报告恢复动作",
+        "capacity": "达到支持域或预算触发器后回架构，不无界扩容",
+        "degradation": "未知Schema只读/明确拒绝；无云/付费组件兜底",
+        "monitoring": "本地最多1000条/1MiB诊断轮转，不含正文/密钥/完整路径",
+        "on_call": "无在线值班；任务领取时登记具体维护人，当前仅责任角色",
+        "recovery": "标准WAL恢复/backup API/快照新事务，坏库留原件",
+        "rpo": "已经确认持久化事务目标0；未提交草稿不算保存",
+        "rto": "基准正常打开<=2s；损坏修复RTO不作无证据承诺",
+        "runbook": "handoff/local-core-v1/transactions.md",
+        "sli_slo": "本地确认提交RPO0，固定fixture打开p95<=2s；无在线SLA"
+      },
+      "project": {
+        "id": "aimeta-gamegen-studio",
+        "name": "GameGen本地一期共享核心交接",
+        "owner": "architecture编制角色；真实接收待登记",
+        "version": "local-core-v1-draft.2"
+      },
+      "quality_attributes": [
+        {
+          "dimension": "performance",
+          "environment": "架构固定Windows/Android计划设备与100文档/1000实体/100MiB fixture，实际设备未填",
+          "id": "Q-PERF",
+          "load": "普通<=16操作/64KiB，资产上限64MiB",
+          "method": "Q-LC-23/24性能计划，未执行/无基线",
+          "metric": "open/commit/poll/cancel latency",
+          "owner": "architecture阈值/独立quality计划",
+          "target": "打开p95<=2s；普通批次提交p95<=200ms；poll/入队p95<=10ms；可取消阶段<=1s；各100次冷/热分开"
+        },
+        {
+          "dimension": "availability",
+          "environment": "标准SQLite VFS/FULL、本机文件系统；非恶意OS/硬件破坏",
+          "id": "Q-AVAIL",
+          "load": "当前一期容量",
+          "method": "Q-LC-12/15/22恢复计划；not_run",
+          "metric": "acknowledged commit loss",
+          "owner": "architecture/coding/independent_quality",
+          "target": "确认持久化提交RPO=0；故障只见完整旧/新；损坏不承诺自动修复RTO"
+        },
+        {
+          "dimension": "concurrency",
+          "environment": "双端Core，进程内注册+OS独占锁",
+          "id": "Q-CONC",
+          "load": "一Core一项目、多调用线程",
+          "method": "Q-LC-02/21有界并发计划；not_run",
+          "metric": "project writers/queues/buffers",
+          "owner": "architecture/coding",
+          "target": "每项目1写者；队列32；块1MiB/4个；结果8MiB；满则受理前背压"
+        },
+        {
+          "dimension": "extensibility",
+          "environment": "Windows/Android1.0 SDK",
+          "id": "Q-EXT",
+          "load": "相同fixture/命令",
+          "method": "Q-LC-16/17/19；not_run",
+          "metric": "domain changes caused by host replacement",
+          "owner": "architecture/coding",
+          "target": "0平台UI类型进入核心；稳定ABI版本与Schema迁移；未知必需能力拒绝"
+        },
+        {
+          "dimension": "security",
+          "environment": "授权根与恶意输入fixture，真实测试未执行",
+          "id": "Q-SEC",
+          "load": "API/DDL规定上限",
+          "method": "Q-LC-02/05/25/28安全计划；无扫描/工具执行",
+          "metric": "out_of_root writes / cloud uploads / unauthorized dependencies",
+          "owner": "architecture/independent_quality",
+          "target": "0越界写/自动云上传/商业Qt必需依赖；JSON/SQLite输入受限"
+        },
+        {
+          "dimension": "maintainability",
+          "environment": "固定依赖/目录与八个增量",
+          "id": "Q-MAINT",
+          "load": "当前本地一期",
+          "method": "代码接收/版本对照计划；当前只写文档",
+          "metric": "duplicated business rules and contract drift",
+          "owner": "architecture/coding",
+          "target": "两端共一套领域实现；接口/DDL变化先改版并绑定哈希；每项任务可回退"
+        }
+      ],
+      "ready_for_coding": false,
+      "scale_triggers": [
+        {
+          "action": "升级major/迁移包，重新交接下游",
+          "id": "TR-LC-ABI",
+          "metric": "incompatible ABI/Schema change",
+          "operator": "gte",
+          "owner": "architecture",
+          "rollback": "保留旧库/旧兼容制品，不强行写入",
+          "threshold": 1,
+          "unit": "breaking change",
+          "window": "每次接口/数据变更"
+        },
+        {
+          "action": "停止对应实现放行并定位持久化问题",
+          "id": "TR-LC-LOSS",
+          "metric": "lost acknowledged transaction",
+          "operator": "gte",
+          "owner": "coding/architecture",
+          "rollback": "回到前一实现/原库备份，不删除故障证据",
+          "threshold": 1,
+          "unit": "transaction",
+          "window": "任一已授权恢复样例"
+        },
+        {
+          "action": "明确拒绝超一期域，立容量扩展/BlobStore方案；不删用户资源",
+          "id": "TR-LC-SIZE",
+          "metric": "asset total bytes",
+          "operator": "gt",
+          "owner": "architecture",
+          "rollback": "旧域继续可读，不迁移未验方案",
+          "threshold": 1073741824,
+          "unit": "bytes",
+          "window": "每次资产接收/容量计划"
+        },
+        {
+          "action": "定位I/O/解析/备份瓶颈，重评实现或预算",
+          "id": "TR-LC-LATENCY",
+          "metric": "ordinary_commit_p95",
+          "operator": "gt",
+          "owner": "architecture/coding",
+          "rollback": "保留旧成功版本及完整失败样本",
+          "threshold": 200,
+          "unit": "ms",
+          "window": "固定fixture单平台100次样本"
+        },
+        {
+          "action": "QUEUE_FULL背压，消费结果后再受理",
+          "id": "TR-LC-QUEUE",
+          "metric": "active task count",
+          "operator": "gte",
+          "owner": "coding",
+          "rollback": "不丢旧任务、不扩无界队列",
+          "threshold": 32,
+          "unit": "tasks",
+          "window": "每次受理"
+        }
+      ],
+      "scaling": {
+        "extensibility": {
+          "decision_id": "ADR-LC-02",
+          "evidence_ids": [
+            "E-LC-USER"
+          ],
+          "mode": "now",
+          "reason": "当前跨端一致与未来模块接入",
+          "trigger_ids": [
+            "TR-LC-ABI"
+          ]
+        },
+        "high_availability": {
+          "decision_id": "ADR-LC-01",
+          "evidence_ids": [
+            "E-LC-USER"
+          ],
+          "mode": "now",
+          "reason": "仅本地原子与恢复；云高可用defer，无在线多副本",
+          "trigger_ids": [
+            "TR-LC-LOSS"
+          ]
+        },
+        "high_concurrency": {
+          "decision_id": "ADR-LC-02",
+          "evidence_ids": [
+            "E-LC-USER"
+          ],
+          "mode": "now",
+          "reason": "串行写者+幂等+背压；多人同编defer",
+          "trigger_ids": [
+            "TR-LC-QUEUE"
+          ]
+        },
+        "high_load": {
+          "decision_id": "ADR-LC-01",
+          "evidence_ids": [
+            "E-LC-USER"
+          ],
+          "mode": "now",
+          "reason": "当前有界流式；超过一期支持域后评估外部BlobStore，不增加分布式",
+          "trigger_ids": [
+            "TR-LC-SIZE",
+            "TR-LC-LATENCY"
+          ]
+        }
+      },
+      "security": {
+        "authorization": "RootGrant/只读/Schema版本/单写锁；未来Agent不能直接使用宽文件权限",
+        "identity": "可信宿主能力句柄与项目身份；无用户账号/云认证",
+        "privacy": "默认localOnly，诊断脱敏且无上传接口",
+        "secrets": "本机凭据不进项目/导出/日志；本包不接受云Key",
+        "supply_chain": "固定官方tag/许可/已知公开校验；下载后补真实字节摘要；不执行项目/第三方脚本",
+        "threat_model": "恶意JSON/SQLite/路径、句柄误用、重复提交、半资源与过期校验",
+        "trust_boundaries": "Host→SDK→领域→存储；未信项目数据不变为执行代码；本库不隔离恶意同用户本机代码",
+        "verification": "quality策略与Q-LC安全/恢复计划，全部not_run"
+      },
+      "topology": {
+        "deployment_units": [
+          {
+            "boundary_reason": "一个项目权威与数据库所有者，不拆远程服务",
+            "component_ids": [
+              "SDK",
+              "APP",
+              "STORE",
+              "HOSTPORT",
+              "SQLITE",
+              "JSON",
+              "HASH"
+            ],
+            "id": "NATIVE-CORE",
+            "owner": "coding",
+            "responsibility": "随本机宿主加载的DLL/SO及静态依赖"
+          }
+        ],
+        "operations_cost": "本地备份/依赖升级/Schema维护；无云运维成本估算",
+        "pattern": "modular_monolith",
+        "reason": "同一宿主本机核心与领域/存储模块，云端暂缓，无微服务批准",
+        "team_capacity": "人员待指派；每人主要增量WIP1，最多2个待集成改动"
+      },
+      "verification": [
+        {
+          "build_id": "",
+          "environment": "platforms.md固定计划环境，实际设备/构建未填",
+          "evidence_ids": [],
+          "execution_status": "not_run",
+          "expected": "满足LC-AC和架构预算；当前无执行结果",
+          "id": "V-LC-functional",
+          "kind": "functional",
+          "method": "handoff/local-core-v1/quality/strategy.md及cases.json对应类别",
+          "owner": "coding基础/独立quality系统计划",
+          "result": "not_run"
+        },
+        {
+          "build_id": "",
+          "environment": "platforms.md固定计划环境，实际设备/构建未填",
+          "evidence_ids": [],
+          "execution_status": "not_run",
+          "expected": "满足LC-AC和架构预算；当前无执行结果",
+          "id": "V-LC-performance",
+          "kind": "performance",
+          "method": "handoff/local-core-v1/quality/strategy.md及cases.json对应类别",
+          "owner": "coding基础/独立quality系统计划",
+          "result": "not_run"
+        },
+        {
+          "build_id": "",
+          "environment": "platforms.md固定计划环境，实际设备/构建未填",
+          "evidence_ids": [],
+          "execution_status": "not_run",
+          "expected": "满足LC-AC和架构预算；当前无执行结果",
+          "id": "V-LC-security",
+          "kind": "security",
+          "method": "handoff/local-core-v1/quality/strategy.md及cases.json对应类别",
+          "owner": "coding基础/独立quality系统计划",
+          "result": "not_run"
+        },
+        {
+          "build_id": "",
+          "environment": "platforms.md固定计划环境，实际设备/构建未填",
+          "evidence_ids": [],
+          "execution_status": "not_run",
+          "expected": "满足LC-AC和架构预算；当前无执行结果",
+          "id": "V-LC-recovery",
+          "kind": "recovery",
+          "method": "handoff/local-core-v1/quality/strategy.md及cases.json对应类别",
+          "owner": "coding基础/独立quality系统计划",
+          "result": "not_run"
+        },
+        {
+          "build_id": "",
+          "environment": "platforms.md固定计划环境，实际设备/构建未填",
+          "evidence_ids": [],
+          "execution_status": "not_run",
+          "expected": "满足LC-AC和架构预算；当前无执行结果",
+          "id": "V-LC-extensibility",
+          "kind": "extensibility",
+          "method": "handoff/local-core-v1/quality/strategy.md及cases.json对应类别",
+          "owner": "coding基础/独立quality系统计划",
+          "result": "not_run"
+        },
+        {
+          "build_id": "",
+          "environment": "architecture/platforms规定的本地副本与计划设备，实际未运行",
+          "evidence_ids": [],
+          "execution_status": "not_run",
+          "expected": "满足相应预算/保护边界，缺口不伪报通过",
+          "id": "V-LC-high_availability",
+          "kind": "high_availability",
+          "method": "Q-LC-12/15/22/27本地原子/恢复计划，非云容灾",
+          "owner": "independent_quality",
+          "result": "not_run"
+        },
+        {
+          "build_id": "",
+          "environment": "architecture/platforms规定的本地副本与计划设备，实际未运行",
+          "evidence_ids": [],
+          "execution_status": "not_run",
+          "expected": "满足相应预算/保护边界，缺口不伪报通过",
+          "id": "V-LC-high_load",
+          "kind": "high_load",
+          "method": "Q-LC-21/23/24与quality/load.md有界容量计划",
+          "owner": "independent_quality",
+          "result": "not_run"
+        },
+        {
+          "build_id": "",
+          "environment": "architecture/platforms规定的本地副本与计划设备，实际未运行",
+          "evidence_ids": [],
+          "execution_status": "not_run",
+          "expected": "满足相应预算/保护边界，缺口不伪报通过",
+          "id": "V-LC-high_concurrency",
+          "kind": "high_concurrency",
+          "method": "Q-LC-02/21单写锁、幂等、背压计划",
+          "owner": "independent_quality",
+          "result": "not_run"
+        }
+      ],
+      "workflow": [
+        "inspect_project",
+        "get_project_rules",
+        "find_reuse_candidates",
+        "实施一个可回退增量",
+        "编写基础自测文案",
+        "evaluate_basic_self_check",
+        "独立quality_mcp编写专项质量方案，执行需会话授权"
+      ]
+    }
+  },
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

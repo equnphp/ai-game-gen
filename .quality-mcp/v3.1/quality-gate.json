@@ -1,0 +1,18 @@
+{
+  "content": [
+    {
+      "text": "{\"blocking_findings\":0,\"complete\":true,\"passed\":true,\"snapshot\":\"06f69ecd7ce28dbe\",\"stale\":false,\"status\":\"passed\",\"threshold\":\"warning\"}",
+      "type": "text"
+    }
+  ],
+  "isError": false,
+  "structuredContent": {
+    "blocking_findings": 0,
+    "complete": true,
+    "passed": true,
+    "snapshot": "06f69ecd7ce28dbe",
+    "stale": false,
+    "status": "passed",
+    "threshold": "warning"
+  }
+}

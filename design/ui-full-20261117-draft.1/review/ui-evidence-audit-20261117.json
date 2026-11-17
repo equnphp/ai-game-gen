@@ -1,0 +1,807 @@
+{
+  "version": "ui-scope-review-20261117-draft.1",
+  "role": "UI author self-review",
+  "existing_artboards": 507,
+  "items": [
+    {
+      "id": "UI-AUD-01",
+      "area": "创建与项目配置",
+      "gap": "创建向导缺玩法/视角/联网模式/模板完整选择及后续改配、模块组合影响",
+      "existing_screen_ids": [
+        "new-project",
+        "templates"
+      ],
+      "delivery_kind": "补现有页/向导",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "PRODUCT-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-02",
+      "area": "手机表单关键字段",
+      "gap": "手机仅绘制前五项，模型API Key、MCP动作权限、目标签名引用未出现",
+      "existing_screen_ids": [
+        "model-form",
+        "mcp-form",
+        "target-settings"
+      ],
+      "delivery_kind": "修正现有画板",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "design/ui-full-20261117-draft.1/source/render.mjs"
+      ]
+    },
+    {
+      "id": "UI-AUD-03",
+      "area": "变更审阅语义",
+      "gap": "AI提案、版本差异、LAN冲突、源工程重导入共用电脑/手机属性对比，需各自差异语义与三方基线",
+      "existing_screen_ids": [
+        "proposal",
+        "diff",
+        "lan-conflict",
+        "engine-conflict"
+      ],
+      "delivery_kind": "修正现有页并补业务状态",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "design/ui-full-20261117-draft.1/source/render.mjs"
+      ]
+    },
+    {
+      "id": "UI-AUD-04",
+      "area": "项目管理与存储",
+      "gap": "项目设置、改名复制、打包交换、独占锁只读、保存失败另存与迁移确认",
+      "existing_screen_ids": [
+        "projects",
+        "settings",
+        "recovery"
+      ],
+      "delivery_kind": "页面/抽屉/状态",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "PRODUCT-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-05",
+      "area": "创作会话工作台",
+      "gap": "Plan/执行切换、计划确认、上下文附件、会话分支/摘要、逐项提案、停止与结果待确认",
+      "existing_screen_ids": [
+        "chat",
+        "sessions",
+        "proposal"
+      ],
+      "delivery_kind": "补现有页及抽屉",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "WORKFLOW-NETWORK-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-06",
+      "area": "预制体与批量对象",
+      "gap": "创建模板、实例覆盖树、传播影响/冲突、解除关联、父子变换与批量编辑",
+      "existing_screen_ids": [
+        "prefab",
+        "scene"
+      ],
+      "delivery_kind": "编辑面板与弹窗",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-07",
+      "area": "精灵与图集导入",
+      "gap": "精灵切片、脚点/锚点、过滤压缩、图集、目标覆盖、派生资源/原件与重导入预览",
+      "existing_screen_ids": [
+        "import-assets",
+        "asset-detail"
+      ],
+      "delivery_kind": "专用工作台",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-08",
+      "area": "游戏界面可视化布局",
+      "gap": "组件树/控件库/锚点布局/焦点路径/数据绑定，标题暂停HUD背包等模板实际画布",
+      "existing_screen_ids": [
+        "game-ui"
+      ],
+      "delivery_kind": "专用编辑工作台及模板",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-09",
+      "area": "物理形状与关节",
+      "gap": "多边形/复合碰撞体可视编辑、关节参数与碰撞矩阵、预设变更影响",
+      "existing_screen_ids": [
+        "physics"
+      ],
+      "delivery_kind": "补专用编辑面板",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-10",
+      "area": "粒子曲线与发射器",
+      "gap": "颜色/尺寸曲线、形状、子发射器、挂点、预算、循环与自然完成不同状态",
+      "existing_screen_ids": [
+        "particles"
+      ],
+      "delivery_kind": "补现有工作台",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-11",
+      "area": "帧动画与补间",
+      "gap": "切片序列、片段、关键帧/曲线、帧事件、控制器冲突与引用",
+      "existing_screen_ids": [
+        "animation"
+      ],
+      "delivery_kind": "完整时间轴编辑工作台",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-12",
+      "area": "骨骼绑定与权重",
+      "gap": "部件/骨架/静止姿态/槽位/网格/权重涂抹/IK/蒙皮换肤及导入重导入",
+      "existing_screen_ids": [
+        "skeleton"
+      ],
+      "delivery_kind": "专用工作台及导入流程",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-13",
+      "area": "动画混合与方向",
+      "gap": "分层混合、优先级/中断、方向映射、动作锁定及事件绑定",
+      "existing_screen_ids": [
+        "animation-graph"
+      ],
+      "delivery_kind": "补现有图的专业面板",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-14",
+      "area": "音频剪辑与混音",
+      "gap": "当前页复用生成候选；缺裁剪/循环/淡变、总线推子、静音独奏、声像/衰减与发声优先级",
+      "existing_screen_ids": [
+        "audio"
+      ],
+      "delivery_kind": "音频编辑及混音工作台",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-15",
+      "area": "本机音效模型管理",
+      "gap": "模型下载/离线导入、版本、许可证、空间、校验、缺依赖与卸载",
+      "existing_screen_ids": [
+        "generate-audio",
+        "settings"
+      ],
+      "delivery_kind": "共享本机组件管理",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md",
+        "WORKFLOW-NETWORK-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-16",
+      "area": "地图创建与投影",
+      "gap": "横版/俯视/等距、方格/六边格、逻辑尺寸、投影、兼容素材、图层选择",
+      "existing_screen_ids": [
+        "map"
+      ],
+      "delivery_kind": "新建/设置向导及状态",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "MAP-LEVEL-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-17",
+      "area": "地图区域与占地",
+      "gap": "多层室内/屋顶、脚点、占地、坡道、门/传送/触发区、动态导航影响",
+      "existing_screen_ids": [
+        "map",
+        "map-height",
+        "map-path",
+        "world"
+      ],
+      "delivery_kind": "补现有页的编辑面板",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "MAP-LEVEL-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-18",
+      "area": "小地图与快速旅行",
+      "gap": "楼层/标记、迷雾、跨图导航、快速旅行条件与安全落点",
+      "existing_screen_ids": [
+        "map",
+        "world",
+        "game-ui"
+      ],
+      "delivery_kind": "专用配置面板",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "MAP-LEVEL-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-19",
+      "area": "局部随机地图",
+      "gap": "种子、约束、分布、锁定区、保留手改、局部重生成预览",
+      "existing_screen_ids": [
+        "map"
+      ],
+      "delivery_kind": "专用生成与差异面板",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "MAP-LEVEL-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-20",
+      "area": "关卡实际编辑与战役",
+      "gap": "目标AND/OR、胜败/结算/重试/检查点、难度、解锁与关卡关系图",
+      "existing_screen_ids": [
+        "levels"
+      ],
+      "delivery_kind": "补编辑页和流转图",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "MAP-LEVEL-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-21",
+      "area": "数值表与平衡参数",
+      "gap": "字段类型/主外键/公式、导入批改、引用、种子/样本与平衡方案参数；现有主要是表和结果曲线",
+      "existing_screen_ids": [
+        "data",
+        "economy"
+      ],
+      "delivery_kind": "补表编辑与模拟配置",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "PRODUCT-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-22",
+      "area": "RPG实体编辑",
+      "gap": "角色成长、技能/命中/消耗、物品装备/背包、Buff叠加中断、NPC任务奖励",
+      "existing_screen_ids": [
+        "rpg",
+        "quests",
+        "dialogue"
+      ],
+      "delivery_kind": "实体详情编辑与规则面板",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "PRODUCT-REQUIREMENTS-V3.5.md",
+        "GENRE-MODULE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-23",
+      "area": "SLG经营实体编辑",
+      "gap": "建筑占地、配方链/仓储、生产队列、科技树、行军/领地/波次等编辑",
+      "existing_screen_ids": [
+        "slg"
+      ],
+      "delivery_kind": "实体详情和规则工作台",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "GENRE-MODULE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-24",
+      "area": "24类模板与专属工具",
+      "gap": "只绘8个示例；缺卡牌区域时序、节奏谱面、消除棋盘、棋类合法步、竞速检查点等专属编辑器",
+      "existing_screen_ids": [
+        "templates",
+        "tools"
+      ],
+      "delivery_kind": "模板详情与专用工具；复用通用模块",
+      "scope": "当前本地；联网部分后续",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "GENRE-MODULE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-25",
+      "area": "完整工作流语义",
+      "gap": "数值子图、状态机/行为树、变量/端口、子流程接口版本、分组、自然语言摘要与手机列表模式",
+      "existing_screen_ids": [
+        "workflow",
+        "nodes"
+      ],
+      "delivery_kind": "补图种类和属性抽屉",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "WORKFLOW-NETWORK-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-26",
+      "area": "工作流调试工作台",
+      "gap": "断点、单步、端口值、调用栈、事件时间线、变量监视、模拟/回放/真实区分",
+      "existing_screen_ids": [
+        "graph-debug"
+      ],
+      "delivery_kind": "修正现有专用工作台",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "WORKFLOW-NETWORK-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-27",
+      "area": "API契约实际编辑",
+      "gap": "环境/操作/消息/schema字段、认证、重试幂等、来源覆盖、模拟与真实请求确认",
+      "existing_screen_ids": [
+        "api",
+        "api-import",
+        "api-review",
+        "protocol"
+      ],
+      "delivery_kind": "补实际编辑页和重导入比较",
+      "scope": "当前本地配置；远程执行后续",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "WORKFLOW-NETWORK-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-28",
+      "area": "离线构建组件管理",
+      "gap": "目标组件版本、下载/本地导入、体积、校验、更新移除、缺项恢复",
+      "existing_screen_ids": [
+        "publish",
+        "settings"
+      ],
+      "delivery_kind": "本机组件管理共享框架",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-29",
+      "area": "四目标独立设置",
+      "gap": "当前通用表单主要APK；缺H5路径缓存环境、wx/tt独立AppID/分包/域名与目标能力替代",
+      "existing_screen_ids": [
+        "target-settings",
+        "publish"
+      ],
+      "delivery_kind": "各目标独立标签页",
+      "scope": "当前本地导出",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-30",
+      "area": "签名身份与更新检查",
+      "gap": "创建/导入/安全备份、包名签名版本兼容、权限来源和风险定位",
+      "existing_screen_ids": [
+        "target-settings",
+        "overlays"
+      ],
+      "delivery_kind": "设置页及确认状态",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-31",
+      "area": "试玩调参与性能诊断",
+      "gap": "从关卡/检查点/事件启动，变量监视、碰撞/路径叠加、运行调参应用差异",
+      "existing_screen_ids": [
+        "preview",
+        "diagnostics"
+      ],
+      "delivery_kind": "补现有页与差异弹窗",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-32",
+      "area": "多语内容管理与本语稿",
+      "gap": "翻译导入导出/回退/覆盖、宽高适配；英日韩新视觉稿尚未制作",
+      "existing_screen_ids": [
+        "localization",
+        "settings",
+        "all"
+      ],
+      "delivery_kind": "补现有面板与本语状态稿",
+      "scope": "当前本地",
+      "priority": "P1",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-33",
+      "area": "LAN发送与信任管理",
+      "gap": "发送项目/选定资源及依赖选择器、发送方向、设备信任列表、自动范围与撤销说明",
+      "existing_screen_ids": [
+        "lan-devices",
+        "lan-scope",
+        "lan-diff"
+      ],
+      "delivery_kind": "补选择器、列表与授权状态",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "LOCAL-LAN-SYNC-REQUIREMENTS-V3.7.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-34",
+      "area": "LAN领域冲突与生命周期",
+      "gap": "图拓扑/删除对编辑/二进制冲突，发现与传输断开区别、原子提交中不可取消、锁屏/源变更",
+      "existing_screen_ids": [
+        "lan-conflict",
+        "lan-transfer"
+      ],
+      "delivery_kind": "补领域视图及阶段状态",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "LOCAL-LAN-SYNC-REQUIREMENTS-V3.7.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-35",
+      "area": "工程精确能力与来源任务",
+      "gap": "三引擎具体子格式能力、稳定来源映射、四类对账/许可、待补行为任务详情与重导入",
+      "existing_screen_ids": [
+        "engine-analysis",
+        "engine-mapping",
+        "engine-report",
+        "engine-conflict"
+      ],
+      "delivery_kind": "补现有向导与任务详情",
+      "scope": "Windows转换；Android报告",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "PROJECT-IMPORT-REQUIREMENTS-V3.7.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-36",
+      "area": "扩展配置深层界面",
+      "gap": "MCP stdio参数/依赖/目录/权限重授权，Skill导入附件/依赖/版本差异回退，模型各API格式与作用域",
+      "existing_screen_ids": [
+        "models",
+        "model-form",
+        "mcp",
+        "mcp-form",
+        "skills",
+        "skill-detail"
+      ],
+      "delivery_kind": "补表单分支、详情与选择器",
+      "scope": "当前本地",
+      "priority": "P0",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "ASSISTANT-EXTENSIONS-REQUIREMENTS-V3.6.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-37",
+      "area": "平台账号与积分任务",
+      "gap": "登录/授权恢复、配额、报价冻结结算退款、媒体收件箱/部分成功/待对账与账单",
+      "existing_screen_ids": [
+        "generate-image",
+        "generation-tasks",
+        "settings"
+      ],
+      "delivery_kind": "后续页面和状态",
+      "scope": "云端暂缓",
+      "priority": "P2",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "WORKFLOW-NETWORK-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-38",
+      "area": "联网运营细化",
+      "gap": "房间/区服/迁区/AOI、可信经济、维护公告、审计、封禁、备份和版本恢复",
+      "existing_screen_ids": [
+        "realtime",
+        "server-graph",
+        "multiplayer"
+      ],
+      "delivery_kind": "后续工作台与受控操作",
+      "scope": "后续联网",
+      "priority": "P2",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "WORKFLOW-NETWORK-REQUIREMENTS-V3.5.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-39",
+      "area": "未来写出与终端",
+      "gap": "三Writer独立能力与损失报告流程，Apple/平板是编辑器宿主的独立适配",
+      "existing_screen_ids": [
+        "future-export"
+      ],
+      "delivery_kind": "分离未来扩展设计基线",
+      "scope": "未来扩展",
+      "priority": "P3",
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "implementation_status": "not_implemented_in_this_review",
+      "execution_status": "not_run",
+      "source_files": [
+        "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md"
+      ]
+    },
+    {
+      "id": "UI-AUD-40",
+      "area": "最新表现层与localOnly边界",
+      "gap": "设计交接仍写Qt/Flutter，需要对齐React/TypeScript+Tauri薄宿主；本地内容上下文选择应展示和执行localOnly出站限制。",
+      "existing_screen_ids": [
+        "chat",
+        "overlays",
+        "settings"
+      ],
+      "delivery_kind": "修正接入规格与权限/上下文状态；不改变设计tokens或领域核心",
+      "scope": "当前本地",
+      "priority": "P0",
+      "source_files": [
+        "ARCHITECTURE.md",
+        "architecture/CURRENT.json",
+        "architecture/editor-web-v1/ARCHITECTURE.md",
+        "architecture/editor-web-v1/INTERFACES.md"
+      ],
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "UI-AUD-41",
+      "area": "平台宿主与共享核心异常",
+      "gap": "缺少项目服务未就绪/版本能力不兼容、队列满、取消过晚、提交结果未知、只读恢复、WebView重建后的用户可理解恢复视图；技术诊断按需展开。",
+      "existing_screen_ids": [
+        "recovery",
+        "diagnostics",
+        "settings",
+        "chat"
+      ],
+      "delivery_kind": "共享状态组件与对应上下文恢复入口",
+      "scope": "当前本地",
+      "priority": "P0",
+      "source_files": [
+        "architecture/editor-web-v1/INTERFACES.md"
+      ],
+      "ui_author_finding": true,
+      "product_confirmation": "pending",
+      "execution_status": "not_run"
+    }
+  ],
+  "counts_are_review_items_not_net_new_pages": true,
+  "product_confirmation": "pending",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "review_item_count": 41,
+  "priority_semantics": "P0设计核心路径优先补齐；P1专业完整性；P2后续联网；P3未来扩展。不代表生产事故等级。"
+}

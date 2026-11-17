@@ -1,0 +1,1190 @@
+{
+  "schema_version": 1,
+  "design": {
+    "version": "editor-increment.1-acceptance-plan",
+    "source": "docs/design-acceptance.md",
+    "approved_by": "",
+    "status": "planning",
+    "editable_sources": [
+      "web/src/App.tsx",
+      "web/src/components.tsx",
+      "web/src/styles.css",
+      "web/src/localization.tsx"
+    ],
+    "filename_revision": "cn.1"
+  },
+  "release": {
+    "build_id": "",
+    "status": "not_built"
+  },
+  "inventory": [
+    {
+      "page": "projects",
+      "states": [
+        "empty",
+        "loading",
+        "core_missing",
+        "create_open_dialog",
+        "error",
+        "welcome"
+      ]
+    },
+    {
+      "page": "scene",
+      "states": [
+        "normal",
+        "empty",
+        "selected",
+        "dirty",
+        "saving",
+        "invalid_draft",
+        "save_failed",
+        "result_unknown",
+        "leave_confirmation"
+      ]
+    },
+    {
+      "page": "assets",
+      "states": [
+        "empty",
+        "uploading",
+        "attached",
+        "error"
+      ]
+    },
+    {
+      "page": "tasks",
+      "states": [
+        "empty",
+        "running",
+        "cancel_requested",
+        "result_unknown",
+        "terminal"
+      ]
+    },
+    {
+      "page": "settings",
+      "states": [
+        "normal",
+        "core_missing",
+        "unsupported_capability"
+      ]
+    },
+    {
+      "page": "language-picker",
+      "states": [
+        "idle",
+        "saving",
+        "committed_notice",
+        "failed",
+        "reconciling",
+        "read_only"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "name": "design-icons",
+      "purpose": "语义控件图标",
+      "format": "svg",
+      "logical_size": [
+        24,
+        24
+      ],
+      "license": "上游设计LICENSES.md；权利人接收待登记",
+      "variants": [
+        {
+          "path": "web/public/assets/界面图标集.svg",
+          "scale": "vector",
+          "theme": "light",
+          "state": "default"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "projects-empty",
+      "page": "projects",
+      "state": "empty",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "projects-loading",
+      "page": "projects",
+      "state": "loading",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "projects-core_missing",
+      "page": "projects",
+      "state": "core_missing",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "projects-create_open_dialog",
+      "page": "projects",
+      "state": "create_open_dialog",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "projects-error",
+      "page": "projects",
+      "state": "error",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "projects-welcome",
+      "page": "projects",
+      "state": "welcome",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "scene-normal",
+      "page": "scene",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "scene-empty",
+      "page": "scene",
+      "state": "empty",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "scene-selected",
+      "page": "scene",
+      "state": "selected",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "scene-dirty",
+      "page": "scene",
+      "state": "dirty",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "scene-saving",
+      "page": "scene",
+      "state": "saving",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "scene-invalid_draft",
+      "page": "scene",
+      "state": "invalid_draft",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "scene-save_failed",
+      "page": "scene",
+      "state": "save_failed",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "scene-result_unknown",
+      "page": "scene",
+      "state": "result_unknown",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "scene-leave_confirmation",
+      "page": "scene",
+      "state": "leave_confirmation",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "assets-empty",
+      "page": "assets",
+      "state": "empty",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "assets-uploading",
+      "page": "assets",
+      "state": "uploading",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "assets-attached",
+      "page": "assets",
+      "state": "attached",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "assets-error",
+      "page": "assets",
+      "state": "error",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "tasks-empty",
+      "page": "tasks",
+      "state": "empty",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "tasks-running",
+      "page": "tasks",
+      "state": "running",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "tasks-cancel_requested",
+      "page": "tasks",
+      "state": "cancel_requested",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "tasks-result_unknown",
+      "page": "tasks",
+      "state": "result_unknown",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "tasks-terminal",
+      "page": "tasks",
+      "state": "terminal",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "settings-normal",
+      "page": "settings",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "settings-core_missing",
+      "page": "settings",
+      "state": "core_missing",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "settings-unsupported_capability",
+      "page": "settings",
+      "state": "unsupported_capability",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "language-picker-idle",
+      "page": "language-picker",
+      "state": "idle",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "language-picker-saving",
+      "page": "language-picker",
+      "state": "saving",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "language-picker-committed_notice",
+      "page": "language-picker",
+      "state": "committed_notice",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "language-picker-failed",
+      "page": "language-picker",
+      "state": "failed",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "language-picker-reconciling",
+      "page": "language-picker",
+      "state": "reconciling",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "language-picker-read_only",
+      "page": "language-picker",
+      "state": "read_only",
+      "platform": "web",
+      "environment": {
+        "device": "Windows native editor planned",
+        "os": "Windows 11; exact OS/WebView pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en",
+        "theme": "light",
+        "test_data": "isolated fixed project; actual fixture SHA pending"
+      },
+      "design_image": "",
+      "actual_image": "",
+      "capture_build_id": "",
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "editor-increment.1-acceptance-plan",
+        "design_sha256": "",
+        "actual_sha256": "",
+        "difference_note": "当前增量验收计划；每状态最终设计绑定与真实构建均未接收，禁止算已对照"
+      },
+      "execution_status": "not_run"
+    }
+  ],
+  "delivery": {
+    "code_author_role": "engineering",
+    "has_ui": true,
+    "requires_code": true,
+    "design_version": "ui-full-20261117-draft.2 + LANG-draft.1",
+    "implementation_status": "source_written_not_built",
+    "deliverables": [
+      {
+        "id": "EW-IMPL-01",
+        "code_author_role": "engineering",
+        "paths": [
+          "web/",
+          "host-contract/",
+          "hosts/",
+          "package.json",
+          "tsconfig.json",
+          ".node-version",
+          ".npmrc",
+          ".gitignore"
+        ]
+      },
+      {
+        "id": "EW-DOC-01",
+        "code_author_role": "engineering",
+        "paths": [
+          "docs/",
+          "README.md",
+          ".coding-mcp.json",
+          ".quality-plan-mcp.json",
+          ".design-mcp.json",
+          ".workflow-mcp.json"
+        ]
+      }
+    ]
+  },
+  "execution_policy": "documentation_only",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "platform_variations": {
+    "narrow_viewport_px": [
+      390,
+      844
+    ],
+    "font_scales": [
+      1,
+      2
+    ],
+    "locales": [
+      "en",
+      "zh-Hans",
+      "zh-Hant",
+      "ja",
+      "ko",
+      "es",
+      "fr"
+    ],
+    "theme": "light",
+    "android_native": "not_implemented"
+  }
+}

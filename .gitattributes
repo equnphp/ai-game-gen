@@ -1,0 +1,6 @@
+# 冻结件、契约和第三方源以原字节保存，避免Windows换行转换破坏已登记摘要。
+* -text
+*.png binary
+*.jpg binary
+*.webp binary
+*.woff2 binary

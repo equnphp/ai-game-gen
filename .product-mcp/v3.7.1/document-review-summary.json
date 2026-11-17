@@ -1,0 +1,21 @@
+{
+  "version": "v3.7.1-engine-whitelist",
+  "baseline_sha256": "e8b4def98038c91c84abc1203bca57da648e1520adb2f3deb841adab051125d7",
+  "documentation_status": "draft_for_human_review",
+  "discovery_document_status": "documents_ready",
+  "engine_families": [
+    "Cocos Creator",
+    "LayaAir",
+    "Godot",
+    "GameMaker",
+    "Construct 3",
+    "RPG Maker MV/MZ"
+  ],
+  "excluded": "Unity/Unreal及全部未列引擎；无其他/自定义/通用工程兜底",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "requirements_review": "pending_change_approvals",
+  "unresolved_change_approval_fields": 20,
+  "prototype_version": "v3.6（未修改）"
+}

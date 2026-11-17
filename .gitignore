@@ -1,0 +1,33 @@
+# 依赖、构建目录与本机缓存
+node_modules/
+target/
+dist/
+out/
+.cache/
+.vite/
+*.tsbuildinfo
+*.log
+.DS_Store
+Thumbs.db
+
+# 本机配置和凭据；公开示例可单独登记
+.env
+.env.*
+!.env.example
+github.txt
+*.pem
+*.key
+
+# 可由设计源/工具重新生成的预览和归档
+/evidence/
+**/previews/
+/.design-mcp/**/*.png
+**/overview*.png
+*.zip
+*.tar
+*.tar.gz
+*.tar.bz2
+*.7z
+
+# Tauri生成绑定及平台生成目录
+/editor/hosts/tauri/gen/

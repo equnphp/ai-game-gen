@@ -1,0 +1,76 @@
+{
+  "version": "chat-states-20261117-draft.1",
+  "date": "2026-11-17",
+  "user_request": "对话界面应该还有其它很多状态吧",
+  "source": "本产品会话直接用户消息；不是访谈或运行观察",
+  "inherits": "product-scope-review-20261117-draft.1 / PSR-045/046/047—049/051/052/060/063",
+  "inputs": [
+    {
+      "path": "WORKFLOW-NETWORK-REQUIREMENTS-V3.5.md",
+      "bytes": 25992,
+      "sha256": "5b24c0bf22244d86e73b432e0c2ec42530fdac761e2abe6a0677e6565b563169"
+    },
+    {
+      "path": "ASSISTANT-EXTENSIONS-REQUIREMENTS-V3.6.md",
+      "bytes": 13855,
+      "sha256": "5d75f04a37002e8382711e1d224744d954e80109b07a78b504990cd8f9a0fa21"
+    },
+    {
+      "path": "LOCAL-LAN-SYNC-REQUIREMENTS-V3.7.md",
+      "bytes": 17057,
+      "sha256": "7628e4f6251cdbf144c5bacbed04b396a4dab215dbcfef815bfcf20cd8148b35"
+    },
+    {
+      "path": "PRODUCT-REQUIREMENTS-V3.5.md",
+      "bytes": 36996,
+      "sha256": "fc31b95d692b0284527ccd40a9c021000ac4f1ce931bd68314f953678b060d75"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/source/screens.json",
+      "bytes": 28188,
+      "sha256": "455f3794c9e63449aa9b3ae85512e0db819bf20211a5585428976e6dab3a142f"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/source/scenarios.json",
+      "bytes": 313940,
+      "sha256": "abef73273da71fca51c0ceffb4c8a9650b9b5c994c462af605490eadc77882ca"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/source/overlays.json",
+      "bytes": 4334,
+      "sha256": "a1578e38d51b0a63b25575e0012ce7d19fc0c571482d2ba67cb6c7ba2d6e29dc"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/PAGE-SPECS.md",
+      "bytes": 76004,
+      "sha256": "ca2b3fa1d128c1b9ce949af2352dee042f485f7dca2705730a269833e1784ccd"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/INTERACTIONS.md",
+      "bytes": 5880,
+      "sha256": "e24dbe646fe0de548a341c67fee25e5b67a42fa164088fe82cd3d58de95e94e6"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/review/CONFIRMED-SCOPE-20261117.md",
+      "bytes": 8275,
+      "sha256": "95d51d93a8998b90c92b71532988d706a1858c8203cd287e5c78c96e45bf7903"
+    },
+    {
+      "path": "design/ui-full-20261117-draft.1/review/HANDOFF.json",
+      "bytes": 3432,
+      "sha256": "4b0bd061cf653080ee2b9719d70351042049386acac74494dc8b0986dec95587"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "bytes": 4401,
+      "sha256": "2b20be1c5e6a5b974e18b46ae3c03ec2fd33c3392de9e9be631babdb907fab2e"
+    }
+  ],
+  "scope": {
+    "L": "当前本地创作关联；自带模型/MCP按用户选择的能力；不扩大无GUI M1",
+    "R": "后续平台云端计费3项；不进入当前本地实现"
+  },
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

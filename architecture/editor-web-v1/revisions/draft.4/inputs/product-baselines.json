@@ -1,0 +1,46 @@
+{
+  "version": "editor-web-v1-draft.4",
+  "product_version": "localization-20261117-draft.1",
+  "files": [
+    {
+      "source": "design/ui-full-20261117-draft.1/review/localization-20261117-draft.1/.product-mcp.json",
+      "snapshot": "architecture/editor-web-v1/revisions/draft.4/inputs/product/localization/.product-mcp.json",
+      "sha256": "ba6cc4b445e8b143bfa036f4a61807260445ac47cd282bc0beb5b1c4573b0968",
+      "bytes": 46253
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/localization-20261117-draft.1/DOCUMENT-CHECKS.json",
+      "snapshot": "architecture/editor-web-v1/revisions/draft.4/inputs/product/localization/DOCUMENT-CHECKS.json",
+      "sha256": "545e07bf7b3d5e75f237ef5a7ec94044315524b8b07422264064126eddb9d8b2",
+      "bytes": 5295
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/localization-20261117-draft.1/INPUT-BASELINES.json",
+      "snapshot": "architecture/editor-web-v1/revisions/draft.4/inputs/product/localization/INPUT-BASELINES.json",
+      "sha256": "ea8f1e0d11f494ef8dc7a89bc3ae5f6daca0dc5eea321f92b98e3a7bdf2d951c",
+      "bytes": 1684
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/localization-20261117-draft.1/language-settings.json",
+      "snapshot": "architecture/editor-web-v1/revisions/draft.4/inputs/product/localization/language-settings.json",
+      "sha256": "c3c0e34a74042ede73d5c733bb699466f4c041f63c1c82d026b878b93b93a6bf",
+      "bytes": 2125
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/localization-20261117-draft.1/LANGUAGE-SETTINGS.md",
+      "snapshot": "architecture/editor-web-v1/revisions/draft.4/inputs/product/localization/LANGUAGE-SETTINGS.md",
+      "sha256": "ccbb263f220747cce3eccd2f884f15b44302bb65f6675be6a27ce05715a604ce",
+      "bytes": 9555
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/localization-20261117-draft.1/README.md",
+      "snapshot": "architecture/editor-web-v1/revisions/draft.4/inputs/product/localization/README.md",
+      "sha256": "38596d67acbc17e23b1c7c2bd2699b66d5a9af287bb4d209a7ee14fb36f3c9ef",
+      "bytes": 1075
+    }
+  ],
+  "actual_role_approvals": [],
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

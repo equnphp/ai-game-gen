@@ -1,0 +1,305 @@
+{
+  "content": [
+    {
+      "text": "{\"assumptions\":[],\"changes\":[],\"definition_of_done\":\"\",\"delivery\":{\"design_version\":\"\",\"has_ui\":true,\"platforms\":\"\",\"requires_code\":true},\"dependencies\":[],\"evidence\":[{\"build_id\":\"\",\"collected_at\":\"\",\"id\":\"E-001\",\"kind\":\"research\",\"owner\":\"\",\"path\":\"evidence/problem.md\",\"sha256\":\"\",\"summary\":\"\"}],\"metrics\":[{\"baseline\":\"\",\"definition\":\"\",\"guardrail\":\"\",\"id\":\"MET-001\",\"name\":\"\",\"owner\":\"\",\"segment\":\"\",\"source\":\"\",\"target\":\"\",\"window\":\"\"}],\"outcomes\":[],\"problem\":{\"alternatives\":\"\",\"business_value\":\"\",\"evidence_ids\":[\"E-001\"],\"opportunity_cost\":\"\",\"priority_reason\":\"\",\"scenario\":\"\",\"selection_reason\":\"\",\"statement\":\"\",\"target_users\":\"\"},\"project\":{\"decision_owner\":\"\",\"id\":\"\",\"name\":\"\",\"owner\":\"\",\"version\":\"v1\"},\"release\":{\"alerts\":\"\",\"approved_at\":\"\",\"approved_by\":\"\",\"baseline_sha256\":\"\",\"build_id\":\"\",\"compatibility\":\"\",\"decision\":\"\",\"environment\":\"\",\"evidence_id\":\"\",\"migration\":\"\",\"monitoring\":\"\",\"observation_window\":\"\",\"owner\":\"\",\"product_version\":\"\",\"quality_report_path\":\"\",\"review_at\":\"\",\"rollback\":\"\",\"rollout\":\"\",\"scope\":\"\",\"stop_conditions\":\"\",\"support\":\"\"},\"requirements\":[{\"acceptance\":[{\"given\":\"\",\"id\":\"AC-001\",\"then\":\"\",\"when\":\"\"}],\"constraints\":\"\",\"data_rules\":\"\",\"evidence_ids\":[\"E-001\"],\"exceptions\":\"\",\"id\":\"REQ-001\",\"main_flow\":\"\",\"owner\":\"\",\"preconditions\":\"\",\"priority\":\"\",\"priority_reason\":\"\",\"roles_permissions\":\"\",\"source\":\"\",\"state_coverage\":{\"duplicate\":{\"applicability\":\"\",\"reason\":\"\"},\"empty\":{\"applicability\":\"\",\"reason\":\"\"},\"error_timeout\":{\"applicability\":\"\",\"reason\":\"\"},\"first_use\":{\"applicability\":\"\",\"reason\":\"\"},\"interrupted\":{\"applicability\":\"\",\"reason\":\"\"},\"loading\":{\"applicability\":\"\",\"reason\":\"\"},\"no_results\":{\"applicability\":\"\",\"reason\":\"\"},\"normal\":{\"applicability\":\"\",\"reason\":\"\"},\"offline\":{\"applicability\":\"\",\"reason\":\"\"},\"permission_denied\":{\"applicability\":\"\",\"reason\":\"\"},\"success\":{\"applicability\":\"\",\"reason\":\"\"},\"unauthenticated\":{\"applicability\":\"\",\"reason\":\"\"}},\"states\":[{\"actions\":\"\",\"content\":\"\",\"design_scenario_id\":\"home-normal\",\"entry\":\"\",\"exit\":\"\",\"id\":\"PAGE-001\",\"page\":\"home\",\"recovery\":\"\",\"state\":\"normal\"}],\"status\":\"in_scope\",\"title\":\"\"}],\"research\":[],\"retrospective\":{},\"reviews\":[{\"at\":\"\",\"baseline_sha256\":\"\",\"decision\":\"\",\"evidence_id\":\"\",\"product_version\":\"v1\",\"reviewer\":\"\",\"role\":\"product\"},{\"at\":\"\",\"baseline_sha256\":\"\",\"decision\":\"\",\"evidence_id\":\"\",\"product_version\":\"v1\",\"reviewer\":\"\",\"role\":\"design\"},{\"at\":\"\",\"baseline_sha256\":\"\",\"decision\":\"\",\"evidence_id\":\"\",\"product_version\":\"v1\",\"reviewer\":\"\",\"role\":\"engineering\"},{\"at\":\"\",\"baseline_sha256\":\"\",\"decision\":\"\",\"evidence_id\":\"\",\"product_version\":\"v1\",\"reviewer\":\"\",\"role\":\"qa\"}],\"risk_assessment\":\"\",\"risks\":[],\"schema_version\":1,\"scope\":{\"constraints\":\"\",\"excluded\":\"\",\"included\":\"\"},\"test_cases\":[{\"acceptance_id\":\"AC-001\",\"build_id\":\"\",\"environment\":\"\",\"evidence_id\":\"\",\"id\":\"TEST-001\",\"method\":\"\",\"requirement_id\":\"REQ-001\",\"result\":\"\",\"test_data\":\"\"}],\"verification\":{\"accessibility\":{\"applicable\":true,\"approved_by\":\"\",\"build_id\":\"\",\"environment\":\"\",\"evidence_id\":\"\",\"reason\":\"\",\"result\":\"\",\"reviewer\":\"\"},\"device\":{\"applicable\":true,\"approved_by\":\"\",\"build_id\":\"\",\"environment\":\"\",\"evidence_id\":\"\",\"reason\":\"\",\"result\":\"\",\"reviewer\":\"\"},\"functional\":{\"applicable\":true,\"approved_by\":\"\",\"build_id\":\"\",\"environment\":\"\",\"evidence_id\":\"\",\"reason\":\"\",\"result\":\"\",\"reviewer\":\"\"},\"interaction\":{\"applicable\":true,\"approved_by\":\"\",\"build_id\":\"\",\"environment\":\"\",\"evidence_id\":\"\",\"reason\":\"\",\"result\":\"\",\"reviewer\":\"\"},\"performance\":{\"applicable\":true,\"approved_by\":\"\",\"build_id\":\"\",\"environment\":\"\",\"evidence_id\":\"\",\"reason\":\"\",\"result\":\"\",\"reviewer\":\"\"},\"user_task\":{\"applicable\":true,\"approved_by\":\"\",\"build_id\":\"\",\"environment\":\"\",\"evidence_id\":\"\",\"reason\":\"\",\"result\":\"\",\"reviewer\":\"\"}}}",
+      "type": "text"
+    }
+  ],
+  "isError": false,
+  "structuredContent": {
+    "assumptions": [],
+    "changes": [],
+    "definition_of_done": "",
+    "delivery": {
+      "design_version": "",
+      "has_ui": true,
+      "platforms": "",
+      "requires_code": true
+    },
+    "dependencies": [],
+    "evidence": [
+      {
+        "build_id": "",
+        "collected_at": "",
+        "id": "E-001",
+        "kind": "research",
+        "owner": "",
+        "path": "evidence/problem.md",
+        "sha256": "",
+        "summary": ""
+      }
+    ],
+    "metrics": [
+      {
+        "baseline": "",
+        "definition": "",
+        "guardrail": "",
+        "id": "MET-001",
+        "name": "",
+        "owner": "",
+        "segment": "",
+        "source": "",
+        "target": "",
+        "window": ""
+      }
+    ],
+    "outcomes": [],
+    "problem": {
+      "alternatives": "",
+      "business_value": "",
+      "evidence_ids": [
+        "E-001"
+      ],
+      "opportunity_cost": "",
+      "priority_reason": "",
+      "scenario": "",
+      "selection_reason": "",
+      "statement": "",
+      "target_users": ""
+    },
+    "project": {
+      "decision_owner": "",
+      "id": "",
+      "name": "",
+      "owner": "",
+      "version": "v1"
+    },
+    "release": {
+      "alerts": "",
+      "approved_at": "",
+      "approved_by": "",
+      "baseline_sha256": "",
+      "build_id": "",
+      "compatibility": "",
+      "decision": "",
+      "environment": "",
+      "evidence_id": "",
+      "migration": "",
+      "monitoring": "",
+      "observation_window": "",
+      "owner": "",
+      "product_version": "",
+      "quality_report_path": "",
+      "review_at": "",
+      "rollback": "",
+      "rollout": "",
+      "scope": "",
+      "stop_conditions": "",
+      "support": ""
+    },
+    "requirements": [
+      {
+        "acceptance": [
+          {
+            "given": "",
+            "id": "AC-001",
+            "then": "",
+            "when": ""
+          }
+        ],
+        "constraints": "",
+        "data_rules": "",
+        "evidence_ids": [
+          "E-001"
+        ],
+        "exceptions": "",
+        "id": "REQ-001",
+        "main_flow": "",
+        "owner": "",
+        "preconditions": "",
+        "priority": "",
+        "priority_reason": "",
+        "roles_permissions": "",
+        "source": "",
+        "state_coverage": {
+          "duplicate": {
+            "applicability": "",
+            "reason": ""
+          },
+          "empty": {
+            "applicability": "",
+            "reason": ""
+          },
+          "error_timeout": {
+            "applicability": "",
+            "reason": ""
+          },
+          "first_use": {
+            "applicability": "",
+            "reason": ""
+          },
+          "interrupted": {
+            "applicability": "",
+            "reason": ""
+          },
+          "loading": {
+            "applicability": "",
+            "reason": ""
+          },
+          "no_results": {
+            "applicability": "",
+            "reason": ""
+          },
+          "normal": {
+            "applicability": "",
+            "reason": ""
+          },
+          "offline": {
+            "applicability": "",
+            "reason": ""
+          },
+          "permission_denied": {
+            "applicability": "",
+            "reason": ""
+          },
+          "success": {
+            "applicability": "",
+            "reason": ""
+          },
+          "unauthenticated": {
+            "applicability": "",
+            "reason": ""
+          }
+        },
+        "states": [
+          {
+            "actions": "",
+            "content": "",
+            "design_scenario_id": "home-normal",
+            "entry": "",
+            "exit": "",
+            "id": "PAGE-001",
+            "page": "home",
+            "recovery": "",
+            "state": "normal"
+          }
+        ],
+        "status": "in_scope",
+        "title": ""
+      }
+    ],
+    "research": [],
+    "retrospective": {},
+    "reviews": [
+      {
+        "at": "",
+        "baseline_sha256": "",
+        "decision": "",
+        "evidence_id": "",
+        "product_version": "v1",
+        "reviewer": "",
+        "role": "product"
+      },
+      {
+        "at": "",
+        "baseline_sha256": "",
+        "decision": "",
+        "evidence_id": "",
+        "product_version": "v1",
+        "reviewer": "",
+        "role": "design"
+      },
+      {
+        "at": "",
+        "baseline_sha256": "",
+        "decision": "",
+        "evidence_id": "",
+        "product_version": "v1",
+        "reviewer": "",
+        "role": "engineering"
+      },
+      {
+        "at": "",
+        "baseline_sha256": "",
+        "decision": "",
+        "evidence_id": "",
+        "product_version": "v1",
+        "reviewer": "",
+        "role": "qa"
+      }
+    ],
+    "risk_assessment": "",
+    "risks": [],
+    "schema_version": 1,
+    "scope": {
+      "constraints": "",
+      "excluded": "",
+      "included": ""
+    },
+    "test_cases": [
+      {
+        "acceptance_id": "AC-001",
+        "build_id": "",
+        "environment": "",
+        "evidence_id": "",
+        "id": "TEST-001",
+        "method": "",
+        "requirement_id": "REQ-001",
+        "result": "",
+        "test_data": ""
+      }
+    ],
+    "verification": {
+      "accessibility": {
+        "applicable": true,
+        "approved_by": "",
+        "build_id": "",
+        "environment": "",
+        "evidence_id": "",
+        "reason": "",
+        "result": "",
+        "reviewer": ""
+      },
+      "device": {
+        "applicable": true,
+        "approved_by": "",
+        "build_id": "",
+        "environment": "",
+        "evidence_id": "",
+        "reason": "",
+        "result": "",
+        "reviewer": ""
+      },
+      "functional": {
+        "applicable": true,
+        "approved_by": "",
+        "build_id": "",
+        "environment": "",
+        "evidence_id": "",
+        "reason": "",
+        "result": "",
+        "reviewer": ""
+      },
+      "interaction": {
+        "applicable": true,
+        "approved_by": "",
+        "build_id": "",
+        "environment": "",
+        "evidence_id": "",
+        "reason": "",
+        "result": "",
+        "reviewer": ""
+      },
+      "performance": {
+        "applicable": true,
+        "approved_by": "",
+        "build_id": "",
+        "environment": "",
+        "evidence_id": "",
+        "reason": "",
+        "result": "",
+        "reviewer": ""
+      },
+      "user_task": {
+        "applicable": true,
+        "approved_by": "",
+        "build_id": "",
+        "environment": "",
+        "evidence_id": "",
+        "reason": "",
+        "result": "",
+        "reviewer": ""
+      }
+    }
+  }
+}

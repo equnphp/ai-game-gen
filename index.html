@@ -1,0 +1,51 @@
+<!doctype html>
+<!-- 本文件是可交互设计原型；所有生成、积分与导出结果均为本地演示。 -->
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Aimeta GameGen Studio V3：Android 与 Qt 桌面游戏创作工具交互原型。">
+  <title>Aimeta GameGen Studio · V3 原型</title>
+  <link rel="icon" href="assets/player.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="studio.css">
+  <link rel="stylesheet" href="workflow.css">
+  <link rel="stylesheet" href="i18n.css">
+  <script src="i18n.js" defer></script>
+  <script src="locales/source.js" defer></script>
+  <script src="locales/en-US.js" defer></script>
+  <script src="locales/ja-JP.js" defer></script>
+  <script src="locales/ko-KR.js" defer></script>
+  <script src="studio.js" defer></script>
+  <script src="workflow.js" defer></script>
+  <link rel="stylesheet" href="creation.css">
+  <link rel="stylesheet" href="gameplay.css">
+  <link rel="stylesheet" href="networking.css">
+  <script src="effects-preview.js" defer></script>
+  <script src="creation.js" defer></script>
+  <link rel="stylesheet" href="isometric.css">
+  <script src="isometric.js" defer></script>
+  <script src="gameplay.js" defer></script>
+  <script src="networking.js" defer></script>
+  <script src="assistant-setup.js" defer></script>
+<script src="app.js" defer></script>
+<link rel="stylesheet" href="assistant-setup.css">
+</head>
+<body>
+  <header class="review-bar" aria-label="原型评审控制">
+    <strong>GameGen <span>V3.6 原型</span></strong>
+    <div class="review-modes" aria-label="目标布局">
+      <button type="button" data-mode="desktop">桌面端</button>
+      <button type="button" data-mode="android">Android</button>
+    </div>
+    <label class="review-select">页面 <select id="review-page" aria-label="评审页面"></select></label>
+    <label class="review-select">状态 <select id="review-state" aria-label="评审状态"></select></label>
+    <span class="review-note">可点击 · 示例数据</span>
+  </header>
+  <div id="app" class="app-shell" aria-label="游戏创作工具原型"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="preview-dialog" class="preview-dialog" aria-labelledby="preview-title"></dialog>
+  <input id="file-import" type="file" accept="image/*,audio/*" hidden>
+</body>
+</html>

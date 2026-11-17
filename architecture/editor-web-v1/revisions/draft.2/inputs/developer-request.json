@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-17",
+  "source_thread_id": "01a1e7eb-0314-7c02-99e0-ed591b58bd5f",
+  "meaning": "真实开发会话委派的技术交接问题，不是人员整版批准或自动化授权",
+  "requested": [
+    "Windows MSVC Rust加载LLVM-MinGW纯C ABI及Android同源SO/CRT/JNI边界",
+    "可编码HostPort TS/JSON Schema",
+    "异步驱动完整协议与回环隔离",
+    "兼容候选/接收判定与最小UI前置"
+  ],
+  "allowed": "独立editor-web包文档/契约，不改native或root coding，不执行安装/构建/测试/扫描/设备",
+  "role_approval": false
+}

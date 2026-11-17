@@ -1,0 +1,304 @@
+{
+  "changes": [],
+  "current_stage": "development",
+  "delivery_identity": {
+    "artifact_sha256": "",
+    "build_id": "",
+    "source_revision": ""
+  },
+  "execution_policy": "documentation_only",
+  "iteration": {
+    "id": "ITER-EDITOR-INCREMENT-1",
+    "goal": "真实Core主路径与七语本机选择的首个源级实现",
+    "requirement_ids": [
+      "LC-REQ-01",
+      "LC-REQ-02",
+      "LC-REQ-03",
+      "LC-REQ-04",
+      "LC-REQ-07",
+      "LANG-REQ-01",
+      "LANG-REQ-02",
+      "LANG-REQ-03"
+    ],
+    "wip_limit": 1,
+    "done_criteria": "当前增量源码/输入/范围与未执行文档可审阅；不宣称整版角色接收或运行通过",
+    "rollback": "独立editor目录与匹配宿主资源回退，不更改M1数据库/冻结件"
+  },
+  "project": {
+    "id": "gamegen-editor-increment-1",
+    "name": "GameGen编辑器首个源级增量",
+    "version": "editor-increment.1",
+    "owner": "coding编制角色；真实人员接收未登记"
+  },
+  "questions": [],
+  "roles": {
+    "product": "产品经理 chat 01a1d3e8-579f-7a21-a371-354a0d5c5b88",
+    "architecture": "架构设计师 chat 01a1d8ab-37ad-7652-a9b5-5ab0d0ef7a7f",
+    "ui": "UI设计师 chat 01a1e812-06d4-75e2-9a8d-50def6ad56eb",
+    "frontend": "程序员 当前工程实现角色",
+    "backend": "程序员 当前工程实现角色",
+    "user": "当前会话用户；未代签独立基线批准"
+  },
+  "schema_version": 1,
+  "scope": {
+    "code_author_role": "engineering",
+    "has_ui": true,
+    "ui_exclusion_reason": "",
+    "deliverables": [
+      {
+        "id": "EW-IMPL-01",
+        "code_author_role": "engineering",
+        "paths": [
+          "web/",
+          "host-contract/",
+          "hosts/",
+          "package.json",
+          "tsconfig.json",
+          ".node-version",
+          ".npmrc",
+          ".gitignore"
+        ]
+      },
+      {
+        "id": "EW-DOC-01",
+        "code_author_role": "engineering",
+        "paths": [
+          "docs/",
+          "README.md",
+          ".coding-mcp.json",
+          ".quality-plan-mcp.json",
+          ".design-mcp.json",
+          ".workflow-mcp.json"
+        ]
+      }
+    ]
+  },
+  "stages": {
+    "architecture": {
+      "artifacts": {
+        "architecture_spec": {
+          "owner": "",
+          "path": "",
+          "sha256": "",
+          "version": ""
+        },
+        "document": {
+          "path": "docs/inputs/architecture/editor-web-v1/revisions/draft.4/UX-CONTRACTS.md",
+          "version": "editor-increment.1",
+          "owner": "上游文档受领，真实接收未登记",
+          "sha256": "b3c50dfffc8d406681d1f227533657334a7ab869dcab805cc43573e0490a0367"
+        }
+      },
+      "inputs": {},
+      "reviews": [],
+      "status": "in_progress",
+      "version": "editor-increment.1",
+      "declared_delivery_status": "received_unapproved"
+    },
+    "development": {
+      "artifacts": {
+        "basic_self_check": {
+          "path": ".coding-mcp.json",
+          "version": "editor-increment.1",
+          "owner": "coding",
+          "sha256": "dbc5296981c9afcccc268f38beca5338d7e4ac765d9a3e6033ff1f2a480c9d7f"
+        },
+        "design_acceptance_plan": {
+          "path": ".design-mcp.json",
+          "version": "editor-increment.1",
+          "owner": "coding",
+          "sha256": "9171b8b1852e9adaf80b7e3d6db0deb13493a385e33edde8ecfbe7a70eef3434"
+        },
+        "document": {
+          "path": "docs/development.md",
+          "version": "editor-increment.1",
+          "owner": "coding",
+          "sha256": "ab7d1cae0e5dfe400ec08b1ae22743323b7f22109abed0e7875bb0b3530710e8"
+        },
+        "quality_plan": {
+          "path": ".quality-plan-mcp.json",
+          "version": "editor-increment.1",
+          "owner": "independent_quality",
+          "sha256": "21c642113c6c35f775033fa1ddd7893d7e2707b2dfd8a77ae642ab1f3d8190ef"
+        }
+      },
+      "inputs": {},
+      "reviews": [],
+      "status": "in_progress",
+      "version": "editor-increment.1",
+      "declared_delivery_status": "source_written_not_built"
+    },
+    "requirements": {
+      "artifacts": {
+        "document": {
+          "path": "docs/inputs/design/ui-full-20261117-draft.1/review/localization-20261117-draft.1/LANGUAGE-SETTINGS.md",
+          "version": "editor-increment.1",
+          "owner": "上游文档受领，真实接收未登记",
+          "sha256": "ccbb263f220747cce3eccd2f884f15b44302bb65f6675be6a27ce05715a604ce"
+        },
+        "product_spec": {
+          "owner": "",
+          "path": "",
+          "sha256": "",
+          "version": ""
+        }
+      },
+      "inputs": {},
+      "reviews": [],
+      "status": "in_progress",
+      "version": "editor-increment.1",
+      "declared_delivery_status": "received_unapproved"
+    },
+    "ui": {
+      "artifacts": {
+        "design_plan": {
+          "owner": "",
+          "path": "",
+          "sha256": "",
+          "version": ""
+        },
+        "document": {
+          "path": "docs/design-acceptance.md",
+          "version": "editor-increment.1",
+          "owner": "上游文档受领，真实接收未登记",
+          "sha256": "2bf9d9788b5def115ea874e16ed207fd9357ada62f3b42a67d00396f766ad1b0"
+        }
+      },
+      "inputs": {},
+      "reviews": [],
+      "status": "in_progress",
+      "version": "editor-increment.1",
+      "declared_delivery_status": "received_unapproved"
+    }
+  },
+  "delivery": {
+    "code_author_role": "engineering",
+    "has_ui": true,
+    "requires_code": true,
+    "design_version": "ui-full-20261117-draft.2 + LANG-draft.1",
+    "implementation_status": "source_written_not_built",
+    "deliverables": [
+      {
+        "id": "EW-IMPL-01",
+        "code_author_role": "engineering",
+        "paths": [
+          "web/",
+          "host-contract/",
+          "hosts/",
+          "package.json",
+          "tsconfig.json",
+          ".node-version",
+          ".npmrc",
+          ".gitignore"
+        ]
+      },
+      {
+        "id": "EW-DOC-01",
+        "code_author_role": "engineering",
+        "paths": [
+          "docs/",
+          "README.md",
+          ".coding-mcp.json",
+          ".quality-plan-mcp.json",
+          ".design-mcp.json",
+          ".workflow-mcp.json"
+        ]
+      }
+    ]
+  },
+  "inherited_inputs": [
+    {
+      "source": "ARCHITECTURE.md",
+      "snapshot": "docs/inputs/ARCHITECTURE.md",
+      "sha256": "8959dc45d10f95163c7c5db595ded27825f2738db5909dcb6f291613ad07a6cc",
+      "bytes": 7126
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/ABI-INTEGRATION.md",
+      "snapshot": "docs/inputs/architecture/editor-web-v1/revisions/draft.2/ABI-INTEGRATION.md",
+      "sha256": "f03d8c0f38dde9e04758020306d674280a0ad74b73c93a9dea94edd41fc013b9",
+      "bytes": 8416
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/CONTRACT.md",
+      "snapshot": "docs/inputs/architecture/editor-web-v1/revisions/draft.2/CONTRACT.md",
+      "sha256": "26eb0b51bad96805bed0c59dc444fd8e3ef32fbe05e2dc6adffabaceb0ba0247",
+      "bytes": 11254
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.2/COMPATIBILITY-INTAKE.md",
+      "snapshot": "docs/inputs/architecture/editor-web-v1/revisions/draft.2/COMPATIBILITY-INTAKE.md",
+      "sha256": "f5b81e52d656ae7d701d91fa15abbf392143b7d172abfbfce74ed6e15f757dd7",
+      "bytes": 6975
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.4/UX-CONTRACTS.md",
+      "snapshot": "docs/inputs/architecture/editor-web-v1/revisions/draft.4/UX-CONTRACTS.md",
+      "sha256": "b3c50dfffc8d406681d1f227533657334a7ab869dcab805cc43573e0490a0367",
+      "bytes": 8218
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.4/LOCALIZATION.md",
+      "snapshot": "docs/inputs/architecture/editor-web-v1/revisions/draft.4/LOCALIZATION.md",
+      "sha256": "e5d1ecf856149e82c55067176078ac84428edfdf8bbeb9311a81bc8c39e0cbdb",
+      "bytes": 10149
+    },
+    {
+      "source": "architecture/editor-web-v1/revisions/draft.4/DEVELOPMENT-HANDOFF.md",
+      "snapshot": "docs/inputs/architecture/editor-web-v1/revisions/draft.4/DEVELOPMENT-HANDOFF.md",
+      "sha256": "c5164388d7beeab8211f22ae1e0109d35decdef975f137cee3ed677d3083655b",
+      "bytes": 5312
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/localization-20261117-draft.1/LANGUAGE-SETTINGS.md",
+      "snapshot": "docs/inputs/design/ui-full-20261117-draft.1/review/localization-20261117-draft.1/LANGUAGE-SETTINGS.md",
+      "sha256": "ccbb263f220747cce3eccd2f884f15b44302bb65f6675be6a27ce05715a604ce",
+      "bytes": 9555
+    },
+    {
+      "source": "design/ui-full-20261117-draft.1/review/localization-20261117-draft.1/language-settings.json",
+      "snapshot": "docs/inputs/design/ui-full-20261117-draft.1/review/localization-20261117-draft.1/language-settings.json",
+      "sha256": "c3c0e34a74042ede73d5c733bb699466f4c041f63c1c82d026b878b93b93a6bf",
+      "bytes": 2125
+    },
+    {
+      "source": "design/ui-full-20261117-draft.2/DESIGN-SPEC.md",
+      "snapshot": "docs/inputs/design/ui-full-20261117-draft.2/DESIGN-SPEC.md",
+      "sha256": "bd64000fea040d527b85cb9034a7f70b67e8661d332335f84896a2a0c06fea66",
+      "bytes": 4581
+    },
+    {
+      "source": "design/ui-full-20261117-draft.2/INTERACTIONS.md",
+      "snapshot": "docs/inputs/design/ui-full-20261117-draft.2/INTERACTIONS.md",
+      "sha256": "ddbd68e21290b1fd0944171ca646295d1df7995eee39645f92181ac6b34e43b5",
+      "bytes": 3284
+    },
+    {
+      "source": "design/ui-full-20261117-draft.2/tokens.json",
+      "snapshot": "docs/inputs/design/ui-full-20261117-draft.2/tokens.json",
+      "sha256": "6c2a6e2ec1003f0478081c484216a8efe6f0897969aa67f986c52fa78930dcb9",
+      "bytes": 1339
+    },
+    {
+      "source": "design/ui-full-20261117-draft.2/LICENSES.md",
+      "snapshot": "docs/inputs/design/ui-full-20261117-draft.2/LICENSES.md",
+      "sha256": "9dff0bfb3ce8af6b2328deebbbe7fb478261010beb9aaf5f8811ea719b4348f6",
+      "bytes": 786
+    }
+  ],
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "authorization": {
+    "source": "本开发会话用户",
+    "user_request": "你看新的架构设计、产品文档、UI设计，开始继续开发",
+    "quality_execution_authorized": false,
+    "git": {
+      "user_request": "代码写好，要提交推送到git master 注意用中文写提交注释",
+      "remote": "https://github.com/equnphp/ai-game-gen.git",
+      "branch": "master",
+      "scope": "source_commit_and_push",
+      "permits_test_execution": false
+    }
+  }
+}

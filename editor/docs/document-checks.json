@@ -1,0 +1,845 @@
+{
+  "recorded_at": "2026-11-17",
+  "kind": "documentation_inspection_not_execution",
+  "basic": {
+    "approval_identity_verified": false,
+    "baseline_sha256": "07e5fbb3c86ef0b3e11b0c032271e27f9785377edd929e899224cd4d2dab5e8c",
+    "complete": true,
+    "delivery_identity": {
+      "actual_build_declared": false,
+      "artifact_verified": false,
+      "consistent": true,
+      "declarations": {
+        ".coding-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".design-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".quality-plan-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".workflow-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        }
+      },
+      "issues": []
+    },
+    "documents_ready": true,
+    "execution_records_present": false,
+    "execution_records_trust": "记录仅作为未认证材料；文档检查不会将其认定为实际通过",
+    "execution_status": "not_run",
+    "execution_verified": false,
+    "gate_kind": "documentation",
+    "issues": [],
+    "limits": [
+      "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+      "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+      "审批记录和证据真实性须由实际负责人确认"
+    ],
+    "module": "coding_basic",
+    "passed": true,
+    "quality_verified": false,
+    "release_permitted": false,
+    "root": "I:\\code\\GameGen\\editor",
+    "stage": "development",
+    "status": "documents_ready"
+  },
+  "quality": {
+    "approval_identity_verified": false,
+    "baseline_sha256": "0b7554f5b405c4221da485719c8b57d06fbea06dbba1eb7e60481f4cdf993b44",
+    "complete": true,
+    "delivery_identity": {
+      "actual_build_declared": false,
+      "artifact_verified": false,
+      "consistent": true,
+      "declarations": {
+        ".coding-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".design-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".quality-plan-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".workflow-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        }
+      },
+      "issues": []
+    },
+    "documents_ready": true,
+    "execution_records_present": false,
+    "execution_records_trust": "记录仅作为未认证材料；文档检查不会将其认定为实际通过",
+    "execution_status": "not_run",
+    "execution_verified": false,
+    "gate_kind": "documentation",
+    "issues": [],
+    "limits": [
+      "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+      "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+      "审批记录和证据真实性须由实际负责人确认"
+    ],
+    "module": "quality",
+    "passed": true,
+    "quality_verified": false,
+    "release_permitted": false,
+    "root": "I:\\code\\GameGen\\editor",
+    "stage": "development",
+    "status": "documents_ready"
+  },
+  "workflow": {
+    "approval_identity_verified": false,
+    "baseline_sha256": "",
+    "complete": false,
+    "completion_scope": "当前迭代声明范围的文档、记录与交接，不含实际验证和发布许可",
+    "documents_ready": false,
+    "downstream": {
+      "coding_basic_documents": {
+        "approval_identity_verified": false,
+        "baseline_sha256": "07e5fbb3c86ef0b3e11b0c032271e27f9785377edd929e899224cd4d2dab5e8c",
+        "complete": true,
+        "delivery_identity": {
+          "actual_build_declared": false,
+          "artifact_verified": false,
+          "consistent": true,
+          "declarations": {
+            ".coding-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".design-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".quality-plan-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".workflow-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            }
+          },
+          "issues": []
+        },
+        "documents_ready": true,
+        "execution_records_present": false,
+        "execution_records_trust": "记录仅作为未认证材料；文档检查不会将其认定为实际通过",
+        "execution_status": "not_run",
+        "execution_verified": false,
+        "gate_kind": "documentation",
+        "issues": [],
+        "limits": [
+          "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+          "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+          "审批记录和证据真实性须由实际负责人确认"
+        ],
+        "module": "coding_basic",
+        "passed": true,
+        "quality_verified": false,
+        "release_permitted": false,
+        "root": "I:\\code\\GameGen\\editor",
+        "stage": "development",
+        "status": "documents_ready"
+      },
+      "coding_handoff": {
+        "agile": null,
+        "components": null,
+        "delivery": null,
+        "gate": {
+          "complete": false,
+          "issues": [
+            {
+              "code": "manifest",
+              "message": "Cannot read: I:\\code\\GameGen\\editor\\.architecture-mcp.json",
+              "path": "$"
+            }
+          ],
+          "passed": false,
+          "stage": "development"
+        },
+        "go_frontend": {
+          "automated": [
+            "Go 沿用 gofmt、go vet、govulncheck；混合 JS/TS 沿用 ESLint",
+            "识别 go.mod、wails.json、templ、Fyne、Gio、html/template 和 syscall/js 线索",
+            "原始模板输出只产生人工审查提示，不能证明输入已被利用"
+          ],
+          "common_rules": [
+            "先确认业务与目标平台，再比较渲染路线、团队能力、维护与分发成本",
+            "UI、应用服务、领域与基础设施分离；复用现有组件和设计变量",
+            "状态清单覆盖加载、空值、超时、权限、离线、中断和恢复",
+            "context 取消、超时、有限并发、资源释放与数据竞争必须评审",
+            "Go、框架、生成器、前端包和系统依赖锁定版本并记录支持范围",
+            "先按产品规模实现最小可用方案，性能扩展以测量和阈值为依据"
+          ],
+          "limits": [
+            "检测是文本线索，不推断完整依赖图、绑定权限或线程安全",
+            "不会安装框架、生成代码、执行 UI 测试或编译用户项目",
+            "原生渲染、WASM 和模板没有统一完整分析器；必须查看实际 coverage"
+          ],
+          "profiles": {
+            "fyne": {
+              "rendering": "Go 原生 GUI 控件与画布",
+              "requirements": [
+                "按锁定版本的 UI 调度约定更新控件；后台任务可取消",
+                "资源嵌入、DPI、主题、字体、键盘与无障碍逐环境验证",
+                "UI 自动测试不替代目标设备与图形驱动上的打包运行"
+              ]
+            },
+            "gio": {
+              "rendering": "Go 即时模式布局、状态与绘制",
+              "requirements": [
+                "事件循环不阻塞，状态所有权和跨协程通信清晰",
+                "窗口与 GPU 资源生命周期、帧时间和失效刷新可验证",
+                "按目标平台验证输入法、焦点、缩放和辅助功能"
+              ]
+            },
+            "go_wasm": {
+              "rendering": "Go js/wasm 与浏览器宿主交互",
+              "requirements": [
+                "锁定 Go 工具链与配套 wasm_exec.js，管理 JS 回调释放",
+                "评估下载体积、启动、主线程阻塞、缓存及浏览器支持",
+                "客户端代码与 WebAssembly 均不能保存可信服务端密钥"
+              ]
+            },
+            "go_web": {
+              "rendering": "Go html/template 或 templ 服务端渲染，可结合 htmx",
+              "requirements": [
+                "上下文转义与 CSP，原始 HTML 必须审查数据来源",
+                "CSRF、会话、服务端授权及片段更新后的焦点和错误恢复",
+                "模板生成产物与源码一致，静态资源版本与缓存策略"
+              ]
+            },
+            "wails": {
+              "rendering": "Go 应用服务加 WebView 中的 HTML/CSS/JS/TS 界面",
+              "requirements": [
+                "绑定方法、参数、错误、权限和生命周期明确，桥接输入不可信",
+                "限制外部导航、资源来源、文件和进程能力，评审 CSP",
+                "同时检查 Go 与前端工程，锁定绑定生成器和 WebView 环境"
+              ]
+            }
+          },
+          "required_verification": [
+            "目标 OS/浏览器/WebView、DPI、字体、语言、主题及资源清单",
+            "Go 测试与适用的竞态检查、绑定契约、取消和泄漏验证",
+            "截图、交互、无障碍、性能、安装升级及回退，绑定最终 build_id"
+          ],
+          "sources": [
+            "https://pkg.go.dev/html/template",
+            "https://templ.guide/security/injection-attacks/",
+            "https://wails.io/concepts/architecture/",
+            "https://docs.fyne.io/started/goroutines/",
+            "https://gioui.org/doc/architecture",
+            "https://go.dev/wiki/WebAssembly"
+          ]
+        },
+        "increments": null,
+        "interfaces": null,
+        "modularity": null,
+        "operations": null,
+        "project": null,
+        "quality_attributes": null,
+        "ready_for_coding": false,
+        "scale_triggers": null,
+        "scaling": null,
+        "security": null,
+        "topology": null,
+        "verification": null,
+        "workflow": [
+          "inspect_project",
+          "get_project_rules",
+          "find_reuse_candidates",
+          "实施一个可回退增量",
+          "编写基础自测文案",
+          "evaluate_basic_self_check",
+          "独立quality_mcp编写专项质量方案，执行需会话授权"
+        ]
+      },
+      "delivery_identity": {
+        "actual_build_declared": false,
+        "artifact_verified": false,
+        "consistent": true,
+        "declarations": {
+          ".coding-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".design-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".quality-plan-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".workflow-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": []
+      },
+      "design_acceptance_plan": {
+        "approval_identity_verified": false,
+        "baseline_sha256": "",
+        "complete": false,
+        "documents_ready": false,
+        "execution_status": "not_run",
+        "execution_verified": false,
+        "gate_kind": "documentation",
+        "handoff": {
+          "asset_count": 1,
+          "complete": false,
+          "covered_count": 33,
+          "design_version": "editor-increment.1-acceptance-plan",
+          "inventory_count": 33,
+          "issues": [
+            "design 缺少 version、source 或 approved_by",
+            "projects-empty: design_image 缺失",
+            "projects-loading: design_image 缺失",
+            "projects-core_missing: design_image 缺失",
+            "projects-create_open_dialog: design_image 缺失",
+            "projects-error: design_image 缺失",
+            "projects-welcome: design_image 缺失",
+            "scene-normal: design_image 缺失",
+            "scene-empty: design_image 缺失",
+            "scene-selected: design_image 缺失",
+            "scene-dirty: design_image 缺失",
+            "scene-saving: design_image 缺失",
+            "scene-invalid_draft: design_image 缺失",
+            "scene-save_failed: design_image 缺失",
+            "scene-result_unknown: design_image 缺失",
+            "scene-leave_confirmation: design_image 缺失",
+            "assets-empty: design_image 缺失",
+            "assets-uploading: design_image 缺失",
+            "assets-attached: design_image 缺失",
+            "assets-error: design_image 缺失",
+            "tasks-empty: design_image 缺失",
+            "tasks-running: design_image 缺失",
+            "tasks-cancel_requested: design_image 缺失",
+            "tasks-result_unknown: design_image 缺失",
+            "tasks-terminal: design_image 缺失",
+            "settings-normal: design_image 缺失",
+            "settings-core_missing: design_image 缺失",
+            "settings-unsupported_capability: design_image 缺失",
+            "language-picker-idle: design_image 缺失",
+            "language-picker-saving: design_image 缺失",
+            "language-picker-committed_notice: design_image 缺失",
+            "language-picker-failed: design_image 缺失",
+            "language-picker-reconciling: design_image 缺失",
+            "language-picker-read_only: design_image 缺失"
+          ],
+          "phase": "planning",
+          "release_build_id": "",
+          "root": "I:\\code\\GameGen\\editor",
+          "scenario_count": 33
+        },
+        "issues": [
+          "design 缺少 version、source 或 approved_by",
+          "projects-empty: design_image 缺失",
+          "projects-loading: design_image 缺失",
+          "projects-core_missing: design_image 缺失",
+          "projects-create_open_dialog: design_image 缺失",
+          "projects-error: design_image 缺失",
+          "projects-welcome: design_image 缺失",
+          "scene-normal: design_image 缺失",
+          "scene-empty: design_image 缺失",
+          "scene-selected: design_image 缺失",
+          "scene-dirty: design_image 缺失",
+          "scene-saving: design_image 缺失",
+          "scene-invalid_draft: design_image 缺失",
+          "scene-save_failed: design_image 缺失",
+          "scene-result_unknown: design_image 缺失",
+          "scene-leave_confirmation: design_image 缺失",
+          "assets-empty: design_image 缺失",
+          "assets-uploading: design_image 缺失",
+          "assets-attached: design_image 缺失",
+          "assets-error: design_image 缺失",
+          "tasks-empty: design_image 缺失",
+          "tasks-running: design_image 缺失",
+          "tasks-cancel_requested: design_image 缺失",
+          "tasks-result_unknown: design_image 缺失",
+          "tasks-terminal: design_image 缺失",
+          "settings-normal: design_image 缺失",
+          "settings-core_missing: design_image 缺失",
+          "settings-unsupported_capability: design_image 缺失",
+          "language-picker-idle: design_image 缺失",
+          "language-picker-saving: design_image 缺失",
+          "language-picker-committed_notice: design_image 缺失",
+          "language-picker-failed: design_image 缺失",
+          "language-picker-reconciling: design_image 缺失",
+          "language-picker-read_only: design_image 缺失"
+        ],
+        "limits": [
+          "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+          "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+          "审批记录和证据真实性须由实际负责人确认"
+        ],
+        "module": "design",
+        "passed": false,
+        "quality_verified": false,
+        "release_permitted": false,
+        "root": "I:\\code\\GameGen\\editor",
+        "stage": "planning",
+        "status": "documents_incomplete"
+      },
+      "product_development": {
+        "complete": false,
+        "issues": [
+          {
+            "code": "manifest",
+            "message": "Cannot read: I:\\code\\GameGen\\editor\\.product-mcp.json",
+            "path": "$."
+          }
+        ],
+        "passed": false,
+        "stage": "development"
+      },
+      "quality_documents": {
+        "approval_identity_verified": false,
+        "baseline_sha256": "0b7554f5b405c4221da485719c8b57d06fbea06dbba1eb7e60481f4cdf993b44",
+        "complete": true,
+        "delivery_identity": {
+          "actual_build_declared": false,
+          "artifact_verified": false,
+          "consistent": true,
+          "declarations": {
+            ".coding-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".design-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".quality-plan-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            },
+            ".workflow-mcp.json": {
+              "artifact_sha256": "",
+              "build_id": "",
+              "source_revision": ""
+            }
+          },
+          "issues": []
+        },
+        "documents_ready": true,
+        "execution_records_present": false,
+        "execution_records_trust": "记录仅作为未认证材料；文档检查不会将其认定为实际通过",
+        "execution_status": "not_run",
+        "execution_verified": false,
+        "gate_kind": "documentation",
+        "issues": [],
+        "limits": [
+          "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+          "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+          "审批记录和证据真实性须由实际负责人确认"
+        ],
+        "module": "quality",
+        "passed": true,
+        "quality_verified": false,
+        "release_permitted": false,
+        "root": "I:\\code\\GameGen\\editor",
+        "stage": "development",
+        "status": "documents_ready"
+      }
+    },
+    "execution_status": "not_run",
+    "execution_verified": false,
+    "gate_kind": "documentation",
+    "issues": [
+      {
+        "code": "predecessor_incomplete",
+        "message": "必须先完成前序阶段并保留当前批准",
+        "path": "requirements"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 问题与证据",
+        "path": "requirements.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 用户与场景",
+        "path": "requirements.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 目标与指标",
+        "path": "requirements.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 范围与取舍",
+        "path": "requirements.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 功能与业务规则",
+        "path": "requirements.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 页面与状态",
+        "path": "requirements.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 权限与数据",
+        "path": "requirements.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 非功能要求",
+        "path": "requirements.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 验收标准与追溯",
+        "path": "requirements.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 风险依赖与变更",
+        "path": "requirements.document"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "requirements.product_spec.path"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "requirements.product_spec.version"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "requirements.product_spec.owner"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "requirements.product_spec.sha256"
+      },
+      {
+        "code": "artifact_file",
+        "message": "项目内路径不能为空",
+        "path": "requirements.product_spec"
+      },
+      {
+        "code": "module_gate",
+        "message": "invalid map<K, T> key",
+        "path": "requirements"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: product",
+        "path": "requirements"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: user",
+        "path": "requirements"
+      },
+      {
+        "code": "predecessor_incomplete",
+        "message": "必须先完成前序阶段并保留当前批准",
+        "path": "architecture"
+      },
+      {
+        "code": "stage_inputs",
+        "message": "必须精确绑定全部前序阶段基线",
+        "path": "architecture"
+      },
+      {
+        "code": "upstream_changed",
+        "message": "上游已变化，重新评估影响并交接: requirements",
+        "path": "architecture"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "architecture.architecture_spec.path"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "architecture.architecture_spec.version"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "architecture.architecture_spec.owner"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "architecture.architecture_spec.sha256"
+      },
+      {
+        "code": "artifact_file",
+        "message": "项目内路径不能为空",
+        "path": "architecture.architecture_spec"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 需求与约束",
+        "path": "architecture.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 架构形态与部署",
+        "path": "architecture.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 模块与依赖",
+        "path": "architecture.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 前后端接口契约",
+        "path": "architecture.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 数据设计与迁移",
+        "path": "architecture.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: UI技术路线与边界",
+        "path": "architecture.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 扩展能力与触发条件",
+        "path": "architecture.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 安全威胁与控制",
+        "path": "architecture.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 运维与恢复职责",
+        "path": "architecture.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 敏捷增量与回退",
+        "path": "architecture.document"
+      },
+      {
+        "code": "document_section",
+        "message": "详细文档章节缺失或仍为模板: 验证方案与风险",
+        "path": "architecture.document"
+      },
+      {
+        "code": "module_gate",
+        "message": "invalid map<K, T> key",
+        "path": "architecture"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: architecture",
+        "path": "architecture"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: product",
+        "path": "architecture"
+      },
+      {
+        "code": "predecessor_incomplete",
+        "message": "必须先完成前序阶段并保留当前批准",
+        "path": "ui"
+      },
+      {
+        "code": "stage_inputs",
+        "message": "必须精确绑定全部前序阶段基线",
+        "path": "ui"
+      },
+      {
+        "code": "upstream_changed",
+        "message": "上游已变化，重新评估影响并交接: requirements",
+        "path": "ui"
+      },
+      {
+        "code": "upstream_changed",
+        "message": "上游已变化，重新评估影响并交接: architecture",
+        "path": "ui"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "ui.design_plan.path"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "ui.design_plan.version"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "ui.design_plan.owner"
+      },
+      {
+        "code": "required_text",
+        "message": "必须填写非空文字",
+        "path": "ui.design_plan.sha256"
+      },
+      {
+        "code": "artifact_file",
+        "message": "项目内路径不能为空",
+        "path": "ui.design_plan"
+      },
+      {
+        "code": "module_gate",
+        "message": "invalid map<K, T> key",
+        "path": "ui"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: architecture",
+        "path": "ui"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: product",
+        "path": "ui"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: ui",
+        "path": "ui"
+      },
+      {
+        "code": "stage_inputs",
+        "message": "必须精确绑定全部前序阶段基线",
+        "path": "development"
+      },
+      {
+        "code": "upstream_changed",
+        "message": "上游已变化，重新评估影响并交接: requirements",
+        "path": "development"
+      },
+      {
+        "code": "upstream_changed",
+        "message": "上游已变化，重新评估影响并交接: architecture",
+        "path": "development"
+      },
+      {
+        "code": "upstream_changed",
+        "message": "上游已变化，重新评估影响并交接: ui",
+        "path": "development"
+      },
+      {
+        "code": "module_gate",
+        "message": "对应模块检查未通过: coding_handoff",
+        "path": "development"
+      },
+      {
+        "code": "module_gate",
+        "message": "对应模块检查未通过: product_development",
+        "path": "development"
+      },
+      {
+        "code": "module_gate",
+        "message": "对应模块检查未通过: design_acceptance_plan",
+        "path": "development"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: architecture",
+        "path": "development"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: backend",
+        "path": "development"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: frontend",
+        "path": "development"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: product",
+        "path": "development"
+      }
+    ],
+    "limits": [
+      "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+      "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+      "审批记录和证据真实性须由实际负责人确认"
+    ],
+    "module": "workflow",
+    "passed": false,
+    "quality_verified": false,
+    "question_routes": {
+      "architecture": [
+        "product",
+        "user"
+      ],
+      "backend": [
+        "architecture"
+      ],
+      "frontend": [
+        "architecture"
+      ],
+      "product": [
+        "user"
+      ],
+      "ui": [
+        "product"
+      ]
+    },
+    "ready_for_stage": false,
+    "release_permitted": false,
+    "root": "I:\\code\\GameGen\\editor",
+    "stage": "development",
+    "stage_baselines": {
+      "architecture": "1ef27d0feb032e768271671b185d5df89b58ddacd914ccfe36a5f7c57f6ed8da",
+      "development": "6d8085a69ec1e76f4bb17f1c6227cc2120e7e1f93208a8b65dc02c247e703ede",
+      "requirements": "cf2941d10b1c82c6a47994e811b0b65edfe24ab630b2cddba440e159acf6645d",
+      "ui": "764378d363d6eeed56ae562f81135dc01f39a6ebea2816a2372ba20f4c0b9e5f"
+    },
+    "status": "documents_incomplete"
+  }
+}

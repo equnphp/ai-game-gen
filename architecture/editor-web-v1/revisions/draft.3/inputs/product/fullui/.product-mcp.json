@@ -1,0 +1,1936 @@
+{
+  "assumptions": [],
+  "changes": [],
+  "definition_of_done": "共享交互、领域操作面、对话衔接、23路径、示例语义、覆盖与文档检查可交接；没有将其当画稿/开发/发布完成。",
+  "delivery": {
+    "has_ui": false,
+    "target_has_ui": true,
+    "requires_code": false,
+    "design_version": "ui-full-20261117-draft.1为输入，本包planned_not_drawn",
+    "platforms": "Windows/Android重点，macOS/Linux编辑器沿既有目标；Apple/平板未来；四游戏目标不变。",
+    "iteration_kind": "documentation_only",
+    "code_author_role": "product",
+    "deliverables": [
+      {
+        "id": "DETAIL-GLOBAL",
+        "code_author_role": "product",
+        "paths": [
+          "README.md",
+          "SURFACE-INDEX.md",
+          "GLOBAL-INTERACTIONS.md",
+          "GLOBAL-SURFACES.md",
+          "CHAT-CONTROLS.md",
+          "USER-JOURNEYS.md",
+          "PROGRESSIVE-DISCLOSURE.md",
+          "COMMON-SPACE.md",
+          "FIXTURE-PLAN.md",
+          "UI-HANDOFF.md",
+          "REVIEW-NOTES.md",
+          "GENRE-COVERAGE.md",
+          "COVERAGE.md",
+          "global-surfaces.json",
+          "chat-surfaces.json",
+          "shared-components.json",
+          "journeys.json"
+        ]
+      },
+      {
+        "id": "DETAIL-STUDIO",
+        "code_author_role": "product",
+        "paths": [
+          "studio/DETAILS.md",
+          "studio/surfaces.json"
+        ]
+      },
+      {
+        "id": "DETAIL-GAMEPLAY",
+        "code_author_role": "product",
+        "paths": [
+          "gameplay/DETAILS.md",
+          "gameplay/surfaces.json"
+        ]
+      },
+      {
+        "id": "DETAIL-WORKFLOW",
+        "code_author_role": "product",
+        "paths": [
+          "workflow/DETAILS.md",
+          "workflow/surfaces.json"
+        ]
+      },
+      {
+        "id": "DETAIL-REGISTRY",
+        "code_author_role": "product",
+        "paths": [
+          ".product-mcp.json",
+          "INPUT-BASELINES.json",
+          "surface-index.json",
+          "DELIVERY-INVENTORY.json",
+          "DOCUMENT-CHECKS.json",
+          "DOCUMENT-STATUS.md"
+        ]
+      }
+    ]
+  },
+  "delivery_identity": {
+    "source_revision": "",
+    "build_id": "",
+    "artifact_sha256": "",
+    "actual_build_declared": false
+  },
+  "dependencies": [
+    "原完整V3.5/V3.6/V3.7/V3.8产品基线及最新editor-web-v1架构。",
+    "各锁定组件/版本/范围上限由架构能力表提供；UI补真实稿，正式人员接收独立。",
+    "独立quality系统性质量文案与未来实际会话授权；当前不执行。"
+  ],
+  "evidence": [
+    {
+      "id": "DETAIL-E-01",
+      "kind": "product_spec",
+      "path": "INPUT-BASELINES.json",
+      "sha256": "53ac5535d6ec34ad072f887df2746a1b43f102ef4986f0b5f1acfed2d7b2bf46",
+      "summary": "当前用户要求、完整产品/旧稿与模块来源基线。",
+      "owner": "Codex产品文档编制；非真实人员签署",
+      "collected_at": "2026-11-17",
+      "build_id": ""
+    },
+    {
+      "id": "DETAIL-E-02",
+      "kind": "product_spec",
+      "path": "GLOBAL-INTERACTIONS.md",
+      "sha256": "55cacfa68964c03bd6cfccb4a205de1967df658241eb587e947909d90b13284f",
+      "summary": "共享控件/状态/跨端操作合同。",
+      "owner": "Codex产品文档编制；非真实人员签署",
+      "collected_at": "2026-11-17",
+      "build_id": ""
+    },
+    {
+      "id": "DETAIL-E-03",
+      "kind": "product_spec",
+      "path": "surface-index.json",
+      "sha256": "cde68596075c436fa2104862688bcc65e598337a53b6526559f994d22a9aea1a",
+      "summary": "213操作面与原页面/PSR/REQ明确承接；不是运行结果。",
+      "owner": "Codex产品文档编制；非真实人员签署",
+      "collected_at": "2026-11-17",
+      "build_id": ""
+    },
+    {
+      "id": "DETAIL-E-04",
+      "kind": "product_spec",
+      "path": "studio/DETAILS.md",
+      "sha256": "27a7406c614243b94d92625535a873947d73b9229a48f54fc8e4fbe22cdd0559",
+      "summary": "场景资源引擎实际字段/子控件/动作与状态。",
+      "owner": "Codex产品文档编制；非真实人员签署",
+      "collected_at": "2026-11-17",
+      "build_id": ""
+    },
+    {
+      "id": "DETAIL-E-05",
+      "kind": "product_spec",
+      "path": "gameplay/DETAILS.md",
+      "sha256": "ac5e60f5734b37f16e2ffecd012a65f81fcdb56bd4c09e9cf9baa6b0b1191248",
+      "summary": "地图关卡数值与类型专属工具完整详情。",
+      "owner": "Codex产品文档编制；非真实人员签署",
+      "collected_at": "2026-11-17",
+      "build_id": ""
+    },
+    {
+      "id": "DETAIL-E-06",
+      "kind": "product_spec",
+      "path": "workflow/DETAILS.md",
+      "sha256": "cdf7536144be4ba996c986f4130b862f500944d0283001ee5ea6609d32015be8",
+      "summary": "图/扩展/API/LAN/迁移/发布及R/F细节。",
+      "owner": "Codex产品文档编制；非真实人员签署",
+      "collected_at": "2026-11-17",
+      "build_id": ""
+    },
+    {
+      "id": "DETAIL-E-07",
+      "kind": "product_spec",
+      "path": "CHAT-CONTROLS.md",
+      "sha256": "858a10f071670a7b0df8435c9445a7bc90dca640f4e760af9af38313a6fa0dbb",
+      "summary": "对话控件与已有88状态衔接。",
+      "owner": "Codex产品文档编制；非真实人员签署",
+      "collected_at": "2026-11-17",
+      "build_id": ""
+    },
+    {
+      "id": "DETAIL-E-08",
+      "kind": "product_spec",
+      "path": "USER-JOURNEYS.md",
+      "sha256": "d568fb48968cc399446d009442af53c55664d331fce550b5539dd1d8f6c4c54f",
+      "summary": "23用户任务与具体返回恢复路径。",
+      "owner": "Codex产品文档编制；非真实人员签署",
+      "collected_at": "2026-11-17",
+      "build_id": ""
+    },
+    {
+      "id": "DETAIL-E-09",
+      "kind": "product_spec",
+      "path": "COVERAGE.md",
+      "sha256": "b25fc44008450dc2f28c78a87d39710494cb20d164161493983e770cd784d522",
+      "summary": "全量需求和原缺口的细节承接与边界。",
+      "owner": "Codex产品文档编制；非真实人员签署",
+      "collected_at": "2026-11-17",
+      "build_id": ""
+    },
+    {
+      "id": "DETAIL-E-10",
+      "kind": "product_spec",
+      "path": "REVIEW-NOTES.md",
+      "sha256": "e64cdabbdfa8b9a7fc3616520ef67d8793ab62cc2ec6c2f4b7e3b0e22a5546c9",
+      "summary": "多角色交叉审阅和实质修订记录。",
+      "owner": "Codex产品文档编制；非真实人员签署",
+      "collected_at": "2026-11-17",
+      "build_id": ""
+    }
+  ],
+  "execution_policy": "documentation_only",
+  "metrics": [
+    {
+      "id": "DETAIL-MET-01",
+      "name": "可定位的交互需求覆盖目标",
+      "definition": "每个声明操作面有入口/字段/动作/领域状态/返回/REQ-AC；原页面/PSR由真实文档承接。",
+      "baseline": "原79业务页/公共浮层组/67缺口；实际UI完整性未达标，见旧审阅。",
+      "target": "本轮每面细节与来源可定位，覆盖索引无未声明当前任务；实际画稿/运行覆盖另计。",
+      "source": "本地需求目录与后续UI交接，不上云遥测。",
+      "segment": "模块、L/R/F、控件/子字段、桌面/Android/四语分开。",
+      "window": "本轮文档及后续设计修订",
+      "guardrail": "不靠重复主页/中文图冒充四语/隐藏缺项或伪造运行证明达标。",
+      "owner": "产品定义；UI绘稿，真实审阅人待签署。"
+    }
+  ],
+  "outcomes": [
+    "完整细节文档与UI接续索引；没有新增画板/实现或实际用户效果数据。"
+  ],
+  "problem": {
+    "target_users": "零开发经验的新手与需要场景/地图/数值/动画/工作流等专业工具的桌面和Android创作者。",
+    "scenario": "从创建、修改资源与规则、试玩、保存到四目标导出；跨端LAN接力和三引擎迁移；后续云网与未来终端分别保留。",
+    "statement": "原79业务页及通用状态不足以呈现实际编辑字段/确认/撤销/返回，需要具体到各操作面，避免只有概览或错误复用画板。",
+    "business_value": "让UI能按具体控件和任务串联补稿，减少遗漏与跨模块行为不一致；没有测量收益或新用户研究。",
+    "alternatives": "继续堆主页/截图；仅列功能目录；按共享交互+领域操作面+用户路径+覆盖索引细化。",
+    "selection_reason": "选第三种，已有页补模式/抽屉，专属任务补可定位详情，不以隐藏高级删除能力。",
+    "priority_reason": "当前L义务先补关键操作与恢复；R后续联网/平台云，F未来扩展；不扩大无GUI M1。",
+    "opportunity_cost": "更多字段/子字段/状态与跨端布局维护成本，本轮只需求文档，未估工期或实际费用。",
+    "evidence_ids": [
+      "DETAIL-E-01",
+      "DETAIL-E-02",
+      "DETAIL-E-03"
+    ]
+  },
+  "project": {
+    "id": "gamegen-full-ui-details",
+    "name": "GameGen全量UI细节需求包",
+    "version": "full-ui-details-20261117-draft.1",
+    "owner": "Codex产品编制与多角色需求补充",
+    "decision_owner": "用户；正式版本评审未代签"
+  },
+  "release": {
+    "alerts": "",
+    "approved_at": "",
+    "approved_by": "",
+    "baseline_sha256": "",
+    "build_id": "",
+    "compatibility": "版本/格式/协议按实际能力表，未验证不猜兼容",
+    "decision": "not_requested",
+    "environment": "未构建/未部署",
+    "evidence_id": "",
+    "migration": "",
+    "monitoring": "",
+    "observation_window": "",
+    "owner": "真实发布负责人待指定",
+    "product_version": "full-ui-details-20261117-draft.1",
+    "quality_report_path": "",
+    "review_at": "",
+    "rollback": "新包独立，旧冻结稿/根清单保留",
+    "rollout": "",
+    "scope": "需求文档包，不是可发布软件",
+    "stop_conditions": "",
+    "support": ""
+  },
+  "requirements": [
+    {
+      "id": "DETAIL-REQ-01",
+      "title": "共享控件、状态与跨端返回合同",
+      "source": "用户当前“继续，你要考虑所有细节的界面”及INPUT-BASELINES.json中的完整产品基线。",
+      "owner": "产品编制：Codex；真实版本审批待登记",
+      "priority": "P0",
+      "priority_reason": "按当前本地完整产品义务补具体交互，专业能力按需显示，R/F不冒充当前。",
+      "status": "in_scope",
+      "evidence_ids": [
+        "DETAIL-E-01",
+        "DETAIL-E-02",
+        "DETAIL-E-03",
+        "DETAIL-E-04",
+        "DETAIL-E-05",
+        "DETAIL-E-06",
+        "DETAIL-E-07",
+        "DETAIL-E-08",
+        "DETAIL-E-09",
+        "DETAIL-E-10"
+      ],
+      "roles_permissions": "用户授权的项目/设备/动作范围内；设备凭据与项目分离，UI与工具不绕过核心领域校验。",
+      "preconditions": "现有产品详细规格与能力契约；未实现/未知能力明确显示，真实稿未补。",
+      "main_flow": "按对应模块DETAILS、surface-index、共享合同与用户路径进入具体任务；有字段/动作/状态/恢复而非只有目录。",
+      "exceptions": "按领域状态与CMP共同状态处理；不适用项由父会话/服务/工具承接并说明。",
+      "data_rules": "稳定身份、同源项目、草稿/运行/事务分离，读写/来源/版本/许可可追溯；只在durable确认后称保存。",
+      "constraints": "本包仅需求，不修改冻结画稿、共享根清单、架构或实现。",
+      "acceptance": [
+        {
+          "id": "DETAIL-AC-01",
+          "given": "同一共享控件在不同模块出现",
+          "when": "比较字段/动作/错误/返回行为",
+          "then": "按CMP合同保持必需条件、默认、验证、作用域与恢复；不以通用成功替代实际结果。"
+        },
+        {
+          "id": "DETAIL-AC-02",
+          "given": "手机/桌面四语、输入草稿和长任务",
+          "when": "旋转/返回/切页/键盘/错误恢复",
+          "then": "关键控件完整可达，选区/视口/草稿/任务身份保留，不重复发送或丢隐藏高级字段。"
+        }
+      ],
+      "state_coverage": {
+        "first_use": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "normal": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "loading": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "empty": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "no_results": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "unauthenticated": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "permission_denied": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "offline": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "error_timeout": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "duplicate": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "interrupted": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "success": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        }
+      },
+      "states": [
+        {
+          "id": "DETAIL-1-first_use",
+          "page": "product-ui-detail-package",
+          "state": "first_use",
+          "entry": "首次/新功能在本模块适用任务发生",
+          "content": "解释一个推荐起点与跳过，不先填专业参数",
+          "actions": "创建/导入/选模板；恢复不改正式工程",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-1-first_use"
+        },
+        {
+          "id": "DETAIL-1-normal",
+          "page": "product-ui-detail-package",
+          "state": "normal",
+          "entry": "正常可编辑在本模块适用任务发生",
+          "content": "当前对象/层面/版本/工具/保存状态",
+          "actions": "完整合法操作；高级展开不删数据",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-1-normal"
+        },
+        {
+          "id": "DETAIL-1-loading",
+          "page": "product-ui-detail-package",
+          "state": "loading",
+          "entry": "读取/分析/长任务在本模块适用任务发生",
+          "content": "具体阶段、已完成量、可取消性",
+          "actions": "合法取消/查看任务；不伪造ETA",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-1-loading"
+        },
+        {
+          "id": "DETAIL-1-empty",
+          "page": "product-ui-detail-package",
+          "state": "empty",
+          "entry": "没有内容在本模块适用任务发生",
+          "content": "缺对象/资源/规则而非搜索失败",
+          "actions": "单一创建/导入/内置入口",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-1-empty"
+        },
+        {
+          "id": "DETAIL-1-no_results",
+          "page": "product-ui-detail-package",
+          "state": "no_results",
+          "entry": "无匹配在本模块适用任务发生",
+          "content": "保留筛选/搜索/范围",
+          "actions": "清筛选/换范围；不自动收费生成",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-1-no_results"
+        },
+        {
+          "id": "DETAIL-1-unauthenticated",
+          "page": "product-ui-detail-package",
+          "state": "unauthenticated",
+          "entry": "服务未授权在本模块适用任务发生",
+          "content": "只影响需要该服务的动作，本地不要求登录",
+          "actions": "授权/本地替代；凭据设备独立",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-1-unauthenticated"
+        },
+        {
+          "id": "DETAIL-1-permission_denied",
+          "page": "product-ui-detail-package",
+          "state": "permission_denied",
+          "entry": "权限不足/撤销在本模块适用任务发生",
+          "content": "具体目录/设备/动作和已授权边界",
+          "actions": "改位置/重新授权/拒绝后保留编辑",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-1-permission_denied"
+        },
+        {
+          "id": "DETAIL-1-offline",
+          "page": "product-ui-detail-package",
+          "state": "offline",
+          "entry": "离线/对端离开在本模块适用任务发生",
+          "content": "模型/公网/本机/LAN分别表示",
+          "actions": "本地继续；需要网络的任务核原请求",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-1-offline"
+        },
+        {
+          "id": "DETAIL-1-error_timeout",
+          "page": "product-ui-detail-package",
+          "state": "error_timeout",
+          "entry": "失败/超时在本模块适用任务发生",
+          "content": "对象/字段/阶段与已完成事实",
+          "actions": "修正/查询/重试/取消，未知不当未执行",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-1-error_timeout"
+        },
+        {
+          "id": "DETAIL-1-duplicate",
+          "page": "product-ui-detail-package",
+          "state": "duplicate",
+          "entry": "重复请求/对象冲突在本模块适用任务发生",
+          "content": "原任务/稳定ID/目标已有内容",
+          "actions": "查原结果/保留两份/改名；不重复提交",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-1-duplicate"
+        },
+        {
+          "id": "DETAIL-1-interrupted",
+          "page": "product-ui-detail-package",
+          "state": "interrupted",
+          "entry": "旋转/锁屏/进程退出在本模块适用任务发生",
+          "content": "草稿、原快照、已提交日志与任务身份",
+          "actions": "恢复先校对；半次手势不提交",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-1-interrupted"
+        },
+        {
+          "id": "DETAIL-1-success",
+          "page": "product-ui-detail-package",
+          "state": "success",
+          "entry": "对应动作完成在本模块适用任务发生",
+          "content": "区分创建/转换/入库/应用/持久化/实际运行",
+          "actions": "下一步与版本可定位；不以一个绿色成功包办全部",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-1-success"
+        }
+      ]
+    },
+    {
+      "id": "DETAIL-REQ-02",
+      "title": "场景、资源、引擎组件与试玩细节",
+      "source": "用户当前“继续，你要考虑所有细节的界面”及INPUT-BASELINES.json中的完整产品基线。",
+      "owner": "产品编制：Codex；真实版本审批待登记",
+      "priority": "P1",
+      "priority_reason": "按当前本地完整产品义务补具体交互，专业能力按需显示，R/F不冒充当前。",
+      "status": "in_scope",
+      "evidence_ids": [
+        "DETAIL-E-01",
+        "DETAIL-E-02",
+        "DETAIL-E-03",
+        "DETAIL-E-04",
+        "DETAIL-E-05",
+        "DETAIL-E-06",
+        "DETAIL-E-07",
+        "DETAIL-E-08",
+        "DETAIL-E-09",
+        "DETAIL-E-10"
+      ],
+      "roles_permissions": "用户授权的项目/设备/动作范围内；设备凭据与项目分离，UI与工具不绕过核心领域校验。",
+      "preconditions": "现有产品详细规格与能力契约；未实现/未知能力明确显示，真实稿未补。",
+      "main_flow": "按对应模块DETAILS、surface-index、共享合同与用户路径进入具体任务；有字段/动作/状态/恢复而非只有目录。",
+      "exceptions": "按领域状态与CMP共同状态处理；不适用项由父会话/服务/工具承接并说明。",
+      "data_rules": "稳定身份、同源项目、草稿/运行/事务分离，读写/来源/版本/许可可追溯；只在durable确认后称保存。",
+      "constraints": "本包仅需求，不修改冻结画稿、共享根清单、架构或实现。",
+      "acceptance": [
+        {
+          "id": "DETAIL-AC-03",
+          "given": "场景/资源/物理/动画/音频/UI/试玩任务",
+          "when": "从对应入口进入具体编辑模式",
+          "then": "每个字段及复合子字段有控件、默认与校验，确认/取消/撤销按实际作用域；不只提供概览。"
+        },
+        {
+          "id": "DETAIL-AC-04",
+          "given": "资源依赖/版本/许可、预制体覆盖及运行隔离",
+          "when": "替换/重导入/传播/试玩调参",
+          "then": "引用稳定、手改保留、预览不改正式状态，只有合法事务且durable才显示保存。"
+        }
+      ],
+      "state_coverage": {
+        "first_use": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "normal": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "loading": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "empty": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "no_results": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "unauthenticated": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "permission_denied": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "offline": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "error_timeout": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "duplicate": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "interrupted": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "success": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        }
+      },
+      "states": [
+        {
+          "id": "DETAIL-2-first_use",
+          "page": "product-ui-detail-package",
+          "state": "first_use",
+          "entry": "首次/新功能在本模块适用任务发生",
+          "content": "解释一个推荐起点与跳过，不先填专业参数",
+          "actions": "创建/导入/选模板；恢复不改正式工程",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-2-first_use"
+        },
+        {
+          "id": "DETAIL-2-normal",
+          "page": "product-ui-detail-package",
+          "state": "normal",
+          "entry": "正常可编辑在本模块适用任务发生",
+          "content": "当前对象/层面/版本/工具/保存状态",
+          "actions": "完整合法操作；高级展开不删数据",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-2-normal"
+        },
+        {
+          "id": "DETAIL-2-loading",
+          "page": "product-ui-detail-package",
+          "state": "loading",
+          "entry": "读取/分析/长任务在本模块适用任务发生",
+          "content": "具体阶段、已完成量、可取消性",
+          "actions": "合法取消/查看任务；不伪造ETA",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-2-loading"
+        },
+        {
+          "id": "DETAIL-2-empty",
+          "page": "product-ui-detail-package",
+          "state": "empty",
+          "entry": "没有内容在本模块适用任务发生",
+          "content": "缺对象/资源/规则而非搜索失败",
+          "actions": "单一创建/导入/内置入口",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-2-empty"
+        },
+        {
+          "id": "DETAIL-2-no_results",
+          "page": "product-ui-detail-package",
+          "state": "no_results",
+          "entry": "无匹配在本模块适用任务发生",
+          "content": "保留筛选/搜索/范围",
+          "actions": "清筛选/换范围；不自动收费生成",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-2-no_results"
+        },
+        {
+          "id": "DETAIL-2-unauthenticated",
+          "page": "product-ui-detail-package",
+          "state": "unauthenticated",
+          "entry": "服务未授权在本模块适用任务发生",
+          "content": "只影响需要该服务的动作，本地不要求登录",
+          "actions": "授权/本地替代；凭据设备独立",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-2-unauthenticated"
+        },
+        {
+          "id": "DETAIL-2-permission_denied",
+          "page": "product-ui-detail-package",
+          "state": "permission_denied",
+          "entry": "权限不足/撤销在本模块适用任务发生",
+          "content": "具体目录/设备/动作和已授权边界",
+          "actions": "改位置/重新授权/拒绝后保留编辑",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-2-permission_denied"
+        },
+        {
+          "id": "DETAIL-2-offline",
+          "page": "product-ui-detail-package",
+          "state": "offline",
+          "entry": "离线/对端离开在本模块适用任务发生",
+          "content": "模型/公网/本机/LAN分别表示",
+          "actions": "本地继续；需要网络的任务核原请求",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-2-offline"
+        },
+        {
+          "id": "DETAIL-2-error_timeout",
+          "page": "product-ui-detail-package",
+          "state": "error_timeout",
+          "entry": "失败/超时在本模块适用任务发生",
+          "content": "对象/字段/阶段与已完成事实",
+          "actions": "修正/查询/重试/取消，未知不当未执行",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-2-error_timeout"
+        },
+        {
+          "id": "DETAIL-2-duplicate",
+          "page": "product-ui-detail-package",
+          "state": "duplicate",
+          "entry": "重复请求/对象冲突在本模块适用任务发生",
+          "content": "原任务/稳定ID/目标已有内容",
+          "actions": "查原结果/保留两份/改名；不重复提交",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-2-duplicate"
+        },
+        {
+          "id": "DETAIL-2-interrupted",
+          "page": "product-ui-detail-package",
+          "state": "interrupted",
+          "entry": "旋转/锁屏/进程退出在本模块适用任务发生",
+          "content": "草稿、原快照、已提交日志与任务身份",
+          "actions": "恢复先校对；半次手势不提交",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-2-interrupted"
+        },
+        {
+          "id": "DETAIL-2-success",
+          "page": "product-ui-detail-package",
+          "state": "success",
+          "entry": "对应动作完成在本模块适用任务发生",
+          "content": "区分创建/转换/入库/应用/持久化/实际运行",
+          "actions": "下一步与版本可定位；不以一个绿色成功包办全部",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-2-success"
+        }
+      ]
+    },
+    {
+      "id": "DETAIL-REQ-03",
+      "title": "地图、关卡、数值与24玩法细节",
+      "source": "用户当前“继续，你要考虑所有细节的界面”及INPUT-BASELINES.json中的完整产品基线。",
+      "owner": "产品编制：Codex；真实版本审批待登记",
+      "priority": "P1",
+      "priority_reason": "按当前本地完整产品义务补具体交互，专业能力按需显示，R/F不冒充当前。",
+      "status": "in_scope",
+      "evidence_ids": [
+        "DETAIL-E-01",
+        "DETAIL-E-02",
+        "DETAIL-E-03",
+        "DETAIL-E-04",
+        "DETAIL-E-05",
+        "DETAIL-E-06",
+        "DETAIL-E-07",
+        "DETAIL-E-08",
+        "DETAIL-E-09",
+        "DETAIL-E-10"
+      ],
+      "roles_permissions": "用户授权的项目/设备/动作范围内；设备凭据与项目分离，UI与工具不绕过核心领域校验。",
+      "preconditions": "现有产品详细规格与能力契约；未实现/未知能力明确显示，真实稿未补。",
+      "main_flow": "按对应模块DETAILS、surface-index、共享合同与用户路径进入具体任务；有字段/动作/状态/恢复而非只有目录。",
+      "exceptions": "按领域状态与CMP共同状态处理；不适用项由父会话/服务/工具承接并说明。",
+      "data_rules": "稳定身份、同源项目、草稿/运行/事务分离，读写/来源/版本/许可可追溯；只在durable确认后称保存。",
+      "constraints": "本包仅需求，不修改冻结画稿、共享根清单、架构或实现。",
+      "acceptance": [
+        {
+          "id": "DETAIL-AC-05",
+          "given": "地图/关卡/数值/RPG/SLG/类型专属规则",
+          "when": "创建/修改/目标配置/模拟/返回",
+          "then": "入口可定位到实际详情字段/状态，地图/关卡/运行进度分开，共享ID与工作流规则。"
+        },
+        {
+          "id": "DETAIL-AC-06",
+          "given": "24家族/混合玩法及各自异常",
+          "when": "查看模板、调整专属参数并继续高级编辑",
+          "then": "每家族有可玩目标定义/规则编辑入口；专属棋盘/卡牌/谱面等不由一张通用图替代，联网部分后续明确。"
+        }
+      ],
+      "state_coverage": {
+        "first_use": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "normal": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "loading": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "empty": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "no_results": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "unauthenticated": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "permission_denied": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "offline": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "error_timeout": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "duplicate": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "interrupted": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "success": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        }
+      },
+      "states": [
+        {
+          "id": "DETAIL-3-first_use",
+          "page": "product-ui-detail-package",
+          "state": "first_use",
+          "entry": "首次/新功能在本模块适用任务发生",
+          "content": "解释一个推荐起点与跳过，不先填专业参数",
+          "actions": "创建/导入/选模板；恢复不改正式工程",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-3-first_use"
+        },
+        {
+          "id": "DETAIL-3-normal",
+          "page": "product-ui-detail-package",
+          "state": "normal",
+          "entry": "正常可编辑在本模块适用任务发生",
+          "content": "当前对象/层面/版本/工具/保存状态",
+          "actions": "完整合法操作；高级展开不删数据",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-3-normal"
+        },
+        {
+          "id": "DETAIL-3-loading",
+          "page": "product-ui-detail-package",
+          "state": "loading",
+          "entry": "读取/分析/长任务在本模块适用任务发生",
+          "content": "具体阶段、已完成量、可取消性",
+          "actions": "合法取消/查看任务；不伪造ETA",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-3-loading"
+        },
+        {
+          "id": "DETAIL-3-empty",
+          "page": "product-ui-detail-package",
+          "state": "empty",
+          "entry": "没有内容在本模块适用任务发生",
+          "content": "缺对象/资源/规则而非搜索失败",
+          "actions": "单一创建/导入/内置入口",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-3-empty"
+        },
+        {
+          "id": "DETAIL-3-no_results",
+          "page": "product-ui-detail-package",
+          "state": "no_results",
+          "entry": "无匹配在本模块适用任务发生",
+          "content": "保留筛选/搜索/范围",
+          "actions": "清筛选/换范围；不自动收费生成",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-3-no_results"
+        },
+        {
+          "id": "DETAIL-3-unauthenticated",
+          "page": "product-ui-detail-package",
+          "state": "unauthenticated",
+          "entry": "服务未授权在本模块适用任务发生",
+          "content": "只影响需要该服务的动作，本地不要求登录",
+          "actions": "授权/本地替代；凭据设备独立",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-3-unauthenticated"
+        },
+        {
+          "id": "DETAIL-3-permission_denied",
+          "page": "product-ui-detail-package",
+          "state": "permission_denied",
+          "entry": "权限不足/撤销在本模块适用任务发生",
+          "content": "具体目录/设备/动作和已授权边界",
+          "actions": "改位置/重新授权/拒绝后保留编辑",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-3-permission_denied"
+        },
+        {
+          "id": "DETAIL-3-offline",
+          "page": "product-ui-detail-package",
+          "state": "offline",
+          "entry": "离线/对端离开在本模块适用任务发生",
+          "content": "模型/公网/本机/LAN分别表示",
+          "actions": "本地继续；需要网络的任务核原请求",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-3-offline"
+        },
+        {
+          "id": "DETAIL-3-error_timeout",
+          "page": "product-ui-detail-package",
+          "state": "error_timeout",
+          "entry": "失败/超时在本模块适用任务发生",
+          "content": "对象/字段/阶段与已完成事实",
+          "actions": "修正/查询/重试/取消，未知不当未执行",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-3-error_timeout"
+        },
+        {
+          "id": "DETAIL-3-duplicate",
+          "page": "product-ui-detail-package",
+          "state": "duplicate",
+          "entry": "重复请求/对象冲突在本模块适用任务发生",
+          "content": "原任务/稳定ID/目标已有内容",
+          "actions": "查原结果/保留两份/改名；不重复提交",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-3-duplicate"
+        },
+        {
+          "id": "DETAIL-3-interrupted",
+          "page": "product-ui-detail-package",
+          "state": "interrupted",
+          "entry": "旋转/锁屏/进程退出在本模块适用任务发生",
+          "content": "草稿、原快照、已提交日志与任务身份",
+          "actions": "恢复先校对；半次手势不提交",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-3-interrupted"
+        },
+        {
+          "id": "DETAIL-3-success",
+          "page": "product-ui-detail-package",
+          "state": "success",
+          "entry": "对应动作完成在本模块适用任务发生",
+          "content": "区分创建/转换/入库/应用/持久化/实际运行",
+          "actions": "下一步与版本可定位；不以一个绿色成功包办全部",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-3-success"
+        }
+      ]
+    },
+    {
+      "id": "DETAIL-REQ-04",
+      "title": "工作流、扩展、接口、LAN、迁移和发布细节",
+      "source": "用户当前“继续，你要考虑所有细节的界面”及INPUT-BASELINES.json中的完整产品基线。",
+      "owner": "产品编制：Codex；真实版本审批待登记",
+      "priority": "P1",
+      "priority_reason": "按当前本地完整产品义务补具体交互，专业能力按需显示，R/F不冒充当前。",
+      "status": "in_scope",
+      "evidence_ids": [
+        "DETAIL-E-01",
+        "DETAIL-E-02",
+        "DETAIL-E-03",
+        "DETAIL-E-04",
+        "DETAIL-E-05",
+        "DETAIL-E-06",
+        "DETAIL-E-07",
+        "DETAIL-E-08",
+        "DETAIL-E-09",
+        "DETAIL-E-10"
+      ],
+      "roles_permissions": "用户授权的项目/设备/动作范围内；设备凭据与项目分离，UI与工具不绕过核心领域校验。",
+      "preconditions": "现有产品详细规格与能力契约；未实现/未知能力明确显示，真实稿未补。",
+      "main_flow": "按对应模块DETAILS、surface-index、共享合同与用户路径进入具体任务；有字段/动作/状态/恢复而非只有目录。",
+      "exceptions": "按领域状态与CMP共同状态处理；不适用项由父会话/服务/工具承接并说明。",
+      "data_rules": "稳定身份、同源项目、草稿/运行/事务分离，读写/来源/版本/许可可追溯；只在durable确认后称保存。",
+      "constraints": "本包仅需求，不修改冻结画稿、共享根清单、架构或实现。",
+      "acceptance": [
+        {
+          "id": "DETAIL-AC-07",
+          "given": "工作流/扩展/API/LAN/迁移/发布",
+          "when": "编辑配置、选择授权范围、处理冲突和任务",
+          "then": "字段/权限/协议/版本能力具体，localOnly无出站例外，Windows与Android角色正确，AI逻辑只工作流。"
+        },
+        {
+          "id": "DETAIL-AC-08",
+          "given": "H5/APK/微信/抖音及后续云网未来扩展",
+          "when": "选择目标/参数/预检/结果或查看R/F入口",
+          "then": "四目标各自设置与产物语义；当前/后续/未来明确，不把云代构建当离线、不把Reader当Writer。"
+        }
+      ],
+      "state_coverage": {
+        "first_use": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "normal": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "loading": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "empty": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "no_results": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "unauthenticated": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "permission_denied": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "offline": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "error_timeout": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "duplicate": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "interrupted": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "success": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        }
+      },
+      "states": [
+        {
+          "id": "DETAIL-4-first_use",
+          "page": "product-ui-detail-package",
+          "state": "first_use",
+          "entry": "首次/新功能在本模块适用任务发生",
+          "content": "解释一个推荐起点与跳过，不先填专业参数",
+          "actions": "创建/导入/选模板；恢复不改正式工程",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-4-first_use"
+        },
+        {
+          "id": "DETAIL-4-normal",
+          "page": "product-ui-detail-package",
+          "state": "normal",
+          "entry": "正常可编辑在本模块适用任务发生",
+          "content": "当前对象/层面/版本/工具/保存状态",
+          "actions": "完整合法操作；高级展开不删数据",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-4-normal"
+        },
+        {
+          "id": "DETAIL-4-loading",
+          "page": "product-ui-detail-package",
+          "state": "loading",
+          "entry": "读取/分析/长任务在本模块适用任务发生",
+          "content": "具体阶段、已完成量、可取消性",
+          "actions": "合法取消/查看任务；不伪造ETA",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-4-loading"
+        },
+        {
+          "id": "DETAIL-4-empty",
+          "page": "product-ui-detail-package",
+          "state": "empty",
+          "entry": "没有内容在本模块适用任务发生",
+          "content": "缺对象/资源/规则而非搜索失败",
+          "actions": "单一创建/导入/内置入口",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-4-empty"
+        },
+        {
+          "id": "DETAIL-4-no_results",
+          "page": "product-ui-detail-package",
+          "state": "no_results",
+          "entry": "无匹配在本模块适用任务发生",
+          "content": "保留筛选/搜索/范围",
+          "actions": "清筛选/换范围；不自动收费生成",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-4-no_results"
+        },
+        {
+          "id": "DETAIL-4-unauthenticated",
+          "page": "product-ui-detail-package",
+          "state": "unauthenticated",
+          "entry": "服务未授权在本模块适用任务发生",
+          "content": "只影响需要该服务的动作，本地不要求登录",
+          "actions": "授权/本地替代；凭据设备独立",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-4-unauthenticated"
+        },
+        {
+          "id": "DETAIL-4-permission_denied",
+          "page": "product-ui-detail-package",
+          "state": "permission_denied",
+          "entry": "权限不足/撤销在本模块适用任务发生",
+          "content": "具体目录/设备/动作和已授权边界",
+          "actions": "改位置/重新授权/拒绝后保留编辑",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-4-permission_denied"
+        },
+        {
+          "id": "DETAIL-4-offline",
+          "page": "product-ui-detail-package",
+          "state": "offline",
+          "entry": "离线/对端离开在本模块适用任务发生",
+          "content": "模型/公网/本机/LAN分别表示",
+          "actions": "本地继续；需要网络的任务核原请求",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-4-offline"
+        },
+        {
+          "id": "DETAIL-4-error_timeout",
+          "page": "product-ui-detail-package",
+          "state": "error_timeout",
+          "entry": "失败/超时在本模块适用任务发生",
+          "content": "对象/字段/阶段与已完成事实",
+          "actions": "修正/查询/重试/取消，未知不当未执行",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-4-error_timeout"
+        },
+        {
+          "id": "DETAIL-4-duplicate",
+          "page": "product-ui-detail-package",
+          "state": "duplicate",
+          "entry": "重复请求/对象冲突在本模块适用任务发生",
+          "content": "原任务/稳定ID/目标已有内容",
+          "actions": "查原结果/保留两份/改名；不重复提交",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-4-duplicate"
+        },
+        {
+          "id": "DETAIL-4-interrupted",
+          "page": "product-ui-detail-package",
+          "state": "interrupted",
+          "entry": "旋转/锁屏/进程退出在本模块适用任务发生",
+          "content": "草稿、原快照、已提交日志与任务身份",
+          "actions": "恢复先校对；半次手势不提交",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-4-interrupted"
+        },
+        {
+          "id": "DETAIL-4-success",
+          "page": "product-ui-detail-package",
+          "state": "success",
+          "entry": "对应动作完成在本模块适用任务发生",
+          "content": "区分创建/转换/入库/应用/持久化/实际运行",
+          "actions": "下一步与版本可定位；不以一个绿色成功包办全部",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-4-success"
+        }
+      ]
+    },
+    {
+      "id": "DETAIL-REQ-05",
+      "title": "对话工作台控件与88状态衔接",
+      "source": "用户当前“继续，你要考虑所有细节的界面”及INPUT-BASELINES.json中的完整产品基线。",
+      "owner": "产品编制：Codex；真实版本审批待登记",
+      "priority": "P0",
+      "priority_reason": "按当前本地完整产品义务补具体交互，专业能力按需显示，R/F不冒充当前。",
+      "status": "in_scope",
+      "evidence_ids": [
+        "DETAIL-E-01",
+        "DETAIL-E-02",
+        "DETAIL-E-03",
+        "DETAIL-E-04",
+        "DETAIL-E-05",
+        "DETAIL-E-06",
+        "DETAIL-E-07",
+        "DETAIL-E-08",
+        "DETAIL-E-09",
+        "DETAIL-E-10"
+      ],
+      "roles_permissions": "用户授权的项目/设备/动作范围内；设备凭据与项目分离，UI与工具不绕过核心领域校验。",
+      "preconditions": "现有产品详细规格与能力契约；未实现/未知能力明确显示，真实稿未补。",
+      "main_flow": "按对应模块DETAILS、surface-index、共享合同与用户路径进入具体任务；有字段/动作/状态/恢复而非只有目录。",
+      "exceptions": "按领域状态与CMP共同状态处理；不适用项由父会话/服务/工具承接并说明。",
+      "data_rules": "稳定身份、同源项目、草稿/运行/事务分离，读写/来源/版本/许可可追溯；只在durable确认后称保存。",
+      "constraints": "本包仅需求，不修改冻结画稿、共享根清单、架构或实现。",
+      "acceptance": [
+        {
+          "id": "DETAIL-AC-09",
+          "given": "现有对话88原子状态和本轮控件选择器",
+          "when": "流式/问答/授权/提案/停止/恢复",
+          "then": "对象级状态组合准确，模型回复/工具成功/候选/提交/保存独立，原项目/轮次身份不串用。"
+        },
+        {
+          "id": "DETAIL-AC-10",
+          "given": "会话分支/输入附件/模型MCP与Skill作用域",
+          "when": "改配置或在生成中手改项目",
+          "then": "配置下一轮生效、隐私限制持续，提案基线变化重校验；历史编辑不改已发生事务。"
+        }
+      ],
+      "state_coverage": {
+        "first_use": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "normal": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "loading": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "empty": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "no_results": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "unauthenticated": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "permission_denied": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "offline": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "error_timeout": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "duplicate": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "interrupted": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "success": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        }
+      },
+      "states": [
+        {
+          "id": "DETAIL-5-first_use",
+          "page": "product-ui-detail-package",
+          "state": "first_use",
+          "entry": "首次/新功能在本模块适用任务发生",
+          "content": "解释一个推荐起点与跳过，不先填专业参数",
+          "actions": "创建/导入/选模板；恢复不改正式工程",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-5-first_use"
+        },
+        {
+          "id": "DETAIL-5-normal",
+          "page": "product-ui-detail-package",
+          "state": "normal",
+          "entry": "正常可编辑在本模块适用任务发生",
+          "content": "当前对象/层面/版本/工具/保存状态",
+          "actions": "完整合法操作；高级展开不删数据",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-5-normal"
+        },
+        {
+          "id": "DETAIL-5-loading",
+          "page": "product-ui-detail-package",
+          "state": "loading",
+          "entry": "读取/分析/长任务在本模块适用任务发生",
+          "content": "具体阶段、已完成量、可取消性",
+          "actions": "合法取消/查看任务；不伪造ETA",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-5-loading"
+        },
+        {
+          "id": "DETAIL-5-empty",
+          "page": "product-ui-detail-package",
+          "state": "empty",
+          "entry": "没有内容在本模块适用任务发生",
+          "content": "缺对象/资源/规则而非搜索失败",
+          "actions": "单一创建/导入/内置入口",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-5-empty"
+        },
+        {
+          "id": "DETAIL-5-no_results",
+          "page": "product-ui-detail-package",
+          "state": "no_results",
+          "entry": "无匹配在本模块适用任务发生",
+          "content": "保留筛选/搜索/范围",
+          "actions": "清筛选/换范围；不自动收费生成",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-5-no_results"
+        },
+        {
+          "id": "DETAIL-5-unauthenticated",
+          "page": "product-ui-detail-package",
+          "state": "unauthenticated",
+          "entry": "服务未授权在本模块适用任务发生",
+          "content": "只影响需要该服务的动作，本地不要求登录",
+          "actions": "授权/本地替代；凭据设备独立",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-5-unauthenticated"
+        },
+        {
+          "id": "DETAIL-5-permission_denied",
+          "page": "product-ui-detail-package",
+          "state": "permission_denied",
+          "entry": "权限不足/撤销在本模块适用任务发生",
+          "content": "具体目录/设备/动作和已授权边界",
+          "actions": "改位置/重新授权/拒绝后保留编辑",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-5-permission_denied"
+        },
+        {
+          "id": "DETAIL-5-offline",
+          "page": "product-ui-detail-package",
+          "state": "offline",
+          "entry": "离线/对端离开在本模块适用任务发生",
+          "content": "模型/公网/本机/LAN分别表示",
+          "actions": "本地继续；需要网络的任务核原请求",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-5-offline"
+        },
+        {
+          "id": "DETAIL-5-error_timeout",
+          "page": "product-ui-detail-package",
+          "state": "error_timeout",
+          "entry": "失败/超时在本模块适用任务发生",
+          "content": "对象/字段/阶段与已完成事实",
+          "actions": "修正/查询/重试/取消，未知不当未执行",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-5-error_timeout"
+        },
+        {
+          "id": "DETAIL-5-duplicate",
+          "page": "product-ui-detail-package",
+          "state": "duplicate",
+          "entry": "重复请求/对象冲突在本模块适用任务发生",
+          "content": "原任务/稳定ID/目标已有内容",
+          "actions": "查原结果/保留两份/改名；不重复提交",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-5-duplicate"
+        },
+        {
+          "id": "DETAIL-5-interrupted",
+          "page": "product-ui-detail-package",
+          "state": "interrupted",
+          "entry": "旋转/锁屏/进程退出在本模块适用任务发生",
+          "content": "草稿、原快照、已提交日志与任务身份",
+          "actions": "恢复先校对；半次手势不提交",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-5-interrupted"
+        },
+        {
+          "id": "DETAIL-5-success",
+          "page": "product-ui-detail-package",
+          "state": "success",
+          "entry": "对应动作完成在本模块适用任务发生",
+          "content": "区分创建/转换/入库/应用/持久化/实际运行",
+          "actions": "下一步与版本可定位；不以一个绿色成功包办全部",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-5-success"
+        }
+      ]
+    },
+    {
+      "id": "DETAIL-REQ-06",
+      "title": "全量覆盖、用户路径与示例语义",
+      "source": "用户当前“继续，你要考虑所有细节的界面”及INPUT-BASELINES.json中的完整产品基线。",
+      "owner": "产品编制：Codex；真实版本审批待登记",
+      "priority": "P0",
+      "priority_reason": "按当前本地完整产品义务补具体交互，专业能力按需显示，R/F不冒充当前。",
+      "status": "in_scope",
+      "evidence_ids": [
+        "DETAIL-E-01",
+        "DETAIL-E-02",
+        "DETAIL-E-03",
+        "DETAIL-E-04",
+        "DETAIL-E-05",
+        "DETAIL-E-06",
+        "DETAIL-E-07",
+        "DETAIL-E-08",
+        "DETAIL-E-09",
+        "DETAIL-E-10"
+      ],
+      "roles_permissions": "用户授权的项目/设备/动作范围内；设备凭据与项目分离，UI与工具不绕过核心领域校验。",
+      "preconditions": "现有产品详细规格与能力契约；未实现/未知能力明确显示，真实稿未补。",
+      "main_flow": "按对应模块DETAILS、surface-index、共享合同与用户路径进入具体任务；有字段/动作/状态/恢复而非只有目录。",
+      "exceptions": "按领域状态与CMP共同状态处理；不适用项由父会话/服务/工具承接并说明。",
+      "data_rules": "稳定身份、同源项目、草稿/运行/事务分离，读写/来源/版本/许可可追溯；只在durable确认后称保存。",
+      "constraints": "本包仅需求，不修改冻结画稿、共享根清单、架构或实现。",
+      "acceptance": [
+        {
+          "id": "DETAIL-AC-11",
+          "given": "原80分组/67缺口/完整REQ与新细节目录",
+          "when": "从覆盖索引追溯用户任务",
+          "then": "每个当前入口有具体操作面或明确合并/组件承接，不凭数量关闭画稿/实现缺口。"
+        },
+        {
+          "id": "DETAIL-AC-12",
+          "given": "23用户任务路径与示例语义",
+          "when": "从新手闭环到专业工具和错误返回",
+          "then": "每一步所需字段/动作/状态与来源可定位；示例不套错领域、不伪造实测或批准。"
+        }
+      ],
+      "state_coverage": {
+        "first_use": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "normal": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "loading": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "empty": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "no_results": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "unauthenticated": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "permission_denied": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "offline": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "error_timeout": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "duplicate": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "interrupted": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        },
+        "success": {
+          "applicability": "applicable",
+          "reason": "按该模块适用操作面及父任务呈现；完整内容/动作/恢复在GLOBAL-INTERACTIONS.md及各面，不机械新增独立状态页。"
+        }
+      },
+      "states": [
+        {
+          "id": "DETAIL-6-first_use",
+          "page": "product-ui-detail-package",
+          "state": "first_use",
+          "entry": "首次/新功能在本模块适用任务发生",
+          "content": "解释一个推荐起点与跳过，不先填专业参数",
+          "actions": "创建/导入/选模板；恢复不改正式工程",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-6-first_use"
+        },
+        {
+          "id": "DETAIL-6-normal",
+          "page": "product-ui-detail-package",
+          "state": "normal",
+          "entry": "正常可编辑在本模块适用任务发生",
+          "content": "当前对象/层面/版本/工具/保存状态",
+          "actions": "完整合法操作；高级展开不删数据",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-6-normal"
+        },
+        {
+          "id": "DETAIL-6-loading",
+          "page": "product-ui-detail-package",
+          "state": "loading",
+          "entry": "读取/分析/长任务在本模块适用任务发生",
+          "content": "具体阶段、已完成量、可取消性",
+          "actions": "合法取消/查看任务；不伪造ETA",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-6-loading"
+        },
+        {
+          "id": "DETAIL-6-empty",
+          "page": "product-ui-detail-package",
+          "state": "empty",
+          "entry": "没有内容在本模块适用任务发生",
+          "content": "缺对象/资源/规则而非搜索失败",
+          "actions": "单一创建/导入/内置入口",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-6-empty"
+        },
+        {
+          "id": "DETAIL-6-no_results",
+          "page": "product-ui-detail-package",
+          "state": "no_results",
+          "entry": "无匹配在本模块适用任务发生",
+          "content": "保留筛选/搜索/范围",
+          "actions": "清筛选/换范围；不自动收费生成",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-6-no_results"
+        },
+        {
+          "id": "DETAIL-6-unauthenticated",
+          "page": "product-ui-detail-package",
+          "state": "unauthenticated",
+          "entry": "服务未授权在本模块适用任务发生",
+          "content": "只影响需要该服务的动作，本地不要求登录",
+          "actions": "授权/本地替代；凭据设备独立",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-6-unauthenticated"
+        },
+        {
+          "id": "DETAIL-6-permission_denied",
+          "page": "product-ui-detail-package",
+          "state": "permission_denied",
+          "entry": "权限不足/撤销在本模块适用任务发生",
+          "content": "具体目录/设备/动作和已授权边界",
+          "actions": "改位置/重新授权/拒绝后保留编辑",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-6-permission_denied"
+        },
+        {
+          "id": "DETAIL-6-offline",
+          "page": "product-ui-detail-package",
+          "state": "offline",
+          "entry": "离线/对端离开在本模块适用任务发生",
+          "content": "模型/公网/本机/LAN分别表示",
+          "actions": "本地继续；需要网络的任务核原请求",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-6-offline"
+        },
+        {
+          "id": "DETAIL-6-error_timeout",
+          "page": "product-ui-detail-package",
+          "state": "error_timeout",
+          "entry": "失败/超时在本模块适用任务发生",
+          "content": "对象/字段/阶段与已完成事实",
+          "actions": "修正/查询/重试/取消，未知不当未执行",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-6-error_timeout"
+        },
+        {
+          "id": "DETAIL-6-duplicate",
+          "page": "product-ui-detail-package",
+          "state": "duplicate",
+          "entry": "重复请求/对象冲突在本模块适用任务发生",
+          "content": "原任务/稳定ID/目标已有内容",
+          "actions": "查原结果/保留两份/改名；不重复提交",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-6-duplicate"
+        },
+        {
+          "id": "DETAIL-6-interrupted",
+          "page": "product-ui-detail-package",
+          "state": "interrupted",
+          "entry": "旋转/锁屏/进程退出在本模块适用任务发生",
+          "content": "草稿、原快照、已提交日志与任务身份",
+          "actions": "恢复先校对；半次手势不提交",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-6-interrupted"
+        },
+        {
+          "id": "DETAIL-6-success",
+          "page": "product-ui-detail-package",
+          "state": "success",
+          "entry": "对应动作完成在本模块适用任务发生",
+          "content": "区分创建/转换/入库/应用/持久化/实际运行",
+          "actions": "下一步与版本可定位；不以一个绿色成功包办全部",
+          "exit": "合法用户动作/真实业务事件明确后进入下一状态，不用等待时长猜同意或成功。",
+          "recovery": "保留原有效版本/草稿/选区/请求身份，按具体surface恢复。",
+          "design_scenario_id": "planned-detail-6-success"
+        }
+      ]
+    }
+  ],
+  "research": [],
+  "retrospective": {},
+  "reviews": [
+    {
+      "role": "product",
+      "reviewer": "",
+      "decision": "pending",
+      "at": "",
+      "baseline_sha256": "",
+      "product_version": "full-ui-details-20261117-draft.1",
+      "evidence_id": ""
+    },
+    {
+      "role": "design",
+      "reviewer": "",
+      "decision": "pending",
+      "at": "",
+      "baseline_sha256": "",
+      "product_version": "full-ui-details-20261117-draft.1",
+      "evidence_id": ""
+    },
+    {
+      "role": "engineering",
+      "reviewer": "",
+      "decision": "pending",
+      "at": "",
+      "baseline_sha256": "",
+      "product_version": "full-ui-details-20261117-draft.1",
+      "evidence_id": ""
+    },
+    {
+      "role": "qa",
+      "reviewer": "",
+      "decision": "pending",
+      "at": "",
+      "baseline_sha256": "",
+      "product_version": "full-ui-details-20261117-draft.1",
+      "evidence_id": ""
+    }
+  ],
+  "risk_assessment": "覆盖/语义错配、并发覆盖与取消未知、隐私/许可、资源预算/兼容、移动/四语/无障碍、上游能力差异均保留需求边界；没有运行验证。",
+  "risks": [
+    {
+      "id": "DETAIL-RISK-01",
+      "category": "coverage_consistency_privacy",
+      "severity": "high",
+      "impact": "仅目录/汇总参数缺具体控件，或草稿/提交/远程权限混淆会继续造成遗漏/覆盖/泄露。",
+      "mitigation": "共享合同、子字段、领域状态、任务路径与原需求/缺口追溯；未知能力显式，不以数量当通过。",
+      "owner": "产品/架构/UI各自接收",
+      "deadline": "相应设计新稿与实施冻结前",
+      "status": "open"
+    }
+  ],
+  "schema_version": 1,
+  "scope": {
+    "included": "完整产品UI细节：213面/1195字段记录/538子控件/485动作/522领域状态；L199/R13/F1；共享CMP24、23任务路径、原67缺口与80分组追溯，对话88状态继承。",
+    "excluded": "实际UI画板/前端原型代码/引擎实现/测试/扫描/构建/截图比较/设备操作/真实模型或MCP调用/发布；不新增iOS或PC游戏发行。",
+    "constraints": "需求→架构→UI→开发；共享C++核心，当前React/TS+Tauri宿主；工作流权威；localOnly、三引擎白名单、LAN、四目标与R/F边界不变。",
+    "code_author_role": "product",
+    "deliverables": [
+      {
+        "id": "DETAIL-GLOBAL",
+        "code_author_role": "product",
+        "paths": [
+          "README.md",
+          "SURFACE-INDEX.md",
+          "GLOBAL-INTERACTIONS.md",
+          "GLOBAL-SURFACES.md",
+          "CHAT-CONTROLS.md",
+          "USER-JOURNEYS.md",
+          "PROGRESSIVE-DISCLOSURE.md",
+          "COMMON-SPACE.md",
+          "FIXTURE-PLAN.md",
+          "UI-HANDOFF.md",
+          "REVIEW-NOTES.md",
+          "GENRE-COVERAGE.md",
+          "COVERAGE.md",
+          "global-surfaces.json",
+          "chat-surfaces.json",
+          "shared-components.json",
+          "journeys.json"
+        ]
+      },
+      {
+        "id": "DETAIL-STUDIO",
+        "code_author_role": "product",
+        "paths": [
+          "studio/DETAILS.md",
+          "studio/surfaces.json"
+        ]
+      },
+      {
+        "id": "DETAIL-GAMEPLAY",
+        "code_author_role": "product",
+        "paths": [
+          "gameplay/DETAILS.md",
+          "gameplay/surfaces.json"
+        ]
+      },
+      {
+        "id": "DETAIL-WORKFLOW",
+        "code_author_role": "product",
+        "paths": [
+          "workflow/DETAILS.md",
+          "workflow/surfaces.json"
+        ]
+      },
+      {
+        "id": "DETAIL-REGISTRY",
+        "code_author_role": "product",
+        "paths": [
+          ".product-mcp.json",
+          "INPUT-BASELINES.json",
+          "surface-index.json",
+          "DELIVERY-INVENTORY.json",
+          "DOCUMENT-CHECKS.json",
+          "DOCUMENT-STATUS.md"
+        ]
+      }
+    ]
+  },
+  "test_cases": [
+    {
+      "id": "DETAIL-TEST-01",
+      "requirement_id": "DETAIL-REQ-01",
+      "acceptance_id": "DETAIL-AC-01",
+      "method": "产品验收定义/后续UI场景追溯；详细系统质量用例与执行另属独立quality，未运行。",
+      "environment": "后续固定桌面/Android宿主与四语、隔离示例项目；当前只有需求文档。",
+      "test_data": "同一共享控件在不同模块出现",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "DETAIL-TEST-02",
+      "requirement_id": "DETAIL-REQ-01",
+      "acceptance_id": "DETAIL-AC-02",
+      "method": "产品验收定义/后续UI场景追溯；详细系统质量用例与执行另属独立quality，未运行。",
+      "environment": "后续固定桌面/Android宿主与四语、隔离示例项目；当前只有需求文档。",
+      "test_data": "手机/桌面四语、输入草稿和长任务",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "DETAIL-TEST-03",
+      "requirement_id": "DETAIL-REQ-02",
+      "acceptance_id": "DETAIL-AC-03",
+      "method": "产品验收定义/后续UI场景追溯；详细系统质量用例与执行另属独立quality，未运行。",
+      "environment": "后续固定桌面/Android宿主与四语、隔离示例项目；当前只有需求文档。",
+      "test_data": "场景/资源/物理/动画/音频/UI/试玩任务",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "DETAIL-TEST-04",
+      "requirement_id": "DETAIL-REQ-02",
+      "acceptance_id": "DETAIL-AC-04",
+      "method": "产品验收定义/后续UI场景追溯；详细系统质量用例与执行另属独立quality，未运行。",
+      "environment": "后续固定桌面/Android宿主与四语、隔离示例项目；当前只有需求文档。",
+      "test_data": "资源依赖/版本/许可、预制体覆盖及运行隔离",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "DETAIL-TEST-05",
+      "requirement_id": "DETAIL-REQ-03",
+      "acceptance_id": "DETAIL-AC-05",
+      "method": "产品验收定义/后续UI场景追溯；详细系统质量用例与执行另属独立quality，未运行。",
+      "environment": "后续固定桌面/Android宿主与四语、隔离示例项目；当前只有需求文档。",
+      "test_data": "地图/关卡/数值/RPG/SLG/类型专属规则",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "DETAIL-TEST-06",
+      "requirement_id": "DETAIL-REQ-03",
+      "acceptance_id": "DETAIL-AC-06",
+      "method": "产品验收定义/后续UI场景追溯；详细系统质量用例与执行另属独立quality，未运行。",
+      "environment": "后续固定桌面/Android宿主与四语、隔离示例项目；当前只有需求文档。",
+      "test_data": "24家族/混合玩法及各自异常",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "DETAIL-TEST-07",
+      "requirement_id": "DETAIL-REQ-04",
+      "acceptance_id": "DETAIL-AC-07",
+      "method": "产品验收定义/后续UI场景追溯；详细系统质量用例与执行另属独立quality，未运行。",
+      "environment": "后续固定桌面/Android宿主与四语、隔离示例项目；当前只有需求文档。",
+      "test_data": "工作流/扩展/API/LAN/迁移/发布",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "DETAIL-TEST-08",
+      "requirement_id": "DETAIL-REQ-04",
+      "acceptance_id": "DETAIL-AC-08",
+      "method": "产品验收定义/后续UI场景追溯；详细系统质量用例与执行另属独立quality，未运行。",
+      "environment": "后续固定桌面/Android宿主与四语、隔离示例项目；当前只有需求文档。",
+      "test_data": "H5/APK/微信/抖音及后续云网未来扩展",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "DETAIL-TEST-09",
+      "requirement_id": "DETAIL-REQ-05",
+      "acceptance_id": "DETAIL-AC-09",
+      "method": "产品验收定义/后续UI场景追溯；详细系统质量用例与执行另属独立quality，未运行。",
+      "environment": "后续固定桌面/Android宿主与四语、隔离示例项目；当前只有需求文档。",
+      "test_data": "现有对话88原子状态和本轮控件选择器",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "DETAIL-TEST-10",
+      "requirement_id": "DETAIL-REQ-05",
+      "acceptance_id": "DETAIL-AC-10",
+      "method": "产品验收定义/后续UI场景追溯；详细系统质量用例与执行另属独立quality，未运行。",
+      "environment": "后续固定桌面/Android宿主与四语、隔离示例项目；当前只有需求文档。",
+      "test_data": "会话分支/输入附件/模型MCP与Skill作用域",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "DETAIL-TEST-11",
+      "requirement_id": "DETAIL-REQ-06",
+      "acceptance_id": "DETAIL-AC-11",
+      "method": "产品验收定义/后续UI场景追溯；详细系统质量用例与执行另属独立quality，未运行。",
+      "environment": "后续固定桌面/Android宿主与四语、隔离示例项目；当前只有需求文档。",
+      "test_data": "原80分组/67缺口/完整REQ与新细节目录",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "DETAIL-TEST-12",
+      "requirement_id": "DETAIL-REQ-06",
+      "acceptance_id": "DETAIL-AC-12",
+      "method": "产品验收定义/后续UI场景追溯；详细系统质量用例与执行另属独立quality，未运行。",
+      "environment": "后续固定桌面/Android宿主与四语、隔离示例项目；当前只有需求文档。",
+      "test_data": "23用户任务路径与示例语义",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    }
+  ],
+  "verification": {
+    "accessibility": {
+      "applicable": true,
+      "approved_by": "",
+      "build_id": "",
+      "environment": "",
+      "evidence_id": "",
+      "reason": "只交付UI细节需求，画板/实现/设备/测试尚未执行。",
+      "result": "not_run",
+      "reviewer": ""
+    },
+    "device": {
+      "applicable": true,
+      "approved_by": "",
+      "build_id": "",
+      "environment": "",
+      "evidence_id": "",
+      "reason": "只交付UI细节需求，画板/实现/设备/测试尚未执行。",
+      "result": "not_run",
+      "reviewer": ""
+    },
+    "functional": {
+      "applicable": true,
+      "approved_by": "",
+      "build_id": "",
+      "environment": "",
+      "evidence_id": "",
+      "reason": "只交付UI细节需求，画板/实现/设备/测试尚未执行。",
+      "result": "not_run",
+      "reviewer": ""
+    },
+    "interaction": {
+      "applicable": true,
+      "approved_by": "",
+      "build_id": "",
+      "environment": "",
+      "evidence_id": "",
+      "reason": "只交付UI细节需求，画板/实现/设备/测试尚未执行。",
+      "result": "not_run",
+      "reviewer": ""
+    },
+    "performance": {
+      "applicable": true,
+      "approved_by": "",
+      "build_id": "",
+      "environment": "",
+      "evidence_id": "",
+      "reason": "只交付UI细节需求，画板/实现/设备/测试尚未执行。",
+      "result": "not_run",
+      "reviewer": ""
+    },
+    "user_task": {
+      "applicable": true,
+      "approved_by": "",
+      "build_id": "",
+      "environment": "",
+      "evidence_id": "",
+      "reason": "只交付UI细节需求，画板/实现/设备/测试尚未执行。",
+      "result": "not_run",
+      "reviewer": ""
+    }
+  },
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "documentation_status": "prepared_pending_document_checks_and_real_reviews"
+}

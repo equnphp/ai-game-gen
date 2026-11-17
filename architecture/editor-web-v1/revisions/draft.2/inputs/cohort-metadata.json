@@ -1,0 +1,289 @@
+{
+  "version": "editor-web-v1-draft.2",
+  "date": "2026-11-17",
+  "sources": [
+    {
+      "name": "tauri-api",
+      "url": "https://registry.npmjs.org/@tauri-apps%2fapi/2.12.5",
+      "status": "metadata_only",
+      "version": "2.12.5",
+      "engines": {},
+      "peerDependencies": {},
+      "peerDependenciesMeta": {},
+      "dependencies": {},
+      "license": "Apache-2.0 OR MIT",
+      "dist": {
+        "integrity": "sha512-G9QIMt5fzED+aS4QhVK3w1HWLKpLIwH/MnpCr9z1ugGEHnS2ORmqrLkc0uALOjRK4qXJy+4Yiw8LDl/KicC1Hg==",
+        "shasum": "e7484e38aede505c74ec258b10b703262dcda787"
+      }
+    },
+    {
+      "name": "tauri-cli",
+      "url": "https://registry.npmjs.org/@tauri-apps%2fcli/2.12.5",
+      "status": "metadata_only",
+      "version": "2.12.5",
+      "engines": {
+        "node": ">= 10"
+      },
+      "peerDependencies": {},
+      "peerDependenciesMeta": {},
+      "dependencies": {},
+      "license": "Apache-2.0 OR MIT",
+      "dist": {
+        "integrity": "sha512-Dm8s/4aiE52HsBh+Gz3uSrh+fEykRICA1VoAnQA80IqHoTRncPg+q4rGvuhmyNsHUPg3QrPjUrTUSfWmXLVVEw==",
+        "shasum": "6f18e78a5ac54b4cb97f5703178e0955003e9a30"
+      }
+    },
+    {
+      "name": "react",
+      "url": "https://registry.npmjs.org/react/19.3.1",
+      "status": "metadata_only",
+      "version": "19.3.1",
+      "engines": {
+        "node": ">=0.10.0"
+      },
+      "peerDependencies": {},
+      "peerDependenciesMeta": {},
+      "dependencies": {},
+      "license": "MIT",
+      "dist": {
+        "integrity": "sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw==",
+        "shasum": "26e9523fc36ea06be5050ebb780249a133260ad7"
+      }
+    },
+    {
+      "name": "react-dom",
+      "url": "https://registry.npmjs.org/react-dom/19.3.1",
+      "status": "metadata_only",
+      "version": "19.3.1",
+      "engines": {},
+      "peerDependencies": {
+        "react": "^19.3.1"
+      },
+      "peerDependenciesMeta": {},
+      "dependencies": {
+        "scheduler": "^0.28.0"
+      },
+      "license": "MIT",
+      "dist": {
+        "integrity": "sha512-Y0bARz53lhEC1NMCASs0/j+faB/zqt3R8hpvg1e8+61ZVJ4UL0UdC4cBbXfZMcIuhrfgeILTLe+ZeBCavQPtKQ==",
+        "shasum": "b384c53cfcbe9c2a5d09d863b98455de9d68afe2"
+      }
+    },
+    {
+      "name": "typescript",
+      "url": "https://registry.npmjs.org/typescript/7.0.2",
+      "status": "metadata_only",
+      "version": "7.0.2",
+      "engines": {
+        "node": ">=16.20.0"
+      },
+      "peerDependencies": {},
+      "peerDependenciesMeta": {},
+      "dependencies": {
+        "@typescript/typescript-aix-ppc64": "7.0.2",
+        "@typescript/typescript-linux-arm": "7.0.2",
+        "@typescript/typescript-linux-x64": "7.0.2",
+        "@typescript/typescript-sunos-x64": "7.0.2",
+        "@typescript/typescript-win32-x64": "7.0.2",
+        "@typescript/typescript-darwin-x64": "7.0.2",
+        "@typescript/typescript-netbsd-x64": "7.0.2",
+        "@typescript/typescript-freebsd-x64": "7.0.2",
+        "@typescript/typescript-linux-arm64": "7.0.2",
+        "@typescript/typescript-linux-ppc64": "7.0.2",
+        "@typescript/typescript-linux-s390x": "7.0.2",
+        "@typescript/typescript-openbsd-x64": "7.0.2",
+        "@typescript/typescript-win32-arm64": "7.0.2",
+        "@typescript/typescript-darwin-arm64": "7.0.2",
+        "@typescript/typescript-netbsd-arm64": "7.0.2",
+        "@typescript/typescript-freebsd-arm64": "7.0.2",
+        "@typescript/typescript-linux-loong64": "7.0.2",
+        "@typescript/typescript-linux-riscv64": "7.0.2",
+        "@typescript/typescript-openbsd-arm64": "7.0.2",
+        "@typescript/typescript-linux-mips64el": "7.0.2"
+      },
+      "license": "Apache-2.0",
+      "dist": {
+        "integrity": "sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==",
+        "shasum": "9ec773d7954a8c182c17cc5bbd575aa28bc51582"
+      }
+    },
+    {
+      "name": "vite",
+      "url": "https://registry.npmjs.org/vite/8.3.8",
+      "status": "metadata_only",
+      "version": "8.3.8",
+      "engines": {
+        "node": "^20.19.0 || >=22.12.0"
+      },
+      "peerDependencies": {
+        "tsx": "^4.8.1",
+        "jiti": ">=1.21.0",
+        "less": "^4.0.0",
+        "sass": "^1.70.0",
+        "yaml": "^2.4.2",
+        "stylus": ">=0.54.8",
+        "terser": "^5.16.0",
+        "esbuild": "^0.27.0 || ^0.28.0",
+        "sugarss": "^5.0.0",
+        "@types/node": "^20.19.0 || >=22.12.0",
+        "sass-embedded": "^1.70.0",
+        "@vitejs/devtools": "^0.7.1 || ^0.8.0"
+      },
+      "peerDependenciesMeta": {
+        "tsx": {
+          "optional": true
+        },
+        "jiti": {
+          "optional": true
+        },
+        "less": {
+          "optional": true
+        },
+        "sass": {
+          "optional": true
+        },
+        "yaml": {
+          "optional": true
+        },
+        "stylus": {
+          "optional": true
+        },
+        "terser": {
+          "optional": true
+        },
+        "esbuild": {
+          "optional": true
+        },
+        "sugarss": {
+          "optional": true
+        },
+        "@types/node": {
+          "optional": true
+        },
+        "sass-embedded": {
+          "optional": true
+        },
+        "@vitejs/devtools": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "postcss": "^8.5.32",
+        "rolldown": "~1.2.18",
+        "picomatch": "^4.0.7",
+        "tinyglobby": "^0.2.17",
+        "lightningcss": "^1.33.0"
+      },
+      "license": "MIT",
+      "dist": {
+        "integrity": "sha512-LzOn3h9rG/0vhLdXrV4yJ4QFA9eEoqCl+Yx+kGJd7aB9w6nfNgVHKSYwLPZUHrz4ZGa+t+kXjV9itvcHDLQouA==",
+        "shasum": "ad713bf2e46c241f344b5e50401297b77a08621d"
+      }
+    },
+    {
+      "name": "playwright",
+      "url": "https://registry.npmjs.org/@playwright%2ftest/1.65.1",
+      "status": "metadata_only",
+      "version": "1.65.1",
+      "engines": {
+        "node": ">=20"
+      },
+      "peerDependencies": {},
+      "peerDependenciesMeta": {},
+      "dependencies": {
+        "playwright": "1.65.1"
+      },
+      "license": "Apache-2.0",
+      "dist": {
+        "integrity": "sha512-y+NCIRm2LvY4slUVWvGh1nujJ8RF/hEisIsq2mtUPgdQC4L701bq5hZGMhrpeXjACvwvO9tj5dJqhvM6TP9lbw==",
+        "shasum": "822b1ee23f210bde543297d31993e912be8a3bbc"
+      }
+    },
+    {
+      "name": "plugin-react",
+      "url": "https://registry.npmjs.org/@vitejs%2fplugin-react/latest",
+      "status": "metadata_only",
+      "version": "6.3.0",
+      "engines": {
+        "node": "^20.19.0 || >=22.12.0"
+      },
+      "peerDependencies": {
+        "vite": "^8.0.0",
+        "oxc-transform-react": ">=0.152.0 <0.157.0",
+        "@rolldown/plugin-babel": "^0.1.7 || ^0.2.0 || ^0.3.0",
+        "babel-plugin-react-compiler": "^1.0.0"
+      },
+      "peerDependenciesMeta": {
+        "oxc-transform-react": {
+          "optional": true
+        },
+        "@rolldown/plugin-babel": {
+          "optional": true
+        },
+        "babel-plugin-react-compiler": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rolldown/pluginutils": "^1.0.1"
+      },
+      "license": "MIT",
+      "dist": {
+        "integrity": "sha512-H9E955aVvD2F4zNHCw4eIZbIfF6xKldlh7MNu+hSU7xwQzh65lI/N+CJWqmfhi0PEjDXIt/H7T7J/4wU63KJiw==",
+        "shasum": "28b3ec6e786601a362fbfdf8b12725931b619669"
+      }
+    },
+    {
+      "name": "tauri-crate",
+      "url": "https://crates.io/api/v1/crates/tauri/2.12.5",
+      "status": "unavailable",
+      "error": "Error: tauri-crate HTTP403"
+    },
+    {
+      "name": "node-releases",
+      "url": "https://nodejs.org/dist/index.json",
+      "status": "metadata_only",
+      "selected": {
+        "version": "v24.22.3",
+        "date": "2026-11-10",
+        "files": [
+          "aix-ppc64",
+          "headers",
+          "linux-arm64",
+          "linux-ppc64le",
+          "linux-s390x",
+          "linux-x64",
+          "linux-x64-musl",
+          "osx-arm64-tar",
+          "osx-x64-pkg",
+          "osx-x64-tar",
+          "src",
+          "win-arm64-7z",
+          "win-arm64-zip",
+          "win-x64-7z",
+          "win-x64-exe",
+          "win-x64-msi",
+          "win-x64-zip"
+        ],
+        "npm": "11.19.1",
+        "v8": "13.6.233.17",
+        "uv": "1.52.1",
+        "zlib": "1.3.2.1-motley",
+        "openssl": "3.5.9",
+        "modules": "137",
+        "lts": "Krypton",
+        "security": true
+      },
+      "source_sha256": "cb36ee534b08ef30f63c0c8e1bff66ec143fb2ceedb26b331b58309165a4451d"
+    },
+    {
+      "name": "rust-stable",
+      "url": "https://static.rust-lang.org/dist/channel-rust-stable.toml",
+      "status": "metadata_only",
+      "rustVersion": "1.100.0 (0ef1bc386 2026-11-09)",
+      "source_sha256": "3051e859570f64a8c5acb9d09e87425db52c7d97287c67e8f6d57d7d34ef9258"
+    }
+  ],
+  "meaning": "仅官方源元数据，未安装/构建/测试；不是全部依赖图锁"
+}

@@ -1,0 +1,313 @@
+{
+  "version": "editor-increment-source-review-20261117-draft.1",
+  "collected_at": "2026-11-17T11:14:28.655Z",
+  "rust": [
+    {
+      "name": "serde",
+      "requested": "1.0.228",
+      "url": "https://crates.io/api/v1/crates/serde/1.0.228",
+      "version": "1.0.228",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.56",
+      "yanked": false,
+      "checksum": "9a8e94ea7f378bd32cbbd37198a4a91436180c5bb472411e48b5ec2e2124ae9e",
+      "features": {
+        "alloc": [
+          "serde_core/alloc"
+        ],
+        "default": [
+          "std"
+        ],
+        "derive": [
+          "serde_derive"
+        ],
+        "rc": [
+          "serde_core/rc"
+        ],
+        "std": [
+          "serde_core/std"
+        ],
+        "unstable": [
+          "serde_core/unstable"
+        ]
+      },
+      "created_at": "2025-09-27T16:51:35.265429Z"
+    },
+    {
+      "name": "serde_json",
+      "requested": "1.0.145",
+      "url": "https://crates.io/api/v1/crates/serde_json/1.0.145",
+      "version": "1.0.145",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.61",
+      "yanked": false,
+      "checksum": "402a6f66d8c709116cf22f558eab210f5a50187f702eb4d7e5ef38d9a7f1c79c",
+      "features": {
+        "alloc": [
+          "serde_core/alloc"
+        ],
+        "arbitrary_precision": [],
+        "default": [
+          "std"
+        ],
+        "float_roundtrip": [],
+        "preserve_order": [
+          "indexmap",
+          "std"
+        ],
+        "raw_value": [],
+        "std": [
+          "memchr/std",
+          "serde_core/std"
+        ],
+        "unbounded_depth": []
+      },
+      "created_at": "2025-09-14T15:56:02.673791Z"
+    },
+    {
+      "name": "base64",
+      "requested": "0.22.1",
+      "url": "https://crates.io/api/v1/crates/base64/0.22.1",
+      "version": "0.22.1",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.48.0",
+      "yanked": false,
+      "checksum": "72b3254f16251a8381aa12e40e3c4d2f0199f8c6508fbecb9d91f575e0fbb8c6",
+      "features": {
+        "alloc": [],
+        "default": [
+          "std"
+        ],
+        "std": [
+          "alloc"
+        ]
+      },
+      "created_at": "2024-04-30T23:16:40.343739Z"
+    },
+    {
+      "name": "uuid",
+      "requested": "1.18.1",
+      "url": "https://crates.io/api/v1/crates/uuid/1.18.1",
+      "version": "1.18.1",
+      "license": "Apache-2.0 OR MIT",
+      "rust_version": "1.63.0",
+      "yanked": false,
+      "checksum": "2f87b8aa10b915a06587d0dec516c282ff295b475d94abf425d62b57710070a2",
+      "features": {
+        "atomic": [
+          "dep:atomic"
+        ],
+        "borsh": [
+          "dep:borsh",
+          "dep:borsh-derive"
+        ],
+        "default": [
+          "std"
+        ],
+        "fast-rng": [
+          "rng",
+          "dep:rand"
+        ],
+        "js": [
+          "dep:wasm-bindgen",
+          "dep:js-sys"
+        ],
+        "macro-diagnostics": [
+          "dep:uuid-macro-internal"
+        ],
+        "md5": [
+          "dep:md-5"
+        ],
+        "rng": [
+          "dep:getrandom"
+        ],
+        "rng-getrandom": [
+          "rng",
+          "dep:getrandom",
+          "uuid-rng-internal-lib",
+          "uuid-rng-internal-lib/getrandom"
+        ],
+        "rng-rand": [
+          "rng",
+          "dep:rand",
+          "uuid-rng-internal-lib",
+          "uuid-rng-internal-lib/rand"
+        ],
+        "sha1": [
+          "dep:sha1_smol"
+        ],
+        "std": [
+          "wasm-bindgen?/std",
+          "js-sys?/std"
+        ],
+        "v1": [
+          "atomic"
+        ],
+        "v3": [
+          "md5"
+        ],
+        "v4": [
+          "rng"
+        ],
+        "v5": [
+          "sha1"
+        ],
+        "v6": [
+          "atomic"
+        ],
+        "v7": [
+          "rng"
+        ],
+        "v8": []
+      },
+      "created_at": "2025-09-02T06:11:41.210851Z"
+    },
+    {
+      "name": "sha2",
+      "requested": "0.10.9",
+      "url": "https://crates.io/api/v1/crates/sha2/0.10.9",
+      "version": "0.10.9",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": null,
+      "yanked": false,
+      "checksum": "a7507d819769d01a365ab707794a4084392c824f54a7a6a7862f8c3d0892b283",
+      "features": {
+        "asm": [
+          "sha2-asm"
+        ],
+        "asm-aarch64": [
+          "asm"
+        ],
+        "compress": [],
+        "default": [
+          "std"
+        ],
+        "force-soft": [],
+        "force-soft-compact": [],
+        "loongarch64_asm": [],
+        "oid": [
+          "digest/oid"
+        ],
+        "std": [
+          "digest/std"
+        ]
+      },
+      "created_at": "2025-04-30T14:38:09.894118Z"
+    },
+    {
+      "name": "fs2",
+      "requested": "0.4.3",
+      "url": "https://crates.io/api/v1/crates/fs2/0.4.3",
+      "version": "0.4.3",
+      "license": "MIT/Apache-2.0",
+      "rust_version": null,
+      "yanked": false,
+      "checksum": "9564fc758e15025b46aa6643b1b77d047d1a56a1aea6e01002ac0c7026876213",
+      "features": {},
+      "created_at": "2018-01-06T20:18:30.565584Z"
+    },
+    {
+      "name": "tauri-build",
+      "requested": "2.7.4",
+      "url": "https://crates.io/api/v1/crates/tauri-build/2.7.4",
+      "version": "2.7.4",
+      "license": "Apache-2.0 OR MIT",
+      "rust_version": "1.90",
+      "yanked": false,
+      "checksum": "adddb0e648752aaac5da9c3c3c6a68e1e87cab55e3b757b18a9441ef8c3ac614",
+      "features": {
+        "codegen": [
+          "tauri-codegen",
+          "quote"
+        ],
+        "config-json": [],
+        "config-json5": [
+          "tauri-utils/config-json5"
+        ],
+        "config-toml": [
+          "tauri-utils/config-toml"
+        ],
+        "default": [
+          "config-json"
+        ],
+        "isolation": [
+          "tauri-codegen/isolation",
+          "tauri-utils/isolation"
+        ]
+      },
+      "created_at": "2026-10-21T11:53:41.144795Z"
+    }
+  ],
+  "npm": [
+    {
+      "name": "@tauri-apps/api",
+      "version": "2.12.5",
+      "url": "https://registry.npmjs.org/%40tauri-apps%2Fapi/2.12.5",
+      "license": "Apache-2.0 OR MIT",
+      "engines": {},
+      "peerDependencies": {},
+      "dependencies": {},
+      "integrity": "sha512-G9QIMt5fzED+aS4QhVK3w1HWLKpLIwH/MnpCr9z1ugGEHnS2ORmqrLkc0uALOjRK4qXJy+4Yiw8LDl/KicC1Hg=="
+    },
+    {
+      "name": "@tauri-apps/cli",
+      "version": "2.12.5",
+      "url": "https://registry.npmjs.org/%40tauri-apps%2Fcli/2.12.5",
+      "license": "Apache-2.0 OR MIT",
+      "engines": {
+        "node": ">= 10"
+      },
+      "peerDependencies": {},
+      "dependencies": {},
+      "integrity": "sha512-Dm8s/4aiE52HsBh+Gz3uSrh+fEykRICA1VoAnQA80IqHoTRncPg+q4rGvuhmyNsHUPg3QrPjUrTUSfWmXLVVEw=="
+    },
+    {
+      "name": "@types/react",
+      "version": "19.2.2",
+      "url": "https://registry.npmjs.org/%40types%2Freact/19.2.2",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {},
+      "dependencies": {
+        "csstype": "^3.0.2"
+      },
+      "integrity": "sha512-6mDvHUFSjyT2B2yeNx2nUgMxh9LtOWvkhIU3uePn2I2oyNymUAX1NIsdgviM4CH+JSrp2D2hsMvJOkxY+0wNRA=="
+    },
+    {
+      "name": "@types/react-dom",
+      "version": "19.2.2",
+      "url": "https://registry.npmjs.org/%40types%2Freact-dom/19.2.2",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {
+        "@types/react": "^19.2.0"
+      },
+      "dependencies": {},
+      "integrity": "sha512-9KQPoO6mZCi7jcIStSnlOWn2nEF3mNmyr3rIAsGnAbQKYbRLyqmeSc39EVgtxXVia+LMT8j3knZLAZAh+xLmrw=="
+    }
+  ],
+  "tauri_tag_sources": [
+    {
+      "url": "https://raw.githubusercontent.com/tauri-apps/tauri/tauri-v2.12.5/crates/tauri/Cargo.toml",
+      "package": "tauri",
+      "version": "2.12.5"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tauri-apps/tauri/tauri-v2.12.5/crates/tauri-build/Cargo.toml",
+      "package": "tauri-build",
+      "version": "2.7.4"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tauri-apps/tauri/tauri-v2.12.5/Cargo.toml",
+      "workspaceRust": "1.90",
+      "license": "Apache-2.0 OR MIT"
+    }
+  ],
+  "full_graph_resolved": false,
+  "selected": false,
+  "verified": false,
+  "artifact_checksums_are_registry_reported_not_locally_measured": true,
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

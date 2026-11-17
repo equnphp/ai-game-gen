@@ -1,0 +1,86 @@
+{
+  "schema": "gamegen.architecture-document-integrity.v1",
+  "version": "editor-web-v1-draft.3",
+  "date": "2026-11-17",
+  "kind": "documentation_integrity_only_not_schema_validation_or_test",
+  "status": "references_and_hashes_recorded",
+  "baseline": "architecture/editor-web-v1/revisions/draft.3/baseline.json",
+  "baseline_file_sha256": "a9caaff1dfc8a8f1243eb821943828098dbfd11e0c7d2b29ed5bd03dce751f03",
+  "baseline_payload_sha256": "3ae0dca16b157a21ed1f25be005cc1920b8aa597aafe2a5c2480d079da844af8",
+  "immutable_artifact_count": 44,
+  "json_syntax": {
+    "files": 22,
+    "errors": [],
+    "note": "作者文档/冻结JSON可解析，不是业务或JSON Schema实例验证"
+  },
+  "ux_schema_internal_references": {
+    "occurrences": 110,
+    "unique": [
+      "#/$defs/Request",
+      "#/$defs/Response",
+      "#/$defs/StepId",
+      "#/$defs/StepStatus",
+      "#/$defs/UUID",
+      "#/$defs/GuideId",
+      "#/$defs/GuideVersion",
+      "#/$defs/U64",
+      "#/$defs/GuideStatus",
+      "#/$defs/StepRecord",
+      "#/$defs/Binding",
+      "#/$defs/HintId",
+      "#/$defs/PersistenceState",
+      "#/$defs/ProfileAvailability",
+      "#/$defs/Preferences",
+      "#/$defs/CourseRecord",
+      "#/$defs/ActiveRun",
+      "#/$defs/ProfileSnapshot",
+      "#/$defs/Method",
+      "#/$defs/Limits",
+      "#/$defs/MutationReceipt",
+      "#/$defs/GuideAction",
+      "#/$defs/Event",
+      "#/$defs/ux_describe_Params",
+      "#/$defs/ux_snapshot_Params",
+      "#/$defs/ux_preferences_update_Params",
+      "#/$defs/ux_guide_intent_Params",
+      "#/$defs/ux_preferences_reset_Params",
+      "#/$defs/ux_events_read_Params",
+      "#/$defs/ux_describe_Result",
+      "#/$defs/Error",
+      "#/$defs/ux_snapshot_Result",
+      "#/$defs/ux_preferences_update_Result",
+      "#/$defs/ux_guide_intent_Result",
+      "#/$defs/ux_preferences_reset_Result",
+      "#/$defs/ux_events_read_Result"
+    ],
+    "missing": []
+  },
+  "authored_markdown_links": {
+    "files": 6,
+    "links": 67,
+    "missing": [],
+    "excludes": "历史/产品原文镜像及root-entry快照按原目录保留"
+  },
+  "frozen_product_inputs": {
+    "files": 28,
+    "snapshot_matches": 28,
+    "source_files_unchanged_at_check": true
+  },
+  "parent_artifacts": {
+    "files": 21,
+    "unchanged": 21
+  },
+  "protected_M1_files": {
+    "files": 10,
+    "unchanged": 10
+  },
+  "root_entry_matches_snapshot": true,
+  "actual_tests_or_scans_run": false,
+  "schema_validator_run": false,
+  "typescript_compiler_run": false,
+  "architecture_root_tools_scope": "仅检查当前根M1，返回documents_incomplete；不代表本副目录获整版批准",
+  "ready_for_coding": false,
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

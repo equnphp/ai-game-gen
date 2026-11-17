@@ -1,0 +1,21 @@
+{
+  "kind": "design_sample_only",
+  "project": {
+    "name": "星岛冒险",
+    "revision": "r128",
+    "ancestor": "r122"
+  },
+  "devices": [
+    {
+      "name": "我的电脑",
+      "short_id": "A3F8"
+    },
+    {
+      "name": "我的 Android",
+      "short_id": "D7K2"
+    }
+  ],
+  "pair_code": "742916",
+  "mock_progress": 68,
+  "description": "所有数字用于视觉排版，不是实时状态或测量。"
+}

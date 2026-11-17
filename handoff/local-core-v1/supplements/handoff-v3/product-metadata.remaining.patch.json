@@ -1,0 +1,36 @@
+{
+  "version": "local-core-v1-handoff.3",
+  "status": "prepared_not_applied",
+  "supersedes": "product-metadata.patch.json (delivery registration already applied externally)",
+  "target": ".product-mcp.json",
+  "expected_base_sha256": "8587d94e8bec6dfc3466f8df46e4ab4136b7b07879da035dccbe9dabba4eea39",
+  "operations": [
+    {
+      "op": "add",
+      "path": "/risks/0/category",
+      "value": "compatibility_and_environment"
+    },
+    {
+      "op": "add",
+      "path": "/risks/1/category",
+      "value": "baseline_review_and_handoff"
+    },
+    {
+      "op": "add",
+      "path": "/dependencies/0/due",
+      "value": "LC-T01固定依赖接收完成、相应库接入之前"
+    },
+    {
+      "op": "add",
+      "path": "/dependencies/0/fallback",
+      "value": "按官方固定来源/校验规则重试或挂起对应依赖接入；不漂移到系统库/其他版本，不以先运行构建测试替代接收说明。"
+    },
+    {
+      "op": "add",
+      "path": "/dependencies/0/status",
+      "value": "open"
+    }
+  ],
+  "application_rule": "产品清单当前单写者核对R-LC-ENV/R-LC-REVIEW/DEP-LC-01和当前hash，保存旧版再写回；不改需求/验收，不添加虚假reviews。实际变更后再冻结及重绑阶段输入。",
+  "business_decision_needed": false
+}

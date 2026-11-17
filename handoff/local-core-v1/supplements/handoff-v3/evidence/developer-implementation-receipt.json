@@ -1,0 +1,47 @@
+{
+  "version": "local-core-v1-handoff.3",
+  "source_thread_id": "01a1e7eb-0314-7c02-99e0-ed591b58bd5f",
+  "evidence_kind": "developer_actual_writeback_message_and_local_byte_receipt",
+  "date": "2026-11-17",
+  "not_role_baseline_approval": true,
+  "implementation_status": "source_written_not_built",
+  "code_author_role": "engineering",
+  "deliverable": {
+    "id": "LC-IMPL-01",
+    "code_author_role": "engineering",
+    "paths": [
+      "native/"
+    ]
+  },
+  "coding_manifest": {
+    "path": ".coding-mcp.json",
+    "sha256": "fd1f3f3f91e9d063363fb584f73fe4155522a38cd308bb66f9785abd75115fc9",
+    "version": "local-core-v1-implementation.1",
+    "test_case_count": 15,
+    "all_not_run": true,
+    "build_id": ""
+  },
+  "sqlite_archive": {
+    "path": "native/third_party/sqlite-amalgamation-3540100.zip",
+    "bytes": 2990966,
+    "sha256": "0a9c8e34352dad46006aa82836d5383bff9dc6bc9ce5a60553c05aa30e6ad1f9",
+    "sha3_256": "92281c86e2957f9b9305890f9ac04204caa7b677cc868dc326d942689df28e30",
+    "matches_official_sha3_256": true
+  },
+  "developer_reported_modules": [
+    "project",
+    "transactions",
+    "history",
+    "snapshots",
+    "resources",
+    "maintenance",
+    "tasks",
+    "C ABI",
+    "driver",
+    "thin JNI"
+  ],
+  "module_implementation_review": "not_performed_by_architecture",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "file": "overview-desktop.png",
+    "title": "GameGen · 新增完整操作面",
+    "subtitle": "桌面精选 / 骨骼、物理、粒子、混音、玩法、导入和协作",
+    "cols": 3,
+    "cellW": 480,
+    "cellH": 348,
+    "ids": [
+      "desktop-SUR-ST-043-normal",
+      "desktop-SUR-ST-034-normal",
+      "desktop-SUR-ST-037-normal",
+      "desktop-SUR-ST-048-normal",
+      "desktop-SUR-GM-003-normal",
+      "desktop-SUR-GM-011-normal",
+      "desktop-SUR-GM-056-normal",
+      "desktop-SUR-GM-058-normal",
+      "desktop-SUR-WN-006-normal",
+      "desktop-SUR-WN-015-normal",
+      "desktop-SUR-WN-039-normal",
+      "desktop-SUR-WN-053-normal"
+    ]
+  },
+  {
+    "file": "overview-mobile.png",
+    "title": "GameGen · 手机创作与新手引导",
+    "subtitle": "可跳过引导 / 上下文定位 / 字段抽屉 / 对话键盘避让",
+    "cols": 4,
+    "cellW": 286,
+    "cellH": 658,
+    "ids": [
+      "android-GUIDE-VIEW-01-normal",
+      "android-GUIDE-VIEW-03-normal",
+      "android-CHAT-VIEW-06",
+      "android-CHAT-VIEW-26",
+      "android-GUIDE-VIEW-02-normal",
+      "android-GUIDE-VIEW-04-normal",
+      "android-SUR-WN-039-normal",
+      "android-SUR-ST-043-normal"
+    ]
+  },
+  {
+    "file": "overview-chat.png",
+    "title": "GameGen · 对话中的计划、审批与恢复",
+    "subtitle": "28 个组合视图 + 88 个原子状态 / 图中示例全部为设计夹具",
+    "cols": 3,
+    "cellW": 480,
+    "cellH": 348,
+    "ids": [
+      "desktop-CHAT-VIEW-01",
+      "desktop-CHAT-VIEW-04",
+      "desktop-CHAT-VIEW-06",
+      "desktop-CHAT-VIEW-08",
+      "desktop-CHAT-VIEW-14",
+      "desktop-CHAT-VIEW-18"
+    ]
+  }
+]

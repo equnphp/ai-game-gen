@@ -1,0 +1,27 @@
+{
+  "report_type": "documentation_integrity_check_not_quality_or_architecture_gate",
+  "date": "2026-11-14",
+  "version": "arch-v3.6-draft.2",
+  "baseline_sha256": "5c20f5bcf54478235174cb441f7e805c5afe81b9954e044b2902403d97df4923",
+  "checks": {
+    "local_links": {
+      "checked": 16,
+      "failed": []
+    },
+    "recorded_file_hashes": {
+      "checked": 22,
+      "failed": []
+    },
+    "previous_architecture_artifact_hashes": {
+      "checked": 5,
+      "failed": []
+    },
+    "baseline_hash_matches": true
+  },
+  "limitations": [
+    "Official license/feature research is not a full dependency audit or legal approval.",
+    "No third-party project scripts/builds or target integration tests were run.",
+    "No architecture_mcp/workflow_mcp approval or gate result is claimed."
+  ],
+  "passed": true
+}

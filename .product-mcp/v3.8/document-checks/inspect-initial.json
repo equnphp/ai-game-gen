@@ -1,0 +1,89 @@
+{
+  "acceptance_count": 0,
+  "acceptance_with_test_count": 0,
+  "baseline_sha256": "f2abd347c6365ed68351a5df19ed8576a1e9689655a5a2e3333df68e5843026c",
+  "complete": false,
+  "downstream": {},
+  "in_scope_requirements": 0,
+  "issues": [
+    {
+      "code": "unique_id",
+      "message": "编号缺失或重复: ",
+      "path": "$.assumptions[].id"
+    },
+    {
+      "code": "required_text",
+      "message": "必须填写非空文字",
+      "path": "$.assumptions[].statement"
+    },
+    {
+      "code": "required_text",
+      "message": "必须填写非空文字",
+      "path": "$.assumptions[].validation"
+    },
+    {
+      "code": "required_text",
+      "message": "必须填写非空文字",
+      "path": "$.assumptions[].owner"
+    },
+    {
+      "code": "required_text",
+      "message": "必须填写非空文字",
+      "path": "$.assumptions[].due"
+    },
+    {
+      "code": "assumption_severity",
+      "message": "假设风险须为 high/medium/low",
+      "path": "$.assumptions[]"
+    },
+    {
+      "code": "assumption_status",
+      "message": "状态须为 open/validated/invalidated",
+      "path": "$.assumptions[]"
+    },
+    {
+      "code": "unique_id",
+      "message": "编号缺失或重复: ",
+      "path": "$.assumptions[].id"
+    },
+    {
+      "code": "required_text",
+      "message": "必须填写非空文字",
+      "path": "$.assumptions[].statement"
+    },
+    {
+      "code": "required_text",
+      "message": "必须填写非空文字",
+      "path": "$.assumptions[].validation"
+    },
+    {
+      "code": "required_text",
+      "message": "必须填写非空文字",
+      "path": "$.assumptions[].owner"
+    },
+    {
+      "code": "required_text",
+      "message": "必须填写非空文字",
+      "path": "$.assumptions[].due"
+    },
+    {
+      "code": "assumption_severity",
+      "message": "假设风险须为 high/medium/low",
+      "path": "$.assumptions[]"
+    },
+    {
+      "code": "assumption_status",
+      "message": "状态须为 open/validated/invalidated",
+      "path": "$.assumptions[]"
+    }
+  ],
+  "limits": [
+    "只核验声明范围、文件摘要与记录关联，不能证明内容真实或需求完整",
+    "审批人身份、用户研究质量、业务价值及运行效果需要人员确认",
+    "本工具不会执行构建、研究任务、交互或发布操作"
+  ],
+  "passed": false,
+  "product_version": "v3.8-core-editor-extension-draft.1",
+  "root": "I:\\code\\GameGen",
+  "stage": "discovery"
+}

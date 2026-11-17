@@ -1,0 +1,1136 @@
+{
+  "schema": "gamegen-architecture-baseline/v1",
+  "schema_note": "自有文档证据索引；不是architecture_mcp或workflow_mcp清单/门禁；不认证人员身份或批准。",
+  "date": "2026-11-14",
+  "timezone": "Asia/Shanghai",
+  "status": "architecture_proposal_pending_review",
+  "baseline_sha256": "76f9209876c6a724ed9f16f22809159bc6ee251030f8ce14761f6aaa492ee3c3",
+  "hash_algorithm": "SHA-256 over UTF-8 JSON.stringify of recursively key-sorted baseline_payload; array order preserved; no trailing newline",
+  "baseline_payload": {
+    "version": "arch-v3.7-draft.1",
+    "inputs": [
+      {
+        "path": "PRODUCT.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/PRODUCT.md",
+        "sha256": "f5e92ec5b460424149c13f4d41cf30e3cb92c1fb9967c09d604157ed8b04bd3e",
+        "size_bytes": 2287
+      },
+      {
+        "path": "PRODUCT-REQUIREMENTS-V3.5.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/PRODUCT-REQUIREMENTS-V3.5.md",
+        "sha256": "fc31b95d692b0284527ccd40a9c021000ac4f1ce931bd68314f953678b060d75",
+        "size_bytes": 36996
+      },
+      {
+        "path": "PRODUCT-DECISIONS-V3.5.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/PRODUCT-DECISIONS-V3.5.md",
+        "sha256": "7797d1441b70920234de3bcbf15acf2c30ba4469f418ef7eedcc54787386f8fe",
+        "size_bytes": 5204
+      },
+      {
+        "path": "STUDIO-ENGINE-REQUIREMENTS-V3.5.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/STUDIO-ENGINE-REQUIREMENTS-V3.5.md",
+        "sha256": "e3ce58ebd69de68585f7c03b6b818cac2449467f6f5d264ddda0b02c434647d7",
+        "size_bytes": 26528
+      },
+      {
+        "path": "WORKFLOW-NETWORK-REQUIREMENTS-V3.5.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/WORKFLOW-NETWORK-REQUIREMENTS-V3.5.md",
+        "sha256": "5b24c0bf22244d86e73b432e0c2ec42530fdac761e2abe6a0677e6565b563169",
+        "size_bytes": 25992
+      },
+      {
+        "path": "GENRE-MODULE-REQUIREMENTS-V3.5.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/GENRE-MODULE-REQUIREMENTS-V3.5.md",
+        "sha256": "7fcbdf7b9b939d5d5bd2997280c3f02211dcaeb9e5e9423eeca93c1db22caf86",
+        "size_bytes": 10155
+      },
+      {
+        "path": "MAP-LEVEL-REQUIREMENTS-V3.5.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/MAP-LEVEL-REQUIREMENTS-V3.5.md",
+        "sha256": "0c39f3654ddfd3d60c59b5ac152a66d4e9a9e5300b074161f6d5a588b62df0b9",
+        "size_bytes": 30671
+      },
+      {
+        "path": "ASSISTANT-EXTENSIONS-REQUIREMENTS-V3.6.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/ASSISTANT-EXTENSIONS-REQUIREMENTS-V3.6.md",
+        "sha256": "5d75f04a37002e8382711e1d224744d954e80109b07a78b504990cd8f9a0fa21",
+        "size_bytes": 13855
+      },
+      {
+        "path": "REQUIREMENT-STATE-INVENTORY-V3.5.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/REQUIREMENT-STATE-INVENTORY-V3.5.md",
+        "sha256": "3c09b20dc28b2e708c0853f7394672bc0d9bd64b44c4e1ab704ea241e53240ec",
+        "size_bytes": 3441
+      },
+      {
+        "path": "ARCHITECTURE-V3.3.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/ARCHITECTURE-V3.3.md",
+        "sha256": "09e0daedf293ac4e5787ff557b2133aa74f072863c22e97abd1af7379bfa2a73",
+        "size_bytes": 15209
+      },
+      {
+        "path": "WORKFLOW-ARCHITECTURE.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/WORKFLOW-ARCHITECTURE.md",
+        "sha256": "24b2b0a0402d0618d2814e5bb200a67b8284b712820a5f239f8d74ac321ad1f0",
+        "size_bytes": 11511
+      },
+      {
+        "path": "README.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/README.md",
+        "sha256": "ad06894a17469b2f29d58e2306a503818d4dcc24f25d2853e19a1a88f09bb894",
+        "size_bytes": 4596
+      },
+      {
+        "path": ".product-mcp.json",
+        "snapshot_path": "architecture/v3.7/inputs/project/.product-mcp.json",
+        "sha256": "7a215b47873610cf82c99acc5cd21520248c8c7f05e595aafb85f630c3d7e064",
+        "size_bytes": 87694
+      },
+      {
+        "path": ".design-mcp.json",
+        "snapshot_path": "architecture/v3.7/inputs/project/.design-mcp.json",
+        "sha256": "0bcfc85b24db953b088a557d3b20464ffc88618fe4f4786c41d7c8ac6f7b5b14",
+        "size_bytes": 593487
+      },
+      {
+        "path": "PROJECT-IMPORT-REQUIREMENTS-V3.7.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/PROJECT-IMPORT-REQUIREMENTS-V3.7.md",
+        "sha256": "480e898528e984bee97a81ef6a4838c56c5b9c70465713b81b1d93e17a6d9d9f",
+        "size_bytes": 15657
+      },
+      {
+        "path": "LOCAL-LAN-SYNC-REQUIREMENTS-V3.7.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/LOCAL-LAN-SYNC-REQUIREMENTS-V3.7.md",
+        "sha256": "7628e4f6251cdbf144c5bacbed04b396a4dab215dbcfef815bfcf20cd8148b35",
+        "size_bytes": 17057
+      },
+      {
+        "path": "HANDOFF-IMPORT-SYNC-V3.7.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/HANDOFF-IMPORT-SYNC-V3.7.md",
+        "sha256": "9740e4f6f77df52bd61527ded103809f190ebaa9ffb81415fa5abc545ea88e90",
+        "size_bytes": 9914
+      },
+      {
+        "path": "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md",
+        "sha256": "9cc242933c9b994aeef93394a32baf3b57f589329b1bb13c86de5677ffbc2f90",
+        "size_bytes": 19556
+      },
+      {
+        "path": "HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+        "sha256": "711cf8d9e5eda64569d18b9a7b55227f5336715d5ba6b90a1a2896a99a93b5a0",
+        "size_bytes": 12311
+      },
+      {
+        "path": ".product-mcp/v3.8/INPUT-BASELINES.json",
+        "snapshot_path": "architecture/v3.7/inputs/project/.product-mcp/v3.8/INPUT-BASELINES.json",
+        "sha256": "7ac3253eabf263de28838e0cbb2b1f3469dd60ce631ea5ae507bfe04c11e228f",
+        "size_bytes": 2695
+      },
+      {
+        "path": ".product-mcp/v3.8/SOURCE-DECISIONS.json",
+        "snapshot_path": "architecture/v3.7/inputs/project/.product-mcp/v3.8/SOURCE-DECISIONS.json",
+        "sha256": "ad3618a46004f20d5d9d1046b4b3d4a2ac29cd40cf92f3dc8932636362c88b0e",
+        "size_bytes": 2779
+      },
+      {
+        "path": ".product-mcp/v3.8/QUESTIONS.json",
+        "snapshot_path": "architecture/v3.7/inputs/project/.product-mcp/v3.8/QUESTIONS.json",
+        "sha256": "5b6b62304bdf5f332e5e1a7f110b36966dfc6ab0ec6d1c55a2f462d91a4121b0",
+        "size_bytes": 6817
+      },
+      {
+        "path": ".product-mcp/v3.8/inputs/.product-mcp.json",
+        "snapshot_path": "architecture/v3.7/inputs/project/.product-mcp/v3.8/inputs/.product-mcp.json",
+        "sha256": "083799507db9f3885cc9a89465204f2c4b5676cc91fd70bfd3a48165ed7b485f",
+        "size_bytes": 1047367
+      }
+    ],
+    "user_inputs": [
+      {
+        "path": "architecture/v3.7/inputs/USER-DECISIONS-20261114.md",
+        "version": "2026-11-14",
+        "sha256": "ff788cb72d7876d472c82b2b1af02e7fae509b96ba69a527f32bf7958fb07f13",
+        "size_bytes": 1523,
+        "source_path": "architecture/v3.6/inputs/USER-DECISIONS-20261114.md"
+      },
+      {
+        "path": "architecture/v3.7/inputs/USER-CONSTRAINTS-20261114-02.md",
+        "version": "2026-11-14-02",
+        "sha256": "567696384bb6d8121c1a29bae0cd9d133d6328971aecfe949812a1564a4223d8",
+        "size_bytes": 893,
+        "source_path": "architecture/v3.6/inputs/USER-CONSTRAINTS-20261114-02.md"
+      },
+      {
+        "path": "architecture/v3.7/inputs/USER-CONSTRAINTS-20261114-03.md",
+        "version": "2026-11-14-03",
+        "kind": "scope_and_target_confirmation",
+        "sha256": "99cb51c240eb9878f5a536f98b844bce65224b29d69062372483395fb4816c99",
+        "size_bytes": 1668,
+        "source_path": "architecture/v3.6/inputs/USER-CONSTRAINTS-20261114-03.md"
+      },
+      {
+        "path": "architecture/v3.7/inputs/USER-WORKFLOW-20261114-04.md",
+        "version": "2026-11-14-04",
+        "kind": "replacement_workflow_rules",
+        "sha256": "e8db0578bfcbe3aaaadeb8303b80deb7d27d0cfede5af47854e61c73e88fa236",
+        "size_bytes": 2196,
+        "source_path": "architecture/v3.6/inputs/USER-WORKFLOW-20261114-04.md"
+      },
+      {
+        "path": "architecture/v3.7/inputs/USER-DECISIONS-20261114-05.md",
+        "version": "2026-11-14-05",
+        "kind": "user_scope_confirmation",
+        "sha256": "5608a1fdd4ffc224c40212cb8693c023946a1f55c6c9b2dc6274291562cb3e9f",
+        "size_bytes": 2525
+      },
+      {
+        "path": "architecture/v3.7/inputs/PRODUCT-COORDINATION-20261114.md",
+        "version": "2026-11-14",
+        "kind": "actual_product_chat_coordination",
+        "sha256": "39985f0feffa5b9568408bb794ee5af3b3ade8326416d24e2a95fb72b7273e52",
+        "size_bytes": 2487
+      }
+    ],
+    "artifacts": [
+      {
+        "artifact_id": "architecture-index",
+        "path": "ARCHITECTURE.md",
+        "version": "arch-v3.7-draft.1",
+        "owner_role": "architecture",
+        "sha256": "529eab12c60de374985273f98c9f9d609e63b0dfb5c37e3216e578316fc5e8a8",
+        "size_bytes": 2462
+      },
+      {
+        "artifact_id": "architecture",
+        "path": "architecture/v3.7/ARCHITECTURE.md",
+        "version": "arch-v3.7-draft.1",
+        "owner_role": "architecture",
+        "sha256": "c2c98048c00f9a18cc95434c95eeec1d12aec8d201a0a95cb6b0287e3686b488",
+        "size_bytes": 32238
+      },
+      {
+        "artifact_id": "contracts",
+        "path": "architecture/v3.7/CONTRACTS.md",
+        "version": "arch-v3.7-draft.1",
+        "owner_role": "architecture",
+        "sha256": "42ec32152e86c8935d633f6f3b8a9651177f6ec78b8f8ce67d96ec8cd14aaa98",
+        "size_bytes": 20639
+      },
+      {
+        "artifact_id": "decisions-and-handoff",
+        "path": "architecture/v3.7/DECISIONS-AND-HANDOFF.md",
+        "version": "arch-v3.7-draft.1",
+        "owner_role": "architecture",
+        "sha256": "484b9e114003a655fd028c2f68438cb4cc4db4d729862367645c552253108bb6",
+        "size_bytes": 6978
+      },
+      {
+        "artifact_id": "delivery-plan",
+        "path": "architecture/v3.7/DELIVERY-PLAN.md",
+        "version": "arch-v3.7-draft.1",
+        "owner_role": "architecture",
+        "sha256": "79e177f2407738d01c563b79330a7a8948a9ba9ce0ac5785c99980ce1b2bbd89",
+        "size_bytes": 25072
+      },
+      {
+        "artifact_id": "feature-coverage",
+        "path": "architecture/v3.7/FEATURE-COVERAGE.md",
+        "version": "arch-v3.7-draft.1",
+        "owner_role": "architecture",
+        "sha256": "e908d49eba3bd9f52229de0345e3e184bab04f1fbecbd7d7f7b3bad2a03c9b9b",
+        "size_bytes": 14661
+      },
+      {
+        "artifact_id": "four-target-architecture",
+        "path": "architecture/v3.7/FOUR-TARGET-ARCHITECTURE.md",
+        "version": "arch-v3.7-draft.1",
+        "owner_role": "architecture",
+        "sha256": "c65f5f92ad63397135d0acab7043f74db7e9fddc6babca16e0f55d620b8612f8",
+        "size_bytes": 20695
+      },
+      {
+        "artifact_id": "import-and-local-sync",
+        "path": "architecture/v3.7/IMPORT-AND-LOCAL-SYNC.md",
+        "version": "arch-v3.7-draft.1",
+        "owner_role": "architecture",
+        "sha256": "b47357f9f417b968f526c798b03dc83e37ede905ce48d4da4c18cf3e54e38338",
+        "size_bytes": 16938
+      },
+      {
+        "artifact_id": "open-source-boundary",
+        "path": "architecture/v3.7/OPEN-SOURCE-BOUNDARY.md",
+        "version": "arch-v3.7-draft.1",
+        "owner_role": "architecture",
+        "sha256": "601341cfe5faf271af76b19a1a7a1bf8d9bc18fe24001a6169d2fca84c1fbb8c",
+        "size_bytes": 15154
+      },
+      {
+        "artifact_id": "project-export-extension",
+        "path": "architecture/v3.7/PROJECT-EXPORT-EXTENSION.md",
+        "version": "arch-v3.7-draft.1",
+        "owner_role": "architecture",
+        "sha256": "88d4700ee22d74f511f0e7398eaef6c4fc4204a7214dd149839a5d72a4818254",
+        "size_bytes": 7923
+      },
+      {
+        "artifact_id": "reuse-candidates",
+        "path": "architecture/v3.7/REUSE-CANDIDATES.md",
+        "version": "arch-v3.7-draft.1",
+        "owner_role": "architecture",
+        "sha256": "0b88831865dcaae803eced64acaf2268d15b39a8d97f5ea2e9f50d8e88e41c71",
+        "size_bytes": 12879
+      },
+      {
+        "artifact_id": "shared-core-and-clients",
+        "path": "architecture/v3.7/SHARED-CORE-AND-CLIENTS.md",
+        "version": "arch-v3.7-draft.1",
+        "owner_role": "architecture",
+        "sha256": "4f7fe2011c7c5eb735186e32a07a9c984cef828cc8d2d2b2b4ccc546eeb1fe0a",
+        "size_bytes": 14460
+      }
+    ],
+    "product_handoff": {
+      "version": "v3.8-core-editor-extension-draft.1",
+      "owner_chat": {
+        "thread_id": "01a1d3e8-579f-7a21-a371-354a0d5c5b88",
+        "host_id": "local",
+        "turn_id": "01a1d936-2237-7443-9116-a7f017212da2",
+        "status": "completed",
+        "approval_claim": false
+      },
+      "current_requirement_ids": [
+        "REQ-038",
+        "REQ-039",
+        "REQ-040",
+        "REQ-041",
+        "REQ-042"
+      ],
+      "current_acceptance_ids": [
+        "AC-058",
+        "AC-059",
+        "AC-060",
+        "AC-061",
+        "AC-062",
+        "AC-063",
+        "AC-064",
+        "AC-065",
+        "AC-066",
+        "AC-067",
+        "AC-068",
+        "AC-069",
+        "AC-070",
+        "AC-071",
+        "AC-072",
+        "AC-073",
+        "AC-074",
+        "AC-075",
+        "AC-076",
+        "AC-077",
+        "AC-078",
+        "AC-079",
+        "AC-080"
+      ],
+      "effective_requirement_ids": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003",
+        "REQ-004",
+        "REQ-005",
+        "REQ-006",
+        "REQ-007",
+        "REQ-008",
+        "REQ-009",
+        "REQ-010",
+        "REQ-011",
+        "REQ-012",
+        "REQ-013",
+        "REQ-014",
+        "REQ-015",
+        "REQ-016",
+        "REQ-017",
+        "REQ-018",
+        "REQ-019",
+        "REQ-020",
+        "REQ-021",
+        "REQ-022",
+        "REQ-023",
+        "REQ-024",
+        "REQ-025",
+        "REQ-026",
+        "REQ-027",
+        "REQ-028",
+        "REQ-029",
+        "REQ-030",
+        "REQ-031",
+        "REQ-032",
+        "REQ-033",
+        "REQ-034",
+        "REQ-035",
+        "REQ-036",
+        "REQ-037",
+        "REQ-038",
+        "REQ-039",
+        "REQ-040",
+        "REQ-041",
+        "REQ-042"
+      ],
+      "effective_acceptance_ids": [
+        "AC-001",
+        "AC-002",
+        "AC-003",
+        "AC-004",
+        "AC-005",
+        "AC-006",
+        "AC-007",
+        "AC-008",
+        "AC-009",
+        "AC-010",
+        "AC-011",
+        "AC-012",
+        "AC-013",
+        "AC-014",
+        "AC-015",
+        "AC-016",
+        "AC-017",
+        "AC-018",
+        "AC-019",
+        "AC-020",
+        "AC-021",
+        "AC-022",
+        "AC-023",
+        "AC-024",
+        "AC-025",
+        "AC-026",
+        "AC-027",
+        "AC-028",
+        "AC-029",
+        "AC-030",
+        "AC-031",
+        "AC-032",
+        "AC-033",
+        "AC-034",
+        "AC-035",
+        "AC-036",
+        "AC-037",
+        "AC-038",
+        "AC-039",
+        "AC-040",
+        "AC-041",
+        "AC-042",
+        "AC-043",
+        "AC-044",
+        "AC-045",
+        "AC-046",
+        "AC-047",
+        "AC-048",
+        "AC-049",
+        "AC-050",
+        "AC-051",
+        "AC-052",
+        "AC-053",
+        "AC-054",
+        "AC-055",
+        "AC-056",
+        "AC-057",
+        "AC-058",
+        "AC-059",
+        "AC-060",
+        "AC-061",
+        "AC-062",
+        "AC-063",
+        "AC-064",
+        "AC-065",
+        "AC-066",
+        "AC-067",
+        "AC-068",
+        "AC-069",
+        "AC-070",
+        "AC-071",
+        "AC-072",
+        "AC-073",
+        "AC-074",
+        "AC-075",
+        "AC-076",
+        "AC-077",
+        "AC-078",
+        "AC-079",
+        "AC-080"
+      ],
+      "effective_scope_counts": {
+        "inherited_requirements": 37,
+        "current_package_requirements": 5,
+        "effective_requirements": 42,
+        "inherited_acceptance": 57,
+        "current_package_acceptance": 23,
+        "effective_acceptance": 80,
+        "tool_check_scope": "当前包5/23；不宣称工具重新检查了全部继承基线。"
+      },
+      "current_handoff": {
+        "path": "HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+        "sha256": "711cf8d9e5eda64569d18b9a7b55227f5336715d5ba6b90a1a2896a99a93b5a0",
+        "size_bytes": 12311
+      },
+      "inherited_complete_manifest": {
+        "path": ".product-mcp/v3.8/inputs/.product-mcp.json",
+        "snapshot_path": "architecture/v3.7/inputs/project/.product-mcp/v3.8/inputs/.product-mcp.json",
+        "sha256": "083799507db9f3885cc9a89465204f2c4b5676cc91fd70bfd3a48165ed7b485f",
+        "size_bytes": 1047367
+      },
+      "note": "当前5/23加继承37/57合计42/80；根迭代清单缩小不表示删除历史需求；统计不是全部需求重新过工具门禁。"
+    },
+    "decisions": [
+      {
+        "id": "ADR-01",
+        "status": "carried_forward",
+        "decision": "SQLite事务权威、资源CAS与单项目存储所有者；客户端不直接写数据库"
+      },
+      {
+        "id": "ADR-02",
+        "status": "carried_forward",
+        "decision": "内部业务逻辑权威为类型化工作流/图；不引入任意脚本节点"
+      },
+      {
+        "id": "ADR-03",
+        "status": "carried_forward_proposed",
+        "decision": "自研C++20领域/运行核心，native/WASM保持语义，宿主桥独立"
+      },
+      {
+        "id": "ADR-04",
+        "status": "carried_forward_unverified",
+        "decision": "Windows/Android本机OpenCode与受限工具桥；不静默切云Agent"
+      },
+      {
+        "id": "ADR-05",
+        "status": "user_scope_confirmed",
+        "decision": "APK为WebView + C++编译WASM"
+      },
+      {
+        "id": "ADR-06",
+        "status": "carried_forward_proposed",
+        "decision": "模块化单体，必要后台任务与独立游戏权威进程；无微服务批准或新微服务"
+      },
+      {
+        "id": "ADR-07",
+        "status": "carried_forward_proposed",
+        "decision": "平台账本/outbox/幂等/对账处理重复回调和未知结果"
+      },
+      {
+        "id": "ADR-08",
+        "status": "scope_preserved",
+        "decision": "完整F01—F21、24玩法家族和既有专业功能保留；增量不等于删范围"
+      },
+      {
+        "id": "ADR-09",
+        "status": "license_text_pending",
+        "decision": "GPL方向；独立生成游戏允许闭源商用；GPL-3.0-only+运行/导出例外和接口MIT为方案建议，非已生效许可；私有服务独立且不得复制GPL实现"
+      },
+      {
+        "id": "ADR-10",
+        "status": "user_scope_confirmed_design_unverified",
+        "decision": "H5、WebView/WASM APK、微信小游戏、抖音小游戏四运行目标；Cocos仅参考，不集成其源码/运行时/SDK/官方适配器/模板/构建服务"
+      },
+      {
+        "id": "ADR-11",
+        "status": "user_scope_confirmed_design_proposed",
+        "decision": "共享C++创作领域+应用服务+Runtime+资源+Interchange+Sync+Policy；稳定C ABI和薄绑定；不同平台分别编译"
+      },
+      {
+        "id": "ADR-12",
+        "status": "proposed",
+        "decision": "Flutter移动表现层+Kotlin/Swift系统薄桥，保留Qt开源桌面候选；替代路线和视口/输入/许可风险待评审"
+      },
+      {
+        "id": "ADR-13",
+        "status": "current_requirement_design_proposed",
+        "decision": "当前Windows只接受Cocos Creator/LayaAir/Godot源工程，Reader独立实现/分代Profile，纯数据解析→MigrationIR→GameGen原生文档/工作流；重导入三方比较"
+      },
+      {
+        "id": "ADR-14",
+        "status": "current_requirement_design_proposed",
+        "decision": "Windows/Android仅LAN发现/配对/双向同步；各端完整副本、快照/CAS分块账本/领域三方合并/原子提交；无云中继/ADB/公网回落"
+      },
+      {
+        "id": "ADR-15",
+        "status": "current_requirement_design_proposed",
+        "decision": "localOnly标签传播到派生内容和统一出站策略；凭据不传输；不自动向模型/MCP/日志/遥测/备份上传"
+      },
+      {
+        "id": "ADR-16",
+        "status": "future_scope_confirmed_contract_now",
+        "decision": "未来三类原生可编辑工程Writer独立于四GamePackage出口，从完整创作Snapshot产生SEM；具体版本/覆盖未来冻结，当前无无损往返承诺"
+      },
+      {
+        "id": "ADR-17",
+        "status": "future_scope_confirmed_ports_now",
+        "decision": "iOS/iPad/Android平板为未来创作编辑器，游戏保持四目标；EditorHost/GameRuntime/ProjectFormat三Profile独立；未来Apple本机Agent/后台/构建/分发许可未验证"
+      },
+      {
+        "id": "COST-01",
+        "status": "user_constraint",
+        "decision": "必需软件组件不得依赖强制商业授权费、版税或付费构建服务；冻结版本核查免费许可路径；可选云/模型/平台分发成本另列，不默认采购"
+      }
+    ],
+    "previous_baseline": {
+      "version": "arch-v3.6-draft.3",
+      "baseline_sha256": "d9ff5d038d8f4a465d5a96deab22e3a6178dbf9fea294d5dc7428e2e12d86424",
+      "archive_root": "architecture/history/arch-v3.6-draft.3/project-root",
+      "archive_file_count": 28,
+      "immutable": true
+    },
+    "planned_engineering_documents": [
+      {
+        "kind": "basic_self_check",
+        "path": ".coding-mcp.json",
+        "owner_role": "coding",
+        "status": "planned_not_created",
+        "execution_status": "not_run"
+      },
+      {
+        "kind": "system_quality_plan",
+        "path": ".quality-plan-mcp.json",
+        "owner_role": "independent_quality",
+        "status": "planned_not_created",
+        "execution_status": "not_run"
+      },
+      {
+        "kind": "UI_acceptance_plan",
+        "path": ".design-mcp.json",
+        "owner_role": "ui",
+        "status": "existing_product_prototype_plan_not_current_engineering_handoff",
+        "execution_status": "not_run"
+      }
+    ],
+    "change_impacts": [
+      {
+        "id": "CHG-003",
+        "affected_stages": [
+          "product_handoff",
+          "architecture",
+          "ui",
+          "development",
+          "quality",
+          "release"
+        ],
+        "reason": "complete capabilities, reference-only Cocos, four confirmed export targets",
+        "schedule": "not_estimated_no_staffing_or_measured_effort",
+        "source_ref": "architecture/v3.6/inputs/USER-CONSTRAINTS-20261114-03.md"
+      },
+      {
+        "id": "CHG-004",
+        "affected_stages": [
+          "architecture",
+          "ui",
+          "development",
+          "quality",
+          "release",
+          "operation"
+        ],
+        "reason": "latest AGENTS replaces earlier rules; documentation-only default; remove ordinary mandatory scans/raw execution report",
+        "source_ref": "architecture/v3.6/inputs/USER-WORKFLOW-20261114-04.md"
+      },
+      {
+        "id": "CHG-005",
+        "summary": "三引擎Reader/仅LAN同步/共享创作SDK当前需求，三Writer及未来移动平板编辑器扩展契约；吸收产品V3.8交接。",
+        "affected_requirement_ids": [
+          "REQ-038",
+          "REQ-039",
+          "REQ-040",
+          "REQ-041",
+          "REQ-042"
+        ],
+        "affected_acceptance_ids": [
+          "AC-058",
+          "AC-059",
+          "AC-060",
+          "AC-061",
+          "AC-062",
+          "AC-063",
+          "AC-064",
+          "AC-065",
+          "AC-066",
+          "AC-067",
+          "AC-068",
+          "AC-069",
+          "AC-070",
+          "AC-071",
+          "AC-072",
+          "AC-073",
+          "AC-074",
+          "AC-075",
+          "AC-076",
+          "AC-077",
+          "AC-078",
+          "AC-079",
+          "AC-080"
+        ],
+        "affected_stages": [
+          "product",
+          "architecture",
+          "ui",
+          "development",
+          "quality_plan",
+          "release_plan",
+          "operation_plan"
+        ],
+        "cost_impact": "增加Reader/Writer Profile、来源映射、同步信任/隐私、SDK绑定、平台端口与多UI维护成本；无可证工期，未来实现另立需求包。",
+        "upstream_owner_writeback": "产品经理已在真实会话更新V3.8文件；本架构未覆盖产品文件；真实人员审批未登记。",
+        "rollback": "根索引可恢复到归档的arch-v3.6-draft.3；保留新旧不可变文档与输入；无实现/数据库迁移。"
+      }
+    ],
+    "execution_policy": {
+      "scope": "documentation_only",
+      "execution_status": "not_run",
+      "quality_verified": false,
+      "release_permitted": false,
+      "source_of_authorization": "本会话只授权架构与产品沟通；未授权执行测试/扫描/压测/安全验证/截图比较/设备操作/项目脚本或发布。"
+    }
+  },
+  "approvals": [],
+  "readiness": {
+    "ready_for_coding": false,
+    "assessment_source": "manual documentation status; no architecture_mcp.get_coding_handoff result",
+    "missing": [
+      "architecture_mcp/workflow_mcp formal templates and handoff result",
+      "real reviewers and version/hash approval",
+      "frozen host/ABI/device/ruleset/Reader subformat matrix and assigned owners",
+      "SDK ABI/FFI/mobile viewport route and TLS/PAKE dependency decisions",
+      "downstream UI engineering planning snapshot",
+      "independent quality detailed plan"
+    ],
+    "unverified_implementation": "全部实现行为未验证；实际执行不是此次仅文档交付的门禁前提。"
+  },
+  "tool_status": {
+    "architecture_mcp": "not_available_no_calls_or_gates_run",
+    "workflow_mcp": "not_available_no_calls_or_gates_run",
+    "coding_mcp": "not_run_documentation_only_no_program_code_changed",
+    "design_mcp": "not_run_no_UI_design_changed_no_actual_comparison_authorized",
+    "quality_mcp": "not_available_no_formal_quality_plan_or_gate_run"
+  },
+  "question_closure": [
+    {
+      "id": "Q-001",
+      "status": "resolved",
+      "owner": "user",
+      "scope": "APK runtime route",
+      "answer": "WebView + C++ compiled WASM",
+      "artifact_refs": [
+        {
+          "artifact_id": "architecture",
+          "path": "architecture/v3.7/ARCHITECTURE.md",
+          "version": "arch-v3.7-draft.1",
+          "sha256": "c2c98048c00f9a18cc95434c95eeec1d12aec8d201a0a95cb6b0287e3686b488"
+        },
+        {
+          "artifact_id": "four-target-architecture",
+          "path": "architecture/v3.7/FOUR-TARGET-ARCHITECTURE.md",
+          "version": "arch-v3.7-draft.1",
+          "sha256": "c65f5f92ad63397135d0acab7043f74db7e9fddc6babca16e0f55d620b8612f8"
+        }
+      ],
+      "answer_source": {
+        "path": "architecture/v3.7/inputs/USER-DECISIONS-20261114.md",
+        "version": "2026-11-14",
+        "sha256": "ff788cb72d7876d472c82b2b1af02e7fae509b96ba69a527f32bf7958fb07f13",
+        "size_bytes": 1523,
+        "source_path": "architecture/v3.6/inputs/USER-DECISIONS-20261114.md"
+      }
+    },
+    {
+      "id": "Q-002",
+      "status": "resolved",
+      "owner": "user",
+      "scope": "independent exported game licensing",
+      "answer": "closed-source commercial allowed",
+      "artifact_refs": [
+        {
+          "artifact_id": "open-source-boundary",
+          "path": "architecture/v3.7/OPEN-SOURCE-BOUNDARY.md",
+          "version": "arch-v3.7-draft.1",
+          "sha256": "601341cfe5faf271af76b19a1a7a1bf8d9bc18fe24001a6169d2fca84c1fbb8c"
+        },
+        {
+          "artifact_id": "delivery-plan",
+          "path": "architecture/v3.7/DELIVERY-PLAN.md",
+          "version": "arch-v3.7-draft.1",
+          "sha256": "79e177f2407738d01c563b79330a7a8948a9ba9ce0ac5785c99980ce1b2bbd89"
+        }
+      ],
+      "answer_source": {
+        "path": "architecture/v3.7/inputs/USER-DECISIONS-20261114.md",
+        "version": "2026-11-14",
+        "sha256": "ff788cb72d7876d472c82b2b1af02e7fae509b96ba69a527f32bf7958fb07f13",
+        "size_bytes": 1523,
+        "source_path": "architecture/v3.6/inputs/USER-DECISIONS-20261114.md"
+      }
+    },
+    {
+      "id": "Q-003",
+      "status": "resolved",
+      "owner": "user",
+      "scope": "mini-game versus ordinary mini-app target",
+      "answer": "微信小游戏 + 抖音小游戏（推荐）",
+      "answer_source": {
+        "path": "architecture/v3.7/inputs/USER-CONSTRAINTS-20261114-03.md",
+        "version": "2026-11-14-03",
+        "kind": "scope_and_target_confirmation",
+        "sha256": "99cb51c240eb9878f5a536f98b844bce65224b29d69062372483395fb4816c99",
+        "size_bytes": 1668,
+        "source_path": "architecture/v3.6/inputs/USER-CONSTRAINTS-20261114-03.md"
+      },
+      "artifact_refs": [
+        {
+          "artifact_id": "four-target-architecture",
+          "path": "architecture/v3.7/FOUR-TARGET-ARCHITECTURE.md",
+          "version": "arch-v3.7-draft.1",
+          "sha256": "c65f5f92ad63397135d0acab7043f74db7e9fddc6babca16e0f55d620b8612f8"
+        },
+        {
+          "artifact_id": "delivery-plan",
+          "path": "architecture/v3.7/DELIVERY-PLAN.md",
+          "version": "arch-v3.7-draft.1",
+          "sha256": "79e177f2407738d01c563b79330a7a8948a9ba9ce0ac5785c99980ce1b2bbd89"
+        }
+      ]
+    },
+    {
+      "id": "ARCH-Q-004",
+      "status": "resolved",
+      "owner": "user",
+      "scope": "未来可继续编辑的项目类型",
+      "answer": "Cocos Creator、LayaAir、Godot 工程（推荐）",
+      "answer_source": {
+        "path": "architecture/v3.7/inputs/USER-DECISIONS-20261114-05.md",
+        "version": "2026-11-14-05",
+        "kind": "user_scope_confirmation",
+        "sha256": "5608a1fdd4ffc224c40212cb8693c023946a1f55c6c9b2dc6274291562cb3e9f",
+        "size_bytes": 2525
+      },
+      "routed_owner_confirmation": {
+        "path": "HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+        "sha256": "711cf8d9e5eda64569d18b9a7b55227f5336715d5ba6b90a1a2896a99a93b5a0",
+        "size_bytes": 12311
+      },
+      "artifact_refs": [
+        {
+          "artifact_id": "project-export-extension",
+          "path": "architecture/v3.7/PROJECT-EXPORT-EXTENSION.md",
+          "version": "arch-v3.7-draft.1",
+          "sha256": "88d4700ee22d74f511f0e7398eaef6c4fc4204a7214dd149839a5d72a4818254"
+        },
+        {
+          "artifact_id": "shared-core-and-clients",
+          "path": "architecture/v3.7/SHARED-CORE-AND-CLIENTS.md",
+          "version": "arch-v3.7-draft.1",
+          "sha256": "4f7fe2011c7c5eb735186e32a07a9c984cef828cc8d2d2b2b4ccc546eeb1fe0a"
+        },
+        {
+          "artifact_id": "decisions-and-handoff",
+          "path": "architecture/v3.7/DECISIONS-AND-HANDOFF.md",
+          "version": "arch-v3.7-draft.1",
+          "sha256": "484b9e114003a655fd028c2f68438cb4cc4db4d729862367645c552253108bb6"
+        }
+      ]
+    },
+    {
+      "id": "ARCH-Q-005",
+      "status": "resolved",
+      "owner": "user",
+      "scope": "未来Apple/平板用途及游戏发行目标",
+      "answer": "扩展创作编辑器，游戏仍为现有四目标（推荐）",
+      "answer_source": {
+        "path": "architecture/v3.7/inputs/USER-DECISIONS-20261114-05.md",
+        "version": "2026-11-14-05",
+        "kind": "user_scope_confirmation",
+        "sha256": "5608a1fdd4ffc224c40212cb8693c023946a1f55c6c9b2dc6274291562cb3e9f",
+        "size_bytes": 2525
+      },
+      "routed_owner_confirmation": {
+        "path": "HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+        "snapshot_path": "architecture/v3.7/inputs/project/HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+        "sha256": "711cf8d9e5eda64569d18b9a7b55227f5336715d5ba6b90a1a2896a99a93b5a0",
+        "size_bytes": 12311
+      },
+      "artifact_refs": [
+        {
+          "artifact_id": "shared-core-and-clients",
+          "path": "architecture/v3.7/SHARED-CORE-AND-CLIENTS.md",
+          "version": "arch-v3.7-draft.1",
+          "sha256": "4f7fe2011c7c5eb735186e32a07a9c984cef828cc8d2d2b2b4ccc546eeb1fe0a"
+        },
+        {
+          "artifact_id": "four-target-architecture",
+          "path": "architecture/v3.7/FOUR-TARGET-ARCHITECTURE.md",
+          "version": "arch-v3.7-draft.1",
+          "sha256": "c65f5f92ad63397135d0acab7043f74db7e9fddc6babca16e0f55d620b8612f8"
+        },
+        {
+          "artifact_id": "decisions-and-handoff",
+          "path": "architecture/v3.7/DECISIONS-AND-HANDOFF.md",
+          "version": "arch-v3.7-draft.1",
+          "sha256": "484b9e114003a655fd028c2f68438cb4cc4db4d729862367645c552253108bb6"
+        }
+      ]
+    }
+  ],
+  "open_technical_items": [
+    {
+      "id": "R-READER-PROFILE",
+      "owner": "architecture",
+      "blocks": "对应Reader实现就绪与支持声明",
+      "due_at": "I0结束/对应Reader编码前",
+      "escalate_to": "product/user for scope tradeoffs"
+    },
+    {
+      "id": "R-SDK-MOBILE",
+      "owner": "architecture",
+      "blocks": "共享SDK/移动视口对应实现交接",
+      "due_at": "SDK与移动表现层增量编码前",
+      "escalate_to": "architecture then product/user for business tradeoffs"
+    },
+    {
+      "id": "R-SYNC-SECURITY",
+      "owner": "architecture",
+      "blocks": "具体配对/同步实现交接",
+      "due_at": "L0方案冻结前",
+      "escalate_to": "architecture"
+    },
+    {
+      "id": "R-WRITER-PROFILE",
+      "owner": "architecture/product",
+      "blocks": "未来具体Writer实现；不阻塞当前Reader/LAN",
+      "due_at": "未来Writer需求包详细交接前",
+      "escalate_to": "user for scope decisions"
+    },
+    {
+      "id": "R-APPLE-CAPABILITIES",
+      "owner": "architecture/product",
+      "blocks": "未来Apple完整编辑器/离线构建能力声明",
+      "due_at": "Apple需求包技术路线冻结前",
+      "escalate_to": "user for unmet requirements"
+    },
+    {
+      "id": "R-LICENSE-TEXT",
+      "owner": "authorization_owner/architecture",
+      "blocks": "开源发布、例外生效与具体Apple分发声明",
+      "due_at": "公开许可/贡献/分发前",
+      "escalate_to": "user/real rights owner"
+    }
+  ],
+  "implementation_evidence": [],
+  "delivery": {
+    "kind": "architecture_design_documents_only",
+    "code_changed": false,
+    "source_files_modified": false,
+    "deliverables": [
+      {
+        "id": "architecture-index",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "ARCHITECTURE.md"
+        ]
+      },
+      {
+        "id": "architecture",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/ARCHITECTURE.md"
+        ]
+      },
+      {
+        "id": "contracts",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/CONTRACTS.md"
+        ]
+      },
+      {
+        "id": "decisions-and-handoff",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/DECISIONS-AND-HANDOFF.md"
+        ]
+      },
+      {
+        "id": "delivery-plan",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/DELIVERY-PLAN.md"
+        ]
+      },
+      {
+        "id": "feature-coverage",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/FEATURE-COVERAGE.md"
+        ]
+      },
+      {
+        "id": "four-target-architecture",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/FOUR-TARGET-ARCHITECTURE.md"
+        ]
+      },
+      {
+        "id": "import-and-local-sync",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/IMPORT-AND-LOCAL-SYNC.md"
+        ]
+      },
+      {
+        "id": "open-source-boundary",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/OPEN-SOURCE-BOUNDARY.md"
+        ]
+      },
+      {
+        "id": "project-export-extension",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/PROJECT-EXPORT-EXTENSION.md"
+        ]
+      },
+      {
+        "id": "reuse-candidates",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/REUSE-CANDIDATES.md"
+        ]
+      },
+      {
+        "id": "shared-core-and-clients",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/SHARED-CORE-AND-CLIENTS.md"
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "id": "architecture-index",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "ARCHITECTURE.md"
+        ]
+      },
+      {
+        "id": "architecture",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/ARCHITECTURE.md"
+        ]
+      },
+      {
+        "id": "contracts",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/CONTRACTS.md"
+        ]
+      },
+      {
+        "id": "decisions-and-handoff",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/DECISIONS-AND-HANDOFF.md"
+        ]
+      },
+      {
+        "id": "delivery-plan",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/DELIVERY-PLAN.md"
+        ]
+      },
+      {
+        "id": "feature-coverage",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/FEATURE-COVERAGE.md"
+        ]
+      },
+      {
+        "id": "four-target-architecture",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/FOUR-TARGET-ARCHITECTURE.md"
+        ]
+      },
+      {
+        "id": "import-and-local-sync",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/IMPORT-AND-LOCAL-SYNC.md"
+        ]
+      },
+      {
+        "id": "open-source-boundary",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/OPEN-SOURCE-BOUNDARY.md"
+        ]
+      },
+      {
+        "id": "project-export-extension",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/PROJECT-EXPORT-EXTENSION.md"
+        ]
+      },
+      {
+        "id": "reuse-candidates",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/REUSE-CANDIDATES.md"
+        ]
+      },
+      {
+        "id": "shared-core-and-clients",
+        "kind": "architecture_document",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/v3.7/SHARED-CORE-AND-CLIENTS.md"
+        ]
+      }
+    ],
+    "metadata_paths": [
+      "architecture/v3.7/baseline.json",
+      "architecture/v3.7/documentation-check.json"
+    ],
+    "input_snapshot_root": "architecture/v3.7/inputs",
+    "prior_archive_root": "architecture/history/arch-v3.6-draft.3/project-root"
+  },
+  "documentation_status": "prepared_pending_formal_gate_and_person_review",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

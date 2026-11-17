@@ -1,0 +1,41 @@
+{
+  "version": "local-core-v1-handoff.3",
+  "records": [
+    {
+      "path": ".product-mcp.json",
+      "before_sha256": "51039e97a85b8514c2bf1288de7b8c278a6fb218ba8015d815a8bb1aac540b45",
+      "after_sha256": "51039e97a85b8514c2bf1288de7b8c278a6fb218ba8015d815a8bb1aac540b45",
+      "unmodified": true
+    },
+    {
+      "path": ".coding-mcp.json",
+      "before_sha256": "ab4ee41b1e33662a34297b5a1af266c7a21a1daa9df68014afe051e492fe2211",
+      "after_sha256": "ab4ee41b1e33662a34297b5a1af266c7a21a1daa9df68014afe051e492fe2211",
+      "unmodified": true
+    },
+    {
+      "path": ".quality-plan-mcp.json",
+      "before_sha256": "9713d791da9682a92eb732736430f3fd4d7837c211502dc8bb9e72bd1caa35d2",
+      "after_sha256": "9713d791da9682a92eb732736430f3fd4d7837c211502dc8bb9e72bd1caa35d2",
+      "unmodified": true
+    },
+    {
+      "path": "native/CMakeLists.txt",
+      "before_sha256": "e0232a6439e644325655a76a3d0fe5d51ea3ee8d4625292bbe8db174f4ff6532",
+      "after_sha256": "f7fef518db217d6c43743e7df9e5fb39a4292d73ef45230bc8e0377e3d7b393a",
+      "unmodified": false
+    },
+    {
+      "path": "native/cmake/Dependencies.cmake",
+      "before_sha256": "2df514b857f6150e5c2371c30db502d7b1f2e25f472844ce15809fb9b59a8bd6",
+      "after_sha256": "2df514b857f6150e5c2371c30db502d7b1f2e25f472844ce15809fb9b59a8bd6",
+      "unmodified": true
+    },
+    {
+      "path": "native/cmake/gg_mbedtls_config.h",
+      "before_sha256": "bd486704da4e6b286e9b7ba04b541fe7a114b902b0c9eff298657fcda2529a66",
+      "after_sha256": "bd486704da4e6b286e9b7ba04b541fe7a114b902b0c9eff298657fcda2529a66",
+      "unmodified": true
+    }
+  ]
+}

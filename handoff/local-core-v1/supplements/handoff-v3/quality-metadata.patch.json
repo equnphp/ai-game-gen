@@ -1,0 +1,21 @@
+{
+  "version": "local-core-v1-handoff.3",
+  "status": "prepared_not_applied_independent_quality_owner_required",
+  "target": ".quality-plan-mcp.json",
+  "expected_base_sha256": "9713d791da9682a92eb732736430f3fd4d7837c211502dc8bb9e72bd1caa35d2",
+  "operations": [
+    {
+      "op": "add",
+      "path": "/delivery/deliverables/-",
+      "value": {
+        "id": "LC-IMPL-01",
+        "code_author_role": "engineering",
+        "paths": [
+          "native/"
+        ]
+      }
+    }
+  ],
+  "application_rule": "独立quality负责人保留原版、验证id/paths无重叠并升版同步；保持全部not_run、quality_verified=false、release_permitted=false。不得伪造实际测试或真实评审。",
+  "business_decision_needed": false
+}

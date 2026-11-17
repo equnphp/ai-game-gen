@@ -1,0 +1,678 @@
+{
+  "schema": "gamegen.architecture-baseline.v1",
+  "baseline_payload": {
+    "version": "editor-web-v1-draft.3",
+    "date": "2026-11-17",
+    "scope": "承接产品新增详细交互与可跳过引导；文档/数据契约，不实施/执行",
+    "parent": {
+      "version": "editor-web-v1-draft.2",
+      "path": "architecture/editor-web-v1/revisions/draft.2/baseline.json",
+      "file_sha256": "ec44501f31e480d6e0179e23a160e759c3455a02edcadc3b5c48141bbaf1e83d",
+      "payload_sha256": "cc7333d7e4f0d7d4e5ce081589064afb07bd31a59d21710dd93f5877e8e24a6b",
+      "immutable_artifact_count": 21,
+      "preserved": true
+    },
+    "artifacts": [
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/.architecture-mcp.json",
+        "sha256": "3c3cc18a7f2fa65e1bb35e64dd49f49d561c81593fa7bba7324ef5ea1a8e8109",
+        "bytes": 50713
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/ARCHITECTURE.md",
+        "sha256": "cc4532c67bd4ba0eafb76c6b6c02af17bfea3133817eb88f5038b9c6eeb694a3",
+        "bytes": 5666
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/DEVELOPMENT-HANDOFF.md",
+        "sha256": "6b7c09af3d26f606b00fcc9045f1abfa16680ecfd541ac20af0b3a47ce9cda77",
+        "bytes": 8836
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/EDITOR-STATE.md",
+        "sha256": "76de1781f7ddf5e23ace7dd959e7682143ee98e12f3314243740ab11ff846ea2",
+        "bytes": 8998
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/ONBOARDING.md",
+        "sha256": "1bed2cd1977aec7c28846dd4ee06f0e1bce53d64329df35e814efc74fc4d5c62",
+        "bytes": 9480
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/UX-CONTRACTS.md",
+        "sha256": "580f323ef7e37de68c3af6b3abd9bbd7426c2022f70a5ca4458f4b8ad922d8c0",
+        "bytes": 12225
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/contracts/editor-ux.d.ts",
+        "sha256": "ac92ee0bd4fb2d901eaf22d0de782c5518e625ca9f7a6d0de706f621c5e7d5d3",
+        "bytes": 6421
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/contracts/editor-ux.schema.json",
+        "sha256": "dda30c95e4f3c2e493ec2dc845c05b42f37c78832df35d115fb8df3f5b9e7b2f",
+        "bytes": 34083
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/contracts/product-architecture-map.json",
+        "sha256": "c06a54f5e2b67bd41bdb2e790274dedb7713a5ae87df726b3c6f60a0bc556877",
+        "bytes": 400491
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/active-M1-document-gate.json",
+        "sha256": "6aaba2d043cb06910a3c62d75b2008deeedbef0fffc9871bd22e0ff12cee2237",
+        "bytes": 8496
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/architecture-current.before.json",
+        "sha256": "20662e1f7ce40c47932b63766c4484c81a554cf90b712b419e0a49bbbf04f27e",
+        "bytes": 1462
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/parent-baseline.json",
+        "sha256": "ec44501f31e480d6e0179e23a160e759c3455a02edcadc3b5c48141bbaf1e83d",
+        "bytes": 10481
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product-baselines.json",
+        "sha256": "7fb253d38ed40c3a58c901085f70dbb550f32fbbb6f6a576534f40089154cdfa",
+        "bytes": 9524
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product-conversation.json",
+        "sha256": "dcee4753e979e410bcd0bd03839f77a18841ad1e3744880fc1601a42554bcfa8",
+        "bytes": 16503
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/chat/.product-mcp.json",
+        "sha256": "9550a4c9dc03d7bc056190aa77a1097ec635eac1d2abea420cbcb228ae2a36ae",
+        "bytes": 133720
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/chat/CHAT-STATE-SPEC.md",
+        "sha256": "f38ed33ecd061cb5b8abc30cb0cbf71c4379d4c7560c6942c7ee37da516c536b",
+        "bytes": 47768
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/chat/DOCUMENT-STATUS.md",
+        "sha256": "7bb18fa1f097db81666d82c6b1d8c144ae032790dc3ab894696ac621d5e40988",
+        "bytes": 1028
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/chat/chat-state-catalog.json",
+        "sha256": "203e0ceef3435ee63717e0b56b7f0fd57bcd35a6552922d810a31d884306e8b5",
+        "bytes": 62784
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/.product-mcp.json",
+        "sha256": "3b84a6310b8512fc9c9c93814083a6004ef41cfc7c6488ba21124340f49e67e1",
+        "bytes": 99634
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/CHAT-CONTROLS.md",
+        "sha256": "858a10f071670a7b0df8435c9445a7bc90dca640f4e760af9af38313a6fa0dbb",
+        "bytes": 21663
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/COMMON-SPACE.md",
+        "sha256": "718b646ae13e607cfbeb8e0099e49ef31c89f2413dcdf65120b900772cde224c",
+        "bytes": 2152
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/COVERAGE.md",
+        "sha256": "b25fc44008450dc2f28c78a87d39710494cb20d164161493983e770cd784d522",
+        "bytes": 32482
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/FIXTURE-PLAN.md",
+        "sha256": "4d33a1e3bef488020bf1d1b07a1ce9abecf7fac84324169958d72c73a76a0229",
+        "bytes": 3761
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/GLOBAL-INTERACTIONS.md",
+        "sha256": "55cacfa68964c03bd6cfccb4a205de1967df658241eb587e947909d90b13284f",
+        "bytes": 21238
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/GLOBAL-SURFACES.md",
+        "sha256": "195d8dce393ab037ffa7600885e5ad8e0506b50fa59536d8a3dc8f97e6097d21",
+        "bytes": 19405
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/PROGRESSIVE-DISCLOSURE.md",
+        "sha256": "900e5beb63ad616607a134e3d9b00e01f556667ed1dd661733dbb97222254547",
+        "bytes": 4946
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/README.md",
+        "sha256": "1de32bf71e009dd21a67ed059a65d642915fc1e9a7fe2a1ab433c62b8c97e1e8",
+        "bytes": 6263
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/UI-HANDOFF.md",
+        "sha256": "82e5935aef7bfb1358a8dc7271ef27d6fb723678a5035c073a7920622da7a44a",
+        "bytes": 4171
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/chat-surfaces.json",
+        "sha256": "5f295dde3db6804fcff963f6d9fa8c8645e175e4c12c6f25424496a95365cf29",
+        "bytes": 40081
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/gameplay/surfaces.json",
+        "sha256": "719371aa827fae082dbb3ff4b108bd2e697ae67b04a8db48ec4cd23adc969c97",
+        "bytes": 640625
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/global-surfaces.json",
+        "sha256": "5e8f08a79eaa1cc10192e9aee8f576c110dc7e81c15fc1e8e908a052b15c0dc7",
+        "bytes": 35603
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/journeys.json",
+        "sha256": "9050ad67bb31bb0e7814648545667ada8161a2427251fb29e3130ae314e13a44",
+        "bytes": 27586
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/shared-components.json",
+        "sha256": "a412d800ace8b602530dc5fa515177d220955fc133d04f75c07c8caeba0653df",
+        "bytes": 20101
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/studio/surfaces.json",
+        "sha256": "b93384f67596cd50c94590049e379fc494692c953dd5fab4d1a8e08dd28f7c3c",
+        "bytes": 447088
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/surface-index.json",
+        "sha256": "cde68596075c436fa2104862688bcc65e598337a53b6526559f994d22a9aea1a",
+        "bytes": 236113
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/workflow/surfaces.json",
+        "sha256": "5a770d83518c3880e7c39daa2aaedd2784cf505e92d165fa258c506495098b7b",
+        "bytes": 466416
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/onboarding/.product-mcp.json",
+        "sha256": "43d15ec81d1b3857bd6c7ef5735a44c3d07618c3ada0b1cba2ae4ade94810488",
+        "bytes": 68138
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/onboarding/DOCUMENT-STATUS.md",
+        "sha256": "69faadb42fc9adc7c6fa136d39212b59acc4e6f2374abb50eec5983de1e8be4e",
+        "bytes": 1406
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/onboarding/INPUT-BASELINES.json",
+        "sha256": "ae79d958414b055975f25ac95d849975eeb300ee8527e066f7d6e5bc5b0de3e0",
+        "bytes": 1442
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/onboarding/ONBOARDING.md",
+        "sha256": "b09895c05751970a7d9ba45b9204f3006deaf8ba9619658454bd5a09ab26b7e1",
+        "bytes": 16402
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/onboarding/UI-HANDOFF.md",
+        "sha256": "3e6bd48aedb77841c1e39f8414866286f80fe631ccf16c1e72cf84b255ed0ce2",
+        "bytes": 3824
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/product/onboarding/onboarding.json",
+        "sha256": "84996c4fa90c0eb3ab21219c9eb5e261da8ac3356bd6a338036d37c2f98a2922",
+        "bytes": 19382
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/root-entry.before.md",
+        "sha256": "2b20be1c5e6a5b974e18b46ae3c03ec2fd33c3392de9e9be631babdb907fab2e",
+        "bytes": 4401
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.3/inputs/root-entry.snapshot.md",
+        "sha256": "74f11f9061a8e1aa8f47c4e816e6bac16cbcc29216333bcfa46db08c49511970",
+        "bytes": 5950
+      }
+    ],
+    "root_entry": {
+      "path": "ARCHITECTURE.md",
+      "sha256": "74f11f9061a8e1aa8f47c4e816e6bac16cbcc29216333bcfa46db08c49511970",
+      "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/root-entry.snapshot.md"
+    },
+    "protected_active_files": [
+      {
+        "path": ".architecture-mcp.json",
+        "sha256": "324f34e878a7faf860a5ec098694b82b5b99b7fcfbf046b18099afaca773d08f",
+        "unchanged": true
+      },
+      {
+        "path": ".workflow-mcp.json",
+        "sha256": "c37f9d7e16ec7644111982cee642352412a66adbc242b2a29aaf907f3034b589",
+        "unchanged": true
+      },
+      {
+        "path": ".coding-mcp.json",
+        "sha256": "fd1f3f3f91e9d063363fb584f73fe4155522a38cd308bb66f9785abd75115fc9",
+        "unchanged": true
+      },
+      {
+        "path": ".product-mcp.json",
+        "sha256": "68f07612ea33e5dd8fe4e72f90c15a10bff79daab900ebdff379b34582ca10e4",
+        "unchanged": true
+      },
+      {
+        "path": ".quality-plan-mcp.json",
+        "sha256": "d772158e914ad32376b9bf0d1061668af1efb5046ea064b4b8a9c8fdd03efc56",
+        "unchanged": true
+      },
+      {
+        "path": ".design-mcp.json",
+        "sha256": "616f89aa56cab99450b24819d23635953c51eec08e6ca2f2fa1c4a3bf0509e23",
+        "unchanged": true
+      },
+      {
+        "path": "handoff/local-core-v1/CURRENT-HANDOFF.json",
+        "sha256": "a1f39333e5b7dcfef2321cb1c9ed061135a197ac6fcd09a5cf3b0fe565f0b836",
+        "unchanged": true
+      },
+      {
+        "path": "handoff/local-core-v1/spec/gg_core_v1.h",
+        "sha256": "1901976042a3324a11c44d8d770dc8082e4f9b77ad9a4d50d94c8b1e2e019ef5",
+        "unchanged": true
+      },
+      {
+        "path": "handoff/local-core-v1/spec/messages.schema.json",
+        "sha256": "3c2363c4db19e8ed3c3bb5610218503d7082dc8b640ae1beaa5aa1599f9ffbf8",
+        "unchanged": true
+      },
+      {
+        "path": "handoff/local-core-v1/spec/project_v1.sql",
+        "sha256": "f57c5cf8a732b3deace047400c4ad6ddda899e26b8a2e0e435b6019594a50c1f",
+        "unchanged": true
+      }
+    ],
+    "parent_artifacts": [
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/.architecture-mcp.json",
+        "sha256": "d7bca9a83c8a49d2ddbb684f76087a6d5e7bada3722003f17701193041f67e22",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/ABI-INTEGRATION.md",
+        "sha256": "f03d8c0f38dde9e04758020306d674280a0ad74b73c93a9dea94edd41fc013b9",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+        "sha256": "64c98d06e7231b5ab6cb0cef654ad0563860daedd091f03455c78c4f4554b8f2",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/COMPATIBILITY-INTAKE.md",
+        "sha256": "f5b81e52d656ae7d701d91fa15abbf392143b7d172abfbfce74ed6e15f757dd7",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/CONTRACT.md",
+        "sha256": "26eb0b51bad96805bed0c59dc444fd8e3ef32fbe05e2dc6adffabaceb0ba0247",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/DEVELOPMENT-HANDOFF.md",
+        "sha256": "573aea967212fa5cc779b854b16312da9318a4dfee2b29936136540f6d8ffce1",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/DRIVER-PROTOCOL.md",
+        "sha256": "62f7d82c1688acd90a9af1c85b65bedf7a64c68c8f14834010663da54a3f3727",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/contracts/compatibility-candidates.json",
+        "sha256": "7e8ef5a1ce65df45bbaa024bfe14116e9d9cb53c64d406ac971bdc2fbb853f46",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/contracts/driver.schema.json",
+        "sha256": "8bb7fbc796d0cb0bb8669548faaeadfe9da492718df8eebc9c8d1dfd9bc94a28",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/contracts/editor-host.d.ts",
+        "sha256": "bc048cd4a189ac6bf73aef898a3cfbcaaf4cf60c51cbc9a5acd29c94b1c7a635",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/contracts/host.schema.json",
+        "sha256": "1cd1f954ee53f10c715720f31fced5c7631b34ecdcb7a612454dc1342fa796a2",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/inputs/active-M1-document-gate.json",
+        "sha256": "6b361f78b819b3ffe64300f8af28fd19a2e198b9312d62dc102e6e2b64f3bceb",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/inputs/architecture-current.before.json",
+        "sha256": "56b9c2bf0cc986dfcf3545402e569ac2ce15adfc1cdee2e33c6b2903c9bed0a5",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/inputs/cohort-metadata.json",
+        "sha256": "286bc9b35f6f179885e5ff76d0e638c57a2bdd0ae8d78a1da03e83a55e4702fb",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/inputs/developer-request.json",
+        "sha256": "2174aacfd1436e889696a856ad37c29200f88768fa6a0446c2a65876cbc3be73",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/inputs/parent-baseline.json",
+        "sha256": "b4d4928350346448888eb82c30342b27a21c46c587f64ed14197428db9cf1d43",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/inputs/root-design-observation.json",
+        "sha256": "d8cbf551a29de53230ae7f124b135f55c2827b01570bd2731c561bd2e41ee444",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/inputs/root-entry.before.md",
+        "sha256": "86d7bdc584872b822230f486c052699a2b5d4ded72ac5f9cd5276c2f2c28e390",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/inputs/root-entry.snapshot.md",
+        "sha256": "2b20be1c5e6a5b974e18b46ae3c03ec2fd33c3392de9e9be631babdb907fab2e",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/inputs/source-observation.json",
+        "sha256": "5b5daba699b3da8d63236fca4f99ecadcef3397c852cfb9a46215df9f674a248",
+        "unchanged": true
+      },
+      {
+        "path": "architecture/editor-web-v1/revisions/draft.2/inputs/tauri-crate-source.json",
+        "sha256": "cbb53a69b3126749299ab4d1f77ed394c06b26f38df90e080f50eaee6ad588db",
+        "unchanged": true
+      }
+    ],
+    "product_inputs": [
+      {
+        "source": "design/ui-full-20261117-draft.1/review/onboarding-20261117-draft.1/ONBOARDING.md",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/onboarding/ONBOARDING.md",
+        "sha256": "b09895c05751970a7d9ba45b9204f3006deaf8ba9619658454bd5a09ab26b7e1",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/onboarding-20261117-draft.1/UI-HANDOFF.md",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/onboarding/UI-HANDOFF.md",
+        "sha256": "3e6bd48aedb77841c1e39f8414866286f80fe631ccf16c1e72cf84b255ed0ce2",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/onboarding-20261117-draft.1/onboarding.json",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/onboarding/onboarding.json",
+        "sha256": "84996c4fa90c0eb3ab21219c9eb5e261da8ac3356bd6a338036d37c2f98a2922",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/onboarding-20261117-draft.1/.product-mcp.json",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/onboarding/.product-mcp.json",
+        "sha256": "43d15ec81d1b3857bd6c7ef5735a44c3d07618c3ada0b1cba2ae4ade94810488",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/onboarding-20261117-draft.1/INPUT-BASELINES.json",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/onboarding/INPUT-BASELINES.json",
+        "sha256": "ae79d958414b055975f25ac95d849975eeb300ee8527e066f7d6e5bc5b0de3e0",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/onboarding-20261117-draft.1/DOCUMENT-STATUS.md",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/onboarding/DOCUMENT-STATUS.md",
+        "sha256": "69faadb42fc9adc7c6fa136d39212b59acc4e6f2374abb50eec5983de1e8be4e",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/chat-states-20261117-draft.1/CHAT-STATE-SPEC.md",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/chat/CHAT-STATE-SPEC.md",
+        "sha256": "f38ed33ecd061cb5b8abc30cb0cbf71c4379d4c7560c6942c7ee37da516c536b",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/chat-states-20261117-draft.1/chat-state-catalog.json",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/chat/chat-state-catalog.json",
+        "sha256": "203e0ceef3435ee63717e0b56b7f0fd57bcd35a6552922d810a31d884306e8b5",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/chat-states-20261117-draft.1/.product-mcp.json",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/chat/.product-mcp.json",
+        "sha256": "9550a4c9dc03d7bc056190aa77a1097ec635eac1d2abea420cbcb228ae2a36ae",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/chat-states-20261117-draft.1/DOCUMENT-STATUS.md",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/chat/DOCUMENT-STATUS.md",
+        "sha256": "7bb18fa1f097db81666d82c6b1d8c144ae032790dc3ab894696ac621d5e40988",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/README.md",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/README.md",
+        "sha256": "1de32bf71e009dd21a67ed059a65d642915fc1e9a7fe2a1ab433c62b8c97e1e8",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/UI-HANDOFF.md",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/UI-HANDOFF.md",
+        "sha256": "82e5935aef7bfb1358a8dc7271ef27d6fb723678a5035c073a7920622da7a44a",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/PROGRESSIVE-DISCLOSURE.md",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/PROGRESSIVE-DISCLOSURE.md",
+        "sha256": "900e5beb63ad616607a134e3d9b00e01f556667ed1dd661733dbb97222254547",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/GLOBAL-INTERACTIONS.md",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/GLOBAL-INTERACTIONS.md",
+        "sha256": "55cacfa68964c03bd6cfccb4a205de1967df658241eb587e947909d90b13284f",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/COMMON-SPACE.md",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/COMMON-SPACE.md",
+        "sha256": "718b646ae13e607cfbeb8e0099e49ef31c89f2413dcdf65120b900772cde224c",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/GLOBAL-SURFACES.md",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/GLOBAL-SURFACES.md",
+        "sha256": "195d8dce393ab037ffa7600885e5ad8e0506b50fa59536d8a3dc8f97e6097d21",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/CHAT-CONTROLS.md",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/CHAT-CONTROLS.md",
+        "sha256": "858a10f071670a7b0df8435c9445a7bc90dca640f4e760af9af38313a6fa0dbb",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/surface-index.json",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/surface-index.json",
+        "sha256": "cde68596075c436fa2104862688bcc65e598337a53b6526559f994d22a9aea1a",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/shared-components.json",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/shared-components.json",
+        "sha256": "a412d800ace8b602530dc5fa515177d220955fc133d04f75c07c8caeba0653df",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/journeys.json",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/journeys.json",
+        "sha256": "9050ad67bb31bb0e7814648545667ada8161a2427251fb29e3130ae314e13a44",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/.product-mcp.json",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/.product-mcp.json",
+        "sha256": "3b84a6310b8512fc9c9c93814083a6004ef41cfc7c6488ba21124340f49e67e1",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/global-surfaces.json",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/global-surfaces.json",
+        "sha256": "5e8f08a79eaa1cc10192e9aee8f576c110dc7e81c15fc1e8e908a052b15c0dc7",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/chat-surfaces.json",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/chat-surfaces.json",
+        "sha256": "5f295dde3db6804fcff963f6d9fa8c8645e175e4c12c6f25424496a95365cf29",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/studio/surfaces.json",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/studio/surfaces.json",
+        "sha256": "b93384f67596cd50c94590049e379fc494692c953dd5fab4d1a8e08dd28f7c3c",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/gameplay/surfaces.json",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/gameplay/surfaces.json",
+        "sha256": "719371aa827fae082dbb3ff4b108bd2e697ae67b04a8db48ec4cd23adc969c97",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/workflow/surfaces.json",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/workflow/surfaces.json",
+        "sha256": "5a770d83518c3880e7c39daa2aaedd2784cf505e92d165fa258c506495098b7b",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/FIXTURE-PLAN.md",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/FIXTURE-PLAN.md",
+        "sha256": "4d33a1e3bef488020bf1d1b07a1ce9abecf7fac84324169958d72c73a76a0229",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      },
+      {
+        "source": "design/ui-full-20261117-draft.1/review/full-ui-details-20261117-draft.1/COVERAGE.md",
+        "snapshot": "architecture/editor-web-v1/revisions/draft.3/inputs/product/fullui/COVERAGE.md",
+        "sha256": "b25fc44008450dc2f28c78a87d39710494cb20d164161493983e770cd784d522",
+        "source_unchanged": true,
+        "snapshot_matches": true
+      }
+    ],
+    "product_counts": {
+      "surfaces": 213,
+      "surface_scopes": {
+        "L": 199,
+        "R": 13,
+        "F": 1
+      },
+      "chat_groups": 12,
+      "chat_states": 88,
+      "chat_scopes": {
+        "L": 85,
+        "R": 3
+      },
+      "chat_compositions": 28,
+      "guide_steps": 6,
+      "guide_views": 6,
+      "guide_requirements": 4,
+      "guide_acceptance": 12,
+      "field_records": 1195,
+      "subfields": 538,
+      "actions": 485,
+      "domain_states": 522,
+      "shared_contracts": 24,
+      "journeys": 23,
+      "reference_accounting": {
+        "inherited_requirements": 42,
+        "inherited_acceptance": 80,
+        "inherited_psr": 67,
+        "direct_surface_requirement_ids": 41,
+        "direct_surface_acceptance_ids": 96,
+        "reason": "REQ-013按源inherited_refinement承接，不另加直接标签；surface的AC还含MAP/LEVEL/RPG/SLG/TYPE独立命名空间。继承基线与直接标签是不同口径，均保留，不作为实现覆盖率。"
+      }
+    },
+    "contracts": {
+      "editor_ux_version": "1.0 planned",
+      "editor_ux_methods": 6,
+      "host_core_version": "1.0 unchanged",
+      "host_core_methods": 12,
+      "core_driver_version": "1.0 unchanged",
+      "core_driver_methods": 14,
+      "core_abi": "1.0 unchanged",
+      "core_messages": "1.0 unchanged",
+      "core_ddl": "1 unchanged",
+      "schema_validators_or_typescript_compilers_run": false,
+      "legacy_blocking_cli_supports_new_ux": false,
+      "proxy_ux_extension": "1.1 optional planned, production disabled"
+    },
+    "readiness": {
+      "detailed_product_interaction_inputs_bound": true,
+      "visual_artboards_ready": false,
+      "complete_dependency_graph_lock": false,
+      "actual_role_approvals": [],
+      "ready_for_coding": false,
+      "root_M1_iteration_activated_or_changed": false,
+      "root_gate_observation": "architecture/editor-web-v1/revisions/draft.3/inputs/active-M1-document-gate.json"
+    },
+    "evidence_limits": {
+      "document_integrity_only": true,
+      "input_files_are_not_approvals": true,
+      "native_writes_performed": false,
+      "source_or_runtime_scans_performed": false,
+      "product_and_history_copied_markdown_links_keep_original_base": true
+    },
+    "exclusions": [
+      "baseline.json自引用",
+      "documentation-check.json基线后完整性记录",
+      "architecture/CURRENT.json可变导航外置",
+      "历史/产品输入镜像Markdown仍保持原文与原相对引用，不作为新作者文档的链接完整性检查"
+    ],
+    "execution_status": "not_run",
+    "quality_verified": false,
+    "release_permitted": false
+  },
+  "hash_algorithm": "SHA-256 of UTF-8 canonical recursively sorted object-key JSON baseline_payload; arrays ordered",
+  "baseline_sha256": "3ae0dca16b157a21ed1f25be005cc1920b8aa597aafe2a5c2480d079da844af8",
+  "approvals": [],
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

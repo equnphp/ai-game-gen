@@ -1,0 +1,6 @@
+// 只执行冻结的内置DDL，绝不加载项目目录里的SQL。
+#pragma once
+namespace gg {
+inline constexpr char ddl[] = R"GGDDL(@GG_DDL@)GGDDL";
+inline constexpr char message_schema[] = R"GGMSG(@GG_MESSAGES@)GGMSG";
+}

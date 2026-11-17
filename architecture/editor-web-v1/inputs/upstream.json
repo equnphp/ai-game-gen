@@ -1,0 +1,87 @@
+{
+  "version": "editor-web-v1-draft.1",
+  "date": "2026-11-17",
+  "refs": [
+    {
+      "path": "ARCHITECTURE.md",
+      "sha256": "3468e3a78adf5ac68d1f5cad688dd6f373070b0cf9f31ea0876cfbb822129ca9",
+      "bytes": 1668
+    },
+    {
+      "path": ".architecture-mcp.json",
+      "sha256": "324f34e878a7faf860a5ec098694b82b5b99b7fcfbf046b18099afaca773d08f",
+      "bytes": 45916
+    },
+    {
+      "path": ".workflow-mcp.json",
+      "sha256": "c37f9d7e16ec7644111982cee642352412a66adbc242b2a29aaf907f3034b589",
+      "bytes": 30044
+    },
+    {
+      "path": ".product-mcp.json",
+      "sha256": "68f07612ea33e5dd8fe4e72f90c15a10bff79daab900ebdff379b34582ca10e4",
+      "bytes": 61971
+    },
+    {
+      "path": ".coding-mcp.json",
+      "sha256": "fd1f3f3f91e9d063363fb584f73fe4155522a38cd308bb66f9785abd75115fc9",
+      "bytes": 15669
+    },
+    {
+      "path": ".quality-plan-mcp.json",
+      "sha256": "d772158e914ad32376b9bf0d1061668af1efb5046ea064b4b8a9c8fdd03efc56",
+      "bytes": 28593
+    },
+    {
+      "path": "handoff/local-core-v1/CURRENT-HANDOFF.json",
+      "sha256": "a1f39333e5b7dcfef2321cb1c9ed061135a197ac6fcd09a5cf3b0fe565f0b836",
+      "bytes": 2730
+    },
+    {
+      "path": "handoff/local-core-v1/spec/gg_core_v1.h",
+      "sha256": "1901976042a3324a11c44d8d770dc8082e4f9b77ad9a4d50d94c8b1e2e019ef5",
+      "bytes": 4007
+    },
+    {
+      "path": "handoff/local-core-v1/spec/project_v1.sql",
+      "sha256": "f57c5cf8a732b3deace047400c4ad6ddda899e26b8a2e0e435b6019594a50c1f",
+      "bytes": 7271
+    },
+    {
+      "path": "handoff/local-core-v1/spec/messages.schema.json",
+      "sha256": "3c2363c4db19e8ed3c3bb5610218503d7082dc8b640ae1beaa5aa1599f9ffbf8",
+      "bytes": 35300
+    },
+    {
+      "path": "architecture/v3.7/ARCHITECTURE.md",
+      "sha256": "df6c59ae588053ff145239e8edafcf1879b414b9ad3882b927bb19c251e0cf27",
+      "bytes": 32387
+    },
+    {
+      "path": "architecture/v3.7/SHARED-CORE-AND-CLIENTS.md",
+      "sha256": "9c328cea7cc7d5ab7b09570a03eb415f799fae64e050c7f1314f2043ab5a7740",
+      "bytes": 14460
+    },
+    {
+      "path": "architecture/v3.7/FEATURE-COVERAGE.md",
+      "sha256": "5f2d4de65d85e372ab7ddec88b473b72ba9119973554c04e4e46edea17925cd6",
+      "bytes": 14661
+    },
+    {
+      "path": "architecture/v3.7/FOUR-TARGET-ARCHITECTURE.md",
+      "sha256": "bb6abc26a1dd99f4578e1dd5db8eefcaf9abbdb1f4deb39e5f8de3005fcde1c5",
+      "bytes": 20695
+    },
+    {
+      "path": "architecture/v3.7/PROJECT-EXPORT-EXTENSION.md",
+      "sha256": "52e0b645f231889468a46a06493bc61b9564d28ca76853f688f19bb18640c6ba",
+      "bytes": 7923
+    },
+    {
+      "path": "architecture/v3.7/OPEN-SOURCE-BOUNDARY.md",
+      "sha256": "04c4df77d9a354e63113e0a3a9f6b324c87707a293a5d4587ff23984d6c3169e",
+      "bytes": 15619
+    }
+  ],
+  "note": "只读依赖与历史背景；本包只替换表现层/桥接/可测性决定。当前M1 root manifest不被本包激活替换。"
+}

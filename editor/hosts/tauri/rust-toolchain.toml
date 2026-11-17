@@ -1,0 +1,5 @@
+# 与架构C1候选一致；未安装或构建时不声称已经接收兼容组合。
+[toolchain]
+channel = "1.100.0"
+profile = "minimal"
+targets = ["x86_64-pc-windows-msvc"]

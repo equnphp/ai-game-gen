@@ -1,0 +1,78 @@
+{
+  "version": "local-core-v1-implementation.1",
+  "date": "2026-11-17",
+  "upstream_initial": "local-core-v1-draft.2",
+  "status": "source_written_not_built",
+  "has_ui": false,
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "build_id": "",
+  "source_author_role": "engineering",
+  "tasks": [
+    {
+      "id": "LC-T01",
+      "source_scope": "SDK/离线CMake/固定依赖/句柄与buffer",
+      "implementation_status": "source_written_not_built",
+      "acceptance_execution": "not_run",
+      "accepted_by_real_reviewer": false
+    },
+    {
+      "id": "LC-T02",
+      "source_scope": "授权根/单写锁/项目会话/DDL",
+      "implementation_status": "source_written_not_built",
+      "acceptance_execution": "not_run",
+      "accepted_by_real_reviewer": false
+    },
+    {
+      "id": "LC-T03",
+      "source_scope": "Settings/Scene/提案校验/事务/幂等",
+      "implementation_status": "source_written_not_built",
+      "acceptance_execution": "not_run",
+      "accepted_by_real_reviewer": false
+    },
+    {
+      "id": "LC-T04",
+      "source_scope": "历史/撤销重做/20自动点/128锁定上限",
+      "implementation_status": "source_written_not_built",
+      "acceptance_execution": "not_run",
+      "accepted_by_real_reviewer": false
+    },
+    {
+      "id": "LC-T05",
+      "source_scope": "分块/完整hash/READY/attach/读取",
+      "implementation_status": "source_written_not_built",
+      "acceptance_execution": "not_run",
+      "accepted_by_real_reviewer": false
+    },
+    {
+      "id": "LC-T06",
+      "source_scope": "结构校验/格式拒绝/备份/GC",
+      "implementation_status": "source_written_not_built",
+      "acceptance_execution": "not_run",
+      "accepted_by_real_reviewer": false
+    },
+    {
+      "id": "LC-T07",
+      "source_scope": "Windows/Android平台端口/驱动/薄JNI",
+      "implementation_status": "source_written_not_built",
+      "acceptance_execution": "not_run",
+      "accepted_by_real_reviewer": false
+    },
+    {
+      "id": "LC-T08",
+      "source_scope": "来源/接入说明/15条基础计划/已知未验证项",
+      "implementation_status": "source_written_not_built",
+      "acceptance_execution": "not_run",
+      "accepted_by_real_reviewer": false
+    }
+  ],
+  "limits": [
+    "无DLL/SO/APK或实际运行记录",
+    "未执行项目脚本、配置、编译、单元/集成测试、静态扫描、设备/截图/故障演练",
+    "固定工具链的已安装状态与Windows/Android16KiB页/CRT/JNI组合兼容未验证",
+    "持久化RPO、恢复、容量、取消时延、并发及安全目标均未验证",
+    "完整GUI/图引擎/AI/Reader/LAN/四目标打包属于后续包，不计当前实现完成",
+    "源码和元数据登记不替代产品/架构/研发/质量真实基线评审"
+  ]
+}

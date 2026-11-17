@@ -1,0 +1,9 @@
+{
+  "version": "ui-full-20261117-draft.2",
+  "manifest_sha256": "a8a0fb2053057d17064ce12029016f58ea6380d9dfcd0e897b0c1c7683ab4876",
+  "artifact_index_sha256": "1536dfe44076483d6ba2a1b153c610e962593913e04b4e329ec037f74345dc38",
+  "import_archive_sha256": "0eacc4a8914951650866fc6e58fc073b3b14cfb8d56cda4ee6b137b5dbac676b",
+  "source_drift": [],
+  "approval_status": "pending",
+  "execution_status": "not_run"
+}

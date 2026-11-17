@@ -1,0 +1,91 @@
+{
+  "schema": "gamegen.architecture-source-review.v1",
+  "version": "editor-increment-source-review-20261117-draft.1",
+  "based_on": "editor-web-v1-draft.4",
+  "kind": "manual_source_contract_observation_not_runtime_reproduction",
+  "findings": [
+    {
+      "id": "AR-INC-01",
+      "priority": "P2",
+      "status": "open",
+      "title": "提交前拒绝应返回not_submitted",
+      "source_refs": [
+        {
+          "path": "editor/hosts/tauri/src/wire.rs",
+          "line": 11
+        },
+        {
+          "path": "editor/hosts/tauri/src/lib.rs",
+          "line": 39
+        },
+        {
+          "path": "editor/hosts/tauri/src/core.rs",
+          "line": 223
+        },
+        {
+          "path": "editor/web/src/core-client.ts",
+          "line": 71
+        }
+      ],
+      "contract": "architecture/editor-web-v1/revisions/draft.2/CONTRACT.md",
+      "owner": "宿主coding/客户端",
+      "acceptance": "按实际原生受理边界标记outcome，已确定未受理不进入假未知",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "AR-INC-02",
+      "priority": "P2",
+      "status": "open",
+      "title": "超前UX游标必须返回可恢复的真实游标",
+      "source_refs": [
+        {
+          "path": "editor/hosts/tauri/src/locale.rs",
+          "line": 157
+        }
+      ],
+      "contract": "architecture/editor-web-v1/revisions/draft.3/UX-CONTRACTS.md",
+      "owner": "宿主coding",
+      "acceptance": "afterSeq大于实际尾时gap=true且nextSeq可恢复，不能永远回显未来位置",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "AR-INC-03",
+      "priority": "P2",
+      "status": "open",
+      "title": "语言选择成功需要真实收据驱动的新语言反馈",
+      "source_refs": [
+        {
+          "path": "editor/web/src/components.tsx",
+          "line": 40
+        }
+      ],
+      "contract": "design/ui-full-20261117-draft.1/review/localization-20261117-draft.1/LANGUAGE-SETTINGS.md",
+      "owner": "前端，产品/UI接收文案",
+      "acceptance": "真实committed/unchanged后一次成功反馈，accepted/旧意图不能假报成功",
+      "execution_status": "not_run"
+    }
+  ],
+  "source_corrections_observed": [
+    {
+      "id": "OBS-RESULT-RELEASE",
+      "path": "editor/web/src/core-client.ts",
+      "lines": "30,43,51",
+      "status": "source_correction_observed_not_executed"
+    },
+    {
+      "id": "OBS-CREATE-RECOVERY",
+      "path": "editor/web/src/App.tsx",
+      "lines": "180-185",
+      "status": "source_correction_observed_not_executed"
+    },
+    {
+      "id": "OBS-LOCALE-MONOTONIC",
+      "path": "editor/web/src/localization.tsx",
+      "lines": "43-55",
+      "status": "source_correction_observed_not_executed"
+    }
+  ],
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

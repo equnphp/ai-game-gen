@@ -1,0 +1,69 @@
+/* 新手优先展示任务与笔刷；进阶折叠复用同一数据，手机保持单列与触控尺寸。 */
+.gp-page { max-width: 1360px; margin: 0 auto; }
+.gp-page h2 { font-size: 16px; margin-bottom: 18px; }
+.gp-page h3 { font-size: 14px; }
+.gp-tabs, .gp-levels, .gp-brushes { display: flex; flex-wrap: wrap; gap: 8px; }
+.gp-tabs { margin-bottom: 20px; }
+.gp-tabs .btn { min-height: 44px; padding: 11px 16px; }
+.gp-levels { margin-bottom: 18px; }
+.gp-levels .active { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
+.gp-levels .btn, .gp-brushes .btn { min-height: 44px; }
+.gp-layout { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(260px, 1fr); gap: 20px; }
+.gp-layout > * { min-width: 0; }
+.gp-layout .field { margin-bottom: 18px; }
+.gp-layout .field input, .gp-layout .field select, .gp-layout .field textarea { min-height: 44px; }
+.gp-brushes { margin-bottom: 14px; }
+.gp-brushes .btn { padding: 10px 12px; }
+.gp-map-scroll { overflow: auto; border: 1px solid #c3d5c2; border-radius: 10px; margin-top: 16px; }
+.gp-map-scroll:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.gp-map { display: grid; grid-template-columns: repeat(10, minmax(44px, 1fr)); min-width: 440px; }
+.gp-cell { min-height: 44px; aspect-ratio: 1; border: 1px solid #b6c9a7; background: #d5e8bd; padding: 2px; }
+.gp-cell:hover { box-shadow: inset 0 0 0 2px #3b6ca3; }
+.gp-cell:focus-visible { outline: 3px solid #175ca7; outline-offset: -3px; position: relative; z-index: 1; }
+.gp-cell.water { background: #a4d5ef; border-color: #8fbdd6; }
+.gp-cell.forest { background: #a5c38b; }
+.gp-cell span { display: inline-grid; place-items: center; font-size: 13px; font-weight: 700; color: #244767; }
+.gp-cell.start span, .gp-cell.exit span, .gp-cell.chest span { background: #fffef1; border-radius: 6px; width: 29px; height: 29px; }
+.gp-cell.start span { color: #16684d; border: 2px solid #25826b; }
+.gp-cell.exit span { color: #5b438a; border: 2px solid #9371bd; }
+.gp-cell.blocked { background-image: repeating-linear-gradient(45deg, #5266802a 0 3px, transparent 3px 7px); }
+.gp-cell.blocked span { font-size: 23px; color: #3e526e; }
+.gp-legend { display: flex; flex-wrap: wrap; gap: 15px; color: #62718b; font-size: 11px; padding-top: 15px; }
+.gp-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+.gp-advanced { margin-top: 20px; color: #48617e; font-size: 12px; }
+.gp-advanced summary { cursor: pointer; font-size: 12px; min-height: 44px; display: list-item; padding: 13px 0; }
+.gp-advanced.panel { padding-top: 8px; padding-bottom: 8px; }
+.gp-advanced-body { padding: 10px 0 12px; line-height: 1.8; }
+.gp-advanced-body ul { padding-left: 20px; margin: 10px 0 16px; }
+.gp-advanced-body code { background: #eef3fa; padding: 3px 6px; border-radius: 4px; }
+.gp-advanced .field { color: #405879; }
+.gp-growth { padding: 22px; border: 1px solid #d4e1f3; background: #f2f7ff; border-radius: 12px; margin-bottom: 20px; }
+.gp-growth table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13px; text-align: left; }
+.gp-growth th, .gp-growth td { padding: 12px 8px; border-bottom: 1px solid #d9e4f4; }
+.gp-growth thead th { color: #6a7e99; font-size: 11px; font-weight: 500; }
+.gp-item-row { display: grid; grid-template-columns: 1fr auto; padding: 14px 0; border-top: 1px solid var(--line); gap: 6px; }
+.gp-item-row b, .gp-item-row span { font-size: 12px; }
+.gp-item-row small { font-size: 10px; color: var(--muted); grid-column: 1 / -1; }
+.gp-dialogue-branch { background: #f5f8fc; border: 1px solid #e1e9f4; border-radius: 8px; padding: 14px; margin: 14px 0; }
+.gp-dialogue-branch > b { display: block; font-size: 12px; margin-bottom: 12px; }
+.gp-dialogue-branch .field:last-child { margin-bottom: 0; }
+.gp-save-bar { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 20px; }
+.gp-boundary { font-size: 11px; color: #73839b; line-height: 1.8; margin-top: 24px; padding: 12px 0; }
+.gp-page #gp-feedback:empty { display: none; }
+.gp-page #gp-feedback:not(:empty) { margin-bottom: 18px; }
+.gp-page .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+/* 中小屏减少并排字段，地图可横向平移而不缩小点击目标。 */
+@media (max-width: 1050px) {
+  .gp-layout { grid-template-columns: 1fr; }
+  .gp-fields { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .gp-tabs { gap: 6px; }
+  .gp-tabs .btn { flex: 1; min-width: 0; padding: 10px 8px; font-size: 11px; }
+  .gp-tabs .ico { display: none; }
+  .gp-fields { grid-template-columns: 1fr; }
+  .gp-brushes { gap: 6px; }
+  .gp-brushes .btn { padding: 10px; font-size: 11px; }
+  .gp-growth { padding: 18px; }
+  .gp-save-bar .btn { width: 100%; }
+}

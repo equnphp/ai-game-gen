@@ -1,0 +1,36 @@
+{
+  "version": "local-core-v1-implementation.1",
+  "date": "2026-11-17",
+  "dependencies": [
+    {
+      "name": "json",
+      "url": "https://codeload.github.com/nlohmann/json/zip/refs/tags/v3.12.0",
+      "archive_bytes": 10157355,
+      "archive_sha256": "34660b5e9a407195d55e8da705ed26cc6d175ce5a6b1fb957e701fb4d5b04022",
+      "execution_status": "not_run",
+      "source_executed": false
+    },
+    {
+      "name": "sqlite",
+      "url": "https://www.sqlite.org/2026/sqlite-amalgamation-3540100.zip",
+      "archive_bytes": 2990966,
+      "archive_sha256": "0a9c8e34352dad46006aa82836d5383bff9dc6bc9ce5a60553c05aa30e6ad1f9",
+      "execution_status": "not_run",
+      "source_executed": false
+    },
+    {
+      "name": "mbedtls",
+      "url": "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-3.6.7/mbedtls-3.6.7.tar.bz2",
+      "archive_bytes": 5473689,
+      "archive_sha256": "a7e8bcbec0e6f761b4af24f25677626b35f762f68eef79c08677a363212d11f6",
+      "publisher_sha256": "a7e8bcbec0e6f761b4af24f25677626b35f762f68eef79c08677a363212d11f6",
+      "received_from": "I:/code/GameGen/handoff/local-core-v1/supplements/handoff-v3/evidence/downloads/mbedtls-3.6.7.tar.bz2",
+      "source_executed": false,
+      "execution_status": "not_run"
+    }
+  ],
+  "sqlite_published_sha3_256": "92281c86e2957f9b9305890f9ac04204caa7b677cc868dc326d942689df28e30",
+  "json_header_sha256": "aaf127c04cb31c406e5b04a63f1ae89369fccde6d8fa7cdda1ed4f32dfc5de63",
+  "mbedtls_archive_verification": "official release tar.bz2; actual digest matches publisher checksum supplied by architecture handoff; fixed-tag codeload replaced",
+  "toolchains": "versions fixed in architecture; not installed or executed by this turn"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "aimeta-gamegen-studio-prototype",
+  "version": "3.6.0",
+  "private": true,
+  "description": "Android与Qt桌面编辑器的本地交互原型；无云端调用",
+  "scripts": {
+    "lint": "eslint i18n.js locales/*.js app.js studio.js workflow.js creation.js effects-preview.js gameplay.js networking.js isometric.js assistant-setup.js tools/*.cjs eslint.config.cjs --format json"
+  },
+  "devDependencies": {
+    "eslint": "9.39.5"
+  }
+}

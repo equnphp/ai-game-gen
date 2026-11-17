@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "project": {
+    "id": "gamegen-editor-first-increment-source-review",
+    "version": "editor-increment-source-review-20261117-draft.1",
+    "name": "首个编辑器增量的架构源码接收补充",
+    "owner": "architecture编制；实际角色整版接收未登记"
+  },
+  "context": {
+    "business_goals": "核对实际首增量的架构/契约和免费直接依赖声明",
+    "scope": "独立文档，保持editor/实现和根M1/冻结设计单写者",
+    "constraints": "不改实现，不执行构建/测试/扫描/安装/类型/Schema验证，不代签",
+    "risk_assessment": "3项契约/展示写回；已观测修正尚无运行证据"
+  },
+  "activation": {
+    "status": "independent_architecture_review_not_root_iteration",
+    "actual_project_root": "I:/code/GameGen",
+    "root_manifest_changed": false,
+    "current_architecture": "editor-web-v1-draft.4"
+  },
+  "topology": {
+    "pattern": "modular_monolith",
+    "reason": "沿第四版，本地编辑器与共享Core，不新增服务",
+    "deployment_units": [
+      {
+        "id": "LOCAL-EDITOR",
+        "component_ids": [
+          "EDITOR-UI",
+          "LOCAL-UX",
+          "C-ABI-CORE"
+        ],
+        "owner": "开发侧",
+        "responsibility": "当前Windows首增量，Android Core接入后包",
+        "boundary_reason": "一个项目权威"
+      }
+    ],
+    "team_capacity": "沿既有WIP1/最多2待集成；真实人员待登记",
+    "operations_cost": "继承本地包/恢复/依赖维护，无新云成本"
+  },
+  "components": [
+    {
+      "id": "EDITOR-UI",
+      "kind": "frontend",
+      "owner": "engineering",
+      "technology": "React/TypeScript",
+      "version": "source_written_not_built",
+      "responsibility": "当前有界项目/场景/属性/任务/资源和语言面板"
+    },
+    {
+      "id": "LOCAL-UX",
+      "kind": "backend",
+      "owner": "engineering",
+      "technology": "Rust/Tauri",
+      "version": "source_written_not_built",
+      "responsibility": "当前只声明UX1.1四方法/设备语言"
+    },
+    {
+      "id": "C-ABI-CORE",
+      "kind": "backend",
+      "owner": "既有M1工程",
+      "technology": "C++20/纯C ABI1.0",
+      "version": "unchanged",
+      "responsibility": "项目领域/存储权威"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "ADR-RV-SCOPE",
+      "selected": "保留独立editor路径和真实部分能力声明",
+      "context": "首个有界增量",
+      "owner": "architecture技术解释；非人员审批",
+      "reason": "不扩入M1或假报完整产品",
+      "options": [
+        {
+          "name": "部分能力如实声明",
+          "benefits": "边界/回退明确",
+          "costs": "后续能力另包",
+          "risks": "未运行"
+        },
+        {
+          "name": "引用全类型即宣称全实现",
+          "benefits": "不采用",
+          "costs": "接收失真",
+          "risks": "不允许"
+        }
+      ],
+      "consequences": "UX1.1四方法可接续，未实现旧协议/课程不得声明",
+      "reversal": "回退当前增量，保留项目/语言文件/任务证据"
+    },
+    {
+      "id": "ADR-RV-C1",
+      "selected": "新增直接包继续候选，完整兼容锁未接收",
+      "context": "官方tag和注册表仅直接元数据",
+      "owner": "architecture编制",
+      "reason": "不把元数据变成实测兼容",
+      "options": [
+        {
+          "name": "候选分层接收",
+          "benefits": "事实/未测分开",
+          "costs": "完整图与制品回执后续",
+          "risks": "尚未解析/构建"
+        },
+        {
+          "name": "直版本即selected/verified",
+          "benefits": "不采用",
+          "costs": "误报",
+          "risks": "不允许"
+        }
+      ],
+      "consequences": "保持C1固定值和selected=false/verified=false",
+      "reversal": "保留上一候选/兼容组合，原数据不动"
+    }
+  ],
+  "interfaces": {
+    "inherited_baseline": "architecture/editor-web-v1/revisions/draft.4/baseline.json",
+    "host_contract": "architecture/editor-web-v1/revisions/draft.2/CONTRACT.md",
+    "ux_contract": "architecture/editor-web-v1/revisions/draft.4/UX-CONTRACTS.md",
+    "source_findings": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/findings.json"
+  },
+  "data": {
+    "authority": "Core项目权威，语言设备私有",
+    "migration": "本补充不迁移数据",
+    "state": "accepted/committed/effective、原任务/结果分开",
+    "backup_restore": "继承第四版；未运行恢复"
+  },
+  "security": {
+    "trust_boundaries": "继承第四版，源码阅读不等于安全验证",
+    "privacy": "不增加远程数据/业务传输",
+    "supply_chain": "只读直接元数据，实际LICENSE/NOTICE/全图/制品回执待办",
+    "verification": "not_run"
+  },
+  "capacity": {
+    "basis": "继承Host/UX硬限，源码有单槽/有界任务；不推断实测",
+    "measurement_status": "not_run"
+  },
+  "scaling": {
+    "extensibility": {
+      "mode": "now",
+      "reason": "部分能力/版本/目录边界接续",
+      "decision_id": "ADR-RV-SCOPE",
+      "evidence_ids": [
+        "RV-SOURCE"
+      ],
+      "trigger_ids": [
+        "RV-CONTRACT"
+      ]
+    },
+    "high_availability": {
+      "mode": "now",
+      "reason": "仅本机恢复/结果保留，云defer",
+      "decision_id": "ADR-RV-SCOPE",
+      "evidence_ids": [
+        "RV-SOURCE"
+      ],
+      "trigger_ids": [
+        "RV-CONTRACT"
+      ]
+    },
+    "high_load": {
+      "mode": "now",
+      "reason": "有界任务/缓冲；大规模defer",
+      "decision_id": "ADR-RV-SCOPE",
+      "evidence_ids": [
+        "RV-SOURCE"
+      ],
+      "trigger_ids": [
+        "RV-CONTRACT"
+      ]
+    },
+    "high_concurrency": {
+      "mode": "now",
+      "reason": "沿既有单写/背压/最新意图，分布式不加入",
+      "decision_id": "ADR-RV-SCOPE",
+      "evidence_ids": [
+        "RV-SOURCE"
+      ],
+      "trigger_ids": [
+        "RV-CONTRACT"
+      ]
+    }
+  },
+  "scale_triggers": [
+    {
+      "id": "RV-CONTRACT",
+      "metric": "unresolved contract mismatch",
+      "operator": "gte",
+      "threshold": 1,
+      "unit": "finding",
+      "window": "每次源码接收",
+      "owner": "架构/实现者",
+      "action": "写回对应范围并重绑源码摘要，不声称运行通过",
+      "rollback": "当前增量兼容回退，不删业务结果"
+    }
+  ],
+  "increments": [
+    {
+      "id": "AR-INC-01",
+      "goal": "提交前拒绝应返回not_submitted",
+      "owner": "宿主coding/客户端",
+      "scope": [
+        "editor/hosts/tauri/src/wire.rs",
+        "editor/hosts/tauri/src/lib.rs",
+        "editor/hosts/tauri/src/core.rs",
+        "editor/web/src/core-client.ts"
+      ],
+      "depends_on": [],
+      "acceptance": "按实际原生受理边界标记outcome，已确定未受理不进入假未知",
+      "rollback": "由实现者作小增量回退，保留原任务/配置和证据",
+      "validation": "基本/系统文案分工；执行not_run"
+    },
+    {
+      "id": "AR-INC-02",
+      "goal": "超前UX游标必须返回可恢复的真实游标",
+      "owner": "宿主coding",
+      "scope": [
+        "editor/hosts/tauri/src/locale.rs"
+      ],
+      "depends_on": [],
+      "acceptance": "afterSeq大于实际尾时gap=true且nextSeq可恢复，不能永远回显未来位置",
+      "rollback": "由实现者作小增量回退，保留原任务/配置和证据",
+      "validation": "基本/系统文案分工；执行not_run"
+    },
+    {
+      "id": "AR-INC-03",
+      "goal": "语言选择成功需要真实收据驱动的新语言反馈",
+      "owner": "前端，产品/UI接收文案",
+      "scope": [
+        "editor/web/src/components.tsx"
+      ],
+      "depends_on": [],
+      "acceptance": "真实committed/unchanged后一次成功反馈，accepted/旧意图不能假报成功",
+      "rollback": "由实现者作小增量回退，保留原任务/配置和证据",
+      "validation": "基本/系统文案分工；执行not_run"
+    }
+  ],
+  "quality_attributes": [
+    {
+      "id": "RV-Q-CONTRACT",
+      "dimension": "functional",
+      "metric": "未受理/未知/事件恢复/语言收据错误分类",
+      "target": "0假成功或假未知闭合，保持版本与能力一致",
+      "load": "首增量支持范围，实际fixture未运行",
+      "environment": "Windows首增量，构建/环境未验证",
+      "method": "源码契约对照；运行检查另授权",
+      "owner": "architecture阈值/实现者/独立quality文案"
+    }
+  ],
+  "verification": [
+    {
+      "id": "RV-V-CONTRACT",
+      "kind": "functional",
+      "owner": "coding基础/独立quality系统",
+      "method": "后续计划绑定AR-INC01—03及已有修正反例",
+      "environment": "实际构建/环境未接收",
+      "expected": "对应契约定义满足",
+      "execution_status": "not_run",
+      "result": "not_run",
+      "evidence_ids": [],
+      "build_id": ""
+    }
+  ],
+  "evidence": [
+    {
+      "id": "RV-SOURCE",
+      "kind": "manual_source_snapshot",
+      "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source-observation.json",
+      "sha256": "358164bbf358bccc83287d65dc53cd5dad7e7ad44a1954242e227e37ec785b89"
+    },
+    {
+      "id": "RV-DEPS",
+      "kind": "official_direct_metadata",
+      "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/dependency-metadata.json",
+      "sha256": "a9f549c7e476af92cddfff98052dcf37ddfaf7d2e0f955c3dce9a6c3463fe6a1"
+    }
+  ],
+  "delivery": {
+    "code_author_role": "engineering",
+    "has_ui": true,
+    "requires_code": false,
+    "iteration_kind": "architecture_source_review_documents_only",
+    "implementation_status": "source_written_not_built_reported_by_developer",
+    "deliverables": [
+      {
+        "id": "RV-DOC",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/README.md",
+          "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/REVIEW.md",
+          "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/COMPATIBILITY-ADDENDUM.md"
+        ]
+      },
+      {
+        "id": "RV-DATA",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/findings.json",
+          "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/.architecture-mcp.json",
+          "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/baseline.json"
+        ]
+      },
+      {
+        "id": "RV-EVIDENCE",
+        "code_author_role": "engineering",
+        "paths": [
+          "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/"
+        ]
+      }
+    ]
+  },
+  "reviews": [],
+  "ready_for_coding": false,
+  "source_scope_fit": "conditional_with_open_findings",
+  "implementation_edits_performed": false,
+  "source_review_performed": true,
+  "execution_policy": "documentation_only",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

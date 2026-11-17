@@ -1,0 +1,129 @@
+{
+  "version": "full-ui-details-20261117-draft.1",
+  "kind": "documentation_only",
+  "reports": {
+    "inspect_product_spec": {
+      "acceptance_count": 0,
+      "acceptance_with_test_count": 0,
+      "approval_identity_verified": false,
+      "baseline_sha256": "0e7f7484e61b3cf17c5e9dbaecd1dd24c08528c2d34c2825822175e2b2092c59",
+      "complete": true,
+      "delivery_identity": {
+        "actual_build_declared": false,
+        "artifact_verified": false,
+        "consistent": true,
+        "declarations": {
+          ".product-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": []
+      },
+      "documents_ready": true,
+      "downstream": {},
+      "execution_status": "not_run",
+      "execution_verified": false,
+      "gate_kind": "documentation",
+      "in_scope_requirements": 0,
+      "issues": [],
+      "limits": [
+        "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+        "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+        "审批记录和证据真实性须由实际负责人确认"
+      ],
+      "module": "product",
+      "passed": true,
+      "product_version": "full-ui-details-20261117-draft.1",
+      "quality_verified": false,
+      "release_permitted": false,
+      "root": "I:\\code\\GameGen\\design\\ui-full-20261117-draft.1\\review\\full-ui-details-20261117-draft.1",
+      "stage": "discovery",
+      "status": "documents_ready"
+    },
+    "review_requirements": {
+      "acceptance_count": 12,
+      "acceptance_with_test_count": 0,
+      "approval_identity_verified": false,
+      "baseline_sha256": "0e7f7484e61b3cf17c5e9dbaecd1dd24c08528c2d34c2825822175e2b2092c59",
+      "complete": true,
+      "delivery_identity": {
+        "actual_build_declared": false,
+        "artifact_verified": false,
+        "consistent": true,
+        "declarations": {
+          ".product-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": []
+      },
+      "documents_ready": true,
+      "downstream": {},
+      "execution_status": "not_run",
+      "execution_verified": false,
+      "gate_kind": "documentation",
+      "in_scope_requirements": 6,
+      "issues": [],
+      "limits": [
+        "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+        "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+        "审批记录和证据真实性须由实际负责人确认"
+      ],
+      "module": "product",
+      "passed": true,
+      "product_version": "full-ui-details-20261117-draft.1",
+      "quality_verified": false,
+      "release_permitted": false,
+      "root": "I:\\code\\GameGen\\design\\ui-full-20261117-draft.1\\review\\full-ui-details-20261117-draft.1",
+      "stage": "design",
+      "status": "documents_ready"
+    },
+    "discovery_gate": {
+      "acceptance_count": 0,
+      "acceptance_with_test_count": 0,
+      "approval_identity_verified": false,
+      "baseline_sha256": "0e7f7484e61b3cf17c5e9dbaecd1dd24c08528c2d34c2825822175e2b2092c59",
+      "complete": true,
+      "delivery_identity": {
+        "actual_build_declared": false,
+        "artifact_verified": false,
+        "consistent": true,
+        "declarations": {
+          ".product-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": []
+      },
+      "documents_ready": true,
+      "downstream": {},
+      "execution_status": "not_run",
+      "execution_verified": false,
+      "gate_kind": "documentation",
+      "in_scope_requirements": 0,
+      "issues": [],
+      "limits": [
+        "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+        "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+        "审批记录和证据真实性须由实际负责人确认"
+      ],
+      "module": "product",
+      "passed": true,
+      "product_version": "full-ui-details-20261117-draft.1",
+      "quality_verified": false,
+      "release_permitted": false,
+      "root": "I:\\code\\GameGen\\design\\ui-full-20261117-draft.1\\review\\full-ui-details-20261117-draft.1",
+      "stage": "discovery",
+      "status": "documents_ready"
+    }
+  },
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

@@ -1,0 +1,46 @@
+/* 复用既有蓝白控件，表单在手机上单列排列，长URL与模型名不能撑出屏幕。 */
+.assistant-page{max-width:1300px;margin:auto;padding:28px;min-width:0}
+#page-content:has(.assistant-page){padding:0}
+.assistant-intro{display:flex;justify-content:space-between;align-items:center;gap:24px;background:linear-gradient(115deg,#fff,#edf4ff)}
+.assistant-intro h2{font-size:23px;margin:8px 0 12px}
+.assistant-intro p{max-width:700px;line-height:1.8;color:var(--muted);margin:0;font-size:13px}
+.assistant-kicker{font-size:10px;letter-spacing:2px;color:var(--primary);font-weight:700}
+.assistant-section{margin-top:26px}.assistant-section-heading{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}
+.assistant-section-heading h2{font-size:17px;margin:0 0 7px}.assistant-section-heading p{font-size:12px;color:var(--muted);margin:0;line-height:1.7}
+.assistant-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.assistant-card{background:white;border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
+.assistant-card-title,.assistant-card-meta,.assistant-card-actions,.assistant-inline{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.assistant-card-title{justify-content:space-between}.assistant-card-title b{font-size:14px;overflow-wrap:anywhere}
+.assistant-card p{font-size:12px;line-height:1.7;color:var(--muted);overflow-wrap:anywhere}
+.assistant-card-meta{font-size:11px;color:#8794a8;gap:14px;margin:15px 0}
+.assistant-card-actions .btn{font-size:11px;min-height:36px}
+.assistant-empty{border:1px dashed #cbd8ed;border-radius:12px;background:#f8faff;padding:20px;color:var(--muted);font-size:12px}
+.assistant-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.assistant-fields .field{min-width:0}.assistant-form{max-width:940px}.assistant-form .field{margin-bottom:16px}
+.assistant-form input,.assistant-form select,.assistant-form textarea{width:100%;max-width:100%;min-width:0}
+.assistant-form textarea{font-size:13px;line-height:1.7;resize:vertical}
+.assistant-inline small{font-size:11px;color:var(--muted);line-height:1.7}
+.assistant-route{background:#f2f6fd;border:1px solid var(--line);border-radius:12px;padding:15px;margin:18px 0;display:flex;flex-direction:column;gap:10px}
+.assistant-route b{font-size:12px}.assistant-route code{font-size:12px;overflow-wrap:anywhere;white-space:normal}.assistant-route small{color:var(--muted)}
+.assistant-form-footer{display:flex;gap:10px;border-top:1px solid var(--line);padding-top:20px;margin-top:20px}
+.assistant-advanced{border-top:1px solid var(--line);padding-top:20px;margin-top:20px;font-size:12px;color:var(--muted);line-height:1.8}
+.assistant-advanced summary{cursor:pointer;font-weight:600;color:var(--text)}
+.assistant-feedback{padding:13px 16px;border:1px solid #d5e4fa;background:#f2f7ff;border-radius:10px;font-size:12px;line-height:1.7;margin:16px 0}
+.assistant-feedback.error{background:#fff2ee;border-color:#eed4c8;color:#a55239}
+.assistant-feedback[hidden]{display:none}.assistant-boundary{font-size:11px;color:#94a0b2;margin-top:24px}
+.assistant-file{position:relative;cursor:pointer}.assistant-file input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.assistant-log{display:flex;gap:20px;border-bottom:1px solid var(--line);padding:15px 0;font-size:12px}
+.assistant-log time{color:var(--muted);flex-shrink:0}.assistant-log p{margin:0;line-height:1.7}
+.assistant-chat-bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px;color:var(--muted);font-size:11px}
+.assistant-chat-bar .btn{font-size:11px;padding:6px 10px;min-height:32px}
+.agent-options label{min-width:0}.agent-options select{max-width:220px}
+.android .assistant-page{padding:16px 12px}.android .assistant-page .page-heading{align-items:flex-start;gap:12px}
+.android .assistant-page .page-heading h1{font-size:22px}
+.android .assistant-intro{align-items:flex-start;flex-direction:column;padding:18px;gap:14px}
+.android .assistant-intro h2{font-size:20px}.android .assistant-cards,.android .assistant-fields{grid-template-columns:minmax(0,1fr)}
+.android .assistant-section-heading{align-items:flex-start}.android .assistant-section-heading p{max-width:210px}
+.android .assistant-section-heading>.btn{flex-shrink:0}
+.android .assistant-page .btn,.android .assistant-chat-bar .btn{min-height:44px}
+.android .assistant-form{padding:18px}.android .assistant-fields{gap:0}
+.android .assistant-card-actions .btn{font-size:12px}
+.android .agent-options{flex-wrap:wrap}.android .agent-options select{max-width:185px}

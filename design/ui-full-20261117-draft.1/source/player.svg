@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 88" role="img" aria-label="星岛冒险示例宇航员角色">
+  <!-- 原创矢量角色仅用于原型；不依赖网络图片或第三方美术资源。 -->
+  <ellipse cx="36" cy="82" rx="25" ry="5" fill="#132c67" opacity=".25"/>
+  <rect x="8" y="39" width="13" height="27" rx="6" fill="#82bbdf"/>
+  <rect x="51" y="39" width="13" height="27" rx="6" fill="#c7edff"/>
+  <rect x="22" y="61" width="11" height="20" rx="4" fill="#c7edff"/>
+  <rect x="40" y="61" width="11" height="20" rx="4" fill="#c7edff"/>
+  <rect x="18" y="35" width="37" height="35" rx="13" fill="#edf8ff"/>
+  <rect x="27" y="47" width="20" height="12" rx="4" fill="#2685ed"/>
+  <circle cx="36" cy="23" r="23" fill="#edf8ff"/>
+  <path d="M16 20q0-13 20-13t20 13v10q-3 10-20 10T16 30z" fill="#102c5d"/>
+  <path d="M21 18q8-8 20-6" fill="none" stroke="#67dfff" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="29" cy="25" r="2" fill="#8ff4ff"/><circle cx="43" cy="25" r="2" fill="#8ff4ff"/>
+  <path d="M24 80h10m5 0h13" stroke="#438ce4" stroke-width="7" stroke-linecap="round"/>
+</svg>

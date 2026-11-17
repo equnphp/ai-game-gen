@@ -1,0 +1,249 @@
+{
+  "scope": "existing_root_M1_only; new UI extension not activated or formally evaluated by these tools",
+  "root": "I:/code/GameGen",
+  "inspect": {
+    "approval_identity_verified": false,
+    "baseline_sha256": "0e101c1ef571dae06293dce63a73fb1ab88417c7eddbeccf9aef7598a54c132c",
+    "build_id": "",
+    "complete": false,
+    "delivery_identity": {
+      "actual_build_declared": true,
+      "artifact_verified": false,
+      "consistent": true,
+      "declarations": {
+        ".architecture-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".coding-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".design-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "gamegen-prototype-v3.6-20261114-01",
+          "source_revision": ""
+        },
+        ".product-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".quality-plan-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".workflow-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        }
+      },
+      "issues": []
+    },
+    "documents_ready": false,
+    "downstream": {},
+    "execution_status": "not_run",
+    "execution_verified": false,
+    "gate_kind": "documentation",
+    "issues": [
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: architecture",
+        "path": "$.reviews"
+      },
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: product",
+        "path": "$.reviews"
+      }
+    ],
+    "limits": [
+      "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+      "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+      "审批记录和证据真实性须由实际负责人确认"
+    ],
+    "module": "architecture",
+    "passed": false,
+    "quality_verified": false,
+    "release_permitted": false,
+    "root": "I:\\code\\GameGen",
+    "stage": "design",
+    "status": "documents_incomplete",
+    "version": "local-core-v1-handoff.3"
+  },
+  "review": {
+    "approval_identity_verified": false,
+    "baseline_sha256": "0e101c1ef571dae06293dce63a73fb1ab88417c7eddbeccf9aef7598a54c132c",
+    "build_id": "",
+    "complete": false,
+    "delivery_identity": {
+      "actual_build_declared": true,
+      "artifact_verified": false,
+      "consistent": true,
+      "declarations": {
+        ".architecture-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".coding-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".design-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "gamegen-prototype-v3.6-20261114-01",
+          "source_revision": ""
+        },
+        ".product-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".quality-plan-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".workflow-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        }
+      },
+      "issues": []
+    },
+    "documents_ready": false,
+    "downstream": {},
+    "execution_status": "not_run",
+    "execution_verified": false,
+    "gate_kind": "documentation",
+    "issues": [
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: architecture",
+        "path": "$.reviews"
+      },
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: engineering",
+        "path": "$.reviews"
+      },
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: product",
+        "path": "$.reviews"
+      },
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: qa",
+        "path": "$.reviews"
+      }
+    ],
+    "limits": [
+      "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+      "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+      "审批记录和证据真实性须由实际负责人确认"
+    ],
+    "module": "architecture",
+    "passed": false,
+    "quality_verified": false,
+    "release_permitted": false,
+    "root": "I:\\code\\GameGen",
+    "stage": "development",
+    "status": "documents_incomplete",
+    "version": "local-core-v1-handoff.3"
+  },
+  "handoff": {
+    "ready_for_coding": false,
+    "gate": {
+      "approval_identity_verified": false,
+      "baseline_sha256": "0e101c1ef571dae06293dce63a73fb1ab88417c7eddbeccf9aef7598a54c132c",
+      "build_id": "",
+      "complete": false,
+      "delivery_identity": {
+        "actual_build_declared": true,
+        "artifact_verified": false,
+        "consistent": true,
+        "declarations": {
+          ".architecture-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".coding-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".design-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "gamegen-prototype-v3.6-20261114-01",
+            "source_revision": ""
+          },
+          ".product-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".quality-plan-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          },
+          ".workflow-mcp.json": {
+            "artifact_sha256": "",
+            "build_id": "",
+            "source_revision": ""
+          }
+        },
+        "issues": []
+      },
+      "documents_ready": false,
+      "downstream": {},
+      "execution_status": "not_run",
+      "execution_verified": false,
+      "gate_kind": "documentation",
+      "issues": [
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: architecture",
+          "path": "$.reviews"
+        },
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: engineering",
+          "path": "$.reviews"
+        },
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: product",
+          "path": "$.reviews"
+        },
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: qa",
+          "path": "$.reviews"
+        }
+      ],
+      "limits": [
+        "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+        "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+        "审批记录和证据真实性须由实际负责人确认"
+      ],
+      "module": "architecture",
+      "passed": false,
+      "quality_verified": false,
+      "release_permitted": false,
+      "root": "I:\\code\\GameGen",
+      "stage": "development",
+      "status": "documents_incomplete",
+      "version": "local-core-v1-handoff.3"
+    }
+  }
+}

@@ -1,0 +1,191 @@
+/* 工作流编辑器复用全局蓝白变量；触控入口与缩放后的节点分开，避免手机操作目标过小。 */
+.wf-editor { display: flex; flex-direction: column; flex: 1; min-height: 0; position: relative; }
+.wf-primary-actions, .wf-context-actions { display: flex; gap: 8px; align-items: center; }
+.wf-context { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 12px 18px; border-bottom: 1px solid var(--line); background: white; }
+.wf-context > label { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.wf-context > label > span { color: var(--muted); font-size: 11px; white-space: nowrap; }
+.wf-context select { background: #f8faff; border: 1px solid var(--line); border-radius: 7px; color: var(--ink); padding: 8px 10px; min-width: 170px; max-width: 260px; font-size: 12px; }
+.wf-context-actions .btn { font-size: 11px; padding: 7px 8px; min-height: 34px; }
+.wf-grid { grid-template-columns: 210px minmax(0, 1fr) 275px; }
+.wf-library { padding: 18px 12px; overflow-y: auto; min-height: 0; }
+.wf-library h3 { padding: 0 4px 14px; }
+.wf-library-content .search { width: 100%; min-width: 0; background: #f8faff; }
+.wf-library-content .search input { width: 100%; min-width: 0; }
+.wf-categories { display: flex; flex-wrap: wrap; gap: 4px; margin: 12px 0; }
+.wf-categories button { padding: 6px 9px; border: 0; border-radius: 6px; background: #f4f7fc; color: var(--muted); font-size: 11px; min-height: 32px; }
+.wf-categories button.active { color: var(--blue); background: var(--blue-soft); font-weight: 600; }
+.wf-library-list { display: flex; flex-direction: column; gap: 6px; }
+.wf-library-item { border: 1px solid transparent; border-radius: 8px; padding: 11px 7px; background: white; display: flex; align-items: center; gap: 9px; text-align: left; width: 100%; min-height: 58px; }
+.wf-library-item:hover { border-color: #b9d3ff; background: #f7faff; }
+.wf-library-item > .ico { padding: 7px; box-sizing: content-box; width: 16px; height: 16px; background: #edf4ff; border-radius: 8px; color: var(--blue); }
+.wf-library-item > span:first-of-type { flex: 1; min-width: 0; }
+.wf-library-item b { font-size: 12px; font-weight: 600; display: block; }
+.wf-library-item small { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; }
+.wf-library-note { margin: 13px 0 0; font-size: 10px; line-height: 1.8; color: var(--muted); }
+.wf-search-empty { padding: 20px 8px; font-size: 12px; color: var(--muted); }
+.wf-library-item[hidden], .wf-search-empty[hidden] { display: none; }
+.wf-canvas-tools { background: #fafdff; border-bottom: 1px solid var(--line); padding: 7px 12px; display: flex; justify-content: space-between; gap: 8px; flex-shrink: 0; }
+.wf-canvas-tools .row { gap: 4px; }
+.wf-canvas-tools .btn { font-size: 11px; padding: 5px 8px; min-height: 32px; }
+.wf-canvas-tools .row > span { font-size: 11px; color: var(--muted); min-width: 37px; text-align: center; }
+.wf-canvas-tools .ico { width: 14px; height: 14px; }
+.wf-connect-status { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 14px; color: var(--muted); font-size: 10px; background: #f5f8fc; min-height: 36px; flex-shrink: 0; }
+.wf-connect-status.pending { background: #edf4ff; color: #1c5ab7; }
+.wf-connect-status .btn { min-height: 30px; padding: 3px 8px; font-size: 10px; }
+.wf-error { display: flex; align-items: center; gap: 8px; background: #fff0f2; color: #9c2638; padding: 10px 13px; font-size: 12px; flex-shrink: 0; }
+.wf-error > span { flex: 1; }
+.wf-error .btn { padding: 5px; min-height: 30px; font-size: 11px; }
+.wf-scroll { position: relative; padding: 18px; overscroll-behavior: contain; min-height: 0; }
+.wf-world { position: relative; }
+.wf-board { position: absolute; transform-origin: left top; }
+.wf-lines { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+.wf-line path { stroke: #8ca6d0; fill: none; stroke-width: 2.5; }
+.wf-line.number path { stroke: #d39a36; }
+.wf-line.audio path { stroke: #a881ca; }
+.wf-line.selected path { stroke: var(--blue); stroke-width: 4; }
+.wf-line .wf-line-hit { stroke: transparent; stroke-width: 20; pointer-events: stroke; cursor: pointer; }
+.wf-node { position: absolute; width: 220px; min-height: 175px; border: 1px solid #c6d5e9; background: white; border-radius: 10px; box-shadow: 0 6px 17px #30568b14; }
+.wf-node.selected { border-color: var(--blue); outline: 2px solid #146af32b; }
+.wf-node.running { box-shadow: 0 0 0 4px #12966a40; border-color: var(--green); }
+.wf-node-title { border: 0; border-radius: 9px 9px 0 0; background: #f3f7fd; border-bottom: 1px solid #e2eaf6; display: flex; align-items: center; gap: 7px; text-align: left; width: 100%; padding: 12px; height: 43px; font-size: 12px; font-weight: 600; cursor: grab; touch-action: none; }
+.wf-node-title:active { cursor: grabbing; }
+.wf-node-title .ico { width: 16px; height: 16px; color: #477bc6; }
+.wf-node-title > span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wf-node-title > small { color: #90a5c5; letter-spacing: -3px; padding-right: 3px; font-size: 17px; }
+.wf-node.event .wf-node-title { background: #edf3ff; color: #245ab1; }
+.wf-node.condition .wf-node-title { background: #f4efff; color: #7152b4; }
+.wf-node-detail { padding: 9px 12px; color: var(--muted); font-size: 11px; height: 36px; }
+.wf-port-columns { display: grid; grid-template-columns: 1fr 1fr; }
+.wf-ports { display: flex; flex-direction: column; min-height: 68px; }
+.wf-port { background: transparent; border: 0; height: 34px; min-height: 34px; padding: 0 8px; color: #57708e; display: flex; gap: 6px; align-items: center; font-size: 11px; position: relative; white-space: nowrap; }
+.wf-port i { width: 12px; height: 12px; border: 2px solid #7895c1; border-radius: 50%; background: white; flex-shrink: 0; }
+.wf-port.flow i { border-radius: 3px; }
+.wf-port.number i { border-color: #bc8732; }
+.wf-port.audio i { border-color: #9c6fc3; }
+.wf-ports.in .wf-port { margin-left: -14px; }
+.wf-ports.out .wf-port { justify-content: flex-end; margin-right: -14px; flex-direction: row-reverse; }
+.wf-port.pending, .wf-port.compatible { background: #e9f2ff; color: #1757b6; }
+.wf-port.pending i, .wf-port.compatible i { background: #146af3; border-color: #146af3; box-shadow: 0 0 0 4px #146af320; }
+.wf-node-id { padding: 5px 12px 9px; display: block; color: #8b9bb3; font-size: 9px; }
+.wf-selection-bar { background: white; border-top: 1px solid var(--line); padding: 12px 15px; display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-shrink: 0; }
+.wf-selection-bar b { display: block; font-size: 12px; }
+.wf-selection-bar small { display: block; font-size: 10px; color: var(--muted); margin-top: 5px; }
+.wf-inspector { padding: 18px 16px; }
+.wf-inspector h3 { margin: 13px 0 8px; font-size: 16px; }
+.wf-inspector-title .eyebrow { font-size: 9px; letter-spacing: 1.3px; }
+.wf-stable-id { font-size: 10px; color: var(--muted); margin-bottom: 19px; }
+.wf-inspector .field { margin-bottom: 14px; }
+.wf-inspector .field select { width: 100%; border: 1px solid var(--line); padding: 9px; border-radius: 7px; background: white; }
+.wf-inspector > .btn { margin-top: 12px; font-size: 12px; }
+.wf-node-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 8px; }
+.wf-node-actions .btn { font-size: 11px; padding: 6px 8px; }
+.btn.danger { color: #ad3445; background: #fff2f4; border-color: #f5d9df; }
+.wf-section { margin-top: 17px; border-top: 1px solid var(--line); padding-top: 15px; }
+.wf-section h4 { font-size: 11px; margin-bottom: 10px; }
+.wf-nudge { display: flex; gap: 6px; margin-bottom: 6px; }
+.wf-nudge button { min-width: 40px; min-height: 38px; background: #f7faff; border: 1px solid var(--line); border-radius: 6px; }
+.wf-section > .small { font-size: 10px; }
+.wf-connection { width: 100%; text-align: left; color: #3566aa; border: 0; border-radius: 5px; background: #f2f6fd; padding: 9px; font-size: 11px; margin-bottom: 5px; min-height: 36px; }
+.wf-edge-description { font-size: 13px; margin: 16px 0; padding: 12px; background: #f2f7ff; border-radius: 8px; }
+.wf-debug { border-top: 1px solid var(--line); padding-top: 17px; margin-top: 20px; }
+.wf-debug > .row { font-size: 12px; }
+.wf-debug .pill { font-size: 9px; }
+.wf-debug-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 13px 0; }
+.wf-debug-inputs label { font-size: 10px; color: var(--muted); }
+.wf-debug-inputs input { width: 100%; margin-top: 6px; padding: 7px; border: 1px solid var(--line); border-radius: 6px; min-height: 35px; }
+.wf-debug-actions { display: flex; gap: 7px; }
+.wf-debug-actions .btn { font-size: 11px; padding: 7px 9px; }
+.wf-check-result { background: #f4f8fd; border: 1px solid var(--line); padding: 10px; margin-top: 12px; border-radius: 7px; }
+.wf-check-result p { font-size: 11px; color: var(--green); }
+.wf-check-result button { display: flex; gap: 5px; text-align: left; border: 0; background: transparent; padding: 7px 0; color: #a03949; font-size: 11px; width: 100%; line-height: 1.6; }
+.wf-check-result .ico { width: 13px; height: 13px; margin-top: 2px; }
+.wf-trace { list-style: none; padding: 0; margin: 13px 0 0; }
+.wf-trace li { margin: 4px 0; border-left: 2px solid #dde6f2; }
+.wf-trace button { text-align: left; border: 0; background: #f7f9fd; width: 100%; padding: 8px; color: var(--muted); }
+.wf-trace b { font-size: 11px; display: block; }
+.wf-trace small { font-size: 10px; display: block; margin-top: 4px; }
+.wf-trace .active { border-color: var(--blue); }
+.wf-trace .active button { background: #edf4ff; color: #245cae; }
+.wf-trace .done { border-color: var(--green); }
+.wf-debug-outcome { padding: 9px; background: #edf8f4; color: #176b51; font-size: 11px; border-radius: 5px; }
+.wf-dialog { width: min(560px, calc(100vw - 28px)); max-height: 82dvh; border: 1px solid var(--line); border-radius: 16px; padding: 22px; color: var(--ink); box-shadow: 0 24px 100px #10254633; }
+.wf-dialog::backdrop { background: #10254666; }
+.wf-dialog h2 { font-size: 20px; }
+.wf-dialog .wf-library-content { margin-top: 18px; }
+.wf-dialog .wf-library-list { display: grid; grid-template-columns: 1fr 1fr; }
+.wf-dialog .wf-library-item { border-color: var(--line); padding: 10px; }
+.wf-dialog .field { margin-top: 20px; }
+.wf-help { background: #f2f7ff; border-bottom: 1px solid #d5e4fb; padding: 16px 20px; max-height: 280px; overflow-y: auto; flex-shrink: 0; }
+.wf-help h3 { margin-top: 5px; font-size: 15px; }
+.wf-help-steps { display: flex; gap: 10px; margin-top: 13px; }
+.wf-help-steps > button { display: flex; align-items: flex-start; gap: 8px; flex: 1; min-width: 0; background: white; border: 1px solid #dce7f7; padding: 12px; border-radius: 9px; text-align: left; }
+.wf-help-steps > button > span { border-radius: 5px; background: #edf3ff; color: #1b63cb; padding: 4px 6px; font-size: 11px; }
+.wf-help-steps > button b { font-size: 11px; }
+.wf-help-steps > button small { display: block; margin-top: 6px; font-size: 10px; line-height: 1.7; color: var(--muted); }
+.wf-help-steps > button > .ico { display: none; }
+.wf-empty { position: sticky; top: 25%; left: 20px; width: 260px; padding: 24px; background: white; border: 1px dashed #adc4e4; border-radius: 12px; box-shadow: 0 8px 30px #1d467f0d; }
+.wf-empty p { font-size: 12px; color: var(--muted); margin: 9px 0 15px; }
+.wf-mobile-only, .wf-mobile-scrim { display: none; }
+/* 竖屏使用画布和底部属性抽屉；横屏保留并排结构，入口始终可见。 */
+body.android .wf-primary-actions { gap: 5px; }
+body.android .wf-primary-actions .btn { min-height: 38px; padding: 7px 9px; font-size: 11px; }
+body.android .wf-context { padding: 9px 12px; flex-direction: column; align-items: stretch; gap: 6px; }
+body.android .wf-context > label { justify-content: space-between; }
+body.android .wf-context select { min-width: 0; max-width: 220px; font-size: 12px; padding: 7px; }
+body.android .wf-context-actions { justify-content: space-between; gap: 5px; }
+body.android .wf-context-actions .btn { min-height: 34px; font-size: 10px; padding: 6px 7px; }
+body.android .wf-grid { flex: 1; overflow: hidden; }
+body.android .wf-grid > .graph-center { flex: 1; height: auto; min-height: 325px; }
+body.android .wf-editor { min-height: 0; height: calc(100dvh - 256px); }
+body.android .wf-connect-status { font-size: 10px; padding: 8px 11px; }
+body.android .wf-canvas-tools { padding: 5px 9px; }
+body.android .wf-canvas-tools .btn { min-height: 36px; }
+body.android .wf-scroll { padding: 18px; }
+body.android .wf-mobile-only { display: inline-flex; }
+body.android .wf-inspector { display: none; }
+body.android:not(.workflow-wide) .wf-inspector.mobile-open { display: block; position: fixed; z-index: 32; inset: auto 0 0; max-height: 73dvh; overflow-y: auto; padding: 18px; border-radius: 18px 18px 0 0; box-shadow: 0 -8px 40px #10254633; }
+body.android:not(.workflow-wide) .wf-mobile-scrim.visible { display: block; position: fixed; inset: 0; z-index: 31; background: #10254655; }
+body.android .wf-inspector .field input, body.android .wf-inspector .field select { font-size: 16px; min-height: 44px; }
+body.android .wf-inspector .btn { min-height: 42px; }
+body.android .wf-dialog .wf-library-list { grid-template-columns: 1fr; }
+body.android .wf-dialog { padding: 19px; }
+body.android .wf-help { max-height: 210px; padding: 12px; }
+body.android .wf-help-steps { flex-direction: column; gap: 6px; }
+body.android .wf-help-steps > button { padding: 10px; }
+body.android .wf-help-steps > button small { margin-top: 3px; }
+body.android .wf-help-steps > button > .ico { display: block; margin-left: auto; }
+body.workflow-wide .wf-editor { height: auto; flex: 1; min-height: 0; }
+body.workflow-wide .wf-context { flex-direction: row; padding: 5px 12px; min-height: 43px; }
+body.workflow-wide .wf-context > label > span { display: none; }
+body.workflow-wide .wf-context select { max-width: 180px; font-size: 11px; }
+body.workflow-wide .wf-context-actions .btn { min-height: 30px; }
+body.workflow-wide .wf-context-actions .btn .ico { display: none; }
+body.workflow-wide .wf-grid { display: grid; grid-template-columns: minmax(0, 1fr) 260px; min-height: 0; }
+body.workflow-wide .wf-grid > .graph-center { min-height: 0; height: 100%; }
+body.workflow-wide .wf-inspector { display: block; overflow-y: auto; border-left: 1px solid var(--line); border-top: 0; }
+body.workflow-wide .wf-mobile-only { display: none; }
+body.workflow-wide .wf-selection-bar { padding: 7px 12px; }
+body.workflow-wide .wf-selection-bar small { font-size: 9px; margin-top: 2px; }
+body.workflow-wide .wf-connect-status { min-height: 28px; padding: 3px 10px; font-size: 9px; }
+body.workflow-wide .wf-canvas-tools { padding: 2px 7px; }
+body.workflow-wide .wf-canvas-tools .btn { min-height: 30px; }
+body.workflow-wide .wf-dialog { width: min(520px, calc(100dvh - 30px)); max-height: 80dvw; }
+@media (min-width: 1100px) { body.android { --wf-mobile-layout: 1; } }
+@media (max-width: 1100px) { body:not(.android) .wf-grid { grid-template-columns: 175px minmax(0, 1fr) 245px; } }
+
+/* 表单错误位于可见属性区域；端口默认提供44像素逻辑高度，手机初始倍率为100%。 */
+.wf-form-error { padding: 10px; background: #fff0f2; border: 1px solid #f4ced5; color: #a02d3e; font-size: 12px; line-height: 1.7; border-radius: 7px; margin: 9px 0; }
+.wf-form-error[hidden] { display: none; }
+.wf-port { height: 44px; min-height: 44px; }
+.wf-ports { min-height: 88px; }
+.wf-node { min-height: 187px; }
+.wf-selection-bar > span { min-width: 0; }
+body.android .page-area.flush:has(.wf-editor) { display: flex; flex-direction: column; overflow: hidden; }
+body.android .wf-editor { height: auto; flex: 1; min-height: 0; }
+body.android .wf-grid > .graph-center { min-height: 0; }
+body.android .wf-primary-actions .btn { min-height: 44px; }
+body.android .wf-dialog { max-height: calc(100dvh - 24px); }
+body.workflow-wide .wf-dialog { width: min(520px, calc(100dvw - 28px)); max-height: calc(100dvh - 24px); }
+
+/* 连接选择表单提供不随画布缩放的触控入口。 */
+.wf-dialog .field select { width:100%; border:1px solid var(--line); border-radius:7px; padding:10px; min-height:44px; background:white; color:var(--ink); }

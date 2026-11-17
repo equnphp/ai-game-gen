@@ -1,0 +1,121 @@
+{
+  "status": "fulfilled",
+  "value": {
+    "content": [
+      {
+        "text": "{\"aosp_detected\":false,\"capabilities\":{\"builtin\":\"Conversation-language comment policy, lexical security patterns, whitespace, line length, approximate complexity, exact normalized blocks, literal dependency rules\",\"external\":\"native language analyzers; available/configured tools only\",\"limits\":\"No proof of security, semantic equivalence, runtime correctness or full call-graph analysis\"},\"config\":{\"comment_rules\":{\"declaration_gap_lines\":1,\"files\":[\"**\"],\"header_max_lines\":5,\"language\":\"conversation\",\"min_language_characters\":2},\"duplicate_min_lines\":12,\"exclude\":[],\"forbidden_dependencies\":[],\"literal_rules\":[],\"max_file_bytes\":1048576,\"max_files\":10000,\"max_findings\":2000,\"max_function_lines\":100,\"max_line_length\":140,\"require_tools\":true,\"timeout_seconds\":60,\"tools\":{},\"version\":1},\"inventory_complete\":true,\"languages\":{\"config\":11},\"projects\":[],\"root\":\"I:\\\\code\\\\AimetaLive\\\\docs\\\\AimetaGameGen-Studio-Prototype-v3\",\"skipped\":[],\"tools\":{\"bandit\":{\"available\":false,\"path\":\"\"},\"cargo\":{\"available\":false,\"path\":\"\"},\"checkstyle\":{\"available\":false,\"path\":\"\"},\"clang-format\":{\"available\":false,\"path\":\"\"},\"clang-tidy\":{\"available\":false,\"path\":\"\"},\"dart\":{\"available\":true,\"path\":\"D:\\\\flutter\\\\bin\\\\dart.bat\"},\"dotnet\":{\"available\":true,\"path\":\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\"},\"eslint\":{\"available\":false,\"path\":\"\"},\"flutter\":{\"available\":true,\"path\":\"D:\\\\flutter\\\\bin\\\\flutter.bat\"},\"git\":{\"available\":true,\"path\":\"C:\\\\Program Files\\\\Git\\\\cmd\\\\git.exe\"},\"go\":{\"available\":false,\"path\":\"\"},\"gofmt\":{\"available\":false,\"path\":\"\"},\"govulncheck\":{\"available\":false,\"path\":\"\"},\"java\":{\"available\":true,\"path\":\"C:\\\\Program Files\\\\Eclipse Adoptium\\\\jdk-21.0.12.101-hotspot\\\\bin\\\\java.exe\"},\"ktlint\":{\"available\":true,\"path\":\"I:\\\\code\\\\AimetaLive\\\\quality-mcp\\\\.tools\\\\ktlint\\\\ktlint.exe\"},\"ruff\":{\"available\":false,\"path\":\"\"},\"rustc\":{\"available\":false,\"path\":\"\"}}}",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "aosp_detected": false,
+      "capabilities": {
+        "builtin": "Conversation-language comment policy, lexical security patterns, whitespace, line length, approximate complexity, exact normalized blocks, literal dependency rules",
+        "external": "native language analyzers; available/configured tools only",
+        "limits": "No proof of security, semantic equivalence, runtime correctness or full call-graph analysis"
+      },
+      "config": {
+        "comment_rules": {
+          "declaration_gap_lines": 1,
+          "files": [
+            "**"
+          ],
+          "header_max_lines": 5,
+          "language": "conversation",
+          "min_language_characters": 2
+        },
+        "duplicate_min_lines": 12,
+        "exclude": [],
+        "forbidden_dependencies": [],
+        "literal_rules": [],
+        "max_file_bytes": 1048576,
+        "max_files": 10000,
+        "max_findings": 2000,
+        "max_function_lines": 100,
+        "max_line_length": 140,
+        "require_tools": true,
+        "timeout_seconds": 60,
+        "tools": {},
+        "version": 1
+      },
+      "inventory_complete": true,
+      "languages": {
+        "config": 11
+      },
+      "projects": [],
+      "root": "I:\\code\\AimetaLive\\docs\\AimetaGameGen-Studio-Prototype-v3",
+      "skipped": [],
+      "tools": {
+        "bandit": {
+          "available": false,
+          "path": ""
+        },
+        "cargo": {
+          "available": false,
+          "path": ""
+        },
+        "checkstyle": {
+          "available": false,
+          "path": ""
+        },
+        "clang-format": {
+          "available": false,
+          "path": ""
+        },
+        "clang-tidy": {
+          "available": false,
+          "path": ""
+        },
+        "dart": {
+          "available": true,
+          "path": "D:\\flutter\\bin\\dart.bat"
+        },
+        "dotnet": {
+          "available": true,
+          "path": "C:\\Program Files\\dotnet\\dotnet.exe"
+        },
+        "eslint": {
+          "available": false,
+          "path": ""
+        },
+        "flutter": {
+          "available": true,
+          "path": "D:\\flutter\\bin\\flutter.bat"
+        },
+        "git": {
+          "available": true,
+          "path": "C:\\Program Files\\Git\\cmd\\git.exe"
+        },
+        "go": {
+          "available": false,
+          "path": ""
+        },
+        "gofmt": {
+          "available": false,
+          "path": ""
+        },
+        "govulncheck": {
+          "available": false,
+          "path": ""
+        },
+        "java": {
+          "available": true,
+          "path": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.12.101-hotspot\\bin\\java.exe"
+        },
+        "ktlint": {
+          "available": true,
+          "path": "I:\\code\\AimetaLive\\quality-mcp\\.tools\\ktlint\\ktlint.exe"
+        },
+        "ruff": {
+          "available": false,
+          "path": ""
+        },
+        "rustc": {
+          "available": false,
+          "path": ""
+        }
+      }
+    }
+  }
+}

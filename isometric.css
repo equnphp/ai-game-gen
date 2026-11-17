@@ -1,0 +1,61 @@
+/* 等距编辑沿用蓝白设计变量；画布内部滚动，手机外层不产生横向溢出。 */
+.iso-page{max-width:1460px;margin:auto;padding:28px;min-width:0}
+.iso-toolbar,.iso-canvas-head,.iso-canvas-foot{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.iso-toolbar{margin-bottom:22px}.iso-toolbar h1{font-size:25px;letter-spacing:-.7px;margin:6px 0 8px}
+.iso-toolbar p{margin:0;color:#798699;font-size:13px}.iso-eyebrow{font-size:10px;letter-spacing:2px;color:#6f86b4;font-weight:700}
+.iso-actions,.iso-tabs,.iso-map-choices,.iso-brushes{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.iso-actions .btn{min-height:40px;font-size:12px}.iso-tabs{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:15px}
+.iso-map-choices{margin-bottom:15px}.iso-map-choices .btn{font-size:12px}
+.iso-workbench{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:16px;align-items:start;min-width:0}
+.iso-canvas-panel{overflow:hidden;min-width:0}.iso-canvas-head{padding:14px 16px;border-bottom:1px solid var(--line)}
+.iso-canvas-head>div{display:flex;align-items:center;gap:8px}.iso-canvas-head .btn{min-width:40px}
+.iso-canvas-head b{font-size:13px}.iso-brushes{padding:10px 14px;border-bottom:1px solid var(--line);background:#fff}
+.iso-brushes .btn{padding:7px 12px;min-height:38px;font-size:12px}.iso-canvas-scroll{max-width:100%;overflow:auto;height:400px;background:#e8eef3;scrollbar-width:thin}
+#iso-canvas{display:block;max-width:none;height:auto;min-width:560px}.iso-tile{cursor:pointer;outline:none}
+.iso-tile:focus polygon,.iso-tile:focus rect{stroke:#596edc;stroke-width:3}
+.iso-canvas-foot{padding:10px 15px;font-size:11px;color:#8b96a4;background:white}.iso-inspector{font-size:13px;min-width:0}
+.iso-inspector h2,.iso-level-panel h2{font-size:14px;margin:0 0 14px}.iso-cell-summary{display:flex;justify-content:space-between;gap:7px;padding:15px 0;border-top:1px solid var(--line)}
+.iso-cell-summary span{font-size:11px;color:#7e8f8c}.iso-stepper{display:flex;gap:5px}.iso-stepper .btn{flex:1;min-width:44px;min-height:44px}
+.iso-advanced{border-top:1px solid var(--line);margin-top:15px;padding-top:15px}.iso-advanced summary{cursor:pointer;font-weight:600;line-height:1.5}
+.iso-detail-body{padding-top:12px}.iso-detail-body>.field{margin-top:14px}.iso-detail-body>.btn{margin-top:8px}
+.iso-detail-body .iso-actions{margin:8px 0}.iso-detail-body .btn{font-size:11px;padding:8px;min-height:40px}
+.iso-linked{display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line);padding-top:18px;margin-top:20px}
+.iso-linked small{font-size:10px;color:#91a0b0}.iso-linked b{font-size:13px}.iso-linked .btn{width:100%}
+.iso-pathbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#f0f4fc;border:1px solid #dfe7f3;border-radius:14px;padding:16px;margin-top:16px}
+.iso-pathbar p{margin:5px 0 0}#iso-path-result{flex-basis:100%;font-size:12px;color:#6983ac}
+.iso-level-panel{margin-top:16px}.iso-level-fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.iso-note{font-size:11px;color:#98a0ad;margin-top:18px}.iso-feedback{padding:12px;background:#fff0ee;border:1px solid #f0cbc5;border-radius:10px;margin-bottom:12px;color:#ad6558;font-size:13px}
+.iso-feedback[hidden]{display:none}.iso-empty{text-align:center;padding:55px 20px}
+.android .iso-page{padding:16px 12px}.android .iso-toolbar{align-items:flex-start;flex-direction:column}
+.android .iso-toolbar h1{font-size:21px}.android .iso-toolbar p{font-size:12px;line-height:1.6}
+.android .iso-workbench{grid-template-columns:minmax(0,1fr)}.android .iso-canvas-scroll{height:330px}
+.android .iso-canvas-head{flex-wrap:wrap}.android .iso-canvas-head .btn{min-height:44px}
+.android .iso-level-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.android .iso-inspector{padding:16px}
+.android .iso-brushes .btn,.android .iso-actions .btn,.android .iso-tabs .btn{min-height:44px}
+.android .iso-cell-summary{justify-content:flex-start;gap:15px}.android .iso-stepper{max-width:250px}
+.android .iso-landscape{position:fixed;inset:0;z-index:60;background:#f6f8fc;overflow:auto;padding:10px}
+.android .iso-landscape .iso-toolbar{flex-direction:row;margin-bottom:8px}.android .iso-landscape .iso-toolbar h1{font-size:16px;margin:3px 0}
+.android .iso-landscape .iso-toolbar p,.android .iso-landscape .iso-eyebrow,.android .iso-landscape .iso-map-choices{display:none}
+.android .iso-landscape .iso-workbench{grid-template-columns:minmax(0,1fr) 230px;gap:10px}
+.android .iso-landscape .iso-canvas-scroll{height:310px}.android .iso-landscape .iso-tabs{margin-bottom:8px;padding-bottom:6px}
+@media(max-width:1100px){body:not(.android) .iso-workbench{grid-template-columns:minmax(0,1fr) 230px}.iso-page{padding:20px}}
+@media(prefers-reduced-motion:reduce){.iso-page *{transition:none!important}}
+
+/* 地图工作台自行管理间距，避免与旧页面容器叠加内边距。 */
+#page-content:has(.iso-page){padding:0}
+
+/* 横屏优先保留完整画布；操作条浮在画布边缘，检查器单独滚动，44px触控目标保留。 */
+.android .iso-landscape .iso-canvas-panel{position:relative}
+.android .iso-landscape .iso-canvas-head{position:absolute;right:6px;top:6px;z-index:2;border:0;padding:0}
+.android .iso-landscape .iso-canvas-head>div:first-child{display:none}
+.android .iso-landscape .iso-brushes{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:4px;flex-wrap:nowrap;overflow-x:auto;background:#ffffffeb}
+.android .iso-landscape .iso-brushes .btn{flex-shrink:0}
+.android .iso-landscape .iso-canvas-scroll{height:calc(100dvh - 124px);min-height:230px}
+.android .iso-landscape #iso-canvas{width:calc((100dvh - 124px) * 1.42373 * var(--iso-zoom,1))!important;min-width:0;margin:auto}
+.android .iso-landscape .iso-canvas-foot{display:none}
+.android .iso-landscape .iso-inspector{max-height:calc(100dvh - 124px);overflow-y:auto}
+.android .iso-landscape .iso-tabs{flex-wrap:nowrap;overflow-x:auto}
+.android .iso-landscape .iso-tabs .btn{flex-shrink:0}
+
+/* 横屏是独立全屏工作台，隐藏背后的评审条以防长译文撑大移动端布局视口。 */
+.android:has(.iso-landscape) .review-bar{display:none}

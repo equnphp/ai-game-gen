@@ -1,0 +1,713 @@
+{
+  "schema_version": 1,
+  "version": "ui-full-20261117-draft.2",
+  "kind": "supplemental_design_acceptance_matrix",
+  "design": {
+    "version": "ui-full-20261117-draft.2",
+    "source": "design/ui-full-20261117-draft.2/index.html",
+    "approved_by": "",
+    "status": "draft_for_review"
+  },
+  "inventory": [
+    {
+      "page": "desktop-SUR-GL-001",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "android-SUR-GL-001",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "desktop-SUR-GL-002",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "android-SUR-GL-002",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "desktop-SUR-GL-003",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "android-SUR-GL-003",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "desktop-SUR-GL-004",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "android-SUR-GL-004",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "desktop-SUR-GL-005",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "android-SUR-GL-005",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "desktop-SUR-GL-006",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "android-SUR-GL-006",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "desktop-SUR-GL-007",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "android-SUR-GL-007",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "desktop-SUR-GL-008",
+      "states": [
+        "normal"
+      ]
+    },
+    {
+      "page": "android-SUR-GL-008",
+      "states": [
+        "normal"
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "desktop-SUR-GL-001-normal",
+      "page": "desktop-SUR-GL-001",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "desktop design target",
+        "os": "Windows 11 target; exact final OS/WebView binding pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "100% CSS logical design; capture DPR binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/桌面—统一本地任务中心与任务详情—默认界面—0001.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/desktop-SUR-GL-001-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-017",
+        "REQ-027",
+        "REQ-030",
+        "REQ-033",
+        "REQ-038",
+        "REQ-039",
+        "REQ-040"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "0367a666f6e7a01ada674dcd6cbb5b229a0def8a5d783f614ab0be8e31636c3d",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "android-SUR-GL-001-normal",
+      "page": "android-SUR-GL-001",
+      "state": "normal",
+      "platform": "android",
+      "environment": {
+        "device": "Android design target",
+        "os": "Android target; exact device/OS/WebView binding pending",
+        "viewport_px": [
+          390,
+          844
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "CSS logical px; native density binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/手机—统一本地任务中心与任务详情—默认界面—0006.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/android-SUR-GL-001-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-017",
+        "REQ-027",
+        "REQ-030",
+        "REQ-033",
+        "REQ-038",
+        "REQ-039",
+        "REQ-040"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "cfbd6dfb6823c74771b9b44e26cd1a28f74c80ac5d69c25a0dbac9125a96635e",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "desktop-SUR-GL-002-normal",
+      "page": "desktop-SUR-GL-002",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "desktop design target",
+        "os": "Windows 11 target; exact final OS/WebView binding pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "100% CSS logical design; capture DPR binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/桌面—工作区布局与编辑器偏好—默认界面—0011.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/desktop-SUR-GL-002-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-012",
+        "REQ-015",
+        "REQ-031",
+        "REQ-040"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "46e0fe61b975d1833fcbd49b34b40cc0cf30317654f11ace184394a09d11e744",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "android-SUR-GL-002-normal",
+      "page": "android-SUR-GL-002",
+      "state": "normal",
+      "platform": "android",
+      "environment": {
+        "device": "Android design target",
+        "os": "Android target; exact device/OS/WebView binding pending",
+        "viewport_px": [
+          390,
+          844
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "CSS logical px; native density binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/手机—工作区布局与编辑器偏好—默认界面—0015.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/android-SUR-GL-002-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-012",
+        "REQ-015",
+        "REQ-031",
+        "REQ-040"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "c8d683491e05d3edd6885b87c0573cd322ebbb1f658ffaf4e1675e25adc8ae98",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "desktop-SUR-GL-003-normal",
+      "page": "desktop-SUR-GL-003",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "desktop design target",
+        "os": "Windows 11 target; exact final OS/WebView binding pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "100% CSS logical design; capture DPR binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/桌面—全部工具、搜索与新手学习入口—默认界面—0019.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/desktop-SUR-GL-003-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-012",
+        "REQ-032",
+        "REQ-034"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "5f34e00f11fde6e717c6f5eba6654e02b0025dcca4ef529a14405e53add47e53",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "android-SUR-GL-003-normal",
+      "page": "android-SUR-GL-003",
+      "state": "normal",
+      "platform": "android",
+      "environment": {
+        "device": "Android design target",
+        "os": "Android target; exact device/OS/WebView binding pending",
+        "viewport_px": [
+          390,
+          844
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "CSS logical px; native density binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/手机—全部工具、搜索与新手学习入口—默认界面—0023.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/android-SUR-GL-003-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-012",
+        "REQ-032",
+        "REQ-034"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "0af0b90346c2529f0da1f6e23c7d718ac68f1f2dca8d57b653332a5b8bc7733f",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "desktop-SUR-GL-004-normal",
+      "page": "desktop-SUR-GL-004",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "desktop design target",
+        "os": "Windows 11 target; exact final OS/WebView binding pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "100% CSS logical design; capture DPR binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/桌面—核心、宿主能力与只读恢复状态—默认界面—0027.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/desktop-SUR-GL-004-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-017",
+        "REQ-040"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "a8a8dc8830549c765c809fe989c605c9a51af167c57a25271adf7b9f5019126c",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "android-SUR-GL-004-normal",
+      "page": "android-SUR-GL-004",
+      "state": "normal",
+      "platform": "android",
+      "environment": {
+        "device": "Android design target",
+        "os": "Android target; exact device/OS/WebView binding pending",
+        "viewport_px": [
+          390,
+          844
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "CSS logical px; native density binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/手机—核心、宿主能力与只读恢复状态—默认界面—0031.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/android-SUR-GL-004-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-017",
+        "REQ-040"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "2715982cc640105149265c294ea4ba6aa90163bd1817d5d490ac7d0cfeae97d7",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "desktop-SUR-GL-005-normal",
+      "page": "desktop-SUR-GL-005",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "desktop design target",
+        "os": "Windows 11 target; exact final OS/WebView binding pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "100% CSS logical design; capture DPR binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/桌面—跨模块通知与后台完成收件—默认界面—0035.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/desktop-SUR-GL-005-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-002",
+        "REQ-017",
+        "REQ-027",
+        "REQ-030"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "c848299dec0c25f6f680bb1107bd45aadd659b3897d09f934314f4ba8287a5dd",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "android-SUR-GL-005-normal",
+      "page": "android-SUR-GL-005",
+      "state": "normal",
+      "platform": "android",
+      "environment": {
+        "device": "Android design target",
+        "os": "Android target; exact device/OS/WebView binding pending",
+        "viewport_px": [
+          390,
+          844
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "CSS logical px; native density binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/手机—跨模块通知与后台完成收件—默认界面—0039.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/android-SUR-GL-005-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-002",
+        "REQ-017",
+        "REQ-027",
+        "REQ-030"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "ae4c122578635c0df45af3ba59ff5b24962bd227bba68b284e4c2a3dc745c0b2",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "desktop-SUR-GL-006-normal",
+      "page": "desktop-SUR-GL-006",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "desktop design target",
+        "os": "Windows 11 target; exact final OS/WebView binding pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "100% CSS logical design; capture DPR binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/桌面—历史两版本差异与变更来源—默认界面—0043.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/desktop-SUR-GL-006-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-008",
+        "REQ-017"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "ec3d5d6e6c0c53e0b6a863157e872b0992c3005bc3a171cfda25e16b59c908fa",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "android-SUR-GL-006-normal",
+      "page": "android-SUR-GL-006",
+      "state": "normal",
+      "platform": "android",
+      "environment": {
+        "device": "Android design target",
+        "os": "Android target; exact device/OS/WebView binding pending",
+        "viewport_px": [
+          390,
+          844
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "CSS logical px; native density binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/手机—历史两版本差异与变更来源—默认界面—0047.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/android-SUR-GL-006-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-008",
+        "REQ-017"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "53c991601b917f2c583ef2e147ee46692224cd89605d36c646251896e4153aa5",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "desktop-SUR-GL-007-normal",
+      "page": "desktop-SUR-GL-007",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "desktop design target",
+        "os": "Windows 11 target; exact final OS/WebView binding pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "100% CSS logical design; capture DPR binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/桌面—构建产物与导出版本详情—默认界面—0051.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/desktop-SUR-GL-007-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-007",
+        "REQ-033"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "84fc84348cdb772e663ae65b543cbb462d447b23ed70f645ce65f538b7ac1252",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "android-SUR-GL-007-normal",
+      "page": "android-SUR-GL-007",
+      "state": "normal",
+      "platform": "android",
+      "environment": {
+        "device": "Android design target",
+        "os": "Android target; exact device/OS/WebView binding pending",
+        "viewport_px": [
+          390,
+          844
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "CSS logical px; native density binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/手机—构建产物与导出版本详情—默认界面—0055.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/android-SUR-GL-007-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-007",
+        "REQ-033"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "3b0ace05a1083cfbe325aa7c276b04c6bd6c176a4a7d1a98997bbe7c4096a2b4",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "desktop-SUR-GL-008-normal",
+      "page": "desktop-SUR-GL-008",
+      "state": "normal",
+      "platform": "web",
+      "environment": {
+        "device": "desktop design target",
+        "os": "Windows 11 target; exact final OS/WebView binding pending",
+        "viewport_px": [
+          1440,
+          960
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "100% CSS logical design; capture DPR binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/桌面—进入试玩前的草稿与固定版本选择—默认界面—0059.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/desktop-SUR-GL-008-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-017",
+        "REQ-026",
+        "REQ-032"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "4e5fe6c14622e385acc924c4349c6643e3a3ffde2c71ee90461491ffb62af968",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "android-SUR-GL-008-normal",
+      "page": "android-SUR-GL-008",
+      "state": "normal",
+      "platform": "android",
+      "environment": {
+        "device": "Android design target",
+        "os": "Android target; exact device/OS/WebView binding pending",
+        "viewport_px": [
+          390,
+          844
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "CSS logical px; native density binding pending"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/手机—进入试玩前的草稿与固定版本选择—默认界面—0064.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/android-SUR-GL-008-normal.png",
+      "capture_build_id": "",
+      "requirement_ids": [
+        "REQ-017",
+        "REQ-026",
+        "REQ-032"
+      ],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "3a7d0a662ab8908ac8d50152f25fe0a8fdfc07c68c0ee3fe97933ef072ed2724",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    }
+  ],
+  "execution_policy": "documentation_only",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

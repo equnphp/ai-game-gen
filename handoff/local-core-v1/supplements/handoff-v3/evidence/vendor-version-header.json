@@ -1,0 +1,7 @@
+{
+  "path": "native/third_party/mbedtls/include/mbedtls/build_info.h",
+  "observed_sha256": "4bb715278f3199298220b930514ace4f461ed0e9ff27b656d6e2616a1ca3287f",
+  "expected_official_tag_sha256": "4bb715278f3199298220b930514ace4f461ed0e9ff27b656d6e2616a1ca3287f",
+  "byte_match": true,
+  "note": "只核对头文件字节，不是编译或全头树验证。"
+}

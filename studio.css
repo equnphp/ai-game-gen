@@ -1,0 +1,177 @@
+/* 新增编辑模块复用现有颜色和控件；宽屏只改变布局，不改变项目或会话状态。 */
+.genre-picker { margin-bottom: 22px; }
+.genre-groups { display: flex; gap: 6px; margin: 21px 0 16px; overflow-x: auto; padding-bottom: 5px; }
+.genre-groups button { white-space: nowrap; border: 0; border-radius: 7px; background: #f0f4fa; padding: 9px 13px; font-size: 12px; }
+.genre-groups button.active { background: var(--blue); color: white; }
+.genre-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.genre-card { display: flex; align-items: center; gap: 8px; text-align: left; padding: 12px; border: 1px solid var(--line); border-radius: 9px; background: white; font-size: 12px; min-height: 49px; }
+.genre-card .ico { color: #8397b4; width: 17px; }
+.genre-card.active { background: var(--blue-soft); border-color: var(--blue); color: #1457b9; box-shadow: inset 0 0 0 1px var(--blue); }
+.genre-card.active .ico { color: var(--blue); }
+.genre-summary { font-size: 12px; color: #42618b; margin-top: 17px; }
+.creation-options { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+.agent-layout { display: grid; grid-template-columns: 196px minmax(350px, 1fr) 340px; flex: 1; min-height: 0; }
+.session-list { display: flex; flex-direction: column; min-height: 0; padding: 20px 14px; background: #f8faff; border-right: 1px solid var(--line); }
+.session-list > p { margin-top: 8px; padding: 0 6px; }
+.session-items { display: flex; flex-direction: column; gap: 6px; margin-top: 23px; overflow: auto; }
+.session-item { display: flex; align-items: flex-start; gap: 8px; border: 1px solid transparent; border-radius: 8px; background: transparent; padding: 11px 9px; text-align: left; font-size: 12px; }
+.session-item .ico { width: 16px; height: 16px; margin-top: 2px; }
+.session-item small { display: block; margin-top: 7px; font-size: 10px; color: var(--muted); }
+.session-item.active { background: white; border-color: #d6e4f8; color: #1455ad; }
+.session-footer { display: flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 20px; color: var(--muted); font-size: 10px; }
+.status-dot { width: 6px; height: 6px; background: #6f91bc; border-radius: 50%; }
+.agent-thread { display: flex; flex-direction: column; background: white; min-width: 0; min-height: 0; }
+.agent-thread-title { padding: 18px 25px 15px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; }
+.agent-thread-title h2 { font-size: 15px; }
+.agent-thread-title small { color: var(--muted); font-size: 10px; display: block; margin-top: 5px; }
+.agent-timeline { flex: 1; overflow-y: auto; min-height: 0; padding: 23px 26px 30px; }
+.agent-user { font-size: 14px; font-weight: 600; line-height: 1.8; padding: 15px 18px; background: #f3f6fb; border: 1px solid #e7edf5; border-radius: 11px; margin-bottom: 25px; }
+.agent-answer { margin-bottom: 26px; font-size: 13px; line-height: 1.8; }
+.agent-answer > p { margin: 13px 0 18px; }
+.task-progress { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; font-size: 11px; }
+.task-progress span { color: var(--muted); }
+.tool-activity { border: 1px solid var(--line); border-radius: 8px; margin-top: 7px; overflow: hidden; }
+.tool-activity summary { display: flex; gap: 8px; align-items: center; cursor: pointer; padding: 11px 12px; font-size: 12px; list-style: none; }
+.tool-activity summary .ico { width: 15px; height: 15px; color: var(--green); }
+.tool-activity summary small { margin-left: auto; font-size: 10px; color: var(--muted); }
+.tool-activity > div { padding: 11px 14px; border-top: 1px solid var(--line); background: #f8faff; font-size: 12px; }
+.tool-activity code { font-size: 10px; color: #507199; }
+.tool-activity p { margin: 5px 0; }
+.tool-activity > div > small { color: var(--muted); font-size: 10px; }
+.graph-change-summary { padding: 15px; margin-top: 15px; border-radius: 9px; background: #f2f7ff; border: 1px solid #dbe8fc; }
+.graph-change-summary > span { display: block; color: var(--muted); font-size: 11px; margin: 4px 0 12px; }
+.graph-change-summary .btn { padding: 8px 10px; font-size: 11px; }
+.agent-composer { position: relative; border-top: 1px solid var(--line); background: white; padding: 12px 21px 13px; }
+.context-chips { display: flex; justify-content: space-between; align-items: center; gap: 7px; margin-bottom: 9px; }
+.context-chips > span { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; color: #486e9d; background: #eff5fd; padding: 5px 7px; border-radius: 5px; }
+.context-chips .ico { width: 13px; height: 13px; }
+.context-chips > small { font-size: 9px; color: var(--muted); white-space: nowrap; }
+.agent-composer .composer textarea { min-height: 55px; font-size: 13px; }
+.agent-options { display: flex; gap: 12px; align-items: center; margin-top: 10px; color: var(--muted); font-size: 10px; }
+.agent-options label { white-space: nowrap; }
+.agent-options select { border: 0; background: transparent; font-size: 10px; color: #385b8a; max-width: 146px; }
+.agent-options > span { margin-left: auto; color: #7389a8; font-size: 9px; }
+.composer-menu { position: absolute; left: 20px; bottom: calc(100% - 1px); background: white; padding: 7px; border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 4px 18px #1e3a611a; z-index: 5; display: flex; flex-direction: column; }
+.composer-menu .btn { justify-content: flex-start; }
+.agent-review { display: flex; flex-direction: column; border-left: 1px solid var(--line); background: #f8faff; min-height: 0; overflow: auto; }
+.review-tabs { display: flex; border-bottom: 1px solid var(--line); padding: 12px 15px 0; gap: 15px; background: white; }
+.review-tabs button { border: 0; padding: 10px 1px 14px; color: var(--muted); background: transparent; font-size: 12px; border-bottom: 2px solid transparent; }
+.review-tabs button.active { color: var(--blue); border-color: var(--blue); }
+.agent-preview, .semantic-diff { padding: 18px; }
+.agent-preview > .game-stage { border-radius: 9px; border: 1px solid var(--line); }
+.agent-preview > .row { margin: 15px 0; }
+.agent-preview .stack { margin-top: 22px; }
+.semantic-diff > h3 { margin: 17px 0; font-size: 13px; }
+.semantic-diff > .btn { margin-top: 12px; }
+.diff-item { border: 1px solid #d8e6f5; border-radius: 9px; padding: 14px; margin: 13px 0; background: white; }
+.diff-kind { font-size: 10px; color: #577daf; display: block; margin-bottom: 7px; }
+.diff-item > b { font-size: 12px; }
+.diff-item > p { font-size: 11px; color: var(--muted); margin-top: 8px; }
+.diff-values { display: flex; flex-direction: column; font-size: 11px; gap: 5px; margin-top: 11px; }
+.diff-values del { background: #fff0f1; color: #a45d69; padding: 5px 8px; text-decoration: none; }
+.diff-values ins { background: #eaf8f0; color: #18704b; padding: 5px 8px; text-decoration: none; }
+.permission-card { border: 1px solid #edd7b7; background: #fff9ef; padding: 16px; border-radius: 10px; }
+.permission-card p { color: #7b694f; font-size: 12px; margin: 9px 0 16px; }
+.world-tabs { margin-bottom: 20px; width: fit-content; }
+.world-layout { display: grid; grid-template-columns: 225px minmax(0, 1fr) 250px; gap: 18px; }
+.world-list { display: flex; flex-direction: column; gap: 9px; margin-top: 18px; }
+.world-list-item { display: flex; gap: 10px; align-items: center; background: white; border: 1px solid var(--line); border-radius: 9px; padding: 13px 11px; text-align: left; }
+.world-list-item > span { font-size: 12px; color: #5278a9; }
+.world-list-item b { font-size: 12px; }
+.world-list-item small { display: block; color: var(--muted); font-size: 9px; line-height: 1.5; margin-top: 6px; }
+.world-list-item.active { border-color: var(--blue); background: #f3f7ff; }
+.tile-map { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); margin: 22px 0 18px; padding: 15px; background: #e4eddd; border: 1px solid #ccd9c4; border-radius: 11px; }
+.tile { aspect-ratio: 1; background: #d2e2ba; border: 1px solid #b5c99e66; display: grid; place-items: center; padding: 0; min-width: 0; }
+.tile:nth-child(3n) { background: #cadaaf; }
+.tile.water, .tile.water:nth-child(3n) { background: #9bcde3; border-color: #8dbcd2; }
+.tile.forest { background: #9eb588; }
+.tile > span { display: grid; place-items: center; font-size: 10px; background: #fffef3; border: 2px solid #8c9fbd; border-radius: 5px; width: 80%; height: 80%; color: #3b5680; box-shadow: 0 2px 2px #47634222; }
+.module-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
+.module-chips button { border: 1px solid #dbe5f4; background: #f6f9ff; padding: 8px 9px; border-radius: 7px; color: #4b6c98; font-size: 11px; }
+.module-inspector h3 { margin-bottom: 20px; }
+.module-inspector > .btn { margin-top: 13px; }
+.api-layout { display: grid; grid-template-columns: 215px minmax(0, 1fr) 290px; gap: 18px; }
+.api-list-item { padding: 13px 10px; border: 1px solid var(--line); border-radius: 8px; text-align: left; background: white; }
+.api-list-item b { display: block; font-size: 12px; }
+.api-list-item small { font-size: 9px; display: block; margin-top: 8px; color: var(--muted); overflow-wrap: anywhere; }
+.api-list-item strong { color: #238367; margin-right: 4px; }
+.api-list-item.active { background: #f3f7ff; border-color: var(--blue); }
+.api-route { display: grid; grid-template-columns: 95px minmax(0, 1fr); gap: 12px; margin-top: 22px; }
+.api-route .field { min-width: 0; }
+.api-schema { border: 1px solid var(--line); border-radius: 9px; padding: 14px; margin: 18px 0 22px; }
+.api-schema > h3 { margin-bottom: 9px; }
+.api-schema > div { display: flex; gap: 9px; padding: 11px 0; border-top: 1px solid #edf1f7; font-size: 11px; }
+.api-schema > div > span { color: #6383b1; }
+.api-schema small { margin-left: auto; color: var(--muted); font-size: 10px; }
+.api-result { padding: 15px; margin-top: 16px; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.8; font-size: 11px; color: #396285; background: #f1f6fc; border-radius: 9px; }
+.server-delivery { border-top: 1px solid var(--line); margin-top: 23px; padding-top: 20px; }
+.server-delivery > p { margin: 9px 0 16px; color: var(--muted); font-size: 12px; }
+.server-board { display: grid; grid-template-columns: repeat(3, 185px); gap: 30px; min-width: 690px; padding: 45px 20px; }
+.server-node { display: flex; align-items: center; gap: 9px; text-align: left; padding: 14px 12px; background: white; border: 1px solid #b7cce9; border-top: 4px solid #698bc6; border-radius: 9px; min-height: 100px; box-shadow: 0 3px 5px #3157890a; }
+.server-node > span { font-size: 12px; background: #e9f1fd; color: #4a70a5; border-radius: 50%; width: 23px; height: 23px; display: grid; place-items: center; flex-shrink: 0; }
+.server-node b { font-size: 12px; display: block; }
+.server-node small { display: block; font-size: 10px; line-height: 1.7; color: var(--muted); margin-top: 7px; overflow-wrap: anywhere; }
+.server-node .ico { width: 14px; }
+.server-error-branch { grid-column: 1 / -1; color: #9b6270; font-size: 12px; background: #fff7f6; border: 1px solid #edd7dc; padding: 16px; border-radius: 9px; }
+/* 手机以单列任务为主，会话列表和变更审阅按需展开，不挤压输入区。 */
+body.android .genre-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+body.android .genre-card { font-size: 12px; padding: 11px 9px; }
+body.android .genre-groups { margin-top: 17px; }
+body.android .creation-options { gap: 0 10px; }
+body.android .agent-layout { display: flex; flex-direction: column; position: relative; }
+body.android .session-list { display: none; }
+body.android .session-list.open { display: flex; position: absolute; z-index: 8; inset: 0 40px 0 0; box-shadow: 15px 0 30px #1b3f6d26; }
+body.android .agent-thread { flex: 1; min-height: 0; }
+body.android .agent-thread-title { padding: 10px 16px; }
+body.android .agent-thread-title h2 { font-size: 13px; }
+body.android .agent-thread-title small { font-size: 9px; }
+body.android .agent-thread-title .btn { font-size: 11px; }
+body.android .agent-timeline { padding: 17px 16px; }
+body.android .agent-user { font-size: 13px; padding: 12px 13px; margin-bottom: 19px; }
+body.android .agent-answer { font-size: 12px; }
+body.android .agent-review { display: none; }
+body.android .agent-review.mobile-open { display: block; position: absolute; inset: 0; z-index: 7; background: #f8faff; }
+body.android .review-tabs { justify-content: space-around; }
+body.android .agent-composer { padding: 10px 12px; }
+body.android .agent-composer .composer textarea { font-size: 16px; min-height: 48px; }
+body.android .agent-options { gap: 5px; }
+body.android .agent-options select { max-width: 114px; font-size: 10px; min-height: 30px; }
+body.android .agent-options > span { font-size: 8px; }
+body.android .agent-composer .composer-footer .btn { min-height: 38px; }
+body.android .world-layout, body.android .api-layout { grid-template-columns: 1fr; gap: 14px; }
+body.android .world-tabs { width: 100%; display: flex; }
+body.android .world-tabs button { flex: 1; padding: 8px; font-size: 12px; }
+body.android .world-map-panel { padding: 15px; }
+body.android .tile-map { padding: 8px; }
+body.android .tile > span { font-size: 8px; }
+body.android .world-list { gap: 8px; }
+body.android .world-list-item { min-height: 52px; }
+body.android .api-route { grid-template-columns: 90px minmax(0, 1fr); gap: 8px; }
+/* 横屏编辑器占满可用空间；返回竖屏始终留在顶部，参数栏单独滚动。 */
+body.workflow-wide .review-bar, body.workflow-wide .app-top, body.workflow-wide .mobile-nav { display: none; }
+body.workflow-wide .app-shell { width: 100dvw; height: 100dvh; max-width: none; min-height: 0; margin: 0; }
+body.workflow-wide .app-body { height: 100%; }
+body.workflow-wide .content-toolbar { min-height: 50px; height: 50px; padding: 5px 12px; flex-wrap: nowrap; flex-shrink: 0; }
+body.workflow-wide .content-toolbar .segmented button { min-height: 36px; padding: 6px 10px; }
+body.workflow-wide .content-toolbar .btn { min-height: 38px; padding: 6px 10px; }
+body.workflow-wide .editor-grid { display: grid; grid-template-columns: minmax(0, 1fr) 250px; flex: 1; min-height: 0; overflow: hidden; }
+body.workflow-wide .graph-center { height: 100%; min-height: 0; }
+body.workflow-wide .graph-scroll { padding: 18px; }
+body.workflow-wide .inspector { overflow-y: auto; min-height: 0; border-top: 0; border-left: 1px solid var(--line); padding: 14px 16px; }
+body.workflow-wide .inspector > .row h3 { font-size: 14px; }
+body.workflow-wide .inspector .field input { font-size: 14px; }
+body.workflow-wide .graph-caption { padding: 8px 12px; }
+body.workflow-wide .toast { bottom: 15px; }
+@media (orientation: portrait) {
+  body.workflow-wide .app-shell { position: fixed; left: 50%; top: 50%; width: 100dvh; height: 100dvw; transform: translate(-50%, -50%) rotate(90deg); }
+}
+@media (max-width: 1100px) {
+  body:not(.android) .agent-layout { grid-template-columns: 170px minmax(320px, 1fr); }
+  body:not(.android) .agent-review { display: none; }
+  body:not(.android) .agent-review:has(.semantic-diff) { display: block; position: absolute; right: 0; width: 340px; height: calc(100% - 205px); box-shadow: -8px 0 25px #1b3f6d26; }
+  body:not(.android) .genre-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* 选中服务端节点后，参数栏与画布保持同一选择。 */
+.server-node.selected { border-color: var(--blue); box-shadow: 0 0 0 2px #146af322; }
+.server-inspector-title { margin: 16px 0; }

@@ -1,0 +1,48 @@
+/* 网络工具沿用主项目色彩和控件，手机采用纵向任务路径。 */
+.nw-tabs { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+.nw-tabs button { background: var(--surface); border: 1px solid var(--line); padding: 11px 17px; border-radius: 9px; }
+.nw-tabs button.active { background: var(--blue); color: white; border-color: var(--blue); }
+.nw-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.nw-cards h2 { margin: 15px 0 8px; }
+.nw-cards p { margin-bottom: 18px; min-height: 76px; }
+.nw-section { margin-top: 18px; }
+.nw-details { margin-top: 18px; }
+.nw-details summary { cursor: pointer; font-weight: 650; padding: 10px 0; line-height: 1.6; }
+.nw-details[open] summary { margin-bottom: 10px; }
+.nw-server-plan { border-left: 3px solid var(--blue); padding: 3px 16px; background: var(--blue-soft); }
+.nw-server-plan p { margin: 10px 0; }
+.nw-layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 18px; align-items: start; }
+.nw-main { min-width: 0; }
+.nw-service-list { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+.nw-service { border: 1px solid var(--line); border-radius: 9px; padding: 12px; text-align: left; background: var(--surface); }
+.nw-service.active { background: var(--blue-soft); border-color: var(--blue); }
+.nw-service b, .nw-service small { display: block; overflow-wrap: anywhere; }
+.nw-service small { color: var(--muted); margin-top: 5px; }
+.nw-protocols { display: flex; flex-wrap: wrap; gap: 7px; }
+.nw-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; margin-top: 14px; }
+.nw-form-grid .field { min-width: 0; }
+.nw-table-scroll { overflow-x: auto; margin-top: 12px; }
+.nw-table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 12px; line-height: 1.7; }
+.nw-table th, .nw-table td { padding: 12px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+.nw-table th { background: var(--blue-soft); }
+.nw-draft-flow { display: flex; gap: 10px; flex-wrap: wrap; margin: 15px 0; }
+.nw-draft-flow > div { border: 1px dashed var(--line); padding: 13px; border-radius: 10px; background: var(--canvas); }
+.nw-operation-summary { display: flex; gap: 13px; flex-wrap: wrap; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.nw-operation-summary code { overflow-wrap: anywhere; color: var(--blue); }
+.nw-operation-edit { margin: 16px 0; padding: 18px; border: 1px solid var(--line); border-radius: 12px; }
+.nw-operation-edit textarea, #nw-import-text, #nw-messages { font-family: Consolas, monospace; font-size: 12px; resize: vertical; }
+.nw-legacy { margin-top: 25px; }
+@media (max-width: 1050px) {
+  .nw-cards { grid-template-columns: 1fr; }
+  .nw-cards p { min-height: 0; }
+  .nw-layout { grid-template-columns: 1fr; }
+  .nw-service-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.android .nw-cards, .android .nw-layout, .android .nw-form-grid { grid-template-columns: 1fr; }
+.android .nw-service-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.android .nw-operation-edit { padding: 12px; }
+.android .nw-tabs button { padding: 10px; flex: 1; }
+.android .nw-tabs { gap: 4px; }
+
+/* 表单失败保留用户输入，并用可读错误说明指出修复方向。 */
+.nw-form-error { color: var(--red); margin-bottom: 12px; }

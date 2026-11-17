@@ -1,0 +1,8 @@
+{
+  "path": ".design-mcp.json",
+  "sha256": "616f89aa56cab99450b24819d23635953c51eec08e6ca2f2fa1c4a3bf0509e23",
+  "meaning": "现行root工具报告design归属不一致；只记录源元信息，不接收为新UI批准，不修改该角色文件",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

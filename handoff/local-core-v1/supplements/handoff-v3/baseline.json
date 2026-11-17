@@ -1,0 +1,402 @@
+{
+  "schema": "gamegen.architecture-handoff-baseline.v1",
+  "hash_algorithm": "SHA-256 over UTF-8 recursively sorted-key canonical JSON of baseline_payload; arrays retain order",
+  "baseline_payload": {
+    "version": "local-core-v1-handoff.3",
+    "date": "2026-11-17",
+    "kind": "architecture_developer_handoff_supplement",
+    "base_contract": {
+      "version": "local-core-v1-draft.2",
+      "abi": "1.0",
+      "message_protocol": "1.0",
+      "format_schema": 1,
+      "base_baseline_path": "handoff/local-core-v1/history/local-core-v1-draft.2/project-root/handoff/local-core-v1/baseline.json",
+      "base_baseline_file_sha256": "0dda2164777ab923fd7982989a317bf2584acbe51d2571e7b882aa601be8140b",
+      "base_baseline_payload_sha256": "eec47d8f4214121b66764ce8795c17a0fc576d7167d853ff47c1db45d06beaa0",
+      "unchanged_contract": true
+    },
+    "current_owner_files": [
+      {
+        "path": ".architecture-mcp.json",
+        "sha256": "0ef5cc474a02598e734c59784bbae7e772a167c0c2cf5aeaf0975ca68c14e00e",
+        "bytes": 44905
+      },
+      {
+        "path": ".workflow-mcp.json",
+        "sha256": "dde4a670f73a4dddb11581d30ee1197a17493cec8e94eec9789988f3a0225ec0",
+        "bytes": 29401
+      },
+      {
+        "path": ".product-mcp.json",
+        "sha256": "8587d94e8bec6dfc3466f8df46e4ab4136b7b07879da035dccbe9dabba4eea39",
+        "bytes": 61478
+      },
+      {
+        "path": ".quality-plan-mcp.json",
+        "sha256": "d772158e914ad32376b9bf0d1061668af1efb5046ea064b4b8a9c8fdd03efc56",
+        "bytes": 28593
+      },
+      {
+        "path": ".coding-mcp.json",
+        "sha256": "fd1f3f3f91e9d063363fb584f73fe4155522a38cd308bb66f9785abd75115fc9",
+        "bytes": 15669
+      }
+    ],
+    "current_stage": "development",
+    "stage_baselines": {
+      "architecture": "05dafb662e2280457dbd7130f707d8d97295118a2568b18527826e32b3f30e47",
+      "development": "6e9a95592d576d91ee2fb79e9e8c923738c76285ae4b48a5553d846156a3586b",
+      "requirements": "0ffd7f61da21fcfe251495f5f2699c6a3675bad4d88d381424be7f6d9cbbf703",
+      "ui": "e51c857019a47ef9b1df228c99f0d0d62951b3165bcc7fffdb03d0af92651aa6"
+    },
+    "stage_inputs": {
+      "architecture": {
+        "requirements": "0ffd7f61da21fcfe251495f5f2699c6a3675bad4d88d381424be7f6d9cbbf703"
+      },
+      "development": {
+        "requirements": "0ffd7f61da21fcfe251495f5f2699c6a3675bad4d88d381424be7f6d9cbbf703",
+        "architecture": "05dafb662e2280457dbd7130f707d8d97295118a2568b18527826e32b3f30e47",
+        "ui": "e51c857019a47ef9b1df228c99f0d0d62951b3165bcc7fffdb03d0af92651aa6"
+      },
+      "requirements": {},
+      "ui": {
+        "requirements": "0ffd7f61da21fcfe251495f5f2699c6a3675bad4d88d381424be7f6d9cbbf703",
+        "architecture": "05dafb662e2280457dbd7130f707d8d97295118a2568b18527826e32b3f30e47"
+      }
+    },
+    "current_frozen": {
+      "architecture": {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/.architecture-mcp.scope-sync-final.json",
+        "owner": "architecture",
+        "version": "local-core-v1-handoff.3",
+        "sha256": "0ef5cc474a02598e734c59784bbae7e772a167c0c2cf5aeaf0975ca68c14e00e"
+      },
+      "workflow": {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/.workflow-mcp.scope-sync-final.json",
+        "owner": "architecture workflow writer",
+        "version": "local-core-v1-handoff.3",
+        "sha256": "dde4a670f73a4dddb11581d30ee1197a17493cec8e94eec9789988f3a0225ec0"
+      },
+      "requirements": {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/scope-sync.1/.product-mcp.json",
+        "owner": "product manifest actual metadata receipt; no role approval",
+        "version": "local-core-v1-draft.2",
+        "sha256": "8587d94e8bec6dfc3466f8df46e4ab4136b7b07879da035dccbe9dabba4eea39"
+      }
+    },
+    "packet_entry": {
+      "path": "handoff/local-core-v1/README.md",
+      "owner": "architecture",
+      "version": "local-core-v1-handoff.3",
+      "sha256": "0b712e40768083d495d48d153b618dd01fc5f2512a03196476f0b807c4ff5000"
+    },
+    "artifacts": [
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+        "sha256": "c415a49a769324da5af956bfb1228f73e81a429d41099439b936bfa0e8541a08",
+        "bytes": 1451
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/RESULT.md",
+        "sha256": "5ff65f2e35f9bfbce5e17abf24c40eac5b370015cd539edad50841206dcf10f4",
+        "bytes": 2405
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/authorization.md",
+        "sha256": "7de7f12384bad552e201ab772353cf827d72827e297f19e99e652c8c61343072",
+        "bytes": 2563
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/dependencies.receipt.lock.json",
+        "sha256": "de9f85f44310ddf8b4e20d03cbda82a89b624bc8dd3271a07077df90ff2e7d00",
+        "bytes": 7047
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/dependency-receipt.md",
+        "sha256": "0417f1fbc3f41723f7d8fabbf29c0720cbb7f96e461f0c6fc873e54a82948c6b",
+        "bytes": 3202
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/contract-copy-receipt.json",
+        "sha256": "d3499b32b7d2876b1d7627c6c869411ecb1e8b353f88d893d5a7ff4fb9a5e7cb",
+        "bytes": 1600
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/developer-implementation-receipt.json",
+        "sha256": "ce0477cfd54317cb99b932fc545e642d86a527b8a70484523be10b14304de9a2",
+        "bytes": 1400
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/developer-vendor-progress.json",
+        "sha256": "a98918a36865b5060ada312a4e9d6b20da47de72baa2762e1bf3824e6a893c1c",
+        "bytes": 1759
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/development-authorization.json",
+        "sha256": "84c246dad5b224cf379bcb3866b4266e0f81d6f429e42272086bdf3e682f7eac",
+        "bytes": 1015
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/downloads/json.hpp",
+        "sha256": "aaf127c04cb31c406e5b04a63f1ae89369fccde6d8fa7cdda1ed4f32dfc5de63",
+        "bytes": 953436
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/downloads/mbedtls-3.6.7-sha256sum.txt",
+        "sha256": "7a9caa41bceabbbf4d3cbf6819d44440edb4f608ce2d5bc589eaa280e910da34",
+        "bytes": 88
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/downloads/mbedtls-3.6.7.tar.bz2",
+        "sha256": "a7e8bcbec0e6f761b4af24f25677626b35f762f68eef79c08677a363212d11f6",
+        "bytes": 5473689
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/final-current-reference-check.json",
+        "sha256": "3653dfaf0a0518fd331f3a6ff726fdcc6a51d1d2c65ad5d80aad7ab61266171f",
+        "bytes": 15835
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/final-owner-file-receipt.json",
+        "sha256": "e770fb88f83b867f2cfec08888c283fda263a7b5c2eaf430487a539642b406ef",
+        "bytes": 3377
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/immutable-history-check.json",
+        "sha256": "43c5e3d716237722ce3a8989775800326030162904658821796e5ac2ae158f56",
+        "bytes": 19345
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/official/alignment.h.json",
+        "sha256": "41cf802911f92427a0955b1611ab1e02f638dd430053d96a7655deb95dbe2250",
+        "bytes": 460
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/official/build-info-h.json",
+        "sha256": "108b8b9cd05db69854ac606a5fcb90032f09a26fc3b0b4d2e2e5b763ec3ead05",
+        "bytes": 9410
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/official/cmake-checksums.txt",
+        "sha256": "159eb3b123ba8c8403a154c9d3389432276bf3bd21b274f0396fe17a6a7a7d9d",
+        "bytes": 1663
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/official/common-h.json",
+        "sha256": "a89e1310b91d0a17292668ead9cb81c16b592541fe0c42416e24e20027dae4e0",
+        "bytes": 26609
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/official/constant_time_internal.h.json",
+        "sha256": "415dbee13357daf3b395a19a81b657c1b1b8ecccef20af1034b6ceb78b6679ac",
+        "bytes": 508
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/official/json-release.json",
+        "sha256": "8e233c9d9085793d33f5007649c51eef2700896b61ddfbb81a25e607a2615947",
+        "bytes": 26609
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/official/llvm-release.json",
+        "sha256": "41120e1186498a7c0543745aab071e482edeb24080518ab7ab77e2b0736b3831",
+        "bytes": 19023
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/official/mbed-release.json",
+        "sha256": "8032196bb2ae8a6171b4de8663e90ee119082cecb3d81090ff2e341a462cd48d",
+        "bytes": 18286
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/official/ndk-release.json",
+        "sha256": "7ea9c0fab454ee00db9daebaf42a70030b5de5e6512eabbf1b0affc86c46a0c1",
+        "bytes": 11204
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/official/ninja-release.json",
+        "sha256": "8a2bc560244571fccfe8a27852fd605120c24bb3db4c2983157c55b9b424d20e",
+        "bytes": 9969
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/official/platform-util-c.json",
+        "sha256": "565b6d7bf2ade200c210de2f5c74072dbb1862893269122ba0924072b941f271",
+        "bytes": 12393
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/official/sha256-c.json",
+        "sha256": "179697afb6f9170ef04eab9b5bb929a8dee6b1f4186b416dddc91134b6703a2b",
+        "bytes": 42555
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/official/sqlite-page.html",
+        "sha256": "d0e3fb1a3d9a813560fb525c7124e0088f976a3bd66c330a64963649eb5b2a77",
+        "bytes": 18299
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/pre-final-history.json",
+        "sha256": "f0bb24b21a01964d5e5d5ce79fa13f754b167311d4ac8c01dfe9363005d2175c",
+        "bytes": 2882
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/protected-files.json",
+        "sha256": "92e1a3dd77107edbcef82e1a3a2fe95aa9fe34ba536f571e69656db7dbe1518f",
+        "bytes": 1624
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/scope-sync-receipt.json",
+        "sha256": "0d28d0eeb7b1aad0795230a3a4025a4c5864f44b2221406a303da768086f090e",
+        "bytes": 2540
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/source-metadata.json",
+        "sha256": "a2678e16785b81025e4cd231be381f2baf21792091f658281bc07bed17e42739",
+        "bytes": 6177
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/vendor-version-header.json",
+        "sha256": "be4da69a4bba0b8bb98ec869a22555806eb802c5996f9b2e9317872190486676",
+        "bytes": 359
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/final-implementation-notes.md",
+        "sha256": "e8f8f7aea88d681076e08215a8fb8d376b71749f9c0d4146879d1832a9508f1b",
+        "bytes": 1466
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/.architecture-mcp.final.json",
+        "sha256": "c2f986e6a0fce2809d31046f08410b5d4fdf83489bcc25b0cb7a37cac5cf61f3",
+        "bytes": 43818
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/.architecture-mcp.json",
+        "sha256": "ff618ae577add3c4c5cf6899bb4eb68cce92d58680a6a143ca77d5b9df61889d",
+        "bytes": 41630
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/.architecture-mcp.receipt-final.json",
+        "sha256": "77438f4d076bd2dbac60fb1b70888d5b41c3fa722881010c10b168089faa7a4c",
+        "bytes": 43818
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/.architecture-mcp.scope-sync-final.json",
+        "sha256": "0ef5cc474a02598e734c59784bbae7e772a167c0c2cf5aeaf0975ca68c14e00e",
+        "bytes": 44905
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/.workflow-mcp.final.json",
+        "sha256": "9d92e3e75fffcad1cdc86254fd7d0f2d8b48d667b0ff5d93f80eb5b78cb621e0",
+        "bytes": 26740
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/.workflow-mcp.json",
+        "sha256": "e1d1e37fd4c2b724b64bb5126f0bcee86a80a9304f81f5dd10891ea02186eb32",
+        "bytes": 26151
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/.workflow-mcp.receipt-final.json",
+        "sha256": "393f696be460cab8a7a9fd7a148ad1bf5c3411bca1b6feb452743346fd647ff4",
+        "bytes": 28756
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/.workflow-mcp.scope-sync-final.json",
+        "sha256": "dde4a670f73a4dddb11581d30ee1197a17493cec8e94eec9789988f3a0225ec0",
+        "bytes": 29401
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/scope-sync.1/.product-mcp.json",
+        "sha256": "8587d94e8bec6dfc3466f8df46e4ab4136b7b07879da035dccbe9dabba4eea39",
+        "bytes": 61478
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/scope-sync.1/.quality-plan-mcp.json",
+        "sha256": "d772158e914ad32376b9bf0d1061668af1efb5046ea064b4b8a9c8fdd03efc56",
+        "bytes": 28593
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/hash-subset.md",
+        "sha256": "ee6ccaf492a641938b66322db680d009e0e64beba104463338fcab327780aefd",
+        "bytes": 2557
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/product-metadata.patch.json",
+        "sha256": "816a2b1c4d507ed83b0916410a918490a2737fc95fc289b5689c3c5ca9f84370",
+        "bytes": 1805
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/product-metadata.remaining.patch.json",
+        "sha256": "8e7c59e537c9d6d82258ce6195607fa101c64d13be5dc159c2f2dec1e60ecd9c",
+        "bytes": 1295
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/quality-metadata.patch.json",
+        "sha256": "3a507a062803dfbc534deac15b5c798f68971cf9d621a6b905de69ad1e328e24",
+        "bytes": 743
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/receipts.json",
+        "sha256": "d3e103c212e764ab053526975fa7908f494867daf6b660552ce194941f616a4e",
+        "bytes": 7406
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/remaining-items.md",
+        "sha256": "5d94bbabec43df84732d9cea807379be0b323608b8dbd3d531d07647c90bf338",
+        "bytes": 1756
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/tool-reports.json",
+        "sha256": "12d2da68814287f11b8dec48a1cae584ba77dff80f5b435cbbc3fbc9ef0742c8",
+        "bytes": 153753
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/ui-exclusion.json",
+        "sha256": "cb874726a653b6b42a71c8f80437bd89852e1660613f733fc7f2c6e4d02ff944",
+        "bytes": 739
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/ui-not-applicable.md",
+        "sha256": "846364c48e9b888da71a854ffc337621677416a2073498506e0d90ca004abf21",
+        "bytes": 2085
+      },
+      {
+        "path": "handoff/local-core-v1/supplements/handoff-v3/vendor-source-note.md",
+        "sha256": "b94fde9f457599a1c04108719026e51825fb4b4b50c18ac4cbdc81cd1c68e6ea",
+        "bytes": 1764
+      }
+    ],
+    "coverage_exclusions": [
+      "baseline.json self reference",
+      "documentation-check.json post-baseline integrity result",
+      "CURRENT-HANDOFF.json external current pointer",
+      "native/ code is development-owned, not enumerated or certified by architecture"
+    ],
+    "authorization": {
+      "real_user_coding_instruction_verified": true,
+      "actual_role_baseline_approval": false,
+      "no_automation_authorization_from_files": true
+    },
+    "readiness": {
+      "ready_for_coding": false,
+      "ready_for_stage": false,
+      "documents_ready": false,
+      "entry_remaining": "real role approvals/receipts and derived gates",
+      "delivery_additional_remaining": "5 product metadata fields, exact prepared remaining patch; no new business decision",
+      "identity_registry_consistent": true,
+      "stale_stage_inputs": false
+    },
+    "implementation_receipt": {
+      "status": "source_written_not_built_reported_by_developer",
+      "coding_version": "local-core-v1-implementation.1",
+      "basic_cases": 15,
+      "all_basic_cases_not_run": true,
+      "build_id": "",
+      "architecture_code_review_performed": false
+    },
+    "execution_status": "not_run",
+    "quality_verified": false,
+    "release_permitted": false
+  },
+  "baseline_sha256": "533d861454b81978ca1dcd4e383afcd67e449f85695eab1ee644d4633eadca30",
+  "approvals": [],
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

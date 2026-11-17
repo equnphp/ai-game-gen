@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "version": "ui-full-20261117-draft.2",
+  "kind": "supplemental_design_acceptance_matrix",
+  "design": {
+    "version": "ui-full-20261117-draft.2",
+    "source": "design/ui-full-20261117-draft.2/index.html",
+    "approved_by": "",
+    "status": "draft_for_review"
+  },
+  "inventory": [
+    {
+      "page": "locale-zh-CN-guide-welcome",
+      "states": [
+        "welcome"
+      ]
+    },
+    {
+      "page": "locale-en-US-guide-welcome",
+      "states": [
+        "welcome"
+      ]
+    },
+    {
+      "page": "locale-ja-JP-guide-welcome",
+      "states": [
+        "welcome"
+      ]
+    },
+    {
+      "page": "locale-ko-KR-guide-welcome",
+      "states": [
+        "welcome"
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "locale-zh-CN-guide-welcome",
+      "page": "locale-zh-CN-guide-welcome",
+      "state": "welcome",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          430,
+          500
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "zh-CN",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/共享—简体中文—新手欢迎文案—欢迎文案—2157.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/locale-zh-CN-guide-welcome.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "64f810fd7c3a8932d12856a42f06426b6867f9e5cac1d404ccd5b2c8369e82c3",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "locale-en-US-guide-welcome",
+      "page": "locale-en-US-guide-welcome",
+      "state": "welcome",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          430,
+          500
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "en-US",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/共享—英文—新手欢迎文案—欢迎文案—2158.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/locale-en-US-guide-welcome.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "d19f675d164c88ad7d813a4e0a455c6835c3ea8aacc8acd2def10493ead62f83",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "locale-ja-JP-guide-welcome",
+      "page": "locale-ja-JP-guide-welcome",
+      "state": "welcome",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          430,
+          500
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "ja-JP",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/共享—日文—新手欢迎文案—欢迎文案—2159.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/locale-ja-JP-guide-welcome.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "07f8938085ff69abe1469973370db6288588eb4ad3c610ff8724878aeb0616b8",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    },
+    {
+      "id": "locale-ko-KR-guide-welcome",
+      "page": "locale-ko-KR-guide-welcome",
+      "state": "welcome",
+      "platform": "web",
+      "environment": {
+        "device": "design component board",
+        "os": "static SVG/PNG; no native capture",
+        "viewport_px": [
+          430,
+          500
+        ],
+        "scale": 1,
+        "font_scale": 1,
+        "locale": "ko-KR",
+        "theme": "light",
+        "test_data": "design/ui-full-20261117-draft.2/source/inputs/full/FIXTURE-PLAN.md",
+        "scale_note": "1x design"
+      },
+      "design_image": "design/ui-full-20261117-draft.2/screens/共享—韩文—新手欢迎文案—欢迎文案—2160.svg",
+      "actual_image": "evidence/ui-full-20261117-draft.2/final-build/locale-ko-KR-guide-welcome.png",
+      "capture_build_id": "",
+      "requirement_ids": [],
+      "review": {
+        "decision": "pending",
+        "approved_by": "",
+        "design_version": "ui-full-20261117-draft.2",
+        "design_sha256": "314d753b406c8e45fcd5c5c3d8be452135529c32768c42c4c025bc094aa27f09",
+        "actual_sha256": "",
+        "difference_note": "设计草稿；最终构建、真实人员审阅和逐页比较未完成"
+      },
+      "execution_status": "not_run"
+    }
+  ],
+  "execution_policy": "documentation_only",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

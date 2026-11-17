@@ -1,0 +1,71 @@
+{
+  "version": "local-core-v1-handoff.3",
+  "revision": "final-metadata.2",
+  "kind": "actual_developer_owner_writeback_receipt",
+  "source_thread_id": "01a1e7eb-0314-7c02-99e0-ed591b58bd5f",
+  "path": ".product-mcp.json",
+  "sha256": "68f07612ea33e5dd8fe4e72f90c15a10bff79daab900ebdff379b34582ca10e4",
+  "fields": {
+    "risk_environment_category": "compatibility_and_environment",
+    "risk_review_category": "baseline_review_and_handoff",
+    "dependency": {
+      "id": "DEP-LC-01",
+      "owner": "coding",
+      "description": "按platforms和lock固定源码/工具，接收时补真实下载字节SHA-256；无自动安装",
+      "due": "LC-T01固定依赖接收完成、相应库接入之前",
+      "fallback": "按官方固定来源/校验规则重试或挂起对应依赖接入；不漂移到系统库/其他版本，不以先运行构建测试替代接收说明。",
+      "status": "open"
+    }
+  },
+  "metadata_fields_written": 5,
+  "requirements_acceptance_changed": false,
+  "reviews_added": false,
+  "approval": false,
+  "preserved_previous_records": [
+    {
+      "source": ".architecture-mcp.json",
+      "path": "handoff/local-core-v1/history/handoff-v3-before-final-metadata/.architecture-mcp.json",
+      "sha256": "0ef5cc474a02598e734c59784bbae7e772a167c0c2cf5aeaf0975ca68c14e00e"
+    },
+    {
+      "source": ".workflow-mcp.json",
+      "path": "handoff/local-core-v1/history/handoff-v3-before-final-metadata/.workflow-mcp.json",
+      "sha256": "dde4a670f73a4dddb11581d30ee1197a17493cec8e94eec9789988f3a0225ec0"
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "path": "handoff/local-core-v1/history/handoff-v3-before-final-metadata/handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "sha256": "c415a49a769324da5af956bfb1228f73e81a429d41099439b936bfa0e8541a08"
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/remaining-items.md",
+      "path": "handoff/local-core-v1/history/handoff-v3-before-final-metadata/handoff/local-core-v1/supplements/handoff-v3/remaining-items.md",
+      "sha256": "5d94bbabec43df84732d9cea807379be0b323608b8dbd3d531d07647c90bf338"
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/RESULT.md",
+      "path": "handoff/local-core-v1/history/handoff-v3-before-final-metadata/handoff/local-core-v1/supplements/handoff-v3/RESULT.md",
+      "sha256": "5ff65f2e35f9bfbce5e17abf24c40eac5b370015cd539edad50841206dcf10f4"
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/final-implementation-notes.md",
+      "path": "handoff/local-core-v1/history/handoff-v3-before-final-metadata/handoff/local-core-v1/supplements/handoff-v3/final-implementation-notes.md",
+      "sha256": "e8f8f7aea88d681076e08215a8fb8d376b71749f9c0d4146879d1832a9508f1b"
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/receipts.json",
+      "path": "handoff/local-core-v1/history/handoff-v3-before-final-metadata/handoff/local-core-v1/supplements/handoff-v3/receipts.json",
+      "sha256": "d3e103c212e764ab053526975fa7908f494867daf6b660552ce194941f616a4e"
+    },
+    {
+      "source": "handoff/local-core-v1/supplements/handoff-v3/documentation-check.json",
+      "path": "handoff/local-core-v1/history/handoff-v3-before-final-metadata/handoff/local-core-v1/supplements/handoff-v3/documentation-check.json",
+      "sha256": "9fe2eb80ff450adf6682552100d30e18aabcd3f5b7c13562407cda5fe3452b03"
+    },
+    {
+      "source": "handoff/local-core-v1/CURRENT-HANDOFF.json",
+      "path": "handoff/local-core-v1/history/handoff-v3-before-final-metadata/handoff/local-core-v1/CURRENT-HANDOFF.json",
+      "sha256": "c82e1c609fd537da0169648a403a88d62f73bbf7b49e51a1409438148024e912"
+    }
+  ]
+}

@@ -1,0 +1,332 @@
+{
+  "version": "local-core-v1-handoff.3",
+  "current_owner_files": [
+    {
+      "path": ".architecture-mcp.json",
+      "sha256": "0ef5cc474a02598e734c59784bbae7e772a167c0c2cf5aeaf0975ca68c14e00e",
+      "bytes": 44905
+    },
+    {
+      "path": ".workflow-mcp.json",
+      "sha256": "dde4a670f73a4dddb11581d30ee1197a17493cec8e94eec9789988f3a0225ec0",
+      "bytes": 29401
+    },
+    {
+      "path": ".product-mcp.json",
+      "sha256": "8587d94e8bec6dfc3466f8df46e4ab4136b7b07879da035dccbe9dabba4eea39",
+      "bytes": 61478
+    },
+    {
+      "path": ".quality-plan-mcp.json",
+      "sha256": "d772158e914ad32376b9bf0d1061668af1efb5046ea064b4b8a9c8fdd03efc56",
+      "bytes": 28593
+    },
+    {
+      "path": ".coding-mcp.json",
+      "sha256": "fd1f3f3f91e9d063363fb584f73fe4155522a38cd308bb66f9785abd75115fc9",
+      "bytes": 15669
+    }
+  ],
+  "current_refs": [
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "expected": "c415a49a769324da5af956bfb1228f73e81a429d41099439b936bfa0e8541a08",
+      "observed": "c415a49a769324da5af956bfb1228f73e81a429d41099439b936bfa0e8541a08",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/authorization.md",
+      "expected": "7de7f12384bad552e201ab772353cf827d72827e297f19e99e652c8c61343072",
+      "observed": "7de7f12384bad552e201ab772353cf827d72827e297f19e99e652c8c61343072",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/ui-not-applicable.md",
+      "expected": "846364c48e9b888da71a854ffc337621677416a2073498506e0d90ca004abf21",
+      "observed": "846364c48e9b888da71a854ffc337621677416a2073498506e0d90ca004abf21",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/ui-exclusion.json",
+      "expected": "cb874726a653b6b42a71c8f80437bd89852e1660613f733fc7f2c6e4d02ff944",
+      "observed": "cb874726a653b6b42a71c8f80437bd89852e1660613f733fc7f2c6e4d02ff944",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/dependency-receipt.md",
+      "expected": "0417f1fbc3f41723f7d8fabbf29c0720cbb7f96e461f0c6fc873e54a82948c6b",
+      "observed": "0417f1fbc3f41723f7d8fabbf29c0720cbb7f96e461f0c6fc873e54a82948c6b",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/dependencies.receipt.lock.json",
+      "expected": "de9f85f44310ddf8b4e20d03cbda82a89b624bc8dd3271a07077df90ff2e7d00",
+      "observed": "de9f85f44310ddf8b4e20d03cbda82a89b624bc8dd3271a07077df90ff2e7d00",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/hash-subset.md",
+      "expected": "ee6ccaf492a641938b66322db680d009e0e64beba104463338fcab327780aefd",
+      "observed": "ee6ccaf492a641938b66322db680d009e0e64beba104463338fcab327780aefd",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/remaining-items.md",
+      "expected": "5d94bbabec43df84732d9cea807379be0b323608b8dbd3d531d07647c90bf338",
+      "observed": "5d94bbabec43df84732d9cea807379be0b323608b8dbd3d531d07647c90bf338",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/development-authorization.json",
+      "expected": "84c246dad5b224cf379bcb3866b4266e0f81d6f429e42272086bdf3e682f7eac",
+      "observed": "84c246dad5b224cf379bcb3866b4266e0f81d6f429e42272086bdf3e682f7eac",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/source-metadata.json",
+      "expected": "a2678e16785b81025e4cd231be381f2baf21792091f658281bc07bed17e42739",
+      "observed": "a2678e16785b81025e4cd231be381f2baf21792091f658281bc07bed17e42739",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/vendor-source-note.md",
+      "expected": "b94fde9f457599a1c04108719026e51825fb4b4b50c18ac4cbdc81cd1c68e6ea",
+      "observed": "b94fde9f457599a1c04108719026e51825fb4b4b50c18ac4cbdc81cd1c68e6ea",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/developer-implementation-receipt.json",
+      "expected": "ce0477cfd54317cb99b932fc545e642d86a527b8a70484523be10b14304de9a2",
+      "observed": "ce0477cfd54317cb99b932fc545e642d86a527b8a70484523be10b14304de9a2",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/product-metadata.patch.json",
+      "expected": "816a2b1c4d507ed83b0916410a918490a2737fc95fc289b5689c3c5ca9f84370",
+      "observed": "816a2b1c4d507ed83b0916410a918490a2737fc95fc289b5689c3c5ca9f84370",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/quality-metadata.patch.json",
+      "expected": "3a507a062803dfbc534deac15b5c798f68971cf9d621a6b905de69ad1e328e24",
+      "observed": "3a507a062803dfbc534deac15b5c798f68971cf9d621a6b905de69ad1e328e24",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/scope-sync-receipt.json",
+      "expected": "0d28d0eeb7b1aad0795230a3a4025a4c5864f44b2221406a303da768086f090e",
+      "observed": "0d28d0eeb7b1aad0795230a3a4025a4c5864f44b2221406a303da768086f090e",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/product-metadata.remaining.patch.json",
+      "expected": "8e7c59e537c9d6d82258ce6195607fa101c64d13be5dc159c2f2dec1e60ecd9c",
+      "observed": "8e7c59e537c9d6d82258ce6195607fa101c64d13be5dc159c2f2dec1e60ecd9c",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/inputs/USER-SCOPE-20261117.md",
+      "expected": "0bc153c0d8a5802332e4ce2facfad37bc47deaf6acc8afb1e25337bd1ba5e88d",
+      "observed": "0bc153c0d8a5802332e4ce2facfad37bc47deaf6acc8afb1e25337bd1ba5e88d",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/inputs/.product-mcp/v3.8/inputs/.product-mcp.json",
+      "expected": "083799507db9f3885cc9a89465204f2c4b5676cc91fd70bfd3a48165ed7b485f",
+      "observed": "083799507db9f3885cc9a89465204f2c4b5676cc91fd70bfd3a48165ed7b485f",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/development-authorization.json",
+      "expected": "84c246dad5b224cf379bcb3866b4266e0f81d6f429e42272086bdf3e682f7eac",
+      "observed": "84c246dad5b224cf379bcb3866b4266e0f81d6f429e42272086bdf3e682f7eac",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/dependencies.receipt.lock.json",
+      "expected": "de9f85f44310ddf8b4e20d03cbda82a89b624bc8dd3271a07077df90ff2e7d00",
+      "observed": "de9f85f44310ddf8b4e20d03cbda82a89b624bc8dd3271a07077df90ff2e7d00",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/evidence/scope-sync-receipt.json",
+      "expected": "0d28d0eeb7b1aad0795230a3a4025a4c5864f44b2221406a303da768086f090e",
+      "observed": "0d28d0eeb7b1aad0795230a3a4025a4c5864f44b2221406a303da768086f090e",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/.architecture-mcp.scope-sync-final.json",
+      "expected": "0ef5cc474a02598e734c59784bbae7e772a167c0c2cf5aeaf0975ca68c14e00e",
+      "observed": "0ef5cc474a02598e734c59784bbae7e772a167c0c2cf5aeaf0975ca68c14e00e",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/frozen/local-core-v1-draft.2/handoff/local-core-v1/architecture.md",
+      "expected": "e1a9e4fed33d2bf6556e7c6b8c4da10c02cfb52cbdc5bda444293c4e95ad2a6a",
+      "observed": "e1a9e4fed33d2bf6556e7c6b8c4da10c02cfb52cbdc5bda444293c4e95ad2a6a",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/frozen/local-core-v1-draft.2/handoff/local-core-v1/spec/gg_core_v1.h",
+      "expected": "1901976042a3324a11c44d8d770dc8082e4f9b77ad9a4d50d94c8b1e2e019ef5",
+      "observed": "1901976042a3324a11c44d8d770dc8082e4f9b77ad9a4d50d94c8b1e2e019ef5",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/frozen/local-core-v1-draft.2/handoff/local-core-v1/spec/messages.schema.json",
+      "expected": "3c2363c4db19e8ed3c3bb5610218503d7082dc8b640ae1beaa5aa1599f9ffbf8",
+      "observed": "3c2363c4db19e8ed3c3bb5610218503d7082dc8b640ae1beaa5aa1599f9ffbf8",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/frozen/local-core-v1-draft.2/handoff/local-core-v1/spec/project_v1.sql",
+      "expected": "f57c5cf8a732b3deace047400c4ad6ddda899e26b8a2e0e435b6019594a50c1f",
+      "observed": "f57c5cf8a732b3deace047400c4ad6ddda899e26b8a2e0e435b6019594a50c1f",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/frozen/local-core-v1-draft.2/handoff/local-core-v1/storage.md",
+      "expected": "488dbd049ff207e619ef48bc5d74725e22869750131cb6cd632a80d2d0f2b40f",
+      "observed": "488dbd049ff207e619ef48bc5d74725e22869750131cb6cd632a80d2d0f2b40f",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/frozen/local-core-v1-draft.2/handoff/local-core-v1/transactions.md",
+      "expected": "58b0a8144048bfa244ec7e2cc284b83632a1512494e268508efb5e9be5e022d0",
+      "observed": "58b0a8144048bfa244ec7e2cc284b83632a1512494e268508efb5e9be5e022d0",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/frozen/local-core-v1-draft.2/handoff/local-core-v1/api.md",
+      "expected": "674e4d9169090abdaf1a7195e4398b7270f40cd872dd76d93ac41b4f3b7fc7be",
+      "observed": "674e4d9169090abdaf1a7195e4398b7270f40cd872dd76d93ac41b4f3b7fc7be",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/frozen/local-core-v1-draft.2/handoff/local-core-v1/platforms.md",
+      "expected": "23e180c0c7fcda3752f09977f006c2e73a005e41ca610cb6e09de5789608f5d2",
+      "observed": "23e180c0c7fcda3752f09977f006c2e73a005e41ca610cb6e09de5789608f5d2",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/frozen/local-core-v1-draft.2/handoff/local-core-v1/spec/dependencies.lock.json",
+      "expected": "127b33ac4e92778b4e4b64fd19cb14914af41f0172145c14b148d4d90f109499",
+      "observed": "127b33ac4e92778b4e4b64fd19cb14914af41f0172145c14b148d4d90f109499",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "expected": "c415a49a769324da5af956bfb1228f73e81a429d41099439b936bfa0e8541a08",
+      "observed": "c415a49a769324da5af956bfb1228f73e81a429d41099439b936bfa0e8541a08",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/dependencies.receipt.lock.json",
+      "expected": "de9f85f44310ddf8b4e20d03cbda82a89b624bc8dd3271a07077df90ff2e7d00",
+      "observed": "de9f85f44310ddf8b4e20d03cbda82a89b624bc8dd3271a07077df90ff2e7d00",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/authorization.md",
+      "expected": "7de7f12384bad552e201ab772353cf827d72827e297f19e99e652c8c61343072",
+      "observed": "7de7f12384bad552e201ab772353cf827d72827e297f19e99e652c8c61343072",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/frozen/local-core-v1-draft.2/handoff/local-core-v1/work-items.md",
+      "expected": "fddaee05f117f99fa92be27f5cebd8b0adf59c8e559278901c113149827016ef",
+      "observed": "fddaee05f117f99fa92be27f5cebd8b0adf59c8e559278901c113149827016ef",
+      "matches": true
+    },
+    {
+      "path": ".coding-mcp.json",
+      "expected": "fd1f3f3f91e9d063363fb584f73fe4155522a38cd308bb66f9785abd75115fc9",
+      "observed": "fd1f3f3f91e9d063363fb584f73fe4155522a38cd308bb66f9785abd75115fc9",
+      "matches": true
+    },
+    {
+      "path": ".quality-plan-mcp.json",
+      "expected": "d772158e914ad32376b9bf0d1061668af1efb5046ea064b4b8a9c8fdd03efc56",
+      "observed": "d772158e914ad32376b9bf0d1061668af1efb5046ea064b4b8a9c8fdd03efc56",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/frozen/scope-sync.1/.product-mcp.json",
+      "expected": "8587d94e8bec6dfc3466f8df46e4ab4136b7b07879da035dccbe9dabba4eea39",
+      "observed": "8587d94e8bec6dfc3466f8df46e4ab4136b7b07879da035dccbe9dabba4eea39",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/frozen/local-core-v1-draft.2/handoff/local-core-v1/requirements.md",
+      "expected": "2ec6d8378a95fc3295a6e240731c6fb4f51286a31fec787547ecbf79a2d29d8a",
+      "observed": "2ec6d8378a95fc3295a6e240731c6fb4f51286a31fec787547ecbf79a2d29d8a",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/ui-not-applicable.md",
+      "expected": "846364c48e9b888da71a854ffc337621677416a2073498506e0d90ca004abf21",
+      "observed": "846364c48e9b888da71a854ffc337621677416a2073498506e0d90ca004abf21",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/supplements/handoff-v3/ui-exclusion.json",
+      "expected": "cb874726a653b6b42a71c8f80437bd89852e1660613f733fc7f2c6e4d02ff944",
+      "observed": "cb874726a653b6b42a71c8f80437bd89852e1660613f733fc7f2c6e4d02ff944",
+      "matches": true
+    }
+  ],
+  "scope_history": [
+    {
+      "path": "handoff/local-core-v1/history/handoff-v3-before-scope-sync/.architecture-mcp.json",
+      "expected": "77438f4d076bd2dbac60fb1b70888d5b41c3fa722881010c10b168089faa7a4c",
+      "observed": "77438f4d076bd2dbac60fb1b70888d5b41c3fa722881010c10b168089faa7a4c",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/history/handoff-v3-before-scope-sync/.workflow-mcp.json",
+      "expected": "393f696be460cab8a7a9fd7a148ad1bf5c3411bca1b6feb452743346fd647ff4",
+      "observed": "393f696be460cab8a7a9fd7a148ad1bf5c3411bca1b6feb452743346fd647ff4",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/history/handoff-v3-before-scope-sync/handoff/local-core-v1/supplements/handoff-v3/README.md",
+      "expected": "0b7609c052b17aeb01b7a5ff325b9b69aa02151179dab511029abe5b5b909552",
+      "observed": "0b7609c052b17aeb01b7a5ff325b9b69aa02151179dab511029abe5b5b909552",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/history/handoff-v3-before-scope-sync/handoff/local-core-v1/supplements/handoff-v3/remaining-items.md",
+      "expected": "4fa4a58f6ef8500ab7ed126e01c4b654081d7a49c03cdab6cd99e726b908e405",
+      "observed": "4fa4a58f6ef8500ab7ed126e01c4b654081d7a49c03cdab6cd99e726b908e405",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/history/handoff-v3-before-scope-sync/handoff/local-core-v1/supplements/handoff-v3/RESULT.md",
+      "expected": "2d5a1a76792d5cad0d0637a3a91964df334ae611141266cf964e99801a4169a3",
+      "observed": "2d5a1a76792d5cad0d0637a3a91964df334ae611141266cf964e99801a4169a3",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/history/handoff-v3-before-scope-sync/handoff/local-core-v1/supplements/handoff-v3/receipts.json",
+      "expected": "6041721322ef7ff957640e78aab22cb2f8f70c52552a31930127094be27dfc4a",
+      "observed": "6041721322ef7ff957640e78aab22cb2f8f70c52552a31930127094be27dfc4a",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/history/handoff-v3-before-scope-sync/tool-reports.json",
+      "expected": "7dc535acc84c2389f58e78e04461aa5be112f5003c5558f7b45e746c4d1470e0",
+      "observed": "7dc535acc84c2389f58e78e04461aa5be112f5003c5558f7b45e746c4d1470e0",
+      "matches": true
+    },
+    {
+      "path": "handoff/local-core-v1/history/handoff-v3-before-scope-sync/final-implementation-notes.md",
+      "expected": "7c885797cc3dbe0e14db94048aa9fd61f2f2304fad9a5a93c95cd10991983c7c",
+      "observed": "7c885797cc3dbe0e14db94048aa9fd61f2f2304fad9a5a93c95cd10991983c7c",
+      "matches": true
+    }
+  ],
+  "kind": "read_only_document_integrity_only",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

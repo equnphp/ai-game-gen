@@ -1,0 +1,18 @@
+{
+  "version": "ui-full-20261117-draft.2",
+  "archive": "GameGen-四平台SVG与素材-draft.2.zip",
+  "bytes": 8948380,
+  "sha256": "0eacc4a8914951650866fc6e58fc073b3b14cfb8d56cda4ee6b137b5dbac676b",
+  "files": 2300,
+  "boards": 2188,
+  "isolated_assets": 25,
+  "transparent_pngs": 75,
+  "target_tools": [
+    "即时设计",
+    "Pixso",
+    "MasterGo",
+    "墨刀设计"
+  ],
+  "actual_import_validation": "not_run",
+  "native_project_files_created": false
+}

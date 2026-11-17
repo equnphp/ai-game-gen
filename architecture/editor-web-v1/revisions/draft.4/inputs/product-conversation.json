@@ -1,0 +1,79 @@
+{
+  "threadId": "01a1d3e8-579f-7a21-a371-354a0d5c5b88",
+  "title": "产品经理",
+  "hostId": "local",
+  "kind": "actual_chat_messages_read",
+  "messages": [
+    {
+      "turnId": "01a1e900-4743-7441-a333-2782ae6517a1",
+      "status": "completed",
+      "messages": [
+        {
+          "type": "userMessage",
+          "id": "01a1e900-477f-7461-9734-32bd0a6cb620",
+          "text": [
+            {
+              "type": "text",
+              "text": "继续，还要加繁体中文\n"
+            }
+          ]
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_070d25982eed930c016afc2a0cf1c087d09a3dd943f916ef29",
+          "phase": "final_answer",
+          "text": "已加入**繁体中文**，中文分为简体、繁体两个独立选项。最终支持 **7种界面语言**：\n\n| 语言 | 选择器显示名称 |\n|---|---|\n| **英文，首次默认** | English |\n| 简体中文 | 简体中文 |\n| 繁体中文 | 繁體中文 |\n| 日文 | 日本語 |\n| 韩文 | 한국어 |\n| 西班牙文 | Español |\n| 法文 | Français |\n\n语言设置统一按以下规则执行：\n\n- **首次启动默认英文**，用户可以在首页、新手引导或设置中切换。\n- **选择后自动保存并立即生效**，无需重启；下次打开、设备重启和软件升级后继续沿用。\n- 已保存的选择优先，系统语言、切换项目或登录账号不会自动覆盖它。\n- 编辑器全部内置界面、提示、帮助和新手引导都覆盖这七种语言，包括高级功能及异常状态。\n- 切换语言保留当前页面、草稿、运行任务和引导进度；已有聊天内容、项目内容与游戏内语言配置保持原样。\n- 语言偏好保存在本机，离线可用；Windows与Android分别记住各自的选择。\n- 简繁体分别维护文案；某条翻译缺失时回退英文，不因此重置用户选择。\n\n已写入[七语言与语言设置需求](I:/code/GameGen/design/ui-full-20261117-draft.1/review/localization-20261117-draft.1/LANGUAGE-SETTINGS.md)，作为此前“四语”规格的最新增补。**本次完成的是需求与界面交接更新，七语完整画稿、翻译资源和客户端功能尚未交付。**\n\n"
+        }
+      ]
+    },
+    {
+      "turnId": "01a1e8ff-2bd4-7181-9efb-1fd544fe0e18",
+      "status": "interrupted",
+      "messages": [
+        {
+          "type": "userMessage",
+          "id": "01a1e8ff-2c12-75b0-afa8-fee9e2dc0208",
+          "text": [
+            {
+              "type": "text",
+              "text": "还有法文\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "turnId": "01a1e8ff-0139-74e0-a921-37ea353b733b",
+      "status": "interrupted",
+      "messages": [
+        {
+          "type": "userMessage",
+          "id": "01a1e8ff-0175-7281-a41d-dca6cee4dfaa",
+          "text": [
+            {
+              "type": "text",
+              "text": "中、英、日文、韩文、西班牙文\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "turnId": "01a1e8fe-b861-79d3-9da7-49a5dd5ef391",
+      "status": "interrupted",
+      "messages": [
+        {
+          "type": "userMessage",
+          "id": "01a1e8fe-b8a1-7623-8b64-3df208713581",
+          "text": [
+            {
+              "type": "text",
+              "text": "需要支持多语言，默认为英文。可以保存选择的语言设定\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scope": "真实用户新增语言要求及产品最终交付；不是正式版本审批或执行授权"
+}

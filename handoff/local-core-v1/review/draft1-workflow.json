@@ -1,0 +1,629 @@
+{
+  "changes": [
+    {
+      "id": "CHG-LC-01",
+      "from_version": "arch-v3.7-draft.2",
+      "to_version": "local-core-v1-draft.1",
+      "reason": "用户云端暂缓并要求补齐本地M1；将Qt约束增量替换为完整本地包清单",
+      "owner": "architecture",
+      "affected_stages": [
+        "requirements",
+        "architecture",
+        "ui",
+        "development"
+      ],
+      "impact": {
+        "scope": "M1明确7个技术子需求/14验收；完整产品继承且父覆盖partial",
+        "schedule": "8任务，无虚构工期/人员",
+        "cost": "同库资源与维护/备份开销；无商业Qt/云必需费用",
+        "users": "本地项目可靠性先行，完整创作体验后包",
+        "frontend": "无GUI，薄宿主接口固定",
+        "backend": "本机C++领域/存储，不增云服务",
+        "data": "存储v1固定，同库权威资源替代外部CAS建议",
+        "security": "严格输入/RootGrant/localOnly/无脚本执行",
+        "operations": "本地备份恢复/依赖维护，无在线值班",
+        "tests": "基础11项+独立28项及容量/安全专项文档，全部not_run",
+        "release": "无发布许可；源码和许可方案后续真实审阅",
+        "product": "仅当前M1技术拆分，原完整42/80需求继承",
+        "architecture": "精确ABI/Schema/DDL/恢复和有界任务",
+        "ui": "本包无GUI，后续设计不豁免"
+      }
+    }
+  ],
+  "current_stage": "architecture",
+  "delivery_identity": {
+    "artifact_sha256": "",
+    "build_id": "",
+    "source_revision": ""
+  },
+  "execution_policy": "documentation_only",
+  "iteration": {
+    "id": "ITER-LOCAL-CORE-V1",
+    "goal": "补齐M1精确范围/ABI/DDL/事务恢复/环境/任务/质量文档",
+    "requirement_ids": [
+      "LC-REQ-01",
+      "LC-REQ-02",
+      "LC-REQ-03",
+      "LC-REQ-04",
+      "LC-REQ-05",
+      "LC-REQ-06",
+      "LC-REQ-07"
+    ],
+    "wip_limit": 1,
+    "done_criteria": "交接内容与技术验收明确，文档/真实审批/实际执行分开；不实施/自动测试/发布",
+    "rollback": "恢复48文件旧基线和旧根清单，本包保留历史，用户云端暂缓/Qt约束仍有效"
+  },
+  "project": {
+    "id": "aimeta-gamegen-studio",
+    "name": "GameGen本地一期共享核心交接",
+    "version": "local-core-v1-draft.1",
+    "owner": "architecture编制；真实阶段接收待登记"
+  },
+  "questions": [],
+  "roles": {
+    "product": "业务父需求由原产品文件继承；本包技术拆分待真实产品接收",
+    "architecture": "当前架构编制角色；真实评审待登记",
+    "frontend": "本包无GUI，薄宿主实现由coding领取",
+    "backend": "本机C++核心由coding领取，不是云后端",
+    "ui": "本包不适用；未来GUI由产品/架构交接后设计",
+    "user": "当前会话用户决定范围，未代签全文审批"
+  },
+  "schema_version": 1,
+  "scope": {
+    "code_author_role": "engineering",
+    "deliverables": [
+      {
+        "id": "LC-D-01",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/README.md"
+        ]
+      },
+      {
+        "id": "LC-D-02",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/requirements.md"
+        ]
+      },
+      {
+        "id": "LC-D-03",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/architecture.md"
+        ]
+      },
+      {
+        "id": "LC-D-04",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/api.md"
+        ]
+      },
+      {
+        "id": "LC-D-05",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/storage.md"
+        ]
+      },
+      {
+        "id": "LC-D-06",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/transactions.md"
+        ]
+      },
+      {
+        "id": "LC-D-07",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/platforms.md"
+        ]
+      },
+      {
+        "id": "LC-D-08",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/work-items.md"
+        ]
+      },
+      {
+        "id": "LC-D-09",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/quality/basic-self-check.md"
+        ]
+      },
+      {
+        "id": "LC-D-10",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/quality/strategy.md"
+        ]
+      },
+      {
+        "id": "LC-D-11",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/quality/cases.json"
+        ]
+      },
+      {
+        "id": "LC-D-12",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/spec/gg_core_v1.h"
+        ]
+      },
+      {
+        "id": "LC-D-13",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/spec/project_v1.sql"
+        ]
+      },
+      {
+        "id": "LC-D-14",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/spec/messages.schema.json"
+        ]
+      },
+      {
+        "id": "LC-D-15",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/spec/dependencies.lock.json"
+        ]
+      },
+      {
+        "id": "LC-D-16",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/examples/sequence.json"
+        ]
+      },
+      {
+        "id": "LC-M-product_mcpjson",
+        "code_author_role": "engineering",
+        "paths": [
+          ".product-mcp.json"
+        ]
+      },
+      {
+        "id": "LC-M-architecture_mcpjson",
+        "code_author_role": "engineering",
+        "paths": [
+          ".architecture-mcp.json"
+        ]
+      },
+      {
+        "id": "LC-M-workflow_mcpjson",
+        "code_author_role": "engineering",
+        "paths": [
+          ".workflow-mcp.json"
+        ]
+      },
+      {
+        "id": "LC-M-coding_mcpjson",
+        "code_author_role": "engineering",
+        "paths": [
+          ".coding-mcp.json"
+        ]
+      },
+      {
+        "id": "LC-M-quality_plan_mcpjson",
+        "code_author_role": "engineering",
+        "paths": [
+          ".quality-plan-mcp.json"
+        ]
+      },
+      {
+        "id": "LC-M-ARCHITECTUREmd",
+        "code_author_role": "engineering",
+        "paths": [
+          "ARCHITECTURE.md"
+        ]
+      },
+      {
+        "id": "LC-Q-LOAD",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/quality/load.md"
+        ]
+      },
+      {
+        "id": "LC-Q-SECURITY",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/quality/security.md"
+        ]
+      }
+    ],
+    "has_ui": false,
+    "requires_code": true,
+    "ui_exclusion_reason": "本包纯共享核心/薄宿主，无GUI；旧浏览器原型不在本包，完整编辑器UI后续独立交接。"
+  },
+  "stages": {
+    "architecture": {
+      "version": "local-core-v1-draft.1",
+      "status": "in_progress",
+      "inputs": {
+        "requirements": "89c66d8a356d538a813d761d52e7a3c0488a48b9d2c8706d59bbf2c31f69a651"
+      },
+      "artifacts": {
+        "architecture_spec": {
+          "path": "handoff/local-core-v1/frozen/.architecture-mcp.json",
+          "version": "local-core-v1-draft.1",
+          "owner": "architecture",
+          "sha256": "f76cc64d406428e4214685a27fba1e6ead2ff4c3eac52c869fec8c7868242de3"
+        },
+        "document": {
+          "path": "handoff/local-core-v1/frozen/handoff/local-core-v1/architecture.md",
+          "version": "local-core-v1-draft.1",
+          "owner": "architecture",
+          "sha256": "0ae08a95a919725e4e7cef1bfde6ec942a5bef02e561f6875838fa555f07222d"
+        },
+        "abi": {
+          "path": "handoff/local-core-v1/frozen/handoff/local-core-v1/spec/gg_core_v1.h",
+          "version": "local-core-v1-draft.1",
+          "owner": "architecture",
+          "sha256": "1901976042a3324a11c44d8d770dc8082e4f9b77ad9a4d50d94c8b1e2e019ef5"
+        },
+        "request_schema": {
+          "path": "handoff/local-core-v1/frozen/handoff/local-core-v1/spec/messages.schema.json",
+          "version": "local-core-v1-draft.1",
+          "owner": "architecture",
+          "sha256": "3c2363c4db19e8ed3c3bb5610218503d7082dc8b640ae1beaa5aa1599f9ffbf8"
+        },
+        "ddl": {
+          "path": "handoff/local-core-v1/frozen/handoff/local-core-v1/spec/project_v1.sql",
+          "version": "local-core-v1-draft.1",
+          "owner": "architecture",
+          "sha256": "9b15e1e43d15d665d52d47ba794f0711799b98c37c36ae61fef5dfa6d7247bc6"
+        },
+        "storage": {
+          "path": "handoff/local-core-v1/frozen/handoff/local-core-v1/storage.md",
+          "version": "local-core-v1-draft.1",
+          "owner": "architecture",
+          "sha256": "7cab855c77ba6ecc50eec8c64656fb6b93f6d206e5a255bb2b0e6b344757c57a"
+        },
+        "transactions": {
+          "path": "handoff/local-core-v1/frozen/handoff/local-core-v1/transactions.md",
+          "version": "local-core-v1-draft.1",
+          "owner": "architecture",
+          "sha256": "6bbd68332c5f5f550a7300f803655300f864263a8f15c4e5f7575c8aecf4e9ef"
+        },
+        "api": {
+          "path": "handoff/local-core-v1/frozen/handoff/local-core-v1/api.md",
+          "version": "local-core-v1-draft.1",
+          "owner": "architecture",
+          "sha256": "5479c2c52a6a492f01f5760ceba19b23a2a49a7e68dff547b3022cc5268e4e55"
+        },
+        "platforms": {
+          "path": "handoff/local-core-v1/frozen/handoff/local-core-v1/platforms.md",
+          "version": "local-core-v1-draft.1",
+          "owner": "architecture",
+          "sha256": "48a68d6275c52f05ed64f3430a5bedeb0a44657074a59ab8fdbe9a6496f87084"
+        },
+        "dependencies": {
+          "path": "handoff/local-core-v1/frozen/handoff/local-core-v1/spec/dependencies.lock.json",
+          "version": "local-core-v1-draft.1",
+          "owner": "architecture",
+          "sha256": "d562cf5eaf494fc5d237a648c135cda036585f87b80cd5bda0199e2229b1a227"
+        }
+      },
+      "reviews": []
+    },
+    "development": {
+      "version": "local-core-v1-draft.1",
+      "status": "pending",
+      "inputs": {
+        "stage_baselines": {}
+      },
+      "artifacts": {
+        "document": {
+          "path": "handoff/local-core-v1/frozen/handoff/local-core-v1/work-items.md",
+          "version": "local-core-v1-draft.1",
+          "owner": "architecture",
+          "sha256": "2232710af0c16fc1a17b9f4e6ec4dc88c670f4e739401bf438aaee3d4a1b959f"
+        },
+        "basic_self_check": {
+          "path": "handoff/local-core-v1/frozen/.coding-mcp.json",
+          "version": "local-core-v1-draft.1",
+          "owner": "coding",
+          "sha256": "996ca256d1fcffd095399c66c530ba9bda3bcc6fd9b191337f9da97b55551b3e"
+        },
+        "quality_plan": {
+          "path": "handoff/local-core-v1/frozen/.quality-plan-mcp.json",
+          "version": "local-core-v1-draft.1",
+          "owner": "independent_quality",
+          "sha256": "7e1e770a8c92ff7270c0e4c3a9654691918fb6904f4225e7f1d8b7fb0e9271de"
+        }
+      },
+      "reviews": []
+    },
+    "requirements": {
+      "version": "local-core-v1-draft.1",
+      "status": "in_progress",
+      "inputs": {},
+      "artifacts": {
+        "product_spec": {
+          "path": "handoff/local-core-v1/frozen/.product-mcp.json",
+          "version": "local-core-v1-draft.1",
+          "owner": "architecture technical decomposition / product receiving pending",
+          "sha256": "7eb3457c335dc31b7e485167c0b3d55f6f3e73b2b091e02ab0716b417e67cd58"
+        },
+        "document": {
+          "path": "handoff/local-core-v1/frozen/handoff/local-core-v1/requirements.md",
+          "version": "local-core-v1-draft.1",
+          "owner": "architecture",
+          "sha256": "63df449ea2cf7708f6c66f65598ae8e71ade5cccf067b5ccf8f571038886f636"
+        }
+      },
+      "reviews": []
+    },
+    "ui": {
+      "version": "local-core-v1-draft.1",
+      "status": "pending",
+      "applicability": "not_applicable",
+      "exclusion_reason": "本包纯共享核心/薄宿主，无GUI；旧浏览器原型不在本包，完整编辑器UI后续独立交接。",
+      "inputs": {
+        "stage_baselines": {}
+      },
+      "artifacts": {},
+      "reviews": []
+    }
+  },
+  "delivery": {
+    "code_author_role": "engineering",
+    "deliverables": [
+      {
+        "id": "LC-D-01",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/README.md"
+        ]
+      },
+      {
+        "id": "LC-D-02",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/requirements.md"
+        ]
+      },
+      {
+        "id": "LC-D-03",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/architecture.md"
+        ]
+      },
+      {
+        "id": "LC-D-04",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/api.md"
+        ]
+      },
+      {
+        "id": "LC-D-05",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/storage.md"
+        ]
+      },
+      {
+        "id": "LC-D-06",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/transactions.md"
+        ]
+      },
+      {
+        "id": "LC-D-07",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/platforms.md"
+        ]
+      },
+      {
+        "id": "LC-D-08",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/work-items.md"
+        ]
+      },
+      {
+        "id": "LC-D-09",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/quality/basic-self-check.md"
+        ]
+      },
+      {
+        "id": "LC-D-10",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/quality/strategy.md"
+        ]
+      },
+      {
+        "id": "LC-D-11",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/quality/cases.json"
+        ]
+      },
+      {
+        "id": "LC-D-12",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/spec/gg_core_v1.h"
+        ]
+      },
+      {
+        "id": "LC-D-13",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/spec/project_v1.sql"
+        ]
+      },
+      {
+        "id": "LC-D-14",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/spec/messages.schema.json"
+        ]
+      },
+      {
+        "id": "LC-D-15",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/spec/dependencies.lock.json"
+        ]
+      },
+      {
+        "id": "LC-D-16",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/examples/sequence.json"
+        ]
+      },
+      {
+        "id": "LC-M-product_mcpjson",
+        "code_author_role": "engineering",
+        "paths": [
+          ".product-mcp.json"
+        ]
+      },
+      {
+        "id": "LC-M-architecture_mcpjson",
+        "code_author_role": "engineering",
+        "paths": [
+          ".architecture-mcp.json"
+        ]
+      },
+      {
+        "id": "LC-M-workflow_mcpjson",
+        "code_author_role": "engineering",
+        "paths": [
+          ".workflow-mcp.json"
+        ]
+      },
+      {
+        "id": "LC-M-coding_mcpjson",
+        "code_author_role": "engineering",
+        "paths": [
+          ".coding-mcp.json"
+        ]
+      },
+      {
+        "id": "LC-M-quality_plan_mcpjson",
+        "code_author_role": "engineering",
+        "paths": [
+          ".quality-plan-mcp.json"
+        ]
+      },
+      {
+        "id": "LC-M-ARCHITECTUREmd",
+        "code_author_role": "engineering",
+        "paths": [
+          "ARCHITECTURE.md"
+        ]
+      },
+      {
+        "id": "LC-Q-LOAD",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/quality/load.md"
+        ]
+      },
+      {
+        "id": "LC-Q-SECURITY",
+        "code_author_role": "engineering",
+        "paths": [
+          "handoff/local-core-v1/quality/security.md"
+        ]
+      }
+    ],
+    "design_version": "not_applicable_headless_M1",
+    "has_ui": false,
+    "requires_code": true,
+    "ui_exclusion_reason": "本包是无GUI共享核心，完整编辑器UI后包仍适用；旧原型非本包实现。",
+    "iteration_kind": "engineering_design_handoff_only",
+    "implementation_status": "not_started",
+    "platforms": "Windows x64 / Android arm64-v8a native core"
+  },
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "inherited_scope": {
+    "requirements": 42,
+    "acceptance": 80,
+    "parent_coverage": "partial",
+    "historical_inputs": [
+      {
+        "source_path": ".product-mcp.json",
+        "path": "handoff/local-core-v1/inputs/.product-mcp.json",
+        "sha256": "7a215b47873610cf82c99acc5cd21520248c8c7f05e595aafb85f630c3d7e064",
+        "bytes": 87694
+      },
+      {
+        "source_path": ".product-mcp/v3.8/inputs/.product-mcp.json",
+        "path": "handoff/local-core-v1/inputs/.product-mcp/v3.8/inputs/.product-mcp.json",
+        "sha256": "083799507db9f3885cc9a89465204f2c4b5676cc91fd70bfd3a48165ed7b485f",
+        "bytes": 1047367
+      },
+      {
+        "source_path": "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md",
+        "path": "handoff/local-core-v1/inputs/CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md",
+        "sha256": "9cc242933c9b994aeef93394a32baf3b57f589329b1bb13c86de5677ffbc2f90",
+        "bytes": 19556
+      },
+      {
+        "source_path": "HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+        "path": "handoff/local-core-v1/inputs/HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+        "sha256": "711cf8d9e5eda64569d18b9a7b55227f5336715d5ba6b90a1a2896a99a93b5a0",
+        "bytes": 12311
+      },
+      {
+        "source_path": "STUDIO-ENGINE-REQUIREMENTS-V3.5.md",
+        "path": "handoff/local-core-v1/inputs/STUDIO-ENGINE-REQUIREMENTS-V3.5.md",
+        "sha256": "e3ce58ebd69de68585f7c03b6b818cac2449467f6f5d264ddda0b02c434647d7",
+        "bytes": 26528
+      },
+      {
+        "source_path": "PRODUCT-REQUIREMENTS-V3.5.md",
+        "path": "handoff/local-core-v1/inputs/PRODUCT-REQUIREMENTS-V3.5.md",
+        "sha256": "fc31b95d692b0284527ccd40a9c021000ac4f1ce931bd68314f953678b060d75",
+        "bytes": 36996
+      },
+      {
+        "source_path": "architecture/v3.7/ARCHITECTURE.md",
+        "path": "handoff/local-core-v1/inputs/architecture/v3.7/ARCHITECTURE.md",
+        "sha256": "df6c59ae588053ff145239e8edafcf1879b414b9ad3882b927bb19c251e0cf27",
+        "bytes": 32387
+      },
+      {
+        "source_path": "architecture/v3.7/CONTRACTS.md",
+        "path": "handoff/local-core-v1/inputs/architecture/v3.7/CONTRACTS.md",
+        "sha256": "62134661c1a61e4267cc584cfd91bb417acffe04771054de84e27389e1a1121a",
+        "bytes": 20639
+      },
+      {
+        "source_path": "architecture/v3.7/SHARED-CORE-AND-CLIENTS.md",
+        "path": "handoff/local-core-v1/inputs/architecture/v3.7/SHARED-CORE-AND-CLIENTS.md",
+        "sha256": "9c328cea7cc7d5ab7b09570a03eb415f799fae64e050c7f1314f2043ab5a7740",
+        "bytes": 14460
+      },
+      {
+        "source_path": "architecture/v3.7/QT-OPEN-SOURCE-POLICY.md",
+        "path": "handoff/local-core-v1/inputs/architecture/v3.7/QT-OPEN-SOURCE-POLICY.md",
+        "sha256": "155593a8f077102f6d7a6d4d1649c61d657004023507fe9bbe5cbd920a5d4179",
+        "bytes": 5846
+      }
+    ]
+  }
+}

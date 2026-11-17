@@ -1,0 +1,579 @@
+[
+  {
+    "id": "REQ-001",
+    "title": "项目创建与管理",
+    "acceptance_ids": [
+      "AC-001"
+    ],
+    "screens": [
+      "projects",
+      "new-project"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-002",
+    "title": "连续对话与修改反馈",
+    "acceptance_ids": [
+      "AC-002",
+      "AC-012",
+      "AC-017"
+    ],
+    "screens": [
+      "chat"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-003",
+    "title": "场景与对象编辑",
+    "acceptance_ids": [
+      "AC-003"
+    ],
+    "screens": [
+      "scene"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-004",
+    "title": "可操作工作流与一致项目事务",
+    "acceptance_ids": [
+      "AC-004",
+      "AC-013",
+      "AC-014",
+      "AC-015",
+      "AC-016"
+    ],
+    "screens": [
+      "proposal",
+      "workflow"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-005",
+    "title": "资源管理与导入",
+    "acceptance_ids": [
+      "AC-005"
+    ],
+    "screens": [
+      "assets",
+      "import-assets"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-006",
+    "title": "图片与音效生成",
+    "acceptance_ids": [
+      "AC-006"
+    ],
+    "screens": [
+      "generate-image",
+      "generate-audio"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-007",
+    "title": "多平台导出与离线构建",
+    "acceptance_ids": [
+      "AC-007"
+    ],
+    "screens": [
+      "publish"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-008",
+    "title": "版本记录与冲突处理",
+    "acceptance_ids": [
+      "AC-008"
+    ],
+    "screens": [
+      "history",
+      "diff"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-009",
+    "title": "账户与本地能力",
+    "acceptance_ids": [
+      "AC-009"
+    ],
+    "screens": [
+      "settings"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-010",
+    "title": "关卡、RPG与SLG模块",
+    "acceptance_ids": [
+      "AC-010"
+    ],
+    "screens": [
+      "levels",
+      "rpg",
+      "slg"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-011",
+    "title": "API定义与服务端工作流",
+    "acceptance_ids": [
+      "AC-011"
+    ],
+    "screens": [
+      "api",
+      "server-graph"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-012",
+    "title": "新手渐进与物理/粒子/动作组件",
+    "acceptance_ids": [
+      "AC-018",
+      "AC-019"
+    ],
+    "screens": [
+      "tools"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-013",
+    "title": "地图、数值和任务的有限配置",
+    "acceptance_ids": [
+      "AC-020"
+    ],
+    "screens": [
+      "map",
+      "data",
+      "quests"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-014",
+    "title": "多协议与接口文档导入草案",
+    "acceptance_ids": [
+      "AC-021"
+    ],
+    "screens": [
+      "api-import"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-015",
+    "title": "编辑器中英日韩与语言偏好",
+    "acceptance_ids": [
+      "AC-022",
+      "AC-023"
+    ],
+    "screens": [
+      "localization",
+      "settings"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-016",
+    "title": "斜45°伪3D地图、世界与完整关卡规则",
+    "acceptance_ids": [
+      "AC-024",
+      "AC-025",
+      "AC-026",
+      "AC-027",
+      "AC-028",
+      "AC-029",
+      "AC-048",
+      "AC-049",
+      "AC-050"
+    ],
+    "screens": [
+      "map",
+      "map-height",
+      "map-path",
+      "levels",
+      "world"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-017",
+    "title": "统一项目、事务、恢复与跨端续编",
+    "acceptance_ids": [
+      "AC-030"
+    ],
+    "screens": [
+      "projects",
+      "history",
+      "diff",
+      "recovery",
+      "overlays"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-018",
+    "title": "场景对象、组件与预制体",
+    "acceptance_ids": [
+      "AC-031"
+    ],
+    "screens": [
+      "scene",
+      "prefab"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-019",
+    "title": "渲染、摄像机、输入与游戏UI",
+    "acceptance_ids": [
+      "AC-032"
+    ],
+    "screens": [
+      "camera",
+      "game-ui",
+      "controls"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-020",
+    "title": "完整物理与角色控制",
+    "acceptance_ids": [
+      "AC-033"
+    ],
+    "screens": [
+      "controls",
+      "physics"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-021",
+    "title": "粒子、帧/补间/骨骼制作与动画控制",
+    "acceptance_ids": [
+      "AC-034"
+    ],
+    "screens": [
+      "particles",
+      "animation",
+      "skeleton",
+      "animation-graph"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-022",
+    "title": "资源管线、音频与生成素材选择",
+    "acceptance_ids": [
+      "AC-035"
+    ],
+    "screens": [
+      "audio",
+      "assets",
+      "asset-detail",
+      "import-assets",
+      "generate-audio"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-023",
+    "title": "数值表、成长、战斗与经济模拟",
+    "acceptance_ids": [
+      "AC-036"
+    ],
+    "screens": [
+      "data",
+      "economy"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-024",
+    "title": "RPG战斗、物品、任务、剧情与NPC",
+    "acceptance_ids": [
+      "AC-037"
+    ],
+    "screens": [
+      "rpg",
+      "quests",
+      "dialogue"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-025",
+    "title": "SLG、经营、塔防与策略经济",
+    "acceptance_ids": [
+      "AC-038"
+    ],
+    "screens": [
+      "slg"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-026",
+    "title": "完整工作流、统一修改与调试",
+    "acceptance_ids": [
+      "AC-039"
+    ],
+    "screens": [
+      "proposal",
+      "workflow",
+      "nodes",
+      "graph-debug",
+      "overlays"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-027",
+    "title": "本机OpenCode、会话与模型通道",
+    "acceptance_ids": [
+      "AC-040"
+    ],
+    "screens": [
+      "chat",
+      "sessions",
+      "permissions",
+      "assistant-log"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-028",
+    "title": "API文档、契约生成与多协议配置",
+    "acceptance_ids": [
+      "AC-041"
+    ],
+    "screens": [
+      "api",
+      "api-import",
+      "api-review",
+      "protocol",
+      "realtime"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-029",
+    "title": "网游、服务端工作流与持续世界管理",
+    "acceptance_ids": [
+      "AC-042"
+    ],
+    "screens": [
+      "realtime",
+      "server-graph",
+      "multiplayer"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-030",
+    "title": "AI图片/音效、预算与积分任务",
+    "acceptance_ids": [
+      "AC-043"
+    ],
+    "screens": [
+      "generate-image",
+      "generate-audio",
+      "generation-tasks"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-031",
+    "title": "编辑器四语与游戏内容本地化",
+    "acceptance_ids": [
+      "AC-044"
+    ],
+    "screens": [
+      "localization",
+      "settings"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-032",
+    "title": "试玩、错误定位、诊断与创作辅助",
+    "acceptance_ids": [
+      "AC-045"
+    ],
+    "screens": [
+      "preview",
+      "diagnostics",
+      "tools"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-033",
+    "title": "四目标导出、离线APK与发布版本",
+    "acceptance_ids": [
+      "AC-046"
+    ],
+    "screens": [
+      "publish",
+      "target-settings",
+      "build-progress",
+      "build-result"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-034",
+    "title": "完整游戏类型模板与组合专属规则",
+    "acceptance_ids": [
+      "AC-047"
+    ],
+    "screens": [
+      "new-project",
+      "templates",
+      "tools"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-035",
+    "title": "MCP工具接入与受限项目能力",
+    "acceptance_ids": [
+      "AC-051",
+      "AC-053"
+    ],
+    "screens": [
+      "permissions",
+      "mcp",
+      "mcp-form",
+      "assistant-log",
+      "overlays"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-036",
+    "title": "Skill技能的预览、编辑、启用与版本管理",
+    "acceptance_ids": [
+      "AC-052"
+    ],
+    "screens": [
+      "skills",
+      "skill-detail",
+      "assistant-log"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-037",
+    "title": "用户自带LLM地址、凭据与多格式适配",
+    "acceptance_ids": [
+      "AC-054",
+      "AC-055",
+      "AC-056",
+      "AC-057"
+    ],
+    "screens": [
+      "models",
+      "model-form",
+      "assistant-log"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-038",
+    "title": "Windows三类指定引擎工程转换为GameGen原生项目",
+    "acceptance_ids": [
+      "AC-058",
+      "AC-059",
+      "AC-060",
+      "AC-061",
+      "AC-062",
+      "AC-063",
+      "AC-064"
+    ],
+    "screens": [
+      "engine-import",
+      "engine-analysis",
+      "engine-mapping",
+      "engine-convert",
+      "engine-report",
+      "engine-conflict"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-039",
+    "title": "Windows与Android局域网发现、交互及本地资源同步",
+    "acceptance_ids": [
+      "AC-065",
+      "AC-066",
+      "AC-067",
+      "AC-068",
+      "AC-069",
+      "AC-070",
+      "AC-071",
+      "AC-072"
+    ],
+    "screens": [
+      "lan-devices",
+      "lan-pair",
+      "lan-scope",
+      "lan-diff",
+      "lan-transfer",
+      "lan-conflict",
+      "lan-diagnostics",
+      "lan-received",
+      "overlays"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-040",
+    "title": "Windows/Android同源C++核心组件与平台宿主",
+    "acceptance_ids": [
+      "AC-073",
+      "AC-074"
+    ],
+    "screens": [
+      "proposal"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-041",
+    "title": "未来导出三引擎原生可编辑工程与独立Writer扩展",
+    "acceptance_ids": [
+      "AC-075",
+      "AC-076",
+      "AC-077",
+      "AC-078"
+    ],
+    "screens": [
+      "future-export"
+    ],
+    "execution_status": "not_run"
+  },
+  {
+    "id": "REQ-042",
+    "title": "未来iOS/iPad/Android平板创作编辑器适配",
+    "acceptance_ids": [
+      "AC-079",
+      "AC-080"
+    ],
+    "screens": [
+      "future-export"
+    ],
+    "execution_status": "not_run"
+  }
+]

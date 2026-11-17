@@ -1,0 +1,4 @@
+node_modules/
+web/dist/
+hosts/tauri/target/
+hosts/tauri/gen/

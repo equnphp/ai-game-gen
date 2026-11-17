@@ -1,0 +1,19 @@
+{
+  "version": "local-core-v1-implementation.1",
+  "architecture_handoff": "local-core-v1-handoff.3",
+  "date": "2026-11-17",
+  "meaning": "接收架构师补齐记录；不是角色基线批准或运行验证",
+  "metadata_patch_applied": {
+    "path": "handoff/local-core-v1/supplements/handoff-v3/product-metadata.remaining.patch.json",
+    "field_count": 5,
+    "product_sha256": "68f07612ea33e5dd8fe4e72f90c15a10bff79daab900ebdff379b34582ca10e4"
+  },
+  "runtime_dependencies": {
+    "sqlite": "3.54.1 official ZIP, published SHA3-256 matches",
+    "json": "3.12.0 official header, published SHA-256 matches",
+    "mbedtls": "3.6.7 formal tar.bz2, published SHA-256 matches; minimum source subset copied"
+  },
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

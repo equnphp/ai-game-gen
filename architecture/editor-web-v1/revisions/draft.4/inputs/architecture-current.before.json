@@ -1,0 +1,55 @@
+{
+  "schema": "gamegen.architecture-navigation.v1",
+  "date": "2026-11-17",
+  "root_entry": "ARCHITECTURE.md",
+  "editor_architecture": {
+    "version": "editor-web-v1-draft.3",
+    "status": "product_interaction_and_onboarding_architecture_documented_not_implemented",
+    "entry": "architecture/editor-web-v1/revisions/draft.3/ARCHITECTURE.md",
+    "manifest": "architecture/editor-web-v1/revisions/draft.3/.architecture-mcp.json",
+    "baseline": "architecture/editor-web-v1/revisions/draft.3/baseline.json",
+    "baseline_file_sha256": "a9caaff1dfc8a8f1243eb821943828098dbfd11e0c7d2b29ed5bd03dce751f03",
+    "baseline_payload_sha256": "3ae0dca16b157a21ed1f25be005cc1920b8aa597aafe2a5c2480d079da844af8",
+    "host_schema": "architecture/editor-web-v1/revisions/draft.2/contracts/host.schema.json",
+    "driver_schema": "architecture/editor-web-v1/revisions/draft.2/contracts/driver.schema.json",
+    "typescript": "architecture/editor-web-v1/revisions/draft.2/contracts/editor-host.d.ts",
+    "ready_for_coding": false,
+    "ux_contract": "architecture/editor-web-v1/revisions/draft.3/UX-CONTRACTS.md",
+    "ux_schema": "architecture/editor-web-v1/revisions/draft.3/contracts/editor-ux.schema.json",
+    "ux_typescript": "architecture/editor-web-v1/revisions/draft.3/contracts/editor-ux.d.ts",
+    "onboarding": "architecture/editor-web-v1/revisions/draft.3/ONBOARDING.md",
+    "editor_state": "architecture/editor-web-v1/revisions/draft.3/EDITOR-STATE.md",
+    "product_mapping": "architecture/editor-web-v1/revisions/draft.3/contracts/product-architecture-map.json",
+    "handoff": "architecture/editor-web-v1/revisions/draft.3/DEVELOPMENT-HANDOFF.md"
+  },
+  "active_development": {
+    "package": "local-core-v1",
+    "index": "handoff/local-core-v1/CURRENT-HANDOFF.json",
+    "root_manifests_unchanged": true
+  },
+  "does_not_activate_new_workflow": true,
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "previous_editor_architecture": {
+    "version": "editor-web-v1-draft.2",
+    "status": "precise_handoff_contracts_documented_not_implemented",
+    "entry": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+    "manifest": "architecture/editor-web-v1/revisions/draft.2/.architecture-mcp.json",
+    "baseline": "architecture/editor-web-v1/revisions/draft.2/baseline.json",
+    "baseline_file_sha256": "ec44501f31e480d6e0179e23a160e759c3455a02edcadc3b5c48141bbaf1e83d",
+    "baseline_payload_sha256": "cc7333d7e4f0d7d4e5ce081589064afb07bd31a59d21710dd93f5877e8e24a6b",
+    "host_schema": "architecture/editor-web-v1/revisions/draft.2/contracts/host.schema.json",
+    "driver_schema": "architecture/editor-web-v1/revisions/draft.2/contracts/driver.schema.json",
+    "typescript": "architecture/editor-web-v1/revisions/draft.2/contracts/editor-host.d.ts",
+    "ready_for_coding": false,
+    "preserved": true
+  },
+  "editor_architecture_history": [
+    {
+      "version": "editor-web-v1-draft.1",
+      "baseline": "architecture/editor-web-v1/baseline.json",
+      "preserved": true
+    }
+  ]
+}

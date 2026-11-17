@@ -1,0 +1,1751 @@
+[
+  {
+    "id": "PSR-001",
+    "title": "new-project / templates；建议 template-detail",
+    "surface_ids": [
+      "SUR-GL-003",
+      "SUR-ST-002",
+      "SUR-ST-003",
+      "SUR-GM-064"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GL-003-normal",
+      "android-SUR-GL-003-normal",
+      "desktop-SUR-ST-002-normal",
+      "android-SUR-ST-002-normal",
+      "desktop-SUR-ST-003-normal",
+      "android-SUR-ST-003-normal",
+      "desktop-SUR-GM-064-normal",
+      "android-SUR-GM-064-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-002",
+    "title": "项目设置 project-settings（项目级详情，不等同settings）",
+    "surface_ids": [
+      "SUR-ST-001",
+      "SUR-ST-002",
+      "SUR-ST-004",
+      "SUR-ST-005"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-ST-001-normal",
+      "android-SUR-ST-001-normal",
+      "desktop-SUR-ST-002-normal",
+      "android-SUR-ST-002-normal",
+      "desktop-SUR-ST-004-normal",
+      "android-SUR-ST-004-normal",
+      "desktop-SUR-ST-005-normal",
+      "android-SUR-ST-005-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-003",
+    "title": "project-package-transfer：GameGen工程包导入/导出",
+    "surface_ids": [
+      "SUR-ST-001",
+      "SUR-ST-006",
+      "SUR-ST-007"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-ST-001-normal",
+      "android-SUR-ST-001-normal",
+      "desktop-SUR-ST-006-normal",
+      "android-SUR-ST-006-normal",
+      "desktop-SUR-ST-007-normal",
+      "android-SUR-ST-007-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-004",
+    "title": "asset-import-settings / sprite-slicer / tileset-editor（同一资源工作台内模式）",
+    "surface_ids": [
+      "SUR-ST-028",
+      "SUR-ST-029",
+      "SUR-ST-030"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-ST-028-normal",
+      "android-SUR-ST-028-normal",
+      "desktop-SUR-ST-029-normal",
+      "android-SUR-ST-029-normal",
+      "desktop-SUR-ST-030-normal",
+      "android-SUR-ST-030-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-005",
+    "title": "asset-detail / assets；兼容资源选择器抽屉",
+    "surface_ids": [
+      "SUR-CH-003",
+      "SUR-ST-024",
+      "SUR-ST-025",
+      "SUR-ST-026",
+      "SUR-ST-031",
+      "SUR-ST-032",
+      "SUR-ST-049"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-CH-003-normal",
+      "android-SUR-CH-003-normal",
+      "desktop-SUR-ST-024-normal",
+      "android-SUR-ST-024-normal",
+      "desktop-SUR-ST-025-normal",
+      "android-SUR-ST-025-normal",
+      "desktop-SUR-ST-026-normal",
+      "android-SUR-ST-026-normal",
+      "desktop-SUR-ST-031-normal",
+      "android-SUR-ST-031-normal",
+      "desktop-SUR-ST-032-normal",
+      "android-SUR-ST-032-normal",
+      "desktop-SUR-ST-049-normal",
+      "android-SUR-ST-049-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-006",
+    "title": "import-assets：重名/格式/依赖校对",
+    "surface_ids": [
+      "SUR-ST-027",
+      "SUR-ST-031"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-ST-027-normal",
+      "android-SUR-ST-027-normal",
+      "desktop-SUR-ST-031-normal",
+      "android-SUR-ST-031-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-007",
+    "title": "offline-components：离线组件与本机模型/运行依赖",
+    "surface_ids": [
+      "SUR-WN-055"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-WN-055-normal",
+      "android-SUR-WN-055-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-008",
+    "title": "settings.security / signature-picker",
+    "surface_ids": [
+      "SUR-WN-016",
+      "SUR-WN-056"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-WN-016-normal",
+      "android-SUR-WN-016-normal",
+      "desktop-SUR-WN-056-normal",
+      "android-SUR-WN-056-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-009",
+    "title": "model-form / mcp-form / target-settings / lan-scope / settings",
+    "surface_ids": [
+      "SUR-GL-002",
+      "SUR-CH-002",
+      "SUR-WN-015",
+      "SUR-WN-016",
+      "SUR-WN-020",
+      "SUR-WN-040",
+      "SUR-WN-056"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GL-002-normal",
+      "android-SUR-GL-002-normal",
+      "desktop-SUR-CH-002-normal",
+      "android-SUR-CH-002-normal",
+      "desktop-SUR-WN-015-normal",
+      "android-SUR-WN-015-normal",
+      "desktop-SUR-WN-016-normal",
+      "android-SUR-WN-016-normal",
+      "desktop-SUR-WN-020-normal",
+      "android-SUR-WN-020-normal",
+      "desktop-SUR-WN-040-normal",
+      "android-SUR-WN-040-normal",
+      "desktop-SUR-WN-056-normal",
+      "android-SUR-WN-056-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-010",
+    "title": "prefab：继承/覆盖/批量应用",
+    "surface_ids": [
+      "SUR-ST-015",
+      "SUR-ST-016",
+      "SUR-ST-017"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-ST-015-normal",
+      "android-SUR-ST-015-normal",
+      "desktop-SUR-ST-016-normal",
+      "android-SUR-ST-016-normal",
+      "desktop-SUR-ST-017-normal",
+      "android-SUR-ST-017-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-011",
+    "title": "scene / camera / controls：高级面板",
+    "surface_ids": [
+      "SUR-ST-011",
+      "SUR-ST-012",
+      "SUR-ST-013",
+      "SUR-ST-014",
+      "SUR-ST-018",
+      "SUR-ST-019",
+      "SUR-ST-020",
+      "SUR-ST-021"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-ST-011-normal",
+      "android-SUR-ST-011-normal",
+      "desktop-SUR-ST-012-normal",
+      "android-SUR-ST-012-normal",
+      "desktop-SUR-ST-013-normal",
+      "android-SUR-ST-013-normal",
+      "desktop-SUR-ST-014-normal",
+      "android-SUR-ST-014-normal",
+      "desktop-SUR-ST-018-normal",
+      "android-SUR-ST-018-normal",
+      "desktop-SUR-ST-019-normal",
+      "android-SUR-ST-019-normal",
+      "desktop-SUR-ST-020-normal",
+      "android-SUR-ST-020-normal",
+      "desktop-SUR-ST-021-normal",
+      "android-SUR-ST-021-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-012",
+    "title": "physics：形状/碰撞矩阵/关节",
+    "surface_ids": [
+      "SUR-ST-033",
+      "SUR-ST-034",
+      "SUR-ST-035",
+      "SUR-ST-036"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-ST-033-normal",
+      "android-SUR-ST-033-normal",
+      "desktop-SUR-ST-034-normal",
+      "android-SUR-ST-034-normal",
+      "desktop-SUR-ST-035-normal",
+      "android-SUR-ST-035-normal",
+      "desktop-SUR-ST-036-normal",
+      "android-SUR-ST-036-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-013",
+    "title": "particles：发射器/曲线/预算",
+    "surface_ids": [
+      "SUR-ST-037",
+      "SUR-ST-038"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-ST-037-normal",
+      "android-SUR-ST-037-normal",
+      "desktop-SUR-ST-038-normal",
+      "android-SUR-ST-038-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-014",
+    "title": "skeleton：骨架/绑定/权重/IK",
+    "surface_ids": [
+      "SUR-ST-042",
+      "SUR-ST-043",
+      "SUR-ST-044",
+      "SUR-ST-045"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-ST-042-normal",
+      "android-SUR-ST-042-normal",
+      "desktop-SUR-ST-043-normal",
+      "android-SUR-ST-043-normal",
+      "desktop-SUR-ST-044-normal",
+      "android-SUR-ST-044-normal",
+      "desktop-SUR-ST-045-normal",
+      "android-SUR-ST-045-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-015",
+    "title": "animation：帧片段/补间/曲线/事件",
+    "surface_ids": [
+      "SUR-ST-039",
+      "SUR-ST-040",
+      "SUR-ST-041"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-ST-039-normal",
+      "android-SUR-ST-039-normal",
+      "desktop-SUR-ST-040-normal",
+      "android-SUR-ST-040-normal",
+      "desktop-SUR-ST-041-normal",
+      "android-SUR-ST-041-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-016",
+    "title": "audio：音频编辑/总线混音（保留generate-audio独立）",
+    "surface_ids": [
+      "SUR-ST-047",
+      "SUR-ST-048"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-ST-047-normal",
+      "android-SUR-ST-047-normal",
+      "desktop-SUR-ST-048-normal",
+      "android-SUR-ST-048-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-017",
+    "title": "animation-graph：状态/过渡专用属性",
+    "surface_ids": [
+      "SUR-ST-041",
+      "SUR-ST-046"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-ST-041-normal",
+      "android-SUR-ST-041-normal",
+      "desktop-SUR-ST-046-normal",
+      "android-SUR-ST-046-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-018",
+    "title": "map-manager / map.settings / projection-change",
+    "surface_ids": [
+      "SUR-GM-001",
+      "SUR-GM-002",
+      "SUR-GM-003",
+      "SUR-GM-004"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-001-normal",
+      "android-SUR-GM-001-normal",
+      "desktop-SUR-GM-002-normal",
+      "android-SUR-GM-002-normal",
+      "desktop-SUR-GM-003-normal",
+      "android-SUR-GM-003-normal",
+      "desktop-SUR-GM-004-normal",
+      "android-SUR-GM-004-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-019",
+    "title": "map：事件区/图层/楼层/导航连接",
+    "surface_ids": [
+      "SUR-GM-005",
+      "SUR-GM-006",
+      "SUR-GM-007",
+      "SUR-GM-008",
+      "SUR-GM-009",
+      "SUR-GM-014",
+      "SUR-GM-015"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-005-normal",
+      "android-SUR-GM-005-normal",
+      "desktop-SUR-GM-006-normal",
+      "android-SUR-GM-006-normal",
+      "desktop-SUR-GM-007-normal",
+      "android-SUR-GM-007-normal",
+      "desktop-SUR-GM-008-normal",
+      "android-SUR-GM-008-normal",
+      "desktop-SUR-GM-009-normal",
+      "android-SUR-GM-009-normal",
+      "desktop-SUR-GM-014-normal",
+      "android-SUR-GM-014-normal",
+      "desktop-SUR-GM-015-normal",
+      "android-SUR-GM-015-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-020",
+    "title": "map.object-footprint / occlusion / directions",
+    "surface_ids": [
+      "SUR-ST-018",
+      "SUR-ST-029",
+      "SUR-GM-010",
+      "SUR-GM-011",
+      "SUR-GM-012",
+      "SUR-GM-013"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-ST-018-normal",
+      "android-SUR-ST-018-normal",
+      "desktop-SUR-ST-029-normal",
+      "android-SUR-ST-029-normal",
+      "desktop-SUR-GM-010-normal",
+      "android-SUR-GM-010-normal",
+      "desktop-SUR-GM-011-normal",
+      "android-SUR-GM-011-normal",
+      "desktop-SUR-GM-012-normal",
+      "android-SUR-GM-012-normal",
+      "desktop-SUR-GM-013-normal",
+      "android-SUR-GM-013-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-021",
+    "title": "map-generator：随机地图/局部重生成",
+    "surface_ids": [
+      "SUR-GM-018",
+      "SUR-GM-019"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-018-normal",
+      "android-SUR-GM-018-normal",
+      "desktop-SUR-GM-019-normal",
+      "android-SUR-GM-019-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-022",
+    "title": "world / map：小地图、探索与导航",
+    "surface_ids": [
+      "SUR-GM-016",
+      "SUR-GM-017",
+      "SUR-GM-020",
+      "SUR-GM-051"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-016-normal",
+      "android-SUR-GM-016-normal",
+      "desktop-SUR-GM-017-normal",
+      "android-SUR-GM-017-normal",
+      "desktop-SUR-GM-020-normal",
+      "android-SUR-GM-020-normal",
+      "desktop-SUR-GM-051-normal",
+      "android-SUR-GM-051-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-023",
+    "title": "level-detail / goal-editor（levels内详情）",
+    "surface_ids": [
+      "SUR-GM-021",
+      "SUR-GM-022",
+      "SUR-GM-023",
+      "SUR-GM-025",
+      "SUR-GM-026"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-021-normal",
+      "android-SUR-GM-021-normal",
+      "desktop-SUR-GM-022-normal",
+      "android-SUR-GM-022-normal",
+      "desktop-SUR-GM-023-normal",
+      "android-SUR-GM-023-normal",
+      "desktop-SUR-GM-025-normal",
+      "android-SUR-GM-025-normal",
+      "desktop-SUR-GM-026-normal",
+      "android-SUR-GM-026-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-024",
+    "title": "campaign-graph：章节/关卡解锁流转",
+    "surface_ids": [
+      "SUR-GM-017",
+      "SUR-GM-027",
+      "SUR-GM-028"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-017-normal",
+      "android-SUR-GM-017-normal",
+      "desktop-SUR-GM-027-normal",
+      "android-SUR-GM-027-normal",
+      "desktop-SUR-GM-028-normal",
+      "android-SUR-GM-028-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-025",
+    "title": "rpg-character：角色/职业/成长配置",
+    "surface_ids": [
+      "SUR-GM-036"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-036-normal",
+      "android-SUR-GM-036-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-026",
+    "title": "rpg-skill：技能阶段与命中范围",
+    "surface_ids": [
+      "SUR-GM-037",
+      "SUR-GM-066"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-037-normal",
+      "android-SUR-GM-037-normal",
+      "desktop-SUR-GM-066-normal",
+      "android-SUR-GM-066-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-027",
+    "title": "rpg-status：Buff/Debuff",
+    "surface_ids": [
+      "SUR-GM-038"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-038-normal",
+      "android-SUR-GM-038-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-028",
+    "title": "rpg-items / inventory-rules / loot-table（同一物品工作台标签）",
+    "surface_ids": [
+      "SUR-GM-039",
+      "SUR-GM-040",
+      "SUR-GM-041"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-039-normal",
+      "android-SUR-GM-039-normal",
+      "desktop-SUR-GM-040-normal",
+      "android-SUR-GM-040-normal",
+      "desktop-SUR-GM-041-normal",
+      "android-SUR-GM-041-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-029",
+    "title": "quests：任务属性/目标组合/进度预览",
+    "surface_ids": [
+      "SUR-GM-043",
+      "SUR-GM-045"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-043-normal",
+      "android-SUR-GM-043-normal",
+      "desktop-SUR-GM-045-normal",
+      "android-SUR-GM-045-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-030",
+    "title": "dialogue：对白/分支内容编辑",
+    "surface_ids": [
+      "SUR-GM-044"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-044-normal",
+      "android-SUR-GM-044-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-031",
+    "title": "workflow：状态机/行为树；NPC行为详情",
+    "surface_ids": [
+      "SUR-GM-042"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-042-normal",
+      "android-SUR-GM-042-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-032",
+    "title": "slg-building / recipe-queue（SLG内详情标签）",
+    "surface_ids": [
+      "SUR-GM-011",
+      "SUR-GM-046",
+      "SUR-GM-047",
+      "SUR-GM-048"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-011-normal",
+      "android-SUR-GM-011-normal",
+      "desktop-SUR-GM-046-normal",
+      "android-SUR-GM-046-normal",
+      "desktop-SUR-GM-047-normal",
+      "android-SUR-GM-047-normal",
+      "desktop-SUR-GM-048-normal",
+      "android-SUR-GM-048-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-033",
+    "title": "slg-tech-tree / strategy-rules",
+    "surface_ids": [
+      "SUR-GM-049",
+      "SUR-GM-050",
+      "SUR-GM-051",
+      "SUR-GM-052",
+      "SUR-GM-053"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-049-normal",
+      "android-SUR-GM-049-normal",
+      "desktop-SUR-GM-050-normal",
+      "android-SUR-GM-050-normal",
+      "desktop-SUR-GM-051-normal",
+      "android-SUR-GM-051-normal",
+      "desktop-SUR-GM-052-normal",
+      "android-SUR-GM-052-normal",
+      "desktop-SUR-GM-053-normal",
+      "android-SUR-GM-053-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-034",
+    "title": "spawn-wave-editor：出生/刷新/波次",
+    "surface_ids": [
+      "SUR-GM-024",
+      "SUR-GM-065",
+      "SUR-GM-066"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-024-normal",
+      "android-SUR-GM-024-normal",
+      "desktop-SUR-GM-065-normal",
+      "android-SUR-GM-065-normal",
+      "desktop-SUR-GM-066-normal",
+      "android-SUR-GM-066-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-035",
+    "title": "data：Schema/公式/CSV-JSON映射",
+    "surface_ids": [
+      "SUR-GM-029",
+      "SUR-GM-030",
+      "SUR-GM-031",
+      "SUR-GM-032",
+      "SUR-GM-033"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-029-normal",
+      "android-SUR-GM-029-normal",
+      "desktop-SUR-GM-030-normal",
+      "android-SUR-GM-030-normal",
+      "desktop-SUR-GM-031-normal",
+      "android-SUR-GM-031-normal",
+      "desktop-SUR-GM-032-normal",
+      "android-SUR-GM-032-normal",
+      "desktop-SUR-GM-033-normal",
+      "android-SUR-GM-033-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-036",
+    "title": "economy：情景输入/运行/结果对比",
+    "surface_ids": [
+      "SUR-GM-034",
+      "SUR-GM-035"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-034-normal",
+      "android-SUR-GM-034-normal",
+      "desktop-SUR-GM-035-normal",
+      "android-SUR-GM-035-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-037",
+    "title": "board-rules：消除/合成/推箱/机关棋盘",
+    "surface_ids": [
+      "SUR-GM-054",
+      "SUR-GM-055",
+      "SUR-GM-064"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-054-normal",
+      "android-SUR-GM-054-normal",
+      "desktop-SUR-GM-055-normal",
+      "android-SUR-GM-055-normal",
+      "desktop-SUR-GM-064-normal",
+      "android-SUR-GM-064-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-038",
+    "title": "card-deck-editor：卡牌/牌组/区域与时序",
+    "surface_ids": [
+      "SUR-GM-056",
+      "SUR-GM-057",
+      "SUR-GM-064"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-056-normal",
+      "android-SUR-GM-056-normal",
+      "desktop-SUR-GM-057-normal",
+      "android-SUR-GM-057-normal",
+      "desktop-SUR-GM-064-normal",
+      "android-SUR-GM-064-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-039",
+    "title": "rhythm-chart-editor：谱面与时间判定",
+    "surface_ids": [
+      "SUR-GM-058",
+      "SUR-GM-064"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-058-normal",
+      "android-SUR-GM-058-normal",
+      "desktop-SUR-GM-064-normal",
+      "android-SUR-GM-064-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-040",
+    "title": "race-sport-rules / map.checkpoints",
+    "surface_ids": [
+      "SUR-GM-059",
+      "SUR-GM-060",
+      "SUR-GM-064",
+      "SUR-GM-065"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-059-normal",
+      "android-SUR-GM-059-normal",
+      "desktop-SUR-GM-060-normal",
+      "android-SUR-GM-060-normal",
+      "desktop-SUR-GM-064-normal",
+      "android-SUR-GM-064-normal",
+      "desktop-SUR-GM-065-normal",
+      "android-SUR-GM-065-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-041",
+    "title": "turn-tactics-rules / board-rules",
+    "surface_ids": [
+      "SUR-GM-053",
+      "SUR-GM-061",
+      "SUR-GM-064"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-053-normal",
+      "android-SUR-GM-053-normal",
+      "desktop-SUR-GM-061-normal",
+      "android-SUR-GM-061-normal",
+      "desktop-SUR-GM-064-normal",
+      "android-SUR-GM-064-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-042",
+    "title": "run-progression-rules / idle-world-rules",
+    "surface_ids": [
+      "SUR-GM-020",
+      "SUR-GM-033",
+      "SUR-GM-045",
+      "SUR-GM-052",
+      "SUR-GM-062",
+      "SUR-GM-063",
+      "SUR-GM-064"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GM-020-normal",
+      "android-SUR-GM-020-normal",
+      "desktop-SUR-GM-033-normal",
+      "android-SUR-GM-033-normal",
+      "desktop-SUR-GM-045-normal",
+      "android-SUR-GM-045-normal",
+      "desktop-SUR-GM-052-normal",
+      "android-SUR-GM-052-normal",
+      "desktop-SUR-GM-062-normal",
+      "android-SUR-GM-062-normal",
+      "desktop-SUR-GM-063-normal",
+      "android-SUR-GM-063-normal",
+      "desktop-SUR-GM-064-normal",
+      "android-SUR-GM-064-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-043",
+    "title": "workflow / nodes：完整图与端口/子流程详情",
+    "surface_ids": [
+      "SUR-WN-001",
+      "SUR-WN-002",
+      "SUR-WN-003",
+      "SUR-WN-004",
+      "SUR-WN-005",
+      "SUR-WN-006",
+      "SUR-WN-007",
+      "SUR-WN-008"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-WN-001-normal",
+      "android-SUR-WN-001-normal",
+      "desktop-SUR-WN-002-normal",
+      "android-SUR-WN-002-normal",
+      "desktop-SUR-WN-003-normal",
+      "android-SUR-WN-003-normal",
+      "desktop-SUR-WN-004-normal",
+      "android-SUR-WN-004-normal",
+      "desktop-SUR-WN-005-normal",
+      "android-SUR-WN-005-normal",
+      "desktop-SUR-WN-006-normal",
+      "android-SUR-WN-006-normal",
+      "desktop-SUR-WN-007-normal",
+      "android-SUR-WN-007-normal",
+      "desktop-SUR-WN-008-normal",
+      "android-SUR-WN-008-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-044",
+    "title": "graph-debug：执行会话/断点/值/栈/事件",
+    "surface_ids": [
+      "SUR-WN-009",
+      "SUR-WN-010",
+      "SUR-WN-011"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-WN-009-normal",
+      "android-SUR-WN-009-normal",
+      "desktop-SUR-WN-010-normal",
+      "android-SUR-WN-010-normal",
+      "desktop-SUR-WN-011-normal",
+      "android-SUR-WN-011-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-045",
+    "title": "proposal / diff / engine-conflict / lan-conflict",
+    "surface_ids": [
+      "SUR-GL-006",
+      "SUR-CH-009",
+      "SUR-WN-007",
+      "SUR-WN-012",
+      "SUR-WN-013",
+      "SUR-WN-045",
+      "SUR-WN-053"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GL-006-normal",
+      "android-SUR-GL-006-normal",
+      "desktop-SUR-CH-009-normal",
+      "android-SUR-CH-009-normal",
+      "desktop-SUR-WN-007-normal",
+      "android-SUR-WN-007-normal",
+      "desktop-SUR-WN-012-normal",
+      "android-SUR-WN-012-normal",
+      "desktop-SUR-WN-013-normal",
+      "android-SUR-WN-013-normal",
+      "desktop-SUR-WN-045-normal",
+      "android-SUR-WN-045-normal",
+      "desktop-SUR-WN-053-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-046",
+    "title": "chat / overlays.context-picker / permissions",
+    "surface_ids": [
+      "SUR-GL-005",
+      "SUR-CH-001",
+      "SUR-CH-002",
+      "SUR-CH-003",
+      "SUR-CH-004",
+      "SUR-CH-005",
+      "SUR-CH-006",
+      "SUR-CH-007",
+      "SUR-CH-008",
+      "SUR-CH-009",
+      "SUR-CH-010",
+      "SUR-ST-054",
+      "SUR-WN-018",
+      "SUR-WN-023"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GL-005-normal",
+      "android-SUR-GL-005-normal",
+      "desktop-SUR-CH-001-normal",
+      "android-SUR-CH-001-normal",
+      "desktop-SUR-CH-002-normal",
+      "android-SUR-CH-002-normal",
+      "desktop-SUR-CH-003-normal",
+      "android-SUR-CH-003-normal",
+      "desktop-SUR-CH-004-normal",
+      "android-SUR-CH-004-normal",
+      "desktop-SUR-CH-005-normal",
+      "android-SUR-CH-005-normal",
+      "desktop-SUR-CH-006-normal",
+      "android-SUR-CH-006-normal",
+      "desktop-SUR-CH-007-normal",
+      "android-SUR-CH-007-normal",
+      "desktop-SUR-CH-008-normal",
+      "android-SUR-CH-008-normal",
+      "desktop-SUR-CH-009-normal",
+      "android-SUR-CH-009-normal",
+      "desktop-SUR-CH-010-normal",
+      "android-SUR-CH-010-normal",
+      "desktop-SUR-ST-054-normal",
+      "android-SUR-ST-054-normal",
+      "desktop-SUR-WN-018-normal",
+      "android-SUR-WN-018-normal",
+      "desktop-SUR-WN-023-normal",
+      "android-SUR-WN-023-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-047",
+    "title": "models / model-form / model-check-detail",
+    "surface_ids": [
+      "SUR-CH-004",
+      "SUR-CH-010",
+      "SUR-WN-014",
+      "SUR-WN-015",
+      "SUR-WN-016",
+      "SUR-WN-017",
+      "SUR-WN-018"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-CH-004-normal",
+      "android-SUR-CH-004-normal",
+      "desktop-SUR-CH-010-normal",
+      "android-SUR-CH-010-normal",
+      "desktop-SUR-WN-014-normal",
+      "android-SUR-WN-014-normal",
+      "desktop-SUR-WN-015-normal",
+      "android-SUR-WN-015-normal",
+      "desktop-SUR-WN-016-normal",
+      "android-SUR-WN-016-normal",
+      "desktop-SUR-WN-017-normal",
+      "android-SUR-WN-017-normal",
+      "desktop-SUR-WN-018-normal",
+      "android-SUR-WN-018-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-048",
+    "title": "mcp-form.stdio / remote-auth / mcp-capabilities",
+    "surface_ids": [
+      "SUR-CH-006",
+      "SUR-WN-018",
+      "SUR-WN-019",
+      "SUR-WN-020",
+      "SUR-WN-021",
+      "SUR-WN-022",
+      "SUR-WN-023"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-CH-006-normal",
+      "android-SUR-CH-006-normal",
+      "desktop-SUR-WN-018-normal",
+      "android-SUR-WN-018-normal",
+      "desktop-SUR-WN-019-normal",
+      "android-SUR-WN-019-normal",
+      "desktop-SUR-WN-020-normal",
+      "android-SUR-WN-020-normal",
+      "desktop-SUR-WN-021-normal",
+      "android-SUR-WN-021-normal",
+      "desktop-SUR-WN-022-normal",
+      "android-SUR-WN-022-normal",
+      "desktop-SUR-WN-023-normal",
+      "android-SUR-WN-023-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-049",
+    "title": "skills / skill-detail：用户Skill编辑与导入预览",
+    "surface_ids": [
+      "SUR-CH-005",
+      "SUR-WN-018",
+      "SUR-WN-024",
+      "SUR-WN-025",
+      "SUR-WN-026"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-CH-005-normal",
+      "android-SUR-CH-005-normal",
+      "desktop-SUR-WN-018-normal",
+      "android-SUR-WN-018-normal",
+      "desktop-SUR-WN-024-normal",
+      "android-SUR-WN-024-normal",
+      "desktop-SUR-WN-025-normal",
+      "android-SUR-WN-025-normal",
+      "desktop-SUR-WN-026-normal",
+      "android-SUR-WN-026-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-050",
+    "title": "preview / diagnostics：运行隔离与性能诊断",
+    "surface_ids": [
+      "SUR-GL-008",
+      "SUR-ST-032",
+      "SUR-ST-050",
+      "SUR-ST-051",
+      "SUR-ST-052"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GL-008-normal",
+      "android-SUR-GL-008-normal",
+      "desktop-SUR-ST-032-normal",
+      "android-SUR-ST-032-normal",
+      "desktop-SUR-ST-050-normal",
+      "android-SUR-ST-050-normal",
+      "desktop-SUR-ST-051-normal",
+      "android-SUR-ST-051-normal",
+      "desktop-SUR-ST-052-normal",
+      "android-SUR-ST-052-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-051",
+    "title": "local-task-center（可复用现任务容器）/ project-save-status",
+    "surface_ids": [
+      "SUR-GL-001",
+      "SUR-GL-004",
+      "SUR-GL-005",
+      "SUR-GL-008",
+      "SUR-CH-001",
+      "SUR-CH-007",
+      "SUR-CH-008",
+      "SUR-CH-009",
+      "SUR-CH-010",
+      "SUR-ST-009",
+      "SUR-ST-049"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GL-001-normal",
+      "android-SUR-GL-001-normal",
+      "desktop-SUR-GL-004-normal",
+      "android-SUR-GL-004-normal",
+      "desktop-SUR-GL-005-normal",
+      "android-SUR-GL-005-normal",
+      "desktop-SUR-GL-008-normal",
+      "android-SUR-GL-008-normal",
+      "desktop-SUR-CH-001-normal",
+      "android-SUR-CH-001-normal",
+      "desktop-SUR-CH-007-normal",
+      "android-SUR-CH-007-normal",
+      "desktop-SUR-CH-008-normal",
+      "android-SUR-CH-008-normal",
+      "desktop-SUR-CH-009-normal",
+      "android-SUR-CH-009-normal",
+      "desktop-SUR-CH-010-normal",
+      "android-SUR-CH-010-normal",
+      "desktop-SUR-ST-009-normal",
+      "android-SUR-ST-009-normal",
+      "desktop-SUR-ST-049-normal",
+      "android-SUR-ST-049-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-052",
+    "title": "localization / settings.language；全页四语适配",
+    "surface_ids": [
+      "SUR-GL-002",
+      "SUR-ST-010",
+      "SUR-ST-023",
+      "SUR-ST-030",
+      "SUR-ST-053",
+      "SUR-ST-054"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GL-002-normal",
+      "android-SUR-GL-002-normal",
+      "desktop-SUR-ST-010-normal",
+      "android-SUR-ST-010-normal",
+      "desktop-SUR-ST-023-normal",
+      "android-SUR-ST-023-normal",
+      "desktop-SUR-ST-030-normal",
+      "android-SUR-ST-030-normal",
+      "desktop-SUR-ST-053-normal",
+      "android-SUR-ST-053-normal",
+      "desktop-SUR-ST-054-normal",
+      "android-SUR-ST-054-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-053",
+    "title": "target-settings.apk / h5 / wechat / douyin",
+    "surface_ids": [
+      "SUR-GL-007",
+      "SUR-WN-035",
+      "SUR-WN-056",
+      "SUR-WN-057",
+      "SUR-WN-058",
+      "SUR-WN-059",
+      "SUR-WN-060",
+      "SUR-WN-061"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GL-007-normal",
+      "android-SUR-GL-007-normal",
+      "desktop-SUR-WN-035-normal",
+      "android-SUR-WN-035-normal",
+      "desktop-SUR-WN-056-normal",
+      "android-SUR-WN-056-normal",
+      "desktop-SUR-WN-057-normal",
+      "android-SUR-WN-057-normal",
+      "desktop-SUR-WN-058-normal",
+      "android-SUR-WN-058-normal",
+      "desktop-SUR-WN-059-normal",
+      "android-SUR-WN-059-normal",
+      "desktop-SUR-WN-060-normal",
+      "android-SUR-WN-060-normal",
+      "desktop-SUR-WN-061-normal",
+      "android-SUR-WN-061-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-054",
+    "title": "publish.preflight / build-progress / build-result",
+    "surface_ids": [
+      "SUR-GL-001",
+      "SUR-GL-007",
+      "SUR-WN-061",
+      "SUR-WN-062"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GL-001-normal",
+      "android-SUR-GL-001-normal",
+      "desktop-SUR-GL-007-normal",
+      "android-SUR-GL-007-normal",
+      "desktop-SUR-WN-061-normal",
+      "android-SUR-WN-061-normal",
+      "desktop-SUR-WN-062-normal",
+      "android-SUR-WN-062-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-055",
+    "title": "lan-content-select / resource-share-settings（向导步骤/抽屉）",
+    "surface_ids": [
+      "SUR-WN-038",
+      "SUR-WN-039",
+      "SUR-WN-040",
+      "SUR-WN-041",
+      "SUR-WN-042",
+      "SUR-WN-043"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-WN-038-normal",
+      "android-SUR-WN-038-normal",
+      "desktop-SUR-WN-039-normal",
+      "android-SUR-WN-039-normal",
+      "desktop-SUR-WN-040-normal",
+      "android-SUR-WN-040-normal",
+      "desktop-SUR-WN-041-normal",
+      "android-SUR-WN-041-normal",
+      "desktop-SUR-WN-042-normal",
+      "android-SUR-WN-042-normal",
+      "desktop-SUR-WN-043-normal",
+      "android-SUR-WN-043-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-056",
+    "title": "lan-conflict / lan-scope / lan-transfer / lan-received",
+    "surface_ids": [
+      "SUR-GL-001",
+      "SUR-WN-038",
+      "SUR-WN-040",
+      "SUR-WN-043",
+      "SUR-WN-044",
+      "SUR-WN-045",
+      "SUR-WN-046",
+      "SUR-WN-047"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GL-001-normal",
+      "android-SUR-GL-001-normal",
+      "desktop-SUR-WN-038-normal",
+      "android-SUR-WN-038-normal",
+      "desktop-SUR-WN-040-normal",
+      "android-SUR-WN-040-normal",
+      "desktop-SUR-WN-043-normal",
+      "android-SUR-WN-043-normal",
+      "desktop-SUR-WN-044-normal",
+      "android-SUR-WN-044-normal",
+      "desktop-SUR-WN-045-normal",
+      "android-SUR-WN-045-normal",
+      "desktop-SUR-WN-046-normal",
+      "android-SUR-WN-046-normal",
+      "desktop-SUR-WN-047-normal",
+      "android-SUR-WN-047-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-057",
+    "title": "engine-analysis / engine-mapping / engine-report / migration-item-detail",
+    "surface_ids": [
+      "SUR-WN-049",
+      "SUR-WN-050",
+      "SUR-WN-051",
+      "SUR-WN-052",
+      "SUR-WN-053",
+      "SUR-WN-054"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-WN-049-normal",
+      "desktop-SUR-WN-050-normal",
+      "desktop-SUR-WN-051-normal",
+      "desktop-SUR-WN-052-normal",
+      "desktop-SUR-WN-053-normal",
+      "android-SUR-WN-054-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-058",
+    "title": "engine-analysis / engine-mapping / engine-import / projects",
+    "surface_ids": [
+      "SUR-WN-048",
+      "SUR-WN-049",
+      "SUR-WN-052"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-WN-048-normal",
+      "desktop-SUR-WN-049-normal",
+      "desktop-SUR-WN-052-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-059",
+    "title": "requirements-trace / scenarios / PAGE-SPECS / locale-mapping",
+    "surface_ids": [
+      "SUR-GL-006"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GL-006-normal",
+      "android-SUR-GL-006-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-060",
+    "title": "DESIGN-SPEC / PAGE-SPECS / assets semantics；host-status嵌入项目恢复/任务",
+    "surface_ids": [
+      "SUR-GL-002",
+      "SUR-GL-004",
+      "SUR-CH-001",
+      "SUR-ST-010"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GL-002-normal",
+      "android-SUR-GL-002-normal",
+      "desktop-SUR-GL-004-normal",
+      "android-SUR-GL-004-normal",
+      "desktop-SUR-CH-001-normal",
+      "android-SUR-CH-001-normal",
+      "desktop-SUR-ST-010-normal",
+      "android-SUR-ST-010-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-061",
+    "title": "api.operation-detail / schema-editor / api-review / api-reimport / protocol",
+    "surface_ids": [
+      "SUR-WN-027",
+      "SUR-WN-028",
+      "SUR-WN-029",
+      "SUR-WN-030",
+      "SUR-WN-031",
+      "SUR-WN-032",
+      "SUR-WN-033",
+      "SUR-WN-034",
+      "SUR-WN-035",
+      "SUR-WN-036"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-WN-027-normal",
+      "android-SUR-WN-027-normal",
+      "desktop-SUR-WN-028-normal",
+      "android-SUR-WN-028-normal",
+      "desktop-SUR-WN-029-normal",
+      "android-SUR-WN-029-normal",
+      "desktop-SUR-WN-030-normal",
+      "android-SUR-WN-030-normal",
+      "desktop-SUR-WN-031-normal",
+      "android-SUR-WN-031-normal",
+      "desktop-SUR-WN-032-normal",
+      "android-SUR-WN-032-normal",
+      "desktop-SUR-WN-033-normal",
+      "android-SUR-WN-033-normal",
+      "desktop-SUR-WN-034-normal",
+      "android-SUR-WN-034-normal",
+      "desktop-SUR-WN-035-normal",
+      "android-SUR-WN-035-normal",
+      "desktop-SUR-WN-036-normal",
+      "android-SUR-WN-036-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-062",
+    "title": "connection-detail / server-data / multiplayer-authority / operations（后续）",
+    "surface_ids": [
+      "SUR-WN-037",
+      "SUR-WN-063",
+      "SUR-WN-066",
+      "SUR-WN-067",
+      "SUR-WN-068",
+      "SUR-WN-069",
+      "SUR-WN-070",
+      "SUR-WN-071",
+      "SUR-WN-072"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-WN-037-normal",
+      "android-SUR-WN-037-normal",
+      "desktop-SUR-WN-063-normal",
+      "android-SUR-WN-063-normal",
+      "desktop-SUR-WN-066-normal",
+      "android-SUR-WN-066-normal",
+      "desktop-SUR-WN-067-normal",
+      "android-SUR-WN-067-normal",
+      "desktop-SUR-WN-068-normal",
+      "android-SUR-WN-068-normal",
+      "desktop-SUR-WN-069-normal",
+      "android-SUR-WN-069-normal",
+      "desktop-SUR-WN-070-normal",
+      "android-SUR-WN-070-normal",
+      "desktop-SUR-WN-071-normal",
+      "android-SUR-WN-071-normal",
+      "desktop-SUR-WN-072-normal",
+      "android-SUR-WN-072-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-063",
+    "title": "cloud-account / credits-ledger / media-inbox / generation-tasks（后续）",
+    "surface_ids": [
+      "SUR-WN-064",
+      "SUR-WN-073",
+      "SUR-WN-074",
+      "SUR-WN-075"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-WN-064-normal",
+      "android-SUR-WN-064-normal",
+      "desktop-SUR-WN-073-normal",
+      "android-SUR-WN-073-normal",
+      "desktop-SUR-WN-074-normal",
+      "android-SUR-WN-074-normal",
+      "desktop-SUR-WN-075-normal",
+      "android-SUR-WN-075-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-064",
+    "title": "future-export / future-host-layout-plan",
+    "surface_ids": [
+      "SUR-WN-065"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-WN-065-normal",
+      "android-SUR-WN-065-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-065",
+    "title": "projects.first_use / templates.detail / editor.guide",
+    "surface_ids": [
+      "SUR-GL-002",
+      "SUR-GL-003",
+      "SUR-ST-002",
+      "SUR-ST-003",
+      "SUR-ST-013"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GL-002-normal",
+      "android-SUR-GL-002-normal",
+      "desktop-SUR-GL-003-normal",
+      "android-SUR-GL-003-normal",
+      "desktop-SUR-ST-002-normal",
+      "android-SUR-ST-002-normal",
+      "desktop-SUR-ST-003-normal",
+      "android-SUR-ST-003-normal",
+      "desktop-SUR-ST-013-normal",
+      "android-SUR-ST-013-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-066",
+    "title": "history / recovery / diff / migration-confirm",
+    "surface_ids": [
+      "SUR-GL-004",
+      "SUR-GL-006",
+      "SUR-GL-008",
+      "SUR-ST-001",
+      "SUR-ST-005",
+      "SUR-ST-007",
+      "SUR-ST-008",
+      "SUR-ST-009"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-GL-004-normal",
+      "android-SUR-GL-004-normal",
+      "desktop-SUR-GL-006-normal",
+      "android-SUR-GL-006-normal",
+      "desktop-SUR-GL-008-normal",
+      "android-SUR-GL-008-normal",
+      "desktop-SUR-ST-001-normal",
+      "android-SUR-ST-001-normal",
+      "desktop-SUR-ST-005-normal",
+      "android-SUR-ST-005-normal",
+      "desktop-SUR-ST-007-normal",
+      "android-SUR-ST-007-normal",
+      "desktop-SUR-ST-008-normal",
+      "android-SUR-ST-008-normal",
+      "desktop-SUR-ST-009-normal",
+      "android-SUR-ST-009-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "PSR-067",
+    "title": "game-ui：组件树/控件库/绑定/布局",
+    "surface_ids": [
+      "SUR-ST-022",
+      "SUR-ST-023"
+    ],
+    "status": "draft_available_pending_product_review",
+    "source_status": "detail_spec_written_original_design_gap_open",
+    "review_status": "pending",
+    "artboards": [
+      "desktop-SUR-ST-022-normal",
+      "android-SUR-ST-022-normal",
+      "desktop-SUR-ST-023-normal",
+      "android-SUR-ST-023-normal"
+    ],
+    "closure_approved_by": "",
+    "execution_status": "not_run"
+  }
+]

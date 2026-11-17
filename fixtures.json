@@ -1,0 +1,197 @@
+{
+  "project": {
+    "id": "star-island",
+    "name": "星岛冒险",
+    "revision": 18,
+    "points": 10,
+    "hp": 3
+  },
+  "credits": 1280,
+  "quote": 80,
+  "platforms": [
+    "APK",
+    "H5",
+    "微信小游戏",
+    "抖音小游戏"
+  ],
+  "pages": [
+    {
+      "id": "projects",
+      "label": "项目",
+      "title": "项目创建与管理",
+      "states": [
+        "normal",
+        "first_use",
+        "empty",
+        "no_results"
+      ]
+    },
+    {
+      "id": "workspace",
+      "label": "对话",
+      "title": "连续对话与修改反馈",
+      "states": [
+        "normal",
+        "loading",
+        "clarification",
+        "offline",
+        "error_timeout",
+        "interrupted",
+        "success",
+        "duplicate",
+        "permission",
+        "review",
+        "sessions"
+      ]
+    },
+    {
+      "id": "scene",
+      "label": "场景",
+      "title": "场景与对象编辑",
+      "states": [
+        "normal",
+        "selected"
+      ]
+    },
+    {
+      "id": "workflow",
+      "label": "工作流",
+      "title": "可视化逻辑与属性修改",
+      "states": [
+        "normal",
+        "selected",
+        "invalid",
+        "server",
+        "module_rpg",
+        "module_slg",
+        "module_levels",
+        "library",
+        "connecting",
+        "empty",
+        "no_results",
+        "properties",
+        "debug",
+        "guide",
+        "landscape",
+        "landscape_invalid",
+        "server_landscape",
+        "landscape_library"
+      ]
+    },
+    {
+      "id": "world",
+      "label": "世界与玩法",
+      "title": "关卡、RPG与SLG模块",
+      "states": [
+        "normal",
+        "levels",
+        "rpg",
+        "slg",
+        "empty"
+      ]
+    },
+    {
+      "id": "api",
+      "label": "API与服务端",
+      "title": "接口定义与服务端工作流",
+      "states": [
+        "normal",
+        "invalid",
+        "unauthenticated"
+      ]
+    },
+    {
+      "id": "assets",
+      "label": "资源",
+      "title": "资源管理与导入",
+      "states": [
+        "normal",
+        "empty",
+        "no_results",
+        "permission_denied"
+      ]
+    },
+    {
+      "id": "generate",
+      "label": "生成资源",
+      "title": "图片与音效生成",
+      "states": [
+        "normal",
+        "loading",
+        "success",
+        "error_timeout",
+        "insufficient"
+      ]
+    },
+    {
+      "id": "publish",
+      "label": "发布",
+      "title": "多平台导出与离线构建",
+      "states": [
+        "normal",
+        "offline",
+        "loading",
+        "interrupted",
+        "error_timeout",
+        "success"
+      ]
+    },
+    {
+      "id": "history",
+      "label": "历史",
+      "title": "版本记录与冲突处理",
+      "states": [
+        "normal",
+        "conflict"
+      ]
+    },
+    {
+      "id": "settings",
+      "label": "设置",
+      "title": "账户与本地能力",
+      "states": [
+        "normal",
+        "unauthenticated"
+      ]
+    }
+  ],
+  "stateNames": {
+    "normal": "正常",
+    "first_use": "首次使用",
+    "empty": "空态",
+    "no_results": "无搜索结果",
+    "loading": "进行中",
+    "clarification": "待补充选择",
+    "offline": "离线",
+    "error_timeout": "失败 / 超时",
+    "interrupted": "任务中断",
+    "success": "完成",
+    "duplicate": "重复操作",
+    "selected": "选中",
+    "invalid": "连线不兼容",
+    "permission_denied": "未获文件访问权限",
+    "insufficient": "积分不足",
+    "conflict": "版本冲突",
+    "unauthenticated": "尚未登录",
+    "permission": "工具权限",
+    "review": "节点差异",
+    "sessions": "会话列表",
+    "landscape": "横屏编辑",
+    "landscape_invalid": "横屏错误态",
+    "levels": "关卡地图",
+    "rpg": "RPG数据",
+    "slg": "SLG规则",
+    "server": "服务端工作流",
+    "server_landscape": "服务端横屏",
+    "module_rpg": "RPG任务工作流",
+    "module_slg": "SLG规则工作流",
+    "module_levels": "关卡工作流"
+  },
+  "build_id": "gamegen-prototype-v3.1-20261113-02",
+  "constraints": [
+    "AI只能产生或修改工作流",
+    "客户端/服务端执行域隔离",
+    "类型由创作者选择，可多选混合",
+    "联网项目需部署服务器"
+  ]
+}

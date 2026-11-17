@@ -1,0 +1,896 @@
+{
+  "version": "local-core-v1-implementation.1",
+  "date": "2026-11-17",
+  "meaning": "文件字节交接记录；不构成编译/测试/安全或发布验证",
+  "execution_status": "not_run",
+  "files": [
+    {
+      "path": "native/.gitignore",
+      "bytes": 100,
+      "sha256": "476ee06dd5f2b5b1ce249211d34b908a1b2209a8b6b0e9d8c9185b4335442f09",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/bindings/android/jni.cpp",
+      "bytes": 5171,
+      "sha256": "e99a082d0a239cfa2623cf2813c546c115846dc65f870ddea296dc259ec55aca",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/bindings/android/NativeCore.kt",
+      "bytes": 878,
+      "sha256": "4734d31bc950eec576f6a281b1bb261b6dba17f3463df53e9302cff18ba458ad",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/cmake/contracts.hpp.in",
+      "bytes": 226,
+      "sha256": "1f72aee7477864025a9db615efc78e0a649ee7150c9c5b0447807a0c671ac8c7",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/cmake/Dependencies.cmake",
+      "bytes": 1302,
+      "sha256": "4fdb8a9919a8caf9c2f10d96c69eabf78f3a40bcf0c68d1f75bf1b3d04f03655",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/cmake/gg_mbedtls_config.h",
+      "bytes": 211,
+      "sha256": "86d1722e9c63e56d7eb9bff6dae073ea41d3c5bb9f3a21bc310896095910e7bd",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/CMakeLists.txt",
+      "bytes": 2976,
+      "sha256": "ea9f7869916072b02009e5b329a94ec9f113dfac9d0a1f11e85c90f84c0c19d2",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/core/application/session.cpp",
+      "bytes": 25206,
+      "sha256": "f8c0f759fcc7346314d0b466c0045ea6c2c57edad0458804250d543a67071a29",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/core/application/session.hpp",
+      "bytes": 3186,
+      "sha256": "999b69ef3f3b1a22699e20da2ea1af92b1e7d59c6b491583c8d9cc680973e45f",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/core/assets/assets.cpp",
+      "bytes": 15550,
+      "sha256": "c15d2bfc6942cb82764882433d25749cef53d786fd7eaa925ca541732b9a0495",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/core/document/document.cpp",
+      "bytes": 8339,
+      "sha256": "dc9e24290a9e9c679f820407beaf7de02a710b4244eb8f74e1b1f951d4d75af2",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/core/document/document.hpp",
+      "bytes": 853,
+      "sha256": "632c49ac046b7b2ea3a25cf8963c182d2aff6a122f5bd60b0e9b00aeb0c82587",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/core/schema/messages.schema.json",
+      "bytes": 35300,
+      "sha256": "3c2363c4db19e8ed3c3bb5610218503d7082dc8b640ae1beaa5aa1599f9ffbf8",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/core/schema/value.cpp",
+      "bytes": 7036,
+      "sha256": "ad49383ebd5ae3686c2d3365d00f0630cc7418d160842acb48ac8a242795b92e",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/core/schema/value.hpp",
+      "bytes": 1529,
+      "sha256": "0f061f30624daed3a23530effada94ef6dbd29098e47bea18635853bcd25285b",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/core/storage/sqlite/schema_v1.sql",
+      "bytes": 7271,
+      "sha256": "f57c5cf8a732b3deace047400c4ad6ddda899e26b8a2e0e435b6019594a50c1f",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/core/storage/sqlite/store.cpp",
+      "bytes": 6429,
+      "sha256": "628cbe34e9c502a30bcc176512298f2fbb293a35c8811e87f22d11b96a59eea3",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/core/storage/sqlite/store.hpp",
+      "bytes": 1544,
+      "sha256": "c98f91d1a5c4cc37589a6b0c53bfba6427775ca019c481ea87c19ed9d4614017",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/core/tasks/core.cpp",
+      "bytes": 5081,
+      "sha256": "f70efb1853efaab997450e70e1cea3e3bf25e58b4b9ba75568609e030baa4252",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/core/tasks/core.hpp",
+      "bytes": 1776,
+      "sha256": "88c803504783198409b4155967a33256e207f6fb3684f947b8dc0a4dd6030c7d",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/docs/architecture-receipt.json",
+      "bytes": 807,
+      "sha256": "c4dc40343dab15aa28fa8c999e8eb057ed4250c523efe70af17f320ce2df7552",
+      "kind": "documentation"
+    },
+    {
+      "path": "native/docs/basic-self-check.md",
+      "bytes": 5216,
+      "sha256": "800366ce06773fb900df5264aaa45190d8749451e5d084a80be07e0b20a24de5",
+      "kind": "documentation"
+    },
+    {
+      "path": "native/docs/history/coding-before-implementation.json",
+      "bytes": 12808,
+      "sha256": "ab4ee41b1e33662a34297b5a1af266c7a21a1daa9df68014afe051e492fe2211",
+      "kind": "documentation"
+    },
+    {
+      "path": "native/docs/history/product-before-architecture-metadata-patch.json",
+      "bytes": 61478,
+      "sha256": "8587d94e8bec6dfc3466f8df46e4ab4136b7b07879da035dccbe9dabba4eea39",
+      "kind": "documentation"
+    },
+    {
+      "path": "native/docs/history/product-mcp.json.before-source-registration.json",
+      "bytes": 60901,
+      "sha256": "51039e97a85b8514c2bf1288de7b8c278a6fb218ba8015d815a8bb1aac540b45",
+      "kind": "documentation"
+    },
+    {
+      "path": "native/docs/history/quality-plan-mcp.json.before-source-registration.json",
+      "bytes": 28016,
+      "sha256": "9713d791da9682a92eb732736430f3fd4d7837c211502dc8bb9e72bd1caa35d2",
+      "kind": "documentation"
+    },
+    {
+      "path": "native/docs/implementation-status.json",
+      "bytes": 2842,
+      "sha256": "53a711986b57bf5153beda34b3d7f10ad5b7c58d84af7e05989b6e463e48608d",
+      "kind": "documentation"
+    },
+    {
+      "path": "native/platform/platform.cpp",
+      "bytes": 10653,
+      "sha256": "2ac1916dc300770f879750f0ec8657ecba46b153f67bf71c2f13f93c2273f3dc",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/platform/platform.hpp",
+      "bytes": 1010,
+      "sha256": "2bce09271cb42650e5d285c6cf6a99c9914efd9920b283dc17d4b89be7157104",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/README.md",
+      "bytes": 4052,
+      "sha256": "afeec85848d97dcadfcf8a853b6222608c4366d021b6d59ed8eef00cf0001b68",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/sdk/include/gg_core_v1.h",
+      "bytes": 4011,
+      "sha256": "6f19dfc956e3e1dba0421ddfa77eb27182a88a019f473774fe86bbc8d6105276",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/sdk/src/abi.cpp",
+      "bytes": 7274,
+      "sha256": "d78b793cf2e266213d88c3b5a7b39cbef44ac34d3bbb9ebb9039754a2ee8ca24",
+      "kind": "source_or_build_input"
+    },
+    {
+      "path": "native/third_party/acquisition.json",
+      "bytes": 1716,
+      "sha256": "cc4dd147734ce3bc00bb052fda54278587b02d379d2c981bfc1da5a03a7a13a6",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/json/LICENSE.MIT",
+      "bytes": 1076,
+      "sha256": "46a65cffd1ea955132d95a8dd921640714a8d6b537d2e4e482d31145ae95b603",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/json/nlohmann/json.hpp",
+      "bytes": 953436,
+      "sha256": "aaf127c04cb31c406e5b04a63f1ae89369fccde6d8fa7cdda1ed4f32dfc5de63",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/json-upstream/LICENSE.MIT",
+      "bytes": 1076,
+      "sha256": "46a65cffd1ea955132d95a8dd921640714a8d6b537d2e4e482d31145ae95b603",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/json-upstream/single_include/nlohmann/json.hpp",
+      "bytes": 953436,
+      "sha256": "aaf127c04cb31c406e5b04a63f1ae89369fccde6d8fa7cdda1ed4f32dfc5de63",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/.gitignore",
+      "bytes": 46,
+      "sha256": "82390596acbf44ec38d3991f99fd39de51a725f409b16cbc01512da2cb4003bf",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/CMakeLists.txt",
+      "bytes": 742,
+      "sha256": "97d6477ba3cbd67368267dc508a4978b454001cf287685a7770d6c051b95056e",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/aes.h",
+      "bytes": 28025,
+      "sha256": "ce71f35d91cf1609bddff21d613863c1177bccc97327f7994c39965ebf044b56",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/aria.h",
+      "bytes": 14996,
+      "sha256": "71fadc4b862611c8a75de841ccf4a346f756cec7345d34d2ed58398ebf79c72a",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/asn1.h",
+      "bytes": 27308,
+      "sha256": "bff209b57c95feb92edf78194f77bcc139172ff2c78b5aa0ad25a9739ce570bc",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/asn1write.h",
+      "bytes": 16556,
+      "sha256": "28187d70e8e6ed663053c748628eff16aa94aacf356664caa646139f30b27ae4",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/base64.h",
+      "bytes": 2613,
+      "sha256": "30f5bfb1b8af6ecc035d005126f25395ecc5164b810b3d8c6ade74b1acf46848",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/bignum.h",
+      "bytes": 45718,
+      "sha256": "f4167d7a91c3431f37341d0d32c72280fd912dfaf360d6fccb1cd9c5fa9da92c",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/block_cipher.h",
+      "bytes": 1881,
+      "sha256": "edddbf6b03a54e04b2ae3ee3da00a7e243a7ef3f81db5747c69884b222980898",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/build_info.h",
+      "bytes": 6163,
+      "sha256": "4bb715278f3199298220b930514ace4f461ed0e9ff27b656d6e2616a1ca3287f",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/camellia.h",
+      "bytes": 13376,
+      "sha256": "32e959e91fd7cce4f9b6fa204afaf6a713e34c7940a35e716fa5e3681aadf6bd",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/ccm.h",
+      "bytes": 25572,
+      "sha256": "7a71ba5bba1af8cb6d79474ae9130d9a88319bb15034f331acaab755b1c6764c",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/chacha20.h",
+      "bytes": 8167,
+      "sha256": "ebbced7d6162fda31d953b5de77733371375b5bbeba959c14eb8576c18773c2b",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/chachapoly.h",
+      "bytes": 16101,
+      "sha256": "edef9e38e446b87289b20bb7b7db6a9f5792a25ad00beb567732088d4e4ba67f",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/check_config.h",
+      "bytes": 48196,
+      "sha256": "66696df9cc3f7cbbe84786046937242b18140963b94c34347404f7827c428efa",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/cipher.h",
+      "bytes": 58077,
+      "sha256": "9dc945cc9ad4a97e656d435ece879c207df249b037d8b7cd1a5d9efeceeeb577",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/cmac.h",
+      "bytes": 10223,
+      "sha256": "181015eae9af1a0e3ed94f54d42c806ee7897f623968eeece045d7c46cc347e9",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/compat-2.x.h",
+      "bytes": 1735,
+      "sha256": "9e10b95f0c0c920b1f41152e6d81d48b5df1ab166dbc27c2689546c9079774fa",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/config_adjust_legacy_crypto.h",
+      "bytes": 21274,
+      "sha256": "f404960e2878c21c22a5d67caba6cd1d29f382b3d913a56ce856931dd15b2886",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/config_adjust_legacy_from_psa.h",
+      "bytes": 34452,
+      "sha256": "8e031e9153f87fd3456cf2b997b9f37de9b39af57e62665e1500e3cdc8d7daf4",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/config_adjust_psa_from_legacy.h",
+      "bytes": 11564,
+      "sha256": "4311a3e3a393677fd329006d7c88941311e7bceb94e81763a300754f721db78d",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/config_adjust_psa_superset_legacy.h",
+      "bytes": 4888,
+      "sha256": "347736d9df62e4b874d06ee5d76b3d135d693d498a9ebad30eed4f4cdb65825a",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/config_adjust_ssl.h",
+      "bytes": 3417,
+      "sha256": "2d37a7552566e9fbd8a5a8b3e6cf6d4e21125a5e48a7e24ca30f3c683d141871",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/config_adjust_x509.h",
+      "bytes": 1517,
+      "sha256": "92909d91c59340f13eb2b447cf44e0075a0ee742a18f22fb7843f6a18c5af5dc",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/config_psa.h",
+      "bytes": 1916,
+      "sha256": "1c65cb4b836aeefa764bf7ddf69090347d4d4021379b0cef6201c6ed0f3dc7f8",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/constant_time.h",
+      "bytes": 1225,
+      "sha256": "1f4196abb876364c85bcc044990b01661114e32d5ddeade427259adb58bb0c79",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/ctr_drbg.h",
+      "bytes": 25386,
+      "sha256": "601db8f2eb7a1269807547180f5d46249c07968a9191a187e0e88aba312bc74a",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/debug.h",
+      "bytes": 5136,
+      "sha256": "ad575ef8b6fc99409be0f0d56a622147f8ef088e8e9b5814e7664bd823acc0cc",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/des.h",
+      "bytes": 12844,
+      "sha256": "05ddc8143ac3c6287946c73556c7a0ee50ecaa74132cf9d7895d9b894a115310",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/dhm.h",
+      "bytes": 49374,
+      "sha256": "92d8ced06e17876b72df79d08f931b1642c53618b4f63e2add804fb5cfb94977",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/ecdh.h",
+      "bytes": 19585,
+      "sha256": "638011cd4d5a40de48639169c4ce6c24104b2bb369caf2321f2fe453258b0568",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/ecdsa.h",
+      "bytes": 31774,
+      "sha256": "c4e419b690d0da2631d7c1f6893e392f7ad02a818b8cb24a323b66caea9eada0",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/ecjpake.h",
+      "bytes": 12737,
+      "sha256": "13a7908d6c9193ef176baf4250bd235ae6813b2a44d7c5dc2692294587df5d42",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/ecp.h",
+      "bytes": 69358,
+      "sha256": "f0cb2c6d6962623e7b379bcacb8a188cee24285adb31823b89fe05749187ed36",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/entropy.h",
+      "bytes": 9558,
+      "sha256": "9c3fc1d14497c0989c0f2ea590f708093f4dac39228353eeb1f5f83392df3dca",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/error.h",
+      "bytes": 6543,
+      "sha256": "ddcb14c1bf9d6fd2f2f1d2eb62117ce9bf05a0f9430c6931d7555b23f9ed3ddb",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/gcm.h",
+      "bytes": 17601,
+      "sha256": "e28c3e5923269dbc921bc57e83e0ab2a6488a16e1bcbae943e5ad36ccc57d1f4",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/hkdf.h",
+      "bytes": 5210,
+      "sha256": "58c991c0bc9e821ee8abcded770b83b40682ccc3c12b1bc58b35a853d104a12a",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/hmac_drbg.h",
+      "bytes": 18525,
+      "sha256": "08a52034212dcd99aefc603c9eb62cce1c3d33d41142efca626d7baa80b73630",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/lms.h",
+      "bytes": 20679,
+      "sha256": "00a6e65ca542180223b60180790a9fce8903ee85644eca914c9f7ae86f626350",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/mbedtls_config.h",
+      "bytes": 159124,
+      "sha256": "004edfaa0f9877a9f3baa7911ab708fd9d7c615f836f6b6674434e337145b7be",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/md.h",
+      "bytes": 20237,
+      "sha256": "89c41b36251ab26facdedc7b379ad5236af8f941cae58941be7f6de690fecd4e",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/md5.h",
+      "bytes": 5359,
+      "sha256": "21893a1ffcb6d65057178a45977774ed249387ace6d733f32434d8546dd827f7",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/memory_buffer_alloc.h",
+      "bytes": 4722,
+      "sha256": "cf561b299149797735dd23e5cd898aa503a6e4e35fe196e3d8a3d74d2d16bb94",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/net_sockets.h",
+      "bytes": 11633,
+      "sha256": "61ba8b8ac6aafb07ac3e147645579f7dca872e3f95b309036804dda2d909ea6f",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/nist_kw.h",
+      "bytes": 6977,
+      "sha256": "a63a6452d9de9f8f84cbf05cc6f3a710c1ad7b4fc305c04924a12c7ee97ddc8d",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/oid.h",
+      "bytes": 40204,
+      "sha256": "43b033ffcf575a549267f5a561c40ebd33d6ff6dea12981dd186b9edc2ffe9de",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/pem.h",
+      "bytes": 5900,
+      "sha256": "df7044dbd27684d4305a93077a3bd5af661a21443897f81a8a0a82cec6a8fdbf",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/pk.h",
+      "bytes": 57657,
+      "sha256": "b6974afcc43dbcddbcb222a689caccc011044f2c8b8843571b4584254c500bc2",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/pkcs12.h",
+      "bytes": 8710,
+      "sha256": "37ea587a2be9212b54dc65aaf3916165241b241c925b7368a22d22acb20b39e4",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/pkcs5.h",
+      "bytes": 8307,
+      "sha256": "d461711e57754093228a127268303bf03f33522d05aff3d1e0f3915bb5e4e370",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/pkcs7.h",
+      "bytes": 10313,
+      "sha256": "565d6baf3c1cc3eb7cd27bb6560e6e4f5a78b3eb82854150261360eaba9f015f",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/platform.h",
+      "bytes": 18554,
+      "sha256": "e6e1edc99d90698acf751d5d837c9b59898d7277deb993bcbf7473172b7a3523",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/platform_time.h",
+      "bytes": 1938,
+      "sha256": "5baf1588bccb5ef634e765012e4e1d680f1ded4d62e2a6573b5c238546f71327",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/platform_util.h",
+      "bytes": 10759,
+      "sha256": "1237d849e96bc15b479e8086160e4568c1de86563bb51c60eead45b99ad1b4ac",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/poly1305.h",
+      "bytes": 6022,
+      "sha256": "393389d0f437930fae11e0cc1f325bbd82282723dffd57f080a08f82453d1e6e",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/private_access.h",
+      "bytes": 435,
+      "sha256": "c897213b3e534e8d5db83629177f9c01d90461ed6fea57906836262dba87056d",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/psa_util.h",
+      "bytes": 9180,
+      "sha256": "382c0cc5184a102f7a6ee2ada6ebaf95c327bad7e08d9fa2ff2940e9585dde1b",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/ripemd160.h",
+      "bytes": 3441,
+      "sha256": "138b3cd792a3301fb869e5303fe0dd317743b2009b7a8f8423a51511444e23dc",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/rsa.h",
+      "bytes": 57078,
+      "sha256": "ff1c3dd80dfdaecea95bdcdd9c525cd1ad816a1590b65234cd4b7df84e08cb81",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/sha1.h",
+      "bytes": 7501,
+      "sha256": "e644d96d46d44da66e160eb69ad637f13caef1d192e3361616833b342c6a859b",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/sha256.h",
+      "bytes": 6879,
+      "sha256": "a2ee050ca15b7598a8d227cac0e0ec9fd6c38615b817737a8007e90b3feab0d9",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/sha3.h",
+      "bytes": 5555,
+      "sha256": "8cc0b3928976871e2a4847d0f6bf02da4663a94cc0779afdec3438a0c76a5499",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/sha512.h",
+      "bytes": 7302,
+      "sha256": "0f77abf1b4dfc18b865725e8a221d5d9279899c274e993005359be182b7574a2",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/ssl.h",
+      "bytes": 283286,
+      "sha256": "8163fa47c3a8605a5eb58c6ed258c98ea846863a22026a6fd7a38d8fb1244184",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/ssl_cache.h",
+      "bytes": 6112,
+      "sha256": "30211032125e7ea766170195f86a69ce44846488d2828467c9a7e5b210bd491e",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/ssl_ciphersuites.h",
+      "bytes": 24398,
+      "sha256": "f7c3136ebd9ab933aa94544880a20c1fb97ff71d320dc47f97ae70023df8270c",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/ssl_cookie.h",
+      "bytes": 3140,
+      "sha256": "dd533ea587703b57769785747d3497cbc58e0e0582d1b9a6d9eeadfc7a32e59c",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/ssl_ticket.h",
+      "bytes": 7632,
+      "sha256": "1e6edbe8c647a6471472fc82ba262bd36159a6c6b0e0d340b741006560a39700",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/threading.h",
+      "bytes": 7255,
+      "sha256": "5688b2bef81fa61b9d29bca9383931db26b7dcb8a96785dbc957b95e01292b72",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/timing.h",
+      "bytes": 2695,
+      "sha256": "177074f8d1699bfd8940eef3749e018f10298ad39af1cbe3a48c04126408ce1c",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/version.h",
+      "bytes": 2270,
+      "sha256": "ed3e527b2f2ab3b9c9e2633a1a49a764fb3854fc44835afa07f325ce671334de",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/x509.h",
+      "bytes": 21271,
+      "sha256": "aa138f6080869285173296afd08727e0ab0313cca959b830250b72a3c37a3bc4",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/x509_crl.h",
+      "bytes": 6376,
+      "sha256": "f5fa1c1bfeac75548fd9b68903e05c5a4435634c1f1457d0ffdd2becd0cd72f1",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/x509_crt.h",
+      "bytes": 56555,
+      "sha256": "2bc2f06295bce2b267a4efb608b2e6f8f751f0c58acf35a63d47b946860afd80",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/mbedtls/x509_csr.h",
+      "bytes": 14529,
+      "sha256": "dd0bcea7e36ddb018affc8b7b52f1f7e9fb12b5f69c8c712f9c2b7fd2972ed07",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/build_info.h",
+      "bytes": 500,
+      "sha256": "9eb0dbed47ac851acee62bd0829ce177aac6fe8515a4ce7e904ecf71829cb3d0",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto.h",
+      "bytes": 246370,
+      "sha256": "1f5b3a248a348ea39d093208067e377e5c8908718e71e396f9ff4d2c7fb5ebdd",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_adjust_auto_enabled.h",
+      "bytes": 1125,
+      "sha256": "34ea7513c9ed3467b5d185ec350f207caf31160ad1d24369b86593050449edae",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_adjust_config_dependencies.h",
+      "bytes": 2016,
+      "sha256": "7dae42efb18e0f3d428fd0e4b4223534b66b650a56b7cf7302b4e179e81e2f56",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_adjust_config_key_pair_types.h",
+      "bytes": 3869,
+      "sha256": "9cb1fba3c26ab4feada289813242545670f9703c5ebe9f5ab336f3dbdea4a1b5",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_adjust_config_synonyms.h",
+      "bytes": 2028,
+      "sha256": "039eb983eb52a46bc273d513e0e17817bd77015004efdb3f9cd8b65eac02de77",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_builtin_composites.h",
+      "bytes": 7420,
+      "sha256": "1e2eec329b2b4ec3b5da3f9d5761bc5645833445401a43cbff812fdb76b0ae9e",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_builtin_key_derivation.h",
+      "bytes": 4863,
+      "sha256": "8b3d5d3174dbd33e5e332f51e5f00d2734716f3e744656631bccb4d355e92bdc",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_builtin_primitives.h",
+      "bytes": 3932,
+      "sha256": "a3078c5637a4ef2a40ef022f89881b8ca5d3321bcab31f6f550c6154c58543c5",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_compat.h",
+      "bytes": 8750,
+      "sha256": "0c0396d7f339f9207af3a003e98e9921516367c71d53724cb42e32f0f66142f7",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_config.h",
+      "bytes": 6400,
+      "sha256": "dd8222851bf799827f45aab2b7783d5e65c8e54c24092ec0dbafa2b259612bef",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_driver_common.h",
+      "bytes": 1559,
+      "sha256": "25207d12a91fc8c0670370596c3306c256ec054b4d6a6d1dd9b5bbb7d5bbe35b",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_driver_contexts_composites.h",
+      "bytes": 5938,
+      "sha256": "9f6bc40047a2d0d48361d82e5a5b05c477d946518b0091a3d4cb8c2cd0c877fd",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_driver_contexts_key_derivation.h",
+      "bytes": 2061,
+      "sha256": "77c8ef9b7a8fac177a53472c7a39a9835da61bf864df951979cd15f71143796f",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_driver_contexts_primitives.h",
+      "bytes": 4079,
+      "sha256": "829aaa3fbf90beeb20bf989a9db20829469d4875d514d0cc18591f8748a0ba0c",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_extra.h",
+      "bytes": 93406,
+      "sha256": "7357e1a806b9cf2fc677d9b0d4890eb1876a9430167955921bca6b8b0b98d2a0",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_legacy.h",
+      "bytes": 3119,
+      "sha256": "51c4415dcae97a01f1f0f3901e3e7d91b623cbc30d02e8d9496542545966aae4",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_platform.h",
+      "bytes": 3554,
+      "sha256": "26db28657e60ff6c3198b83e10ba86b25ced721cdda1d67e1c0ec679f1f7d041",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_se_driver.h",
+      "bytes": 67908,
+      "sha256": "cecf5150230f20d60ad8df60fa96982bb40ecbbb90ff54a14c98f180438b62e1",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_sizes.h",
+      "bytes": 57453,
+      "sha256": "a2ec8ebd505ba034ea8916cacd10734c9b82850b120a78c0ce7944e26ee0fb2b",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_struct.h",
+      "bytes": 18934,
+      "sha256": "0f5b72d1c0f7ff64a4823998d4641c80f29091a372bce8385261bf7419c81655",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_types.h",
+      "bytes": 20297,
+      "sha256": "219ac995d8c48ee0a70a35f1bb70c92215151862c2a1c22385c7018c9ccb7aa6",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/include/psa/crypto_values.h",
+      "bytes": 122513,
+      "sha256": "bbb8fea69782eb077317e973e6ba92d3024e69932f284265041cadc35307f0e3",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/library/alignment.h",
+      "bytes": 27429,
+      "sha256": "e97b8844abfadc4cc2fecce5b040d58cd53f549c42712205a267e00e372efd3d",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/library/common.h",
+      "bytes": 18702,
+      "sha256": "adfd493f8ecb11f87f7e75f270a97cbd05d1902345ef32db51d39c076e4f8fde",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/library/constant_time_internal.h",
+      "bytes": 20735,
+      "sha256": "cb5acff773c6129b5dcc29052dc927d9aa474a2e6b7f7e27e5fac0e7d7023463",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/library/platform_util.c",
+      "bytes": 8347,
+      "sha256": "83051fddcd37171831ff5706613dc3d336b2e53c42e6515f2f14ac0f8aa649f1",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/library/sha256.c",
+      "bytes": 30275,
+      "sha256": "632672d0c954d8bc0e20fdc8370c9f1725f3ffc5fcdaacc14949e42a1b5424d7",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/mbedtls/LICENSE",
+      "bytes": 29852,
+      "sha256": "9b405ef4c89342f5eae1dd828882f931747f71001cfba7d114801039b52ad09b",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/README.md",
+      "bytes": 1960,
+      "sha256": "a99f1c563598ffbf9a6a25549a16e0ff0ad49777013e319482221b32dd786257",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/sqlite/sqlite3.c",
+      "bytes": 9582521,
+      "sha256": "0c657666d819f261cc4007526ad57e1669de9949df7a8ea847aa284a2bf0ee52",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/sqlite/sqlite3.h",
+      "bytes": 695729,
+      "sha256": "d6c84557261893439b341d2e6c35187ae3ea24fbfd843ad94616f72d89242b8c",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/sqlite/sqlite3ext.h",
+      "bytes": 39547,
+      "sha256": "48963abfefb41ac329ef9d706acb5eadba952a99a748285c9ded6b5e0942721b",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/third_party/sqlite-amalgamation-3540100.zip",
+      "bytes": 2990966,
+      "sha256": "0a9c8e34352dad46006aa82836d5383bff9dc6bc9ce5a60553c05aa30e6ad1f9",
+      "kind": "vendor_or_acquisition"
+    },
+    {
+      "path": "native/tools/core-driver/main.cpp",
+      "bytes": 2103,
+      "sha256": "a5ddab0dc1ef6fa7bf6cf01a81a0815478fd78c61eeea93971dba2749e2faa87",
+      "kind": "source_or_build_input"
+    }
+  ]
+}

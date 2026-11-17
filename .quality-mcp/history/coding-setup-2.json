@@ -1,0 +1,55 @@
+{
+  "status": "fulfilled",
+  "value": {
+    "content": [
+      {
+        "text": "{\"candidates\":[{\"confidence\":\"text-match\",\"file\":\".design-mcp.json\",\"language\":\"config\",\"line\":10,\"text\":\"    \\\"build_id\\\": \\\"gamegen-prototype-v3-20261113-01\\\"\"},{\"confidence\":\"text-match\",\"file\":\".design-mcp.json\",\"language\":\"config\",\"line\":225,\"text\":\"        \\\"scale\\\": \\\"1x prototype CSS px\\\",\"},{\"confidence\":\"text-match\",\"file\":\".design-mcp.json\",\"language\":\"config\",\"line\":255,\"text\":\"        \\\"scale\\\": \\\"1x prototype CSS px\\\",\"},{\"confidence\":\"text-match\",\"file\":\".design-mcp.json\",\"language\":\"config\",\"line\":285,\"text\":\"        \\\"scale\\\": \\\"1x prototype CSS px\\\",\"},{\"confidence\":\"text-match\",\"file\":\".design-mcp.json\",\"language\":\"config\",\"line\":315,\"text\":\"        \\\"scale\\\": \\\"1x prototype CSS px\\\",\"}],\"interpretation\":\"Text matches are reuse candidates; semantic compatibility and dependency boundaries require review\",\"inventory_complete\":true,\"skipped\":[],\"truncated\":true}",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "candidates": [
+        {
+          "confidence": "text-match",
+          "file": ".design-mcp.json",
+          "language": "config",
+          "line": 10,
+          "text": "    \"build_id\": \"gamegen-prototype-v3-20261113-01\""
+        },
+        {
+          "confidence": "text-match",
+          "file": ".design-mcp.json",
+          "language": "config",
+          "line": 225,
+          "text": "        \"scale\": \"1x prototype CSS px\","
+        },
+        {
+          "confidence": "text-match",
+          "file": ".design-mcp.json",
+          "language": "config",
+          "line": 255,
+          "text": "        \"scale\": \"1x prototype CSS px\","
+        },
+        {
+          "confidence": "text-match",
+          "file": ".design-mcp.json",
+          "language": "config",
+          "line": 285,
+          "text": "        \"scale\": \"1x prototype CSS px\","
+        },
+        {
+          "confidence": "text-match",
+          "file": ".design-mcp.json",
+          "language": "config",
+          "line": 315,
+          "text": "        \"scale\": \"1x prototype CSS px\","
+        }
+      ],
+      "interpretation": "Text matches are reuse candidates; semantic compatibility and dependency boundaries require review",
+      "inventory_complete": true,
+      "skipped": [],
+      "truncated": true
+    }
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "version": "editor-increment-source-review-20261117-draft.1",
+  "observed_at": "2026-11-17T11:15:56.759Z",
+  "request_origin": {
+    "kind": "developer_chat_delegation",
+    "source_thread_id": "01a1e7eb-0314-7c02-99e0-ed591b58bd5f",
+    "summary": "核对首个editor增量与C1附加直接依赖，独立补充，不改实现、不运行构建/测试/扫描",
+    "authorization_limit": "转述开发授权不是本轮执行授权；仅作来源，不代签"
+  },
+  "manual_source_read_paths": [
+    "editor/hosts/tauri/src/lib.rs",
+    "editor/hosts/tauri/src/core.rs",
+    "editor/hosts/tauri/src/ffi.rs",
+    "editor/hosts/tauri/src/locale.rs",
+    "editor/hosts/tauri/src/wire.rs",
+    "editor/web/src/App.tsx",
+    "editor/web/src/core-client.ts",
+    "editor/web/src/localization.tsx",
+    "editor/web/src/components.tsx",
+    "editor/hosts/tauri/Cargo.toml",
+    "editor/package.json",
+    "editor/hosts/tauri/tauri.conf.json",
+    "editor/hosts/tauri/capabilities/main.json",
+    "editor/hosts/tauri/permissions/editor.toml",
+    "editor/web/src/locales/catalogue.json"
+  ],
+  "source_snapshots": [
+    {
+      "path": "editor/hosts/tauri/src/lib.rs",
+      "sha256": "7b6623d524f896a0a71a6a42bda43d62f89e06e3d6a30d386010ad24f5c19ee9",
+      "bytes": 6798,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/src/lib.rs"
+    },
+    {
+      "path": "editor/hosts/tauri/src/core.rs",
+      "sha256": "d3f5887def45a17e59b748423f8bf1200159329ca4bff85e968e2a91f3a5bce4",
+      "bytes": 19316,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/src/core.rs"
+    },
+    {
+      "path": "editor/hosts/tauri/src/ffi.rs",
+      "sha256": "40301b764d713d16d1fee788fcdc20476854736af2985efce5592c97ddb32ce5",
+      "bytes": 7351,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/src/ffi.rs"
+    },
+    {
+      "path": "editor/hosts/tauri/src/locale.rs",
+      "sha256": "e29748968c9d2601dc7f2038d83a26ea1b2cf6024f9cfa3bb00af608ac5000f7",
+      "bytes": 19450,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/src/locale.rs"
+    },
+    {
+      "path": "editor/hosts/tauri/src/wire.rs",
+      "sha256": "cb4b7b763483a43d6760b66e5322ddb89946599dbabb37d5dd9a9dc15d745450",
+      "bytes": 5171,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/src/wire.rs"
+    },
+    {
+      "path": "editor/web/src/App.tsx",
+      "sha256": "321f0f0bab66f2d3d816d071a53d8e258d5b4e7583747798893f3750d7b9656f",
+      "bytes": 26566,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/web/src/App.tsx"
+    },
+    {
+      "path": "editor/web/src/core-client.ts",
+      "sha256": "3bd9f2b7835efaeef8893b95487eb531893cfd180005150ffb895e9010008169",
+      "bytes": 6762,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/web/src/core-client.ts"
+    },
+    {
+      "path": "editor/web/src/localization.tsx",
+      "sha256": "af494fe270772036abaf070c81f6d55b2bdf12717e57ba827ad926fe8f092a25",
+      "bytes": 6625,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/web/src/localization.tsx"
+    },
+    {
+      "path": "editor/web/src/components.tsx",
+      "sha256": "8825c5a4c3a8b0f5b513a30f55356678410962bbefaf76582016aaa65291ac3e",
+      "bytes": 3252,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/web/src/components.tsx"
+    },
+    {
+      "path": "editor/hosts/tauri/Cargo.toml",
+      "sha256": "e0a964f18cf584a948161dacfc1f811e874a3d26d74e694fceac8417576532d1",
+      "bytes": 604,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/Cargo.toml"
+    },
+    {
+      "path": "editor/package.json",
+      "sha256": "b8e806b9577841ee751c6a32800e8ed2278fdac55121c4836906f91d8933753e",
+      "bytes": 668,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/package.json"
+    },
+    {
+      "path": "editor/hosts/tauri/tauri.conf.json",
+      "sha256": "d7ee5487a148c7a4b36942136a77208a0c3825f9c37c98e767e5d536a17fd02c",
+      "bytes": 810,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/tauri.conf.json"
+    },
+    {
+      "path": "editor/hosts/tauri/capabilities/main.json",
+      "sha256": "fbbed5f01dc92ecc1c0b3384331201e784bc5b02c9033e0300b2333a6bf6b18c",
+      "bytes": 313,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/capabilities/main.json"
+    },
+    {
+      "path": "editor/hosts/tauri/permissions/editor.toml",
+      "sha256": "c65a0221dcefcfe9e6d0f66a35a9b4907757a8619a8a5804adbcbe0a498c303c",
+      "bytes": 518,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/permissions/editor.toml"
+    },
+    {
+      "path": "editor/web/src/locales/catalogue.json",
+      "sha256": "73ab450868eed0811bf7e7cced77c630863bc2f9c79b9308ae2379e6395e0c0e",
+      "bytes": 1798,
+      "snapshot": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/web/src/locales/catalogue.json"
+    }
+  ],
+  "additional_hash_inventory": [
+    {
+      "path": "editor/.node-version",
+      "sha256": "584f19ccde29925286e32f566a2aa06c89efb4e2eb2bb2fc9ea5d56e2d190ac4",
+      "bytes": 8
+    },
+    {
+      "path": "editor/host-contract/codec.ts",
+      "sha256": "eea82bab8ba4fc1d9ba3c9525001b12eca0f2133094000225d509886d89be1d5",
+      "bytes": 1238
+    },
+    {
+      "path": "editor/host-contract/editor-host.d.ts",
+      "sha256": "bc048cd4a189ac6bf73aef898a3cfbcaaf4cf60c51cbc9a5acd29c94b1c7a635",
+      "bytes": 8112
+    },
+    {
+      "path": "editor/host-contract/editor-ux.d.ts",
+      "sha256": "b4b40b4b466436f1b1028eb05788283b29a870dba03d241ffa0bc5d047d273f6",
+      "bytes": 8639
+    },
+    {
+      "path": "editor/host-contract/editor-ux.schema.json",
+      "sha256": "cfcaf7efbabdf4cad3de70c8656f236493daec551697fce362b8cbceb43de5e4",
+      "bytes": 45629
+    },
+    {
+      "path": "editor/host-contract/host.schema.json",
+      "sha256": "1cd1f954ee53f10c715720f31fced5c7631b34ecdcb7a612454dc1342fa796a2",
+      "bytes": 45165
+    },
+    {
+      "path": "editor/host-contract/tauri.ts",
+      "sha256": "c698ed945284fe22a1fd8b118adf0c8ed850e8ea11b3952cfd504271d7ca470e",
+      "bytes": 934
+    },
+    {
+      "path": "editor/hosts/tauri/build.rs",
+      "sha256": "0de8f9b5b8bb5a60b82956172faf008bab266130af0cec908c1acd89aa491aad",
+      "bytes": 490
+    },
+    {
+      "path": "editor/hosts/tauri/resources/native/windows-x86_64/README.md",
+      "sha256": "5bfdc430e89d62a7931184d66e73fc8318bae8be519be7ae42dd674082ddbe6c",
+      "bytes": 572
+    },
+    {
+      "path": "editor/hosts/tauri/rust-toolchain.toml",
+      "sha256": "f656f692a48f1445ade550ffa075c859036463b90d7356b5fd066af744a6c56a",
+      "bytes": 175
+    },
+    {
+      "path": "editor/hosts/tauri/src/main.rs",
+      "sha256": "02bad65c3d4a93d1573ed5404894f262c69d0e6eb5ae8101f5b241441268322f",
+      "bytes": 189
+    },
+    {
+      "path": "editor/tsconfig.json",
+      "sha256": "33cf23dd12aa6c31c4d62f0749142103349a4ded344dbfb1f3f2aa6bfe3aea52",
+      "bytes": 399
+    },
+    {
+      "path": "editor/web/src/locales/en.json",
+      "sha256": "94092608e1906468aedcdbf8466520101ce96811f6bb9a27eb612a8b39e2cb9a",
+      "bytes": 3389
+    },
+    {
+      "path": "editor/web/src/locales/es.json",
+      "sha256": "63ac4b41de4f9ed2dfc716bd1f48749a48ccbba00577aa03a78cc9626d37a12a",
+      "bytes": 3471
+    },
+    {
+      "path": "editor/web/src/locales/fr.json",
+      "sha256": "9e65a64461417ad264cfb44744ad7ce36ca3beed51bd62d095eaebe04a972e4a",
+      "bytes": 3700
+    },
+    {
+      "path": "editor/web/src/locales/ja.json",
+      "sha256": "3eb3669a9cd286c4715337843913c6a611c18ae4eb6bf28d23c4ca10d7728a6b",
+      "bytes": 4040
+    },
+    {
+      "path": "editor/web/src/locales/ko.json",
+      "sha256": "f80786ce8d65009769745c09cac17d1f44d22939ceba153421b4ca9807bbe98c",
+      "bytes": 3819
+    },
+    {
+      "path": "editor/web/src/locales/zh-Hans.json",
+      "sha256": "8655acebc152ce29968308dde8b8420c2354635fa235fd9b065303277526b3a6",
+      "bytes": 3188
+    },
+    {
+      "path": "editor/web/src/locales/zh-Hant.json",
+      "sha256": "354fe38b897695f8b41bd7ef769d7f955ce6aaa3af8fa2c6138cf5e50430482e",
+      "bytes": 3227
+    },
+    {
+      "path": "editor/web/src/main.tsx",
+      "sha256": "ffd176b589712800f2e6135e7c656383bfd7cdd3fac7749be367651a85eae173",
+      "bytes": 298
+    },
+    {
+      "path": "editor/web/vite.config.ts",
+      "sha256": "e82f4e55e141b3f7e61eb492cb34453c67710302a2ca1af9db97b38bf88f69e2",
+      "bytes": 468
+    }
+  ],
+  "scope_facts": {
+    "current_root_version": "editor-web-v1-draft.4",
+    "core_methods_declared": 12,
+    "ux_methods_declared": [
+      "ux.describe",
+      "ux.snapshot",
+      "ux.locale.select",
+      "ux.events.read"
+    ],
+    "supported_ux_protocols": [
+      "1.1"
+    ],
+    "guide_implemented": false,
+    "android_core_loading_implemented": false,
+    "translation_keys_declared": 81,
+    "translation_review": "draft_not_human_reviewed",
+    "complete_product_translation": false
+  },
+  "copied_contracts_match_frozen_files": true,
+  "concurrent_updates_re_read": true,
+  "drift_at_snapshot_check": [],
+  "limits": "手工阅读所列源码/契约，不是完整代码质量审计；未编译/Schema验证/类型检查/扫描/运行，不能推断全部可用性",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

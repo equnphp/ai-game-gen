@@ -1,0 +1,32 @@
+{
+  "version": "local-core-v1-handoff.3",
+  "records": [
+    {
+      "design": "handoff/local-core-v1/spec/gg_core_v1.h",
+      "implementation_copy": "native/sdk/include/gg_core_v1.h",
+      "design_sha256": "1901976042a3324a11c44d8d770dc8082e4f9b77ad9a4d50d94c8b1e2e019ef5",
+      "copy_sha256": "6f19dfc956e3e1dba0421ddfa77eb27182a88a019f473774fe86bbc8d6105276",
+      "byte_identical": false,
+      "meaning": "只比较交接文件字节，不是编译或功能验证",
+      "manual_difference_note": "逐行对照仅首行说明注释不同，其余行一致；没有发现声明/结构体文本变化，但未编译验证ABI。",
+      "api_declaration_text_changed": false
+    },
+    {
+      "design": "handoff/local-core-v1/spec/project_v1.sql",
+      "implementation_copy": "native/core/storage/sqlite/schema_v1.sql",
+      "design_sha256": "f57c5cf8a732b3deace047400c4ad6ddda899e26b8a2e0e435b6019594a50c1f",
+      "copy_sha256": "f57c5cf8a732b3deace047400c4ad6ddda899e26b8a2e0e435b6019594a50c1f",
+      "byte_identical": true,
+      "meaning": "只比较交接文件字节，不是编译或功能验证"
+    },
+    {
+      "design": "handoff/local-core-v1/spec/messages.schema.json",
+      "implementation_copy": "native/core/schema/messages.schema.json",
+      "design_sha256": "3c2363c4db19e8ed3c3bb5610218503d7082dc8b640ae1beaa5aa1599f9ffbf8",
+      "copy_sha256": "3c2363c4db19e8ed3c3bb5610218503d7082dc8b640ae1beaa5aa1599f9ffbf8",
+      "byte_identical": true,
+      "meaning": "只比较交接文件字节，不是编译或功能验证"
+    }
+  ],
+  "execution_status": "not_run"
+}

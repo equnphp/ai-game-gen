@@ -1,0 +1,31 @@
+{
+  "architecture_version": "editor-web-v1-draft.2",
+  "note": "New read-only record; prior draft.1 capture retained",
+  "inputs": [
+    {
+      "path": "ARCHITECTURE.md",
+      "sha256": "2b20be1c5e6a5b974e18b46ae3c03ec2fd33c3392de9e9be631babdb907fab2e",
+      "bytes": 4401
+    },
+    {
+      "path": "architecture/CURRENT.json",
+      "sha256": "20662e1f7ce40c47932b63766c4484c81a554cf90b712b419e0a49bbbf04f27e",
+      "bytes": 1462
+    },
+    {
+      "path": "architecture/editor-web-v1/revisions/draft.2/ARCHITECTURE.md",
+      "sha256": "64c98d06e7231b5ab6cb0cef654ad0563860daedd091f03455c78c4f4554b8f2",
+      "bytes": 4170
+    },
+    {
+      "path": "architecture/editor-web-v1/revisions/draft.2/CONTRACT.md",
+      "sha256": "26eb0b51bad96805bed0c59dc444fd8e3ef32fbe05e2dc6adffabaceb0ba0247",
+      "bytes": 11254
+    },
+    {
+      "path": "architecture/editor-web-v1/revisions/draft.2/COMPATIBILITY-INTAKE.md",
+      "sha256": "f5b81e52d656ae7d701d91fa15abbf392143b7d172abfbfce74ed6e15f757dd7",
+      "bytes": 6975
+    }
+  ]
+}

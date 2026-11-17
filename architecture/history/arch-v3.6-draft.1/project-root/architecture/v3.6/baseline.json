@@ -1,0 +1,226 @@
+{
+  "schema": "gamegen.architecture-evidence-index.v1",
+  "schema_note": "Project-owned evidence index; not an architecture_mcp or workflow_mcp manifest.",
+  "date": "2026-11-14",
+  "timezone": "Asia/Shanghai",
+  "status": "draft_for_review",
+  "baseline_sha256": "d24e1e5780e52f3d77e02613ec3604280f293f3659c3b3b60e21f47a28273c94",
+  "hash_algorithm": "SHA-256 over UTF-8 canonical JSON of baseline_payload; object keys sorted, arrays retain order, no whitespace",
+  "baseline_payload": {
+    "version": "arch-v3.6-draft.1",
+    "inputs": [
+      {
+        "path": "PRODUCT.md",
+        "sha256": "85bcf6be0d3e7e87da7d02fd487675acfc5966cc796e351b0c881c930ec8041c",
+        "size_bytes": 1245,
+        "snapshot_path": "architecture/v3.6/inputs/project/PRODUCT.md"
+      },
+      {
+        "path": "PRODUCT-REQUIREMENTS-V3.5.md",
+        "sha256": "fc31b95d692b0284527ccd40a9c021000ac4f1ce931bd68314f953678b060d75",
+        "size_bytes": 36996,
+        "snapshot_path": "architecture/v3.6/inputs/project/PRODUCT-REQUIREMENTS-V3.5.md"
+      },
+      {
+        "path": "PRODUCT-DECISIONS-V3.5.md",
+        "sha256": "7797d1441b70920234de3bcbf15acf2c30ba4469f418ef7eedcc54787386f8fe",
+        "size_bytes": 5204,
+        "snapshot_path": "architecture/v3.6/inputs/project/PRODUCT-DECISIONS-V3.5.md"
+      },
+      {
+        "path": "STUDIO-ENGINE-REQUIREMENTS-V3.5.md",
+        "sha256": "e3ce58ebd69de68585f7c03b6b818cac2449467f6f5d264ddda0b02c434647d7",
+        "size_bytes": 26528,
+        "snapshot_path": "architecture/v3.6/inputs/project/STUDIO-ENGINE-REQUIREMENTS-V3.5.md"
+      },
+      {
+        "path": "WORKFLOW-NETWORK-REQUIREMENTS-V3.5.md",
+        "sha256": "5b24c0bf22244d86e73b432e0c2ec42530fdac761e2abe6a0677e6565b563169",
+        "size_bytes": 25992,
+        "snapshot_path": "architecture/v3.6/inputs/project/WORKFLOW-NETWORK-REQUIREMENTS-V3.5.md"
+      },
+      {
+        "path": "GENRE-MODULE-REQUIREMENTS-V3.5.md",
+        "sha256": "7fcbdf7b9b939d5d5bd2997280c3f02211dcaeb9e5e9423eeca93c1db22caf86",
+        "size_bytes": 10155,
+        "snapshot_path": "architecture/v3.6/inputs/project/GENRE-MODULE-REQUIREMENTS-V3.5.md"
+      },
+      {
+        "path": "MAP-LEVEL-REQUIREMENTS-V3.5.md",
+        "sha256": "0c39f3654ddfd3d60c59b5ac152a66d4e9a9e5300b074161f6d5a588b62df0b9",
+        "size_bytes": 30671,
+        "snapshot_path": "architecture/v3.6/inputs/project/MAP-LEVEL-REQUIREMENTS-V3.5.md"
+      },
+      {
+        "path": "ASSISTANT-EXTENSIONS-REQUIREMENTS-V3.6.md",
+        "sha256": "5d75f04a37002e8382711e1d224744d954e80109b07a78b504990cd8f9a0fa21",
+        "size_bytes": 13855,
+        "snapshot_path": "architecture/v3.6/inputs/project/ASSISTANT-EXTENSIONS-REQUIREMENTS-V3.6.md"
+      },
+      {
+        "path": "REQUIREMENT-STATE-INVENTORY-V3.5.md",
+        "sha256": "3c09b20dc28b2e708c0853f7394672bc0d9bd64b44c4e1ab704ea241e53240ec",
+        "size_bytes": 3441,
+        "snapshot_path": "architecture/v3.6/inputs/project/REQUIREMENT-STATE-INVENTORY-V3.5.md"
+      },
+      {
+        "path": "ARCHITECTURE-V3.3.md",
+        "sha256": "09e0daedf293ac4e5787ff557b2133aa74f072863c22e97abd1af7379bfa2a73",
+        "size_bytes": 15209,
+        "snapshot_path": "architecture/v3.6/inputs/project/ARCHITECTURE-V3.3.md"
+      },
+      {
+        "path": "WORKFLOW-ARCHITECTURE.md",
+        "sha256": "24b2b0a0402d0618d2814e5bb200a67b8284b712820a5f239f8d74ac321ad1f0",
+        "size_bytes": 11511,
+        "snapshot_path": "architecture/v3.6/inputs/project/WORKFLOW-ARCHITECTURE.md"
+      },
+      {
+        "path": "README.md",
+        "sha256": "89a4d065bc880d46484b5a8c948dc1a1f8b83e8da880dd896bb3b9e78e0bb808",
+        "size_bytes": 3969,
+        "snapshot_path": "architecture/v3.6/inputs/project/README.md"
+      },
+      {
+        "path": ".product-mcp.json",
+        "sha256": "1e7afc33ce624bf0069cc417286577937d16c4320053b42c6a7b63482a1dd9dd",
+        "size_bytes": 1016333,
+        "snapshot_path": "architecture/v3.6/inputs/project/.product-mcp.json"
+      },
+      {
+        "path": ".design-mcp.json",
+        "sha256": "0bcfc85b24db953b088a557d3b20464ffc88618fe4f4786c41d7c8ac6f7b5b14",
+        "size_bytes": 593487,
+        "snapshot_path": "architecture/v3.6/inputs/project/.design-mcp.json"
+      }
+    ],
+    "user_decisions": {
+      "path": "architecture/v3.6/inputs/USER-DECISIONS-20261114.md",
+      "version": "2026-11-14",
+      "sha256": "ff788cb72d7876d472c82b2b1af02e7fae509b96ba69a527f32bf7958fb07f13"
+    },
+    "artifacts": [
+      {
+        "artifact_id": "architecture-index",
+        "path": "ARCHITECTURE.md",
+        "version": "arch-v3.6-draft.1",
+        "sha256": "5047469e13efa8a6ef3ffebd873f756ce579844dc9083ca51864bcc83540668c",
+        "size_bytes": 1532
+      },
+      {
+        "artifact_id": "architecture",
+        "path": "architecture/v3.6/ARCHITECTURE.md",
+        "version": "arch-v3.6-draft.1",
+        "sha256": "8077b5e676acb1e9485e2f444e05d2b13d0d55efda2ba736af5692b44c86acef",
+        "size_bytes": 28301
+      },
+      {
+        "artifact_id": "contracts",
+        "path": "architecture/v3.6/CONTRACTS.md",
+        "version": "arch-v3.6-draft.1",
+        "sha256": "9058600e857dbae8126c6f77134c9af5963f2e95665c05c2f5ba5b5cdc1cd6eb",
+        "size_bytes": 16908
+      },
+      {
+        "artifact_id": "delivery-plan",
+        "path": "architecture/v3.6/DELIVERY-PLAN.md",
+        "version": "arch-v3.6-draft.1",
+        "sha256": "6da68e8e2248fb0dac697f4d1eed11ffd3a4efa1391abb09ad7391d72e3b1171",
+        "size_bytes": 17771
+      },
+      {
+        "artifact_id": "open-source-boundary",
+        "path": "architecture/v3.6/OPEN-SOURCE-BOUNDARY.md",
+        "version": "arch-v3.6-draft.1",
+        "sha256": "f95ca547c9055b19560922f87cd850a1a47c7900870efbaf3354011ca7bed694",
+        "size_bytes": 12602
+      }
+    ],
+    "decisions": {
+      "apk_runtime": "WebView + C++ compiled WASM; confirmed by user",
+      "open_source_direction": "GPL; confirmed by user",
+      "independent_game_license": "closed-source commercial allowed; confirmed by user",
+      "proposed_gpl_version": "GPL-3.0-only; not finally approved",
+      "proposed_contract_license": "MIT; not finally approved",
+      "runtime_export_exception": "required design target; legal text not finalized"
+    },
+    "planned_engineering_quality_report": {
+      "path": ".quality-mcp/engineering/M1/raw-report.json",
+      "version": "M1-final",
+      "owner_role": "M1 engineering owner; person unassigned",
+      "status": "planned_not_created"
+    }
+  },
+  "approvals": [],
+  "readiness": {
+    "ready_for_coding": false,
+    "assessment_source": "manual documentation assessment; not get_coding_handoff output",
+    "missing": [
+      "architecture_mcp/workflow_mcp calls and formal manifests",
+      "human approval bound to current version and hash",
+      "G0 technical verification evidence",
+      "frozen target environments",
+      "UI planning handoff and subsequent actual build validation",
+      "license rights audit and approved exact license/exception text before public release"
+    ]
+  },
+  "tool_status": {
+    "architecture_mcp": "not_available_no_calls_or_gates_run",
+    "workflow_mcp": "not_available_no_calls_or_gates_run",
+    "coding_mcp": "not_run_documentation_only_no_program_code_changed",
+    "design_mcp": "not_run_no_UI_design_or_implementation_changed"
+  },
+  "question_closure": [
+    {
+      "id": "Q-001",
+      "status": "resolved",
+      "owner": "user",
+      "scope": "APK runtime route",
+      "answer": "WebView + C++ compiled WASM",
+      "artifact_refs": [
+        {
+          "artifact_id": "architecture",
+          "version": "arch-v3.6-draft.1",
+          "sha256": "8077b5e676acb1e9485e2f444e05d2b13d0d55efda2ba736af5692b44c86acef"
+        },
+        {
+          "artifact_id": "delivery-plan",
+          "version": "arch-v3.6-draft.1",
+          "sha256": "6da68e8e2248fb0dac697f4d1eed11ffd3a4efa1391abb09ad7391d72e3b1171"
+        }
+      ]
+    },
+    {
+      "id": "Q-002",
+      "status": "resolved",
+      "owner": "user",
+      "scope": "independent exported game licensing",
+      "answer": "closed-source commercial allowed",
+      "artifact_refs": [
+        {
+          "artifact_id": "delivery-plan",
+          "version": "arch-v3.6-draft.1",
+          "sha256": "6da68e8e2248fb0dac697f4d1eed11ffd3a4efa1391abb09ad7391d72e3b1171"
+        },
+        {
+          "artifact_id": "open-source-boundary",
+          "version": "arch-v3.6-draft.1",
+          "sha256": "f95ca547c9055b19560922f87cd850a1a47c7900870efbaf3354011ca7bed694"
+        }
+      ]
+    }
+  ],
+  "implementation_evidence": {
+    "native_builds": [],
+    "device_tests": [],
+    "capacity_tests": [],
+    "security_tests": [],
+    "supplier_calls": [],
+    "published_repositories": []
+  },
+  "delivery": {
+    "kind": "architecture_design_documents_only",
+    "code_changed": false,
+    "source_files_modified": false
+  }
+}

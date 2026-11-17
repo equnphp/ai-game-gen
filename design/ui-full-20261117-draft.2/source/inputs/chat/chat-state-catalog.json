@@ -1,0 +1,1665 @@
+{
+  "version": "chat-states-20261117-draft.1",
+  "date": "2026-11-17",
+  "kind": "product_state_definitions_not_runtime_enums",
+  "project_root": "I:/code/GameGen",
+  "extends_review_ids": [
+    "PSR-045",
+    "PSR-046",
+    "PSR-047",
+    "PSR-048",
+    "PSR-049",
+    "PSR-051",
+    "PSR-052",
+    "PSR-060",
+    "PSR-063"
+  ],
+  "observed_inventory": {
+    "distinct_chat_states": 8,
+    "chat_artboards": 18,
+    "states": [
+      "normal",
+      "loading",
+      "clarification",
+      "offline",
+      "error_timeout",
+      "interrupted",
+      "success",
+      "duplicate"
+    ],
+    "note": "18含桌面/Android及normal别名，不是18类独立状态；没有据此认定实际交互已覆盖。"
+  },
+  "state_groups": [
+    {
+      "id": "session",
+      "title": "会话与历史",
+      "entity": "项目内会话",
+      "requirements": [
+        "REQ-002",
+        "REQ-027"
+      ]
+    },
+    {
+      "id": "input",
+      "title": "输入与本地上下文",
+      "entity": "当前输入草稿/附件",
+      "requirements": [
+        "REQ-027",
+        "REQ-035",
+        "REQ-037",
+        "REQ-039"
+      ]
+    },
+    {
+      "id": "service",
+      "title": "本机内核、模型与能力",
+      "entity": "本机服务/所选模型配置",
+      "requirements": [
+        "REQ-027",
+        "REQ-035",
+        "REQ-037"
+      ]
+    },
+    {
+      "id": "turn",
+      "title": "轮次执行与计划",
+      "entity": "当前轮次/项目任务",
+      "requirements": [
+        "REQ-002",
+        "REQ-027",
+        "REQ-040"
+      ]
+    },
+    {
+      "id": "question",
+      "title": "澄清与用户选择",
+      "entity": "一张或多张问题卡",
+      "requirements": [
+        "REQ-002",
+        "REQ-022",
+        "REQ-027"
+      ]
+    },
+    {
+      "id": "tool",
+      "title": "工具与扩展授权",
+      "entity": "单次工具调用",
+      "requirements": [
+        "REQ-027",
+        "REQ-035",
+        "REQ-036"
+      ]
+    },
+    {
+      "id": "proposal",
+      "title": "工作流提案与项目提交",
+      "entity": "提案/事务/持久化",
+      "requirements": [
+        "REQ-004",
+        "REQ-017",
+        "REQ-026",
+        "REQ-040"
+      ]
+    },
+    {
+      "id": "asset",
+      "title": "资源决策与产物",
+      "entity": "资源任务/候选",
+      "requirements": [
+        "REQ-006",
+        "REQ-022",
+        "REQ-030"
+      ]
+    },
+    {
+      "id": "recovery",
+      "title": "停止、恢复与分叉",
+      "entity": "轮次/任务恢复上下文",
+      "requirements": [
+        "REQ-017",
+        "REQ-027",
+        "REQ-039"
+      ]
+    },
+    {
+      "id": "message",
+      "title": "消息与阅读交互",
+      "entity": "一条消息/阅读视口",
+      "requirements": [
+        "REQ-002",
+        "REQ-027"
+      ]
+    },
+    {
+      "id": "billing",
+      "title": "费用来源与额度",
+      "entity": "供应商或平台计费任务",
+      "requirements": [
+        "REQ-027",
+        "REQ-030",
+        "REQ-037"
+      ]
+    },
+    {
+      "id": "adaptive",
+      "title": "手机、四语与无障碍",
+      "entity": "表现层/输入焦点",
+      "requirements": [
+        "REQ-015",
+        "REQ-031",
+        "REQ-040"
+      ]
+    }
+  ],
+  "states": [
+    {
+      "id": "CHAT-SES-01",
+      "group": "session",
+      "title": "新会话空态",
+      "entry": "新建会话且无消息",
+      "content": "一个可跳过的玩法起点、当前项目和继续已有工程入口。",
+      "actions": "输入想法、选模板、打开示例、返回会话列表。",
+      "recovery": "离开保留输入；不强制先配高级MCP/Skill。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-SES-02",
+      "group": "session",
+      "title": "历史载入/分页",
+      "entry": "打开会话或上翻旧消息",
+      "content": "明确是读取历史，不显示AI正在生成；保留阅读锚点。",
+      "actions": "返回、取消载入、已有内容仍可阅读。",
+      "recovery": "失败重试同一分页游标，不重复消息或自动滚到底。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-SES-03",
+      "group": "session",
+      "title": "可继续的已有会话",
+      "entry": "历史与项目绑定可读",
+      "content": "项目/分支、会话名、当前模型和未完成任务摘要。",
+      "actions": "继续、改名、搜索、归档、从消息分支、查看摘要。",
+      "recovery": "会话归档不删项目或已应用工作流；上下文压缩不删除原历史。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-SES-04",
+      "group": "session",
+      "title": "会话可读、项目只读/不可访问",
+      "entry": "原项目关闭、授权撤销、被占用或格式不兼容",
+      "content": "历史仍在；明确仅能讨论/看历史及不可执行修改原因。",
+      "actions": "重选项目、恢复授权、只读查看、另存允许的副本。",
+      "recovery": "不能把回复成功当项目修改成功，不能另建写库绕过独占者。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-SES-05",
+      "group": "session",
+      "title": "历史读取失败/部分损坏",
+      "entry": "历史或本地记录读取出错",
+      "content": "已读取部分和缺失范围、保留原件的提示。",
+      "actions": "重试、查看恢复点、导出可读记录、返回。",
+      "recovery": "不清空整个会话，不用空会话冒充加载完成。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-SES-06",
+      "group": "session",
+      "title": "历史分支/摘要管理",
+      "entry": "从旧消息分支或查看压缩上下文",
+      "content": "原消息位置、摘要版本、引用内容及当前项目revision分开。",
+      "actions": "创建分支、查看原消息、调整允许上下文。",
+      "recovery": "聊天分支不自动回滚项目；若要旧项目版本另走历史恢复。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-INP-01",
+      "group": "input",
+      "title": "未输入/可编辑草稿",
+      "entry": "无消息或正在编辑新指令",
+      "content": "持续可见的输入框、讨论/执行模式、模型来源。",
+      "actions": "输入、粘贴文字、选择上下文；空输入禁发并给原因。",
+      "recovery": "IME组词不触发发送，草稿按会话保留。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-INP-02",
+      "group": "input",
+      "title": "本地附件读取与校验",
+      "entry": "选择授权的对象/图/文档/文件",
+      "content": "名称、类型、版本、大小、目的地和读取进度；不称上传中。",
+      "actions": "移除、取消读取、查看范围。",
+      "recovery": "只读选定本地范围；失败保留指令，不自动改走云解析。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-INP-03",
+      "group": "input",
+      "title": "上下文已准备/可移除",
+      "entry": "本地读取与依赖校验完成",
+      "content": "引用对象ID/版本、范围、所需依赖、实际目的地。",
+      "actions": "预览、缩小范围、移除附件、选择允许的本机处理。",
+      "recovery": "发送时固定快照；会话切换不串附件，凭据自动排除。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-INP-04",
+      "group": "input",
+      "title": "上下文缺失/超限/格式不支持",
+      "entry": "引用对象删除、文档无法解析或超过限制",
+      "content": "精确缺项/页数/长度与可读部分，阻断项和警告分开。",
+      "actions": "定位对象、拆分、改来源、移除、人工输入。",
+      "recovery": "不静默截断关键规则，不执行文档命令，不因失败删除草稿。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-INP-05",
+      "group": "input",
+      "title": "localOnly阻止远程出站",
+      "entry": "目的地为远程模型/MCP且内容受本地策略限制",
+      "content": "列出被阻止的对象/附件/派生摘要、目的地与原因。",
+      "actions": "继续本地编辑、选择允许本机工具、仅发送另行手输文字。",
+      "recovery": "普通勾选/授权不解除策略；不经摘要/日志/另一工具绕过；不设本轮上传例外。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-INP-06",
+      "group": "input",
+      "title": "生成中继续补充指令",
+      "entry": "当前轮次尚在执行而用户继续输入",
+      "content": "区分补充当前任务和加入下一轮；已有执行状态不被替换。",
+      "actions": "保留草稿；后端支持时显式补充当前轮，否则排入下一轮；可停止后编辑。",
+      "recovery": "补充绑定原轮次/项目版本，不默默启动第二个写者；切页不丢草稿。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-INP-07",
+      "group": "input",
+      "title": "输入需修正/模型不支持执行",
+      "entry": "指令过长、缺必要项目或所选模型无工具能力",
+      "content": "就地错误与可继续纯讨论的范围。",
+      "actions": "缩短、选项目/模型、改讨论、保留待执行需求。",
+      "recovery": "不把纯文本回复当工作流变更；不自动换到收费模型。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-INP-08",
+      "group": "input",
+      "title": "模式/模型/扩展变更草稿",
+      "entry": "用户在本轮运行中改模型或MCP/Skill设置",
+      "content": "正在执行的快照与下一轮配置分别显示。",
+      "actions": "本轮继续原快照、停止、为下一轮保存设置。",
+      "recovery": "不把新权限追授已发起动作；权限撤销立即按实际控制边界处理。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-SVC-01",
+      "group": "service",
+      "title": "本机OpenCode/项目服务启动中",
+      "entry": "本机内核或项目服务尚未就绪",
+      "content": "组件名和启动阶段，历史/本地编辑仍可达。",
+      "actions": "等待、查看诊断、取消待执行请求。",
+      "recovery": "不能用远程电脑/云Agent冒称Android本机内核就绪。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-SVC-02",
+      "group": "service",
+      "title": "本机组件缺失/版本不兼容",
+      "entry": "内核/节点能力/运行依赖未安装或不兼容",
+      "content": "缺组件/版本和受影响动作，非模型网络错误。",
+      "actions": "进入离线组件管理、导入支持包、本地手改/讨论。",
+      "recovery": "保留草稿与旧项目，不展示假已安装或假执行成功。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-SVC-03",
+      "group": "service",
+      "title": "模型未配置/需重新授权",
+      "entry": "没有可用配置或返回认证/权限错误",
+      "content": "服务来源、鉴权种类和脱敏原因。",
+      "actions": "添加/编辑、重授权、选择已有可用模型。",
+      "recovery": "Key不入消息/DOM展示缓存/日志/项目；已有设置草稿保留。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-SVC-04",
+      "group": "service",
+      "title": "远程离线/连接恢复中",
+      "entry": "模型地址不可达、断网或重连",
+      "content": "离线的实际服务与本地仍可做的任务，区分LAN可达。",
+      "actions": "保留草稿、手动重试、显式加入联网后继续队列。",
+      "recovery": "不默认网络恢复即发送；LAN继续不等于模型在线。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-SVC-05",
+      "group": "service",
+      "title": "限流/额度不足",
+      "entry": "供应商返回429或额度用完",
+      "content": "限流/余额/资格不明分别说明，退避仅用实际服务信息。",
+      "actions": "稍后、查看该账户、换自己明确选择的线路/只讨论。",
+      "recovery": "不静默付费切换；任务是否受理未知时先查询。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-SVC-06",
+      "group": "service",
+      "title": "模型/格式/工具不兼容",
+      "entry": "端点格式、模型ID、流式工具或结构化输出不可用",
+      "content": "具体检查项与允许能力，不能以模型列表成功当可执行。",
+      "actions": "修协议/路径/模型、改纯讨论、查看配置诊断。",
+      "recovery": "不猜协议、不丢工具事件后继续生成假提案。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-SVC-07",
+      "group": "service",
+      "title": "上下文预算不足/需摘要",
+      "entry": "达到模型上下文或输出限制",
+      "content": "哪些允许内容拟压缩、保留什么、当前模型限制。",
+      "actions": "审阅摘要、缩小选择、新会话分支、选合适模型。",
+      "recovery": "原历史可查看；摘要同样受localOnly，不自动丢规则或发送禁传内容。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-SVC-08",
+      "group": "service",
+      "title": "服务结果未知/恢复查询",
+      "entry": "已发送后断流/宿主重建，不确定是否已受理",
+      "content": "请求/轮次状态待确认；模型输出、工具副作用、项目提交分别查。",
+      "actions": "查询原请求/任务、查看活动、保留输入。",
+      "recovery": "不换请求ID盲重试副作用；可见部分回复标未完成。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-RUN-01",
+      "group": "turn",
+      "title": "排队/准备执行",
+      "entry": "请求已受理但尚未开始",
+      "content": "队列位置仅在真实可知时显示，绑定项目/会话/请求。",
+      "actions": "取消尚未开始的轮次、修改下一轮草稿。",
+      "recovery": "重复发送定位原请求；队列满明确拒绝或等待，不无限排队。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-RUN-02",
+      "group": "turn",
+      "title": "整理上下文/形成公开计划",
+      "entry": "读取允许内容、组织任务",
+      "content": "正在做什么的简短进度、已选范围和计划草案。",
+      "actions": "停止、查看公开计划和工具记录。",
+      "recovery": "不伪造进度百分比/剩余时间，不把内部思维链作为产品必需数据。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-RUN-03",
+      "group": "turn",
+      "title": "计划待确认/纯讨论完成",
+      "entry": "讨论形成计划，尚未执行修改",
+      "content": "推荐步骤、将改对象、影响/费用/权限；明确尚未改项目。",
+      "actions": "调整计划、确认进入执行、仅保留方案。",
+      "recovery": "计划确认不扩大权限，不把模型回答当已完成修改。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-RUN-04",
+      "group": "turn",
+      "title": "流式文字回复",
+      "entry": "接收到有效增量文本",
+      "content": "消息逐步出现，停止入口，工具和提案各自状态。",
+      "actions": "停止、向上阅读、复制已可见文本。",
+      "recovery": "断流保留前缀且标未完成；用户上翻时不强制拉回底部。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-RUN-05",
+      "group": "turn",
+      "title": "流式工具调用/结构化结果未完成",
+      "entry": "收到尚未闭合的工具参数/图补丁",
+      "content": "显示正在准备调用/修改，不展示为可应用完成卡。",
+      "actions": "查看目标摘要、停止；完整合法后才进入调用/提案校验。",
+      "recovery": "半段JSON/未知节点不写项目，不因文本结束绕过工具/图校验。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-RUN-06",
+      "group": "turn",
+      "title": "等待回答",
+      "entry": "出现阻断业务缺项的澄清卡",
+      "content": "问题与可继续的独立步骤，默认推荐和用户选择分开。",
+      "actions": "回答/暂缓；不依赖答案的已授权本地步骤可继续。",
+      "recovery": "依赖步骤暂停，不拿超时当同意或猜必要答案。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-RUN-07",
+      "group": "turn",
+      "title": "等待工具授权",
+      "entry": "动作需要当前未具备的具体授权",
+      "content": "工具名、目标/范围/参数/影响、允许与拒绝入口。",
+      "actions": "本次允许、限定范围、拒绝、停止。",
+      "recovery": "等待不是正在执行；允许工具不授权上传localOnly或隐含费用。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-RUN-08",
+      "group": "turn",
+      "title": "工具或本地长任务运行",
+      "entry": "已开始资源处理/查询/构建等",
+      "content": "轮次和每个任务进度、可取消性、当前阶段及详情入口。",
+      "actions": "继续阅读/手改、看任务、合法取消。",
+      "recovery": "离开页面不自动取消已登记任务；后台受限明确暂停/恢复。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-RUN-09",
+      "group": "turn",
+      "title": "回复完成、执行仍未结束",
+      "entry": "模型文字结束但工具/校验/提案/提交仍在进行",
+      "content": "文字完成与修改状态分别标记。",
+      "actions": "看任务/提案、继续手动编辑、合法停止待执行步骤。",
+      "recovery": "不能顶层给全部完成绿色成功；不从流结束推断落盘。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-RUN-10",
+      "group": "turn",
+      "title": "本轮终态摘要",
+      "entry": "所有本轮阶段已明确完成/失败/取消/部分完成",
+      "content": "已提交哪些、未做哪些、资源是否入库、是否有待处理，关联事务/固定版本。",
+      "actions": "试玩、看差异、处理待办、继续改、查看按事务撤销方案。",
+      "recovery": "部分成功按实际列示；撤销不回滚外部副作用，已有人手改时先比较。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-ASK-01",
+      "group": "question",
+      "title": "资源偏好待选择",
+      "entry": "缺某个声音/角色等资源偏好",
+      "content": "少量可试听/预览候选及文件/内置/本机生成/暂用占位。",
+      "actions": "试听/预览、选资源、改描述、稍后；云生成后续单独范围。",
+      "recovery": "选择后才替换引用，暂缓留下定位提醒，不阻断独立编辑。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-ASK-02",
+      "group": "question",
+      "title": "玩法/业务规则需澄清",
+      "entry": "答案影响目标、奖励、接口行为等必要语义",
+      "content": "当前对象、已有规则、缺项、可编辑推荐。",
+      "actions": "明确选择、写自定义答案、保留原规则。",
+      "recovery": "不把未回答默认成删除/扣费/授权，保存问题上下文。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-ASK-03",
+      "group": "question",
+      "title": "多问题部分回答",
+      "entry": "一组问题中只答完部分",
+      "content": "已回答与未回答、各自阻塞步骤，避免重复追问。",
+      "actions": "逐项回答、修改未生效答案、暂缓剩余。",
+      "recovery": "不依赖部分先继续；依赖答案的步骤不抢跑。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-ASK-04",
+      "group": "question",
+      "title": "答案已提交/准备继续",
+      "entry": "用户确认答案且基线仍有效",
+      "content": "用户选择、默认采用项和下一步影响摘要。",
+      "actions": "继续本轮、在执行前修改、查看定位。",
+      "recovery": "重复点击用同一问题/答案身份；不是自动授权其他动作。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-ASK-05",
+      "group": "question",
+      "title": "问题已过期/被取代",
+      "entry": "等待中对象/手工规则/模型配置已变化",
+      "content": "原问题涉及的旧内容与当前差异。",
+      "actions": "重新校对问题、采用仍合法答案、取消该步骤。",
+      "recovery": "不把旧答案套到已删除或不同对象；必要时重新询问一次。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-TOL-01",
+      "group": "tool",
+      "title": "工具准备/依赖与权限校验",
+      "entry": "工具调用已完整但尚未执行",
+      "content": "实际服务/工具版本、所需依赖、授权及能力检查。",
+      "actions": "查看详情、补依赖/范围、取消待执行调用。",
+      "recovery": "Skill正文不授予执行权限；源文档命令不能触发脚本。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-TOL-02",
+      "group": "tool",
+      "title": "动作授权待定",
+      "entry": "具体调用超出已有安全自动范围",
+      "content": "目标/参数/数据读写范围/外部效果/费用来源。",
+      "actions": "允许本次、限定允许的后续范围、拒绝。",
+      "recovery": "权限绑定具体动作/配置/目标；不是全盘授权或永久允许所有。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-TOL-03",
+      "group": "tool",
+      "title": "工具正在执行",
+      "entry": "授权且已受理",
+      "content": "调用名/开始时间/当前阶段，公开输出摘要和受影响对象。",
+      "actions": "展开脱敏日志、合法取消、返回对话继续看。",
+      "recovery": "参数不含明文凭据；长任务与其taskId可恢复关联。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-TOL-04",
+      "group": "tool",
+      "title": "工具完成",
+      "entry": "收到真实成功终态",
+      "content": "查询结果或产物/提案链接；外部效果与项目修改分开。",
+      "actions": "看结果、查看提案、接收资源、继续任务。",
+      "recovery": "工具成功不等于整轮完成、资源已应用或项目已保存。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-TOL-05",
+      "group": "tool",
+      "title": "用户拒绝/调用未执行",
+      "entry": "用户拒绝当前授权或主动放弃依赖",
+      "content": "未执行的动作和受影响后续步骤，允许部分可继续。",
+      "actions": "换本机/只读方案、手工处理、停止本轮。",
+      "recovery": "拒绝不应反复自动弹同一权限或换工具绕开。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-TOL-06",
+      "group": "tool",
+      "title": "明确失败/不支持",
+      "entry": "工具返回确定的失败且副作用边界可知",
+      "content": "脱敏原因、影响对象、配置/依赖修复入口。",
+      "actions": "修复、查看详情；满足幂等条件才重试。",
+      "recovery": "失败项目事务不部分提交；不把工具未安装说成网络错误。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-TOL-07",
+      "group": "tool",
+      "title": "超时/断开，外部结果未知",
+      "entry": "调用后失联且无法断言执行结果",
+      "content": "结果确认中，已知受理信息与待查询动作。",
+      "actions": "查询原任务/外部状态、保留记录、必要时人工对账。",
+      "recovery": "不能写“未执行/已退款/已回滚”或一键盲目重复外部写入。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-TOL-08",
+      "group": "tool",
+      "title": "权限撤销/配置变更影响在途调用",
+      "entry": "用户停用/撤销、更换服务或目录权限扩大",
+      "content": "待执行/已执行/在途动作各自状态与原配置快照。",
+      "actions": "终止未来调用、查看在途结果、重授权新范围。",
+      "recovery": "撤销不伪造已发生效果回滚，不按新设置重解释旧调用。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-PRP-01",
+      "group": "proposal",
+      "title": "提案草稿生成中",
+      "entry": "结构化图/配置补丁还在形成",
+      "content": "修改意图和草稿标记，可定位已识别对象，应用禁用。",
+      "actions": "看公开摘要、停止、继续手改。",
+      "recovery": "半个工作流/缺结尾结构不自动入项目；文本完成与提案完成分开。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-PRP-02",
+      "group": "proposal",
+      "title": "提案校验失败/缺能力",
+      "entry": "未知节点、坏引用、类型/域/预算不合法",
+      "content": "具体图/节点/字段和问题，保留合法可读草案。",
+      "actions": "跳转修复、让AI基于当前问题修订、手工改、放弃。",
+      "recovery": "不执行任意代码字符串、原引擎脚本或偷偷替换规则补缺。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-PRP-03",
+      "group": "proposal",
+      "title": "提案可审阅、尚未应用",
+      "entry": "完整提案通过当前基线校验",
+      "content": "新增/修改/删除对象、条件动作/数值/资源差异、影响和默认项。",
+      "actions": "定位、逐组接受、放弃、提交合法选择。",
+      "recovery": "明确“尚未应用”；来源是模型建议，不冒充用户既有规则。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-PRP-04",
+      "group": "proposal",
+      "title": "选择部分变更待依赖校验",
+      "entry": "只选择提案的一部分",
+      "content": "可独立组、必需依赖、取消选择影响。",
+      "actions": "补选依赖、调整选择、只应用可成立组。",
+      "recovery": "不能应用半条连线、缺资源或奖励依赖，事务完整校验。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-PRP-05",
+      "group": "proposal",
+      "title": "基线已变化，可重新校验",
+      "entry": "AI运行中用户手改或另轮提交",
+      "content": "旧生成基线和当前项目版本，重基影响。",
+      "actions": "重新比较/校验、保留手改、取消旧提案。",
+      "recovery": "不覆盖当前新修改，不用模型的旧version直接提交。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-PRP-06",
+      "group": "proposal",
+      "title": "与手工修改发生冲突",
+      "entry": "同字段/资源/图拓扑或删除引用冲突",
+      "content": "原基线、当前手改、AI提案三个真实内容。",
+      "actions": "保留当前、采用提案合法组、人工合并/保留两份。",
+      "recovery": "按领域保留依赖与高级字段；不能按时间戳决定胜者。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-PRP-07",
+      "group": "proposal",
+      "title": "提交请求受理/重新校验中",
+      "entry": "用户点应用或在已授权范围自动应用",
+      "content": "正在校验及提交的具体变更、当前requestId关联。",
+      "actions": "查看任务；未进入不可取消阶段时可请求取消。",
+      "recovery": "受理不代表成功；重复点击进入原任务，不重复创建事务。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-PRP-08",
+      "group": "proposal",
+      "title": "提交中/等待持久化确认",
+      "entry": "核心进入COMMITTING或尚无durable确认",
+      "content": "正在保存，显示不可取消原因或查询进度。",
+      "actions": "等待、看状态；退出提示仍有在途提交。",
+      "recovery": "不得提前显示已保存，不强杀库/另建写者；晚到成功刷新实际版本。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-PRP-09",
+      "group": "proposal",
+      "title": "修改已提交并保存",
+      "entry": "核心确认提交终态及durable=true",
+      "content": "实际版本/改动摘要/对象数，保存与回复/试玩状态分开。",
+      "actions": "试玩、定位工作流、继续修改、查看事务撤销。",
+      "recovery": "旧输出仍绑定旧快照；运行效果未经试玩不能称已验证。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-PRP-10",
+      "group": "proposal",
+      "title": "提案被放弃/被新提案取代",
+      "entry": "用户放弃或新提案明确替代旧草稿",
+      "content": "原草稿只读记录及未应用标记。",
+      "actions": "查看原提案、基于当前项目重新生成。",
+      "recovery": "不撤销本轮此前已经提交的其他合法事务；旧卡不再可直接应用。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-AST-01",
+      "group": "asset",
+      "title": "等用户决定资源来源",
+      "entry": "要添加图片/声音但未决定素材",
+      "content": "来源选择及候选预览/试听，当前引用保持。",
+      "actions": "文件、内置、本机生成、暂用占位；后续云生成另显来源。",
+      "recovery": "没有选择不自动扣费或覆盖现用资源。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-AST-02",
+      "group": "asset",
+      "title": "本机生成/本地导入处理中",
+      "entry": "用户授权启动本地资源任务",
+      "content": "具体任务、模型/格式、阶段、可取消性及本地不扣平台积分。",
+      "actions": "看任务、取消允许步骤、离开页面继续本地编辑。",
+      "recovery": "缺依赖进组件管理；后台暂停可恢复，不把排队当完成。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-AST-03",
+      "group": "asset",
+      "title": "候选完成，未入库/未采用",
+      "entry": "生成或导入预览产物已就绪",
+      "content": "少量候选、试听/预览、尺寸/时长/方向、来源许可。",
+      "actions": "比较、选一个/多个、校准锚点/裁切、保留候选、重新生成。",
+      "recovery": "完成不自动替换；单图不冒充8方向完整动作集。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-AST-04",
+      "group": "asset",
+      "title": "许可/依赖/格式或入库失败",
+      "entry": "候选缺贴图、许可受限、格式转换/保存失败",
+      "content": "保留已有候选和旧引用，列出具体缺项。",
+      "actions": "补本地依赖/许可、改参数、重试入库、另选文件。",
+      "recovery": "生成成功不因入库失败重新收生成费；未解决不得标完整入库。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-AST-05",
+      "group": "asset",
+      "title": "已入库/替换待确认",
+      "entry": "已生成稳定资源ID或准备替换现有资源",
+      "content": "资源版本、使用位置、全局与当前对象影响。",
+      "actions": "明确替换范围、采用到当前对象、只保留资源、撤销已提交替换。",
+      "recovery": "入库与应用分开；依赖/许可随本地项目保留。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-AST-06",
+      "group": "asset",
+      "title": "用户选择稍后/占位",
+      "entry": "当前没有合适素材或暂时静音",
+      "content": "占位标记、受影响对象和可返回修复的待办。",
+      "actions": "继续独立编辑、稍后选文件/本机生成。",
+      "recovery": "占位不伪装正式素材；必需资源在运行/导出前按规则阻断。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-REC-01",
+      "group": "recovery",
+      "title": "停止请求处理中",
+      "entry": "用户点停止，取消尚未确认",
+      "content": "哪些生成/排队步骤停止中，哪些工具/提交仍待确认。",
+      "actions": "查看在途任务、等待、继续保留草稿。",
+      "recovery": "不立即显示已取消，不隐藏迟到结果。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-REC-02",
+      "group": "recovery",
+      "title": "已确认停止/部分完成",
+      "entry": "模型/可取消任务已确认终态",
+      "content": "保留已可见回复、已生成候选、已提交事务；未做步骤列清。",
+      "actions": "继续新指令、看结果、重新生成未完成部分。",
+      "recovery": "停止不自动撤销已提交编辑，不把自然完成与取消混为一态。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-REC-03",
+      "group": "recovery",
+      "title": "停止过晚，提交已完成",
+      "entry": "取消返回too-late或晚到成功",
+      "content": "明确已保存版本和不能取消的原因。",
+      "actions": "查看实际改动、继续编辑、按事务审阅撤销。",
+      "recovery": "不假称回滚；不能用UI丢弃消息掩盖已提交操作。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-REC-04",
+      "group": "recovery",
+      "title": "断线/重启后核对原任务",
+      "entry": "模型/工具/宿主连接中断",
+      "content": "待确认请求、原项目/轮次、已知阶段及本地工作入口。",
+      "actions": "重新连接、查原任务、看历史。",
+      "recovery": "先查结果再重试；旧会话句柄失效时不能继续当有效句柄使用。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-REC-05",
+      "group": "recovery",
+      "title": "应用重建/事件缺口后恢复",
+      "entry": "旋转重建/进程重启或状态事件缺失",
+      "content": "恢复历史/草稿/视口、查询实际任务和权威版本，不显示假新空会话。",
+      "actions": "等待恢复、打开恢复记录、继续允许的本地编辑。",
+      "recovery": "状态同步完成前禁重复副作用提交；不把UI缓存当项目权威。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-REC-06",
+      "group": "recovery",
+      "title": "恢复后项目已变/需要重新比较",
+      "entry": "恢复任务的生成基线与当前项目不同",
+      "content": "保留旧结果，展示现版本与原任务范围。",
+      "actions": "重新校验/比较、保留当前、创建独立副本。",
+      "recovery": "不自动把恢复的旧提案应用到新项目或已改地图。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-REC-07",
+      "group": "recovery",
+      "title": "撤销本轮/重新尝试需确认影响",
+      "entry": "用户想撤销一轮中的已提交修改或重试失败步骤",
+      "content": "本轮多个事务、期间人工修改、资源与外部效果分开列出。",
+      "actions": "选择可撤销事务、先看差异、仅重试未完成幂等步骤。",
+      "recovery": "不跨过后续手改盲撤销，不承诺外部发送/扣费/部署随编辑撤回。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-MSG-01",
+      "group": "message",
+      "title": "用户消息待发送/排队",
+      "entry": "指令已确认但未进入实际发送或执行",
+      "content": "本地消息状态和排队位置，允许区分可编辑草稿与已发指令。",
+      "actions": "取消待发、查看任务、调整下一条。",
+      "recovery": "相同requestId重复点击不重复执行；明确仍未开始。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-MSG-02",
+      "group": "message",
+      "title": "发送明确失败/未受理",
+      "entry": "确认请求未被接收",
+      "content": "原文与附件选择保留，失败原因可定位。",
+      "actions": "修正、重发、复制、删除未发草稿。",
+      "recovery": "只有确认未受理才直接重发；未知转CHAT-SVC-08。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-MSG-03",
+      "group": "message",
+      "title": "消息已接收/仍在处理",
+      "entry": "服务已接受当前消息但暂无回复",
+      "content": "不要把已发/已接收当AI任务完成。",
+      "actions": "停止、查看进度、继续编辑草稿。",
+      "recovery": "收到ack不代表工作流或工具已执行。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-MSG-04",
+      "group": "message",
+      "title": "回复完整/部分保留/内容不兼容",
+      "entry": "回复结束、截断或含不可解析结构",
+      "content": "完整文本/未完成标记；可复制但任意代码/HTML不得执行。",
+      "actions": "复制可见内容、引用消息、对未完成部分请求继续、查看提案。",
+      "recovery": "只读展示代码不等于可执行业务；结构失败不能生成假工作流结果。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-MSG-05",
+      "group": "message",
+      "title": "正在阅读旧消息、有新输出",
+      "entry": "用户上翻或选中文字时新流到达",
+      "content": "新消息/继续生成指示与回到底部入口。",
+      "actions": "保持阅读、回到底部、跳到问题/待授权/提案。",
+      "recovery": "不抢焦点、不强制滚底，消息增长保持阅读锚点和文本选区。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-MSG-06",
+      "group": "message",
+      "title": "引用/编辑重发/分支操作",
+      "entry": "用户选择历史消息操作",
+      "content": "引用来源与版本；编辑后重新发送的影响说明。",
+      "actions": "编辑为新轮、从此分支、复制/导出脱敏记录。",
+      "recovery": "编辑旧消息不改写历史已执行事务；新轮/恢复原请求清楚区分。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-FEE-01",
+      "group": "billing",
+      "title": "本轮来源明确",
+      "entry": "准备发送或查看轮次",
+      "content": "平台免费/平台积分/自带Key/Go账户分别标识；实际目录/资格以返回为准。",
+      "actions": "选择明确来源、查看供应商计费说明、设允许预算（支持时）。",
+      "recovery": "配置改变从下一轮生效，不自动互切或重复扣积分。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-FEE-02",
+      "group": "billing",
+      "title": "供应商用量待确认/未知",
+      "entry": "未返回usage、请求断流或供应商无可用计量",
+      "content": "估算/真实用量/待确认分开，显示数据来源。",
+      "actions": "查该轮记录/供应商账单、等待确认。",
+      "recovery": "不虚构Token/费用或已退款，配置连通检查不冒充真实用量。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-FEE-03",
+      "group": "billing",
+      "title": "平台付费请求待预算授权",
+      "entry": "后续平台计费服务需新授权",
+      "content": "报价/范围/上限/失败停止规则及账户。",
+      "actions": "确认具体预算、调整规格、拒绝。",
+      "recovery": "未经授权不发起付费，不因超时默认同意。",
+      "scope": "R",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-FEE-04",
+      "group": "billing",
+      "title": "免费额度耗尽/平台余额不足",
+      "entry": "后续平台免费或积分通道不足",
+      "content": "保留指令与参数，额度未知也如实说明。",
+      "actions": "继续本地手改、减少规格、用户明确选别的来源或充值。",
+      "recovery": "不静默转付费或形成用户欠款，不把Go账户当免费。",
+      "scope": "R",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-FEE-05",
+      "group": "billing",
+      "title": "本机任务不扣平台积分",
+      "entry": "使用本机模型/资源处理",
+      "content": "本机任务来源、资源占用与任务进度。",
+      "actions": "查看本地组件/用量、取消允许步骤。",
+      "recovery": "不显示虚拟冻结积分；远程服务另按实际来源。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-FEE-06",
+      "group": "billing",
+      "title": "平台结算/释放/退款与部分交付",
+      "entry": "后续云任务的产物与计费终态处理",
+      "content": "报价/冻结/实扣/释放/退款、逐项产物、任务与账单关联。",
+      "actions": "看账单、免费恢复已生成产物、查询原任务。",
+      "recovery": "媒体未交付不最终收费；部分成功按实际；停止等待不等于供应商取消或退款。",
+      "scope": "R",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-UI-01",
+      "group": "adaptive",
+      "title": "软键盘/输入法组词",
+      "entry": "Android键盘打开或桌面IME composing",
+      "content": "输入框/发送/停止与当前问题可达，键盘安全区正确。",
+      "actions": "输入、换行、确认组词；快捷键不抢IME事件。",
+      "recovery": "键盘关闭/返回保留草稿与焦点，不误发送。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-UI-02",
+      "group": "adaptive",
+      "title": "横竖屏/桌面窄窗变化",
+      "entry": "旋转或窗口尺寸变化",
+      "content": "同一会话/任务、问题/提案与工具详情响应式排列。",
+      "actions": "继续输入/审阅、切回原布局。",
+      "recovery": "保留阅读锚点、选择、草稿、候选、未提交答案与任务，不重发。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-UI-03",
+      "group": "adaptive",
+      "title": "离开对话但任务继续",
+      "entry": "切到地图/工作流/资源或另一个会话",
+      "content": "全局任务指示与所属项目清楚，完成后可返回原轮。",
+      "actions": "手工编辑、看任务、回对话。",
+      "recovery": "不把新页面选中对象回写旧轮绑定，不因离开界面误取消持久任务。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-UI-04",
+      "group": "adaptive",
+      "title": "锁屏/后台受限",
+      "entry": "系统暂停网络/模型或应用进入后台",
+      "content": "准确标本机可继续/已暂停/待恢复，不承诺系统杀进程后仍运行。",
+      "actions": "返回后恢复核对、继续本地编辑。",
+      "recovery": "保存草稿与任务身份，必要时重新授权；不后台绕过权限。",
+      "scope": "L",
+      "priority": "P0"
+    },
+    {
+      "id": "CHAT-UI-05",
+      "group": "adaptive",
+      "title": "四语切换/长文本/字体放大",
+      "entry": "切语言或系统字体变大",
+      "content": "固定文案/操作保持可读，历史/代码键/模型ID与用户内容不翻译。",
+      "actions": "展开长文、滚动属性卡、切换界面语言。",
+      "recovery": "语言切换不发新轮、不改变项目或清空输入；中文稿不算其余三语实稿。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-UI-06",
+      "group": "adaptive",
+      "title": "读屏/键盘与焦点导航",
+      "entry": "以TalkBack/键盘访问对话与卡片",
+      "content": "消息层级、状态播报和按钮名称；仅关键状态适度播报，不逐Token刷屏。",
+      "actions": "跳到当前问题/授权/提案，展开详情，关闭浮层回触发点。",
+      "recovery": "异步输出不抢输入焦点，模态范围正确。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-UI-07",
+      "group": "adaptive",
+      "title": "长会话虚拟列表/搜索定位",
+      "entry": "历史长或按消息/对象搜索",
+      "content": "分页与稳定消息ID、搜索范围/无结果、当前定位上下文。",
+      "actions": "加载前后文、清筛选、跳原消息/对象。",
+      "recovery": "未挂载不等于消息不存在；加载新页保持锚点，不丢任务卡。",
+      "scope": "L",
+      "priority": "P1"
+    },
+    {
+      "id": "CHAT-UI-08",
+      "group": "adaptive",
+      "title": "权限/问题/提案浮层返回",
+      "entry": "打开底部抽屉/全屏详情再返回",
+      "content": "保留原卡片状态、阅读位置、表单选择和未提交草稿。",
+      "actions": "系统返回/关闭，按临时操作→浮层→详情→会话顺序退出。",
+      "recovery": "返回不隐式允许、不应用提案、不取消整个后台轮次。",
+      "scope": "L",
+      "priority": "P1"
+    }
+  ],
+  "composed_views": [
+    {
+      "id": "CHAT-VIEW-01",
+      "title": "第一次进入与空会话",
+      "state_ids": [
+        "CHAT-SES-01",
+        "CHAT-INP-01"
+      ],
+      "focus": "推荐起点、当前项目、讨论/执行与草稿",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-02",
+      "title": "讨论完成，计划待执行",
+      "state_ids": [
+        "CHAT-RUN-03",
+        "CHAT-INP-08"
+      ],
+      "focus": "公开计划与尚未修改，按计划修改需合法权限",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-03",
+      "title": "流式输出与公开活动",
+      "state_ids": [
+        "CHAT-RUN-02",
+        "CHAT-RUN-04",
+        "CHAT-RUN-05"
+      ],
+      "focus": "文字、工具参数和提案生成分开，停止可达",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-04",
+      "title": "多个工具步骤和长任务",
+      "state_ids": [
+        "CHAT-RUN-08",
+        "CHAT-TOL-03",
+        "CHAT-TOL-04"
+      ],
+      "focus": "折叠活动、某步成功/其他步运行、任务详情",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-05",
+      "title": "具体动作等待授权",
+      "state_ids": [
+        "CHAT-RUN-07",
+        "CHAT-TOL-02",
+        "CHAT-TOL-05"
+      ],
+      "focus": "范围/参数/影响；允许本次/拒绝，不是全盘授权",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-06",
+      "title": "爆炸音效等资源澄清",
+      "state_ids": [
+        "CHAT-ASK-01",
+        "CHAT-AST-01"
+      ],
+      "focus": "试听/文件/内置/本机生成/占位，候选不自动采用",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-07",
+      "title": "多问题部分回答与过期",
+      "state_ids": [
+        "CHAT-ASK-03",
+        "CHAT-ASK-04",
+        "CHAT-ASK-05"
+      ],
+      "focus": "已答/待答/基线改变，独立步骤继续",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-08",
+      "title": "合法工作流提案待审阅",
+      "state_ids": [
+        "CHAT-PRP-03",
+        "CHAT-RUN-09"
+      ],
+      "focus": "回复完成但未改项目，差异/定位/应用",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-09",
+      "title": "提案不合法或能力缺失",
+      "state_ids": [
+        "CHAT-PRP-01",
+        "CHAT-PRP-02"
+      ],
+      "focus": "节点/类型/引用错误，保留草案不执行代码",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-10",
+      "title": "生成中手改后的提案重校验",
+      "state_ids": [
+        "CHAT-INP-06",
+        "CHAT-PRP-05"
+      ],
+      "focus": "当前轮补充/下一轮与旧基线重校验",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-11",
+      "title": "AI与手工同字段冲突",
+      "state_ids": [
+        "CHAT-PRP-06"
+      ],
+      "focus": "真实三方内容与依赖，不用电脑手机对比代替",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-12",
+      "title": "部分接受与依赖组",
+      "state_ids": [
+        "CHAT-PRP-04",
+        "CHAT-PRP-07"
+      ],
+      "focus": "能独立成立的组、必需资源/节点关联",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-13",
+      "title": "提交中到持久化完成",
+      "state_ids": [
+        "CHAT-PRP-07",
+        "CHAT-PRP-08",
+        "CHAT-PRP-09"
+      ],
+      "focus": "受理/保存中/已保存三阶段，绑定实际版本",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-14",
+      "title": "请求停止尚未确认",
+      "state_ids": [
+        "CHAT-REC-01",
+        "CHAT-TOL-03"
+      ],
+      "focus": "模型停止与工具/事务在途分开",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-15",
+      "title": "已停止但保留已完成结果",
+      "state_ids": [
+        "CHAT-REC-02",
+        "CHAT-RUN-10"
+      ],
+      "focus": "已提交/未做/候选及继续入口，非全量回滚",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-16",
+      "title": "工具超时且结果未知",
+      "state_ids": [
+        "CHAT-TOL-07",
+        "CHAT-SVC-08"
+      ],
+      "focus": "查询原任务，不盲重复外部写入",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-17",
+      "title": "停止过晚/迟到提交成功",
+      "state_ids": [
+        "CHAT-REC-03",
+        "CHAT-PRP-09"
+      ],
+      "focus": "明确已保存，可审阅撤销但不假取消",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-18",
+      "title": "localOnly出站阻止",
+      "state_ids": [
+        "CHAT-INP-05",
+        "CHAT-INP-03"
+      ],
+      "focus": "目的地/受限内容、允许本地工具与仅手输文字",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-19",
+      "title": "模型认证/格式/能力错误",
+      "state_ids": [
+        "CHAT-SVC-03",
+        "CHAT-SVC-06"
+      ],
+      "focus": "连接配置、工具能力、纯讨论限制分开",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-20",
+      "title": "本机内核/模型依赖缺失",
+      "state_ids": [
+        "CHAT-SVC-01",
+        "CHAT-SVC-02"
+      ],
+      "focus": "本机启动与依赖修复，不冒称远程替代本机",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-21",
+      "title": "资源候选比较与采用",
+      "state_ids": [
+        "CHAT-AST-02",
+        "CHAT-AST-03",
+        "CHAT-AST-05"
+      ],
+      "focus": "本机进度、试听、许可、入库/替换不同步骤",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-22",
+      "title": "产物已生成但入库失败",
+      "state_ids": [
+        "CHAT-AST-04",
+        "CHAT-AST-03"
+      ],
+      "focus": "保留候选和旧引用，重试入库不重生成收费",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-23",
+      "title": "切地图手改与回到原轮",
+      "state_ids": [
+        "CHAT-UI-03",
+        "CHAT-REC-06"
+      ],
+      "focus": "全局任务、原项目绑定、提案过期处理",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-24",
+      "title": "上翻阅读时仍有新输出",
+      "state_ids": [
+        "CHAT-MSG-05",
+        "CHAT-UI-07"
+      ],
+      "focus": "锚点/选区保留，新消息提示/回底，历史分页",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-25",
+      "title": "断网、锁屏和应用恢复",
+      "state_ids": [
+        "CHAT-SVC-04",
+        "CHAT-REC-04",
+        "CHAT-REC-05",
+        "CHAT-UI-04"
+      ],
+      "focus": "本地编辑可用、恢复先查原结果、不重发",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-26",
+      "title": "软键盘/旋转/返回草稿",
+      "state_ids": [
+        "CHAT-UI-01",
+        "CHAT-UI-02",
+        "CHAT-UI-08"
+      ],
+      "focus": "停止/发送/问题选择可达，旋转不重建新轮",
+      "platform": "android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-27",
+      "title": "四语/字体放大与焦点",
+      "state_ids": [
+        "CHAT-UI-05",
+        "CHAT-UI-06"
+      ],
+      "focus": "卡片长文、读屏状态节流、模态关闭还原焦点",
+      "platform": "desktop+android",
+      "scope": "L",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CHAT-VIEW-28",
+      "title": "后续平台积分与预算",
+      "state_ids": [
+        "CHAT-FEE-03",
+        "CHAT-FEE-04",
+        "CHAT-FEE-06"
+      ],
+      "focus": "报价授权/额度不足/结果对账，标后续云端",
+      "platform": "desktop+android",
+      "scope": "R",
+      "status": "planned_not_drawn",
+      "execution_status": "not_run"
+    }
+  ],
+  "transitions": [
+    [
+      "输入到执行",
+      "CHAT-INP-01/03→CHAT-RUN-01→CHAT-RUN-02→CHAT-RUN-04/05",
+      "内容/目标/模型/权限允许后才受理；localOnly和依赖失败转明确阻断"
+    ],
+    [
+      "讨论与修改",
+      "CHAT-RUN-03→CHAT-PRP-01/02/03",
+      "讨论结束不执行；只有用户明确进入执行且在既有权限内才生成可提交修改"
+    ],
+    [
+      "澄清/授权",
+      "CHAT-RUN-06/07→ASK/TOL→原任务允许的下一步",
+      "答案/权限回到原轮次和对象版本；过期需重校对，不以等待时长视为许可"
+    ],
+    [
+      "提案到保存",
+      "CHAT-PRP-03/04→07→08→09",
+      "只有09才显示项目已保存；07受理、08在途都不能冒称落盘"
+    ],
+    [
+      "手改并发",
+      "CHAT-PRP-01/03+人工新revision→05/06",
+      "非冲突重校验；冲突保留手改与旧提案并审阅，不能直接覆盖"
+    ],
+    [
+      "流结束",
+      "CHAT-RUN-04结束→CHAT-RUN-09或10",
+      "仍有工具/提案/提交时进入09，不因流结束进入全量成功"
+    ],
+    [
+      "停止",
+      "任何可取消活动→CHAT-REC-01→02或03",
+      "后台真实终态决定：已取消/部分完成/迟到成功；08提交中不能强制回滚"
+    ],
+    [
+      "未知与恢复",
+      "SVC-08/TOL-07/REC-04→查原任务→真实终态",
+      "区分确认未受理、结果未知、已提交；不改requestId重复副作用"
+    ],
+    [
+      "新输入",
+      "活跃轮+CHAT-INP-06→显式补充原轮或排下一轮",
+      "能力不支持补充时显示排队，不能同时启动第二写者或悄悄丢新消息"
+    ],
+    [
+      "候选到采用",
+      "CHAT-AST-03→05→关联提案/事务→PRP-09",
+      "候选完成不自动替换引用；失败保留现用资源与可恢复产物"
+    ]
+  ],
+  "acceptance": [
+    {
+      "group": "session",
+      "id": "CHAT-AC-01",
+      "requirement_id": "CHAT-REQ-01",
+      "given": "新会话/已有/归档/历史分页/只读或读取失败",
+      "when": "打开、分支、查摘要与恢复",
+      "then": "保留历史/项目绑定与阅读锚点，聊天分支不自动回滚工程。",
+      "execution_status": "not_run"
+    },
+    {
+      "group": "input",
+      "id": "CHAT-AC-02",
+      "requirement_id": "CHAT-REQ-02",
+      "given": "草稿/附件/生成中新指令及localOnly内容",
+      "when": "选择上下文、发送、切模式或排下一轮",
+      "then": "完整范围/目的地可见，受限内容不得出站；草稿与轮次快照不混用。",
+      "execution_status": "not_run"
+    },
+    {
+      "group": "service",
+      "id": "CHAT-AC-03",
+      "requirement_id": "CHAT-REQ-03",
+      "given": "本机未就绪、模型认证/格式/额度/上下文问题",
+      "when": "连接或恢复",
+      "then": "按原因给操作，本地编辑可用；不静默换付费/协议或用远端替代Android本机要求。",
+      "execution_status": "not_run"
+    },
+    {
+      "group": "turn",
+      "id": "CHAT-AC-04",
+      "requirement_id": "CHAT-REQ-04",
+      "given": "计划、流式文字/工具参数、等待与未完成工具",
+      "when": "讨论或执行推进至终态",
+      "then": "公开进度和任务实际一致；流结束不等于项目完成，半结构不能应用。",
+      "execution_status": "not_run"
+    },
+    {
+      "group": "question",
+      "id": "CHAT-AC-05",
+      "requirement_id": "CHAT-REQ-05",
+      "given": "资源/业务澄清、多问题、人工变更后的旧问题",
+      "when": "用户回答/暂缓/改答案",
+      "then": "依赖步骤等待，独立允许步骤可继续，旧问题过期不套错对象。",
+      "execution_status": "not_run"
+    },
+    {
+      "group": "tool",
+      "id": "CHAT-AC-06",
+      "requirement_id": "CHAT-REQ-06",
+      "given": "工具准备/授权/执行/失败/拒绝/未知/撤销",
+      "when": "允许拒绝、取消或查询",
+      "then": "动作范围明确，未授权不执行；超时不假称无副作用，不重放未知外部写入。",
+      "execution_status": "not_run"
+    },
+    {
+      "group": "proposal",
+      "id": "CHAT-AC-07",
+      "requirement_id": "CHAT-REQ-07",
+      "given": "合法/非法/部分选择/过期/冲突提案",
+      "when": "校验、应用、提交与持久化",
+      "then": "只合法工作流/结构化数据，手改保留，依赖完整；受理/保存中/已保存分开。",
+      "execution_status": "not_run"
+    },
+    {
+      "group": "asset",
+      "id": "CHAT-AC-08",
+      "requirement_id": "CHAT-REQ-08",
+      "given": "候选、许可/依赖及入库失败、占位",
+      "when": "试听、比较、接收或替换",
+      "then": "候选不自动应用、旧引用保留、本机不扣平台积分，生成成功入库失败可恢复。",
+      "execution_status": "not_run"
+    },
+    {
+      "group": "recovery",
+      "id": "CHAT-AC-09",
+      "requirement_id": "CHAT-REQ-09",
+      "given": "取消请求、确认取消、取消过晚、断线/重建",
+      "when": "停止、重连、重开、撤销/重试",
+      "then": "按真实终态恢复；已提交不假回滚，结果未知先查，间隔手改不盲撤销。",
+      "execution_status": "not_run"
+    },
+    {
+      "group": "message",
+      "id": "CHAT-AC-10",
+      "requirement_id": "CHAT-REQ-10",
+      "given": "待发/失败/已受理/部分回复及上翻选文",
+      "when": "发送重试、阅读、分支或编辑重发",
+      "then": "不重复消息/副作用、不强制滚底，编辑历史消息不改写已执行事务。",
+      "execution_status": "not_run"
+    },
+    {
+      "group": "billing",
+      "id": "CHAT-AC-11",
+      "requirement_id": "CHAT-REQ-11",
+      "given": "自带账户/本机、无usage及后续平台计费",
+      "when": "选择来源/查用量/授权预算/结算",
+      "then": "账单方分开，真实与估算可辨，本机无虚拟扣费，后续平台无授权不收费。",
+      "execution_status": "not_run"
+    },
+    {
+      "group": "adaptive",
+      "id": "CHAT-AC-12",
+      "requirement_id": "CHAT-REQ-12",
+      "given": "手机键盘/旋转/后台、窄窗、四语/字体/读屏",
+      "when": "输入、返回、切页、恢复",
+      "then": "草稿/视口/答案/任务保持，固定文案四语，历史不翻译，异步输出不抢焦点。",
+      "execution_status": "not_run"
+    }
+  ],
+  "status": "documents_prepared_artboards_not_drawn",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

@@ -1,0 +1,113 @@
+{
+  "schema": "gamegen-local-core-documentation-check/v1",
+  "date": "2026-11-17",
+  "version": "local-core-v1-draft.2",
+  "baseline_sha256": "eec47d8f4214121b66764ce8795c17a0fc576d7167d853ff47c1db45d06beaa0",
+  "result": "document_files_and_frozen_refs_consistent",
+  "scope_note": "只核对文档字段/来源/文件摘要与本地链接，不是项目测试、静态扫描、实际质量验证或发布批准。",
+  "checks": {
+    "active_artifacts": 24,
+    "frozen_stage_artifacts": 24,
+    "source_inputs": 10,
+    "previous_archive_files": 48,
+    "local_link_targets": 38,
+    "broken_links": [],
+    "hash_errors": [],
+    "canonical_digest_valid": true
+  },
+  "counts": {
+    "technical_requirements": 7,
+    "acceptance": 14,
+    "implementation_tasks": 8,
+    "basic_plan_cases": 11,
+    "independent_quality_cases": 28,
+    "full_product_inherited_requirements": 42,
+    "full_product_inherited_acceptance": 80,
+    "parent_coverage": "partial"
+  },
+  "document_gates": {
+    "product_design_documents_ready": true,
+    "basic_self_check_documents_ready": true,
+    "independent_quality_planning_documents_ready": true,
+    "architecture_documents_ready": false,
+    "workflow_documents_ready": false,
+    "architecture_remaining": [
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: architecture",
+        "path": "$.reviews"
+      },
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: engineering",
+        "path": "$.reviews"
+      },
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: product",
+        "path": "$.reviews"
+      },
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: qa",
+        "path": "$.reviews"
+      }
+    ],
+    "workflow_remaining": [
+      {
+        "code": "predecessor_incomplete",
+        "message": "必须先完成前序阶段并保留当前批准",
+        "path": "requirements"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: product",
+        "path": "requirements"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: user",
+        "path": "requirements"
+      },
+      {
+        "code": "module_gate",
+        "message": "对应模块检查未通过: architecture",
+        "path": "architecture"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: architecture",
+        "path": "architecture"
+      },
+      {
+        "code": "review_missing",
+        "message": "缺少交付/接收确认: product",
+        "path": "architecture"
+      }
+    ],
+    "ready_for_coding": false,
+    "note": "技术字段/归属/版本/输入摘要问题已关闭；正式人员基线评审与交付接收仍未登记，未代签或放行。"
+  },
+  "tool_reports": {
+    "path": "handoff/local-core-v1/tool-reports.json",
+    "sha256": "19b6a582de2e6f1c922cd8ee88d0eb53efccba561e88dcc000ded9471a98a315"
+  },
+  "approvals": [],
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "not_executed": [
+    "builds",
+    "C_header_compilation",
+    "SQL_execution",
+    "JSON_schema_validation",
+    "unit_tests",
+    "integration_regression_tests",
+    "static_analysis",
+    "load_security_operations",
+    "device_operations",
+    "screenshots",
+    "deployment_publication"
+  ],
+  "remaining_implementation_work": "native/实现尚未开始；固定依赖尚未下载，下载字节校验与实际编译/运行记录归后续授权任务；本包不是全产品实现。"
+}

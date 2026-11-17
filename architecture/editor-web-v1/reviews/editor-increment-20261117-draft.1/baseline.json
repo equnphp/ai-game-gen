@@ -1,0 +1,159 @@
+{
+  "schema": "gamegen.architecture-review-baseline.v1",
+  "baseline_payload": {
+    "version": "editor-increment-source-review-20261117-draft.1",
+    "date": "2026-11-17",
+    "parent": {
+      "version": "editor-web-v1-draft.4",
+      "path": "architecture/editor-web-v1/revisions/draft.4/baseline.json",
+      "file_sha256": "3b932361fee93cd365c8d9bb82dad127393363fb266d381a60e3dae535278c50",
+      "payload_sha256": "f54ced9f35129f40ac32de4f1a41f831bd1b4e15de4133c0ee461edb5f2dfe8d",
+      "preserved_artifacts": 22
+    },
+    "artifacts": [
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/.architecture-mcp.json",
+        "sha256": "94c3d082b45f965873952826bd8c59e0accb9d5096f9f0f26c6ab597ba53aa0c",
+        "bytes": 11212
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/COMPATIBILITY-ADDENDUM.md",
+        "sha256": "d5fe9e5e6f47ccf72a0c0475bae5a4d8c97207cabe576be7609bbdf6036941ac",
+        "bytes": 3621
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/findings.json",
+        "sha256": "c4f479b4e962098ed9a8b6f8bca2003f21c6f8dadf5b50c673f3669ec2564ffb",
+        "bytes": 2856
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/architecture-baseline.json",
+        "sha256": "1f22896ea70f1a0b9e337843cb56f3a56dc6f8972b094d79cd975e5c70743194",
+        "bytes": 6339
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/dependency-metadata.json",
+        "sha256": "a9f549c7e476af92cddfff98052dcf37ddfaf7d2e0f955c3dce9a6c3463fe6a1",
+        "bytes": 8231
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/capabilities/main.json",
+        "sha256": "fbbed5f01dc92ecc1c0b3384331201e784bc5b02c9033e0300b2333a6bf6b18c",
+        "bytes": 313
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/Cargo.toml",
+        "sha256": "e0a964f18cf584a948161dacfc1f811e874a3d26d74e694fceac8417576532d1",
+        "bytes": 604
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/permissions/editor.toml",
+        "sha256": "c65a0221dcefcfe9e6d0f66a35a9b4907757a8619a8a5804adbcbe0a498c303c",
+        "bytes": 518
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/src/core.rs",
+        "sha256": "d3f5887def45a17e59b748423f8bf1200159329ca4bff85e968e2a91f3a5bce4",
+        "bytes": 19316
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/src/ffi.rs",
+        "sha256": "40301b764d713d16d1fee788fcdc20476854736af2985efce5592c97ddb32ce5",
+        "bytes": 7351
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/src/lib.rs",
+        "sha256": "7b6623d524f896a0a71a6a42bda43d62f89e06e3d6a30d386010ad24f5c19ee9",
+        "bytes": 6798
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/src/locale.rs",
+        "sha256": "e29748968c9d2601dc7f2038d83a26ea1b2cf6024f9cfa3bb00af608ac5000f7",
+        "bytes": 19450
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/src/wire.rs",
+        "sha256": "cb4b7b763483a43d6760b66e5322ddb89946599dbabb37d5dd9a9dc15d745450",
+        "bytes": 5171
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/hosts/tauri/tauri.conf.json",
+        "sha256": "d7ee5487a148c7a4b36942136a77208a0c3825f9c37c98e767e5d536a17fd02c",
+        "bytes": 810
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/package.json",
+        "sha256": "b8e806b9577841ee751c6a32800e8ed2278fdac55121c4836906f91d8933753e",
+        "bytes": 668
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/web/src/App.tsx",
+        "sha256": "321f0f0bab66f2d3d816d071a53d8e258d5b4e7583747798893f3750d7b9656f",
+        "bytes": 26566
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/web/src/components.tsx",
+        "sha256": "8825c5a4c3a8b0f5b513a30f55356678410962bbefaf76582016aaa65291ac3e",
+        "bytes": 3252
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/web/src/core-client.ts",
+        "sha256": "3bd9f2b7835efaeef8893b95487eb531893cfd180005150ffb895e9010008169",
+        "bytes": 6762
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/web/src/locales/catalogue.json",
+        "sha256": "73ab450868eed0811bf7e7cced77c630863bc2f9c79b9308ae2379e6395e0c0e",
+        "bytes": 1798
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source/editor/web/src/localization.tsx",
+        "sha256": "af494fe270772036abaf070c81f6d55b2bdf12717e57ba827ad926fe8f092a25",
+        "bytes": 6625
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/inputs/source-observation.json",
+        "sha256": "358164bbf358bccc83287d65dc53cd5dad7e7ad44a1954242e227e37ec785b89",
+        "bytes": 10049
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/README.md",
+        "sha256": "b5f0ac63d25ca8b379bc24de2b1118ba0ce9cb47faff0bdd0695d8c33d75d8e6",
+        "bytes": 833
+      },
+      {
+        "path": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/REVIEW.md",
+        "sha256": "096f4170d8c0bc9b4037bdc439b33f2fe2eaa99d8cf66a6f8a8d6f1803b0fa34",
+        "bytes": 7299
+      }
+    ],
+    "manual_source_snapshots": 15,
+    "source_drift_since_snapshot": [],
+    "root_file_changes_during_document_finalization": [],
+    "open_findings": [
+      "AR-INC-01",
+      "AR-INC-02",
+      "AR-INC-03"
+    ],
+    "source_corrections_observed_not_executed": 3,
+    "document_links_missing": [],
+    "source_scope_fit": "conditional_with_open_findings",
+    "ready_for_coding": false,
+    "actual_role_reviews": [],
+    "metadata_only": true,
+    "full_graph_lock": false,
+    "selected": false,
+    "verified": false,
+    "implementation_edits_performed": false,
+    "tests_build_scans_schema_or_type_checks_run": false,
+    "execution_status": "not_run",
+    "quality_verified": false,
+    "release_permitted": false
+  },
+  "hash_algorithm": "SHA-256 UTF-8 canonical recursively sorted object-key JSON payload; arrays ordered",
+  "baseline_sha256": "05ae7cb9c945cd2028d18f842947f88519ff434aa3c264f2f4b0d7d1109494c3",
+  "approvals": [],
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

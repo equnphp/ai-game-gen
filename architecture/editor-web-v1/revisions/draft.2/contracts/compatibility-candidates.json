@@ -1,0 +1,74 @@
+{
+  "version": "editor-web-v1-draft.2",
+  "status": "architecture_candidates_not_compatibility_lock",
+  "candidate_C1": {
+    "coreProducer": "LLVM-MinGW UCRT20261104 Clang23.1.5",
+    "rust": "1.100.0",
+    "rustTarget": "x86_64-pc-windows-msvc",
+    "loadStrategy": "runtime_DLL_C_ABI_only",
+    "node": "24.22.3",
+    "npm": "11.19.1",
+    "packages": {
+      "react": "19.3.1",
+      "react-dom": "19.3.1",
+      "typescript": "7.0.2",
+      "vite": "8.3.8",
+      "@vitejs/plugin-react": "6.3.0",
+      "@tauri-apps/api": "2.12.5",
+      "@tauri-apps/cli": "2.12.5",
+      "@playwright/test": "1.65.1"
+    },
+    "rustCrate": {
+      "tauri": "2.12.5",
+      "declaredMSRV": "1.90",
+      "source": "official sparse index",
+      "yanked": false
+    },
+    "pending": [
+      "MSVC v143 exact toolset/SDK patch and free eligibility",
+      "complete JS/Cargo transitive lock/features",
+      "WebView2 exact SDK/runtime/offline receipt",
+      "actual core DLL export/dependency/layout/product evidence"
+    ]
+  },
+  "candidate_C2": {
+    "inherits": "C1 frontend/Rust/Tauri",
+    "target": "aarch64-linux-android",
+    "ndk": "27.3.13750724",
+    "minApi": 26,
+    "abi": "arm64-v8a",
+    "core": "libggcore.so",
+    "cppRuntime": "one libc++_shared.so from same NDK",
+    "pending": [
+      "Gradle/AGP/JDK and platform SDK exact versions",
+      "Rust host SO name/DT_NEEDED and C ABI artifact",
+      "all SO page/ZIP compatibility evidence",
+      "System WebView and lifecycle/device evidence"
+    ]
+  },
+  "candidate_T1": {
+    "status": "separate_optional_phase",
+    "rule": "select service/plugin version first, then match WDIO/Appium/driver peers; no blind latest mix",
+    "pending": [
+      "exact service/plugin/driver tuple",
+      "free provider eligibility",
+      "production test-control disabled"
+    ]
+  },
+  "direct_metadata_conditions": {
+    "reactDOMPeerSatisfied": true,
+    "reactPluginVitePeerSatisfied": true,
+    "topLevelNodeEnginesSatisfied": true,
+    "tauriDeclaredMSRVSatisfied": true,
+    "notFullDependencyResolution": true
+  },
+  "sourceMetadataOnly": true,
+  "downloadedArchiveBytes": false,
+  "lock_files_created": false,
+  "installed": false,
+  "built": false,
+  "tested": false,
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

@@ -1,0 +1,27 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"acceptance_count\":0,\"acceptance_with_test_count\":0,\"baseline_sha256\":\"e8b4def98038c91c84abc1203bca57da648e1520adb2f3deb841adab051125d7\",\"complete\":true,\"downstream\":{},\"in_scope_requirements\":0,\"issues\":[],\"limits\":[\"只核验声明范围、文件摘要与记录关联，不能证明内容真实或需求完整\",\"审批人身份、用户研究质量、业务价值及运行效果需要人员确认\",\"本工具不会执行构建、研究任务、交互或发布操作\"],\"passed\":true,\"product_version\":\"v3.7.1-engine-whitelist\",\"root\":\"I:\\\\code\\\\GameGen\",\"stage\":\"discovery\"}"
+    }
+  ],
+  "structuredContent": {
+    "acceptance_count": 0,
+    "acceptance_with_test_count": 0,
+    "baseline_sha256": "e8b4def98038c91c84abc1203bca57da648e1520adb2f3deb841adab051125d7",
+    "complete": true,
+    "downstream": {},
+    "in_scope_requirements": 0,
+    "issues": [],
+    "limits": [
+      "只核验声明范围、文件摘要与记录关联，不能证明内容真实或需求完整",
+      "审批人身份、用户研究质量、业务价值及运行效果需要人员确认",
+      "本工具不会执行构建、研究任务、交互或发布操作"
+    ],
+    "passed": true,
+    "product_version": "v3.7.1-engine-whitelist",
+    "root": "I:\\code\\GameGen",
+    "stage": "discovery"
+  },
+  "isError": false
+}

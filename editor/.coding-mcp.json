@@ -1,0 +1,310 @@
+{
+  "delivery_identity": {
+    "artifact_sha256": "",
+    "build_id": "",
+    "source_revision": ""
+  },
+  "documents": [
+    {
+      "kind": "basic",
+      "owner": "coding",
+      "path": "docs/basic-self-check.md",
+      "version": "editor-increment.1",
+      "sha256": "bf3d0416d3e9d603459929523a844f3da0ca61a142c35a59463062c6b308d4e3"
+    }
+  ],
+  "execution_policy": "documentation_only",
+  "execution_records": [],
+  "project": {
+    "id": "gamegen-editor-increment-1",
+    "name": "GameGen编辑器首个源级增量",
+    "version": "editor-increment.1",
+    "owner": "coding编制角色；真实人员接收未登记"
+  },
+  "reviews": [],
+  "schema_version": 1,
+  "test_cases": [
+    {
+      "id": "B-EW-01",
+      "category": "changed_unit",
+      "requirement_id": "LC-REQ-07",
+      "acceptance_id": "LC-AC-14",
+      "title": "ABI与线协议边界",
+      "data": "错ABI/伪造token/Base64/U64/未知字段",
+      "steps": "调用受理/查询/释放",
+      "expected": "拒绝且不改变Core状态",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-02",
+      "category": "main_path",
+      "requirement_id": "LC-REQ-01",
+      "acceptance_id": "LC-AC-01",
+      "title": "项目场景闭环",
+      "data": "固定业务UUID/隔离空目录",
+      "steps": "新建→对象→坐标→保存→关→重开",
+      "expected": "稳定ID与字段保持、只有durable报保存",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-03",
+      "category": "failure_path",
+      "requirement_id": "LC-REQ-02",
+      "acceptance_id": "LC-AC-04",
+      "title": "草稿与冲突",
+      "data": "未完成负号/空数值/旧revision",
+      "steps": "切换七语后修正并提交",
+      "expected": "草稿保留；非法值不循环自动提交",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-04",
+      "category": "changed_unit",
+      "requirement_id": "LC-REQ-03",
+      "acceptance_id": "LC-AC-05",
+      "title": "撤销重做与离开",
+      "data": "多对象批次/未保存草稿",
+      "steps": "保存/丢弃/取消三分支→Undo/Redo",
+      "expected": "revision递增，丢弃不撤销已提交数据",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-05",
+      "category": "main_path",
+      "requirement_id": "LC-REQ-04",
+      "acceptance_id": "LC-AC-06",
+      "title": "分块资源入库",
+      "data": "2MiB+17字节本地文件/未知许可",
+      "steps": "begin→write→finish→attach→引用",
+      "expected": "真实hash与元信息，无半资源引用",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-06",
+      "category": "failure_path",
+      "requirement_id": "LC-REQ-07",
+      "acceptance_id": "LC-AC-13",
+      "title": "结果丢失与清理",
+      "data": "终态后result响应丢失/release回包丢失",
+      "steps": "查询原task或原requestId",
+      "expected": "未收到结果不释放；已知成功不改报失败",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-07",
+      "category": "main_path",
+      "requirement_id": "LANG-REQ-01",
+      "acceptance_id": "LANG-AC-01",
+      "title": "首启与本机恢复",
+      "data": "空文件/七语言有效文件",
+      "steps": "启动→选择→关闭→重开",
+      "expected": "首启英文；有效本机选择优先",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-08",
+      "category": "failure_path",
+      "requirement_id": "LANG-REQ-02",
+      "acceptance_id": "LANG-AC-05",
+      "title": "同ticket迟到",
+      "data": "accepted晚于committed/failed快照",
+      "steps": "按不同顺序投递当前合法回执",
+      "expected": "revision/终态不回退",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-09",
+      "category": "failure_path",
+      "requirement_id": "LANG-REQ-02",
+      "acceptance_id": "LANG-AC-05",
+      "title": "快速连选",
+      "data": "A保存中→B→A/两个通道",
+      "steps": "并发选择→快照→重开",
+      "expected": "seq/ticket决定最新意图，失败不冒报已记住",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-10",
+      "category": "failure_path",
+      "requirement_id": "LANG-REQ-01",
+      "acceptance_id": "LANG-AC-03",
+      "title": "未来/损坏偏好",
+      "data": "未来schema/坏校验/读取或替换失败",
+      "steps": "启动及显式选择并查询",
+      "expected": "保留原件，英文回退不自动写盘",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-11",
+      "category": "changed_unit",
+      "requirement_id": "LANG-REQ-02",
+      "acceptance_id": "LANG-AC-04",
+      "title": "切换保留创作现场",
+      "data": "IME/数值草稿/选区/待完成任务",
+      "steps": "从三个入口选语言",
+      "expected": "会话/草稿/任务不重建或重发",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-12",
+      "category": "failure_path",
+      "requirement_id": "LC-REQ-07",
+      "acceptance_id": "LC-AC-14",
+      "title": "核心产物接收",
+      "data": "缺DLL/坏摘要/外来依赖/重解析点",
+      "steps": "describe→open",
+      "expected": "拒绝加载；不在PATH/项目目录回退",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-13",
+      "category": "main_path",
+      "requirement_id": "LC-REQ-07",
+      "acceptance_id": "LC-AC-12",
+      "title": "单槽与关闭",
+      "data": "两个终态/一个结果槽/在途写入",
+      "steps": "result→BUSY→release→close",
+      "expected": "有界槽，超时保留CLOSING，释放分配方buffer",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-14",
+      "category": "changed_unit",
+      "requirement_id": "LANG-REQ-03",
+      "acceptance_id": "LANG-AC-08",
+      "title": "文字与内容边界",
+      "data": "原项目名/聊天/枚举中多种文字",
+      "steps": "切七语并查看标签、原文、locale文件",
+      "expected": "只刷新内置文字，原文/项目/LAN/游戏保持",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-15",
+      "category": "failure_path",
+      "requirement_id": "LC-REQ-07",
+      "acceptance_id": "LC-AC-13",
+      "title": "受理边界分类",
+      "data": "关闭态/队列满/非法数据/假token/原生成功但回执异常",
+      "steps": "分别在原生受理前后返回失败",
+      "expected": "受理前not_submitted；受理后submitted_unknown；UI不制造假未知",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-16",
+      "category": "failure_path",
+      "requirement_id": "LANG-REQ-02",
+      "acceptance_id": "LANG-AC-05",
+      "title": "UX超前游标恢复",
+      "data": "afterSeq大于实际尾",
+      "steps": "读事件→重取snapshot→再读新增事件",
+      "expected": "gap=true；返回实际尾并可继续推进",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "B-EW-17",
+      "category": "main_path",
+      "requirement_id": "LANG-REQ-02",
+      "acceptance_id": "LANG-AC-07",
+      "title": "语言成功反馈",
+      "data": "committed/unchanged/accepted/旧意图/重启历史回执",
+      "steps": "快速连选并查看提示，等待4.5秒",
+      "expected": "只为最新本窗口真实成功提示一次，文案采用新有效语言",
+      "owner": "coding",
+      "preconditions": "首个增量源码已写入但未构建；用户另明确授权执行后在隔离fixture及匹配实际制品中进行。",
+      "environment": "计划Windows11 x64/1440×960及390×844/固定C1；实际OS/WebView/buildId为空",
+      "execution_status": "not_run"
+    }
+  ],
+  "delivery": {
+    "code_author_role": "engineering",
+    "has_ui": true,
+    "requires_code": true,
+    "design_version": "ui-full-20261117-draft.2 + LANG-draft.1",
+    "implementation_status": "source_written_not_built",
+    "deliverables": [
+      {
+        "id": "EW-IMPL-01",
+        "code_author_role": "engineering",
+        "paths": [
+          "web/",
+          "host-contract/",
+          "hosts/",
+          "package.json",
+          "tsconfig.json",
+          ".node-version",
+          ".npmrc",
+          ".gitignore"
+        ]
+      },
+      {
+        "id": "EW-DOC-01",
+        "code_author_role": "engineering",
+        "paths": [
+          "docs/",
+          "README.md",
+          ".coding-mcp.json",
+          ".quality-plan-mcp.json",
+          ".design-mcp.json",
+          ".workflow-mcp.json"
+        ]
+      }
+    ]
+  },
+  "implementation_status": "source_written_not_built",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "implementation_authorization": {
+    "source": "本开发会话用户",
+    "user_request": "你看新的架构设计、产品文档、UI设计，开始继续开发",
+    "quality_execution_authorized": false
+  }
+}

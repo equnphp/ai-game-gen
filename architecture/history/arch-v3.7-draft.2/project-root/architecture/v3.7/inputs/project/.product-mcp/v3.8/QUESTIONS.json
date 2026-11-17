@@ -1,0 +1,165 @@
+{
+  "version": "v3.8-core-editor-extension-draft.1",
+  "source_thread_id": "01a1d8ab-37ad-7652-a9b5-5ab0d0ef7a7f",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "items": [
+    {
+      "id": "Q-EXP-001",
+      "question": "未来导出成对应项目的目标类型？",
+      "status": "answered_scope_recorded",
+      "answer": "Cocos Creator、LayaAir、Godot可编辑工程",
+      "source_record": "SRC-EXT-002",
+      "route": "product→user",
+      "blocks_current_architecture": false,
+      "artifact_refs": [
+        "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md#2",
+        "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md#4"
+      ],
+      "confirmation_note": "用户答案由架构会话转达；本记录不是全部实现/版本/往返批准。",
+      "artifact_bindings": [
+        {
+          "path": "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md",
+          "version": "v3.8-core-editor-extension-draft.1",
+          "sha256": "9cc242933c9b994aeef93394a32baf3b57f589329b1bb13c86de5677ffbc2f90"
+        },
+        {
+          "path": "HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+          "version": "v3.8-core-editor-extension-draft.1",
+          "sha256": "711cf8d9e5eda64569d18b9a7b55227f5336715d5ba6b90a1a2896a99a93b5a0"
+        }
+      ]
+    },
+    {
+      "id": "Q-PLAT-001",
+      "question": "新增iOS/iPad/Android平板属于编辑器还是游戏发行？",
+      "status": "answered_scope_recorded",
+      "answer": "创作编辑器扩展；游戏仍四目标",
+      "source_record": "SRC-EXT-003",
+      "route": "product→user",
+      "blocks_current_architecture": false,
+      "artifact_refs": [
+        "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md#5"
+      ],
+      "artifact_bindings": [
+        {
+          "path": "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md",
+          "version": "v3.8-core-editor-extension-draft.1",
+          "sha256": "9cc242933c9b994aeef93394a32baf3b57f589329b1bb13c86de5677ffbc2f90"
+        },
+        {
+          "path": "HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+          "version": "v3.8-core-editor-extension-draft.1",
+          "sha256": "711cf8d9e5eda64569d18b9a7b55227f5336715d5ba6b90a1a2896a99a93b5a0"
+        }
+      ]
+    },
+    {
+      "id": "Q-EXP-002",
+      "question": "未来是否要升级为双向或无损往返？",
+      "status": "not_in_current_scope",
+      "answer": "目前没有该要求；首批方案按单向新目录写出规划，源工程更新后的重导入继续按REQ-038。",
+      "owner": "产品→用户，仅后续提出此类功能时",
+      "blocks_current_architecture": false,
+      "blocks": "任何宣称无损往返/任意代码逆向转换的范围扩张",
+      "due_at": "未来往返功能立项前",
+      "escalate_to": "用户",
+      "artifact_refs": [
+        "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md#4.4"
+      ],
+      "artifact_bindings": [
+        {
+          "path": "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md",
+          "version": "v3.8-core-editor-extension-draft.1",
+          "sha256": "9cc242933c9b994aeef93394a32baf3b57f589329b1bb13c86de5677ffbc2f90"
+        },
+        {
+          "path": "HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+          "version": "v3.8-core-editor-extension-draft.1",
+          "sha256": "711cf8d9e5eda64569d18b9a7b55227f5336715d5ba6b90a1a2896a99a93b5a0"
+        }
+      ]
+    },
+    {
+      "id": "Q-WRITER-001",
+      "question": "未来各Writer支持的确切版本/对象/目标代码语言、模板与交付顺序？",
+      "status": "open_future_iteration",
+      "owner": "架构提出能力/成本→产品取舍→用户确认新增范围",
+      "route": "architecture→product/user",
+      "blocks_current_architecture": false,
+      "blocks": "对应Writer的实现冻结与兼容性声明",
+      "due_at": "未来各Writer迭代架构冻结前",
+      "escalate_to": "用户",
+      "artifact_refs": [
+        "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md#4"
+      ],
+      "artifact_bindings": [
+        {
+          "path": "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md",
+          "version": "v3.8-core-editor-extension-draft.1",
+          "sha256": "9cc242933c9b994aeef93394a32baf3b57f589329b1bb13c86de5677ffbc2f90"
+        },
+        {
+          "path": "HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+          "version": "v3.8-core-editor-extension-draft.1",
+          "sha256": "711cf8d9e5eda64569d18b9a7b55227f5336715d5ba6b90a1a2896a99a93b5a0"
+        }
+      ]
+    },
+    {
+      "id": "Q-PLAT-002",
+      "question": "未来新增编辑器最低系统/机型、分发和功能矩阵？",
+      "status": "open_future_iteration",
+      "owner": "架构/产品→用户",
+      "route": "architecture→product/user",
+      "blocks_current_architecture": false,
+      "blocks": "相应平台详细UI/开发基线",
+      "due_at": "新增平台迭代冻结前",
+      "escalate_to": "用户",
+      "artifact_refs": [
+        "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md#5"
+      ],
+      "artifact_bindings": [
+        {
+          "path": "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md",
+          "version": "v3.8-core-editor-extension-draft.1",
+          "sha256": "9cc242933c9b994aeef93394a32baf3b57f589329b1bb13c86de5677ffbc2f90"
+        },
+        {
+          "path": "HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+          "version": "v3.8-core-editor-extension-draft.1",
+          "sha256": "711cf8d9e5eda64569d18b9a7b55227f5336715d5ba6b90a1a2896a99a93b5a0"
+        }
+      ]
+    },
+    {
+      "id": "Q-LIC-001",
+      "question": "正式GPL版本、自有运行/导出例外与第三方再分发权利链？",
+      "status": "open_legal_and_owner_review",
+      "owner": "实际权利人与合规负责人待指定；产品记录目标，架构列出组件",
+      "route": "architecture→product/user",
+      "blocks_current_architecture": false,
+      "blocks": "正式许可证文本、携带第三方材料的分发承诺与发布",
+      "due_at": "许可基线与对外分发冻结前",
+      "escalate_to": "用户/实际权利人",
+      "artifact_refs": [
+        "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md#6"
+      ],
+      "artifact_bindings": [
+        {
+          "path": "CORE-EDITOR-EXTENSION-REQUIREMENTS-V3.8.md",
+          "version": "v3.8-core-editor-extension-draft.1",
+          "sha256": "9cc242933c9b994aeef93394a32baf3b57f589329b1bb13c86de5677ffbc2f90"
+        },
+        {
+          "path": "HANDOFF-ARCHITECTURE-CLARIFICATIONS-V3.8.md",
+          "version": "v3.8-core-editor-extension-draft.1",
+          "sha256": "711cf8d9e5eda64569d18b9a7b55227f5336715d5ba6b90a1a2896a99a93b5a0"
+        }
+      ]
+    }
+  ],
+  "current_scope_blocking_business_questions": [],
+  "note": "以上不表示架构/开发/许可评审已由真实负责人签署。"
+}

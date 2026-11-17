@@ -1,0 +1,1317 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gamegen:local-core:request:1.0",
+  "title": "设计消息Schema，未执行验证；领域限制仍由api.md定义",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "core.capabilities"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "project.create"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "directory": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]{1,64}\\.ggproject$"
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "projectId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "defaultSceneId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "settingsId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "directory",
+            "name",
+            "projectId",
+            "defaultSceneId",
+            "settingsId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "project.open"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "directory": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]{1,64}\\.ggproject$"
+            },
+            "mode": {
+              "enum": [
+                "read_write",
+                "read_only"
+              ]
+            }
+          },
+          "required": [
+            "directory",
+            "mode"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "project.close"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "project.read"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "project.flush"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "document.list"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "afterId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "limit"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "document.read"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "documentId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "snapshotId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "documentId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "document.propose"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "operations": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 64,
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "create_document"
+                      },
+                      "documentId": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                      },
+                      "schemaVersion": {
+                        "const": 1
+                      },
+                      "body": {
+                        "type": "object"
+                      },
+                      "documentKind": {
+                        "enum": [
+                          "project.settings",
+                          "scene"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "documentId",
+                      "documentKind",
+                      "schemaVersion",
+                      "body"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "set_field"
+                      },
+                      "documentId": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                      },
+                      "path": {
+                        "type": "string"
+                      },
+                      "value": {}
+                    },
+                    "required": [
+                      "kind",
+                      "documentId",
+                      "path",
+                      "value"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "remove_field"
+                      },
+                      "documentId": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "documentId",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "delete_document"
+                      },
+                      "documentId": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "documentId"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "operations"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId",
+        "expectedRevision"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "document.validate"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "proposalId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "proposalHash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "proposalId",
+            "proposalHash"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "document.commit"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "proposalId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "validatedHash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "proposalId",
+            "validatedHash"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId",
+        "expectedRevision"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "history.undo"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId",
+        "expectedRevision"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "history.redo"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId",
+        "expectedRevision"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "history.read"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "beforeRevision": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,18})$"
+            }
+          },
+          "required": [
+            "limit"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "asset.upload_begin"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "assetId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "byteLength": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,18})$"
+            },
+            "mediaType": {
+              "type": "string"
+            },
+            "source": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string"
+                },
+                "displayName": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "displayName"
+              ],
+              "additionalProperties": false
+            },
+            "license": {
+              "type": "object",
+              "properties": {
+                "identifier": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "identifier",
+                "status"
+              ],
+              "additionalProperties": false
+            },
+            "expectedHash": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "assetId",
+            "byteLength",
+            "mediaType",
+            "source",
+            "license"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "asset.upload_status"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "uploadId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "uploadId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "asset.upload_finish"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "uploadId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "uploadId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "asset.upload_cancel"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "uploadId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "uploadId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "asset.attach"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "uploadId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "uploadId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId",
+        "expectedRevision"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "asset.read"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "assetId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "assetId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "snapshot.list"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "afterId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "limit"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "snapshot.pin"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "snapshotId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "locked": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "snapshotId",
+            "locked"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "snapshot.restore"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "snapshotId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "snapshotId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId",
+        "expectedRevision"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "request.lookup"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "targetRequestId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "required": [
+            "targetRequestId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "maintenance.backup"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "backupName": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]{1,64}\\.sqlite$"
+            }
+          },
+          "required": [
+            "backupName"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "maintenance.gc"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "dryRun": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "dryRun"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "op",
+        "params",
+        "projectId"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}
