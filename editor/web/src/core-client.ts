@@ -6,11 +6,16 @@ export type CoreResult<T = Record<string, unknown>> = {
   error: { code: string; messageKey: string; retryable: boolean } | null;
 };
 export type CoreTaskResult<T> = CoreResult<T> & {binary:Uint8Array|null};
+export type ModelRegistration={kind:string;schemaVersion:number;status:string;runtimeProfiles:string[];writerProfiles:string[]};
 export class CoreFailure extends Error {
   constructor(readonly response: CoreResult) { super(response.error?.code ?? "CORE_ERROR"); }
 }
 export class CoreClient {
   session: SessionToken | null = null;
+  protocolVersion:'1.0'|'1.1'='1.0';
+  schemaCatalogHash:string|null=null;
+  readonly models=new Map<string,ModelRegistration>();
+  private negotiated=false;
   readonly pending = new Map<string, { ticket: TaskTicket; original: Uint8Array | null }>();
   constructor(readonly host: EditorHostPort) {}
   async call<M extends keyof HostMethodMap>(method: M, params: HostMethodMap[M]["params"],
@@ -23,6 +28,33 @@ export class CoreClient {
   async open(grantRef: string): Promise<void> {
     const result = await this.call("session.open", { grantRef,requiredCapabilities:["core.project_store","core.scene_documents"] });
     this.session = result.sessionToken;
+    await this.negotiateModels();
+  }
+  async negotiateModels():Promise<void> {
+    if(this.negotiated)return;
+    // 新协议只通过真实只读目录探测协商，旧核心明确拒绝后才保留M1模式。
+    try {
+      const registrations=new Map<string,ModelRegistration>();let after:string|null=null;let catalog:string|null=null;
+      do {
+        const request={protocolVersion:'1.1',requestId:crypto.randomUUID(),op:'schema.catalog.list',params:{after,limit:100}};
+        const result:CoreResult<{schemaCatalogHash:string;items:ModelRegistration[];nextAfter:string|null}>=await this.submit(request);
+        if(!result.data || !/^sha256:[0-9a-f]{64}$/.test(result.data.schemaCatalogHash) || !Array.isArray(result.data.items))throw new Error('CORE_CONTRACT_VIOLATION');
+        if(catalog!==null && catalog!==result.data.schemaCatalogHash)throw new Error('MODEL_CATALOG_CHANGED');catalog=result.data.schemaCatalogHash;
+        for(const item of result.data.items){
+          if(typeof item.kind!=='string' || !Number.isInteger(item.schemaVersion) || item.status!=='implemented')throw new Error('CORE_CONTRACT_VIOLATION');
+          const key=item.kind+'@'+item.schemaVersion;if(registrations.has(key))throw new Error('CORE_CONTRACT_VIOLATION');registrations.set(key,item);
+        }
+        if(registrations.size>1024 || result.data.nextAfter!==null && typeof result.data.nextAfter!=='string')throw new Error('MODEL_CATALOG_INCOMPLETE');
+        if(result.data.nextAfter===after && after!==null)throw new Error('CORE_CONTRACT_VIOLATION');after=result.data.nextAfter;
+      }while(after!==null);
+      this.models.clear();for(const [key,item] of registrations)this.models.set(key,item);
+      this.schemaCatalogHash=catalog;this.protocolVersion='1.1';this.negotiated=true;
+    }catch(error) {
+      if(error instanceof CoreFailure && ['INVALID_MESSAGE','PROTOCOL_VERSION_UNSUPPORTED','UNSUPPORTED_SCHEMA'].includes(error.response.error?.code??'')) {
+        this.protocolVersion='1.0';this.negotiated=true;return;
+      }
+      throw error;
+    }
   }
   async wait<T>(ticket: TaskTicket, original: Bytes | null = null, signal?: AbortSignal): Promise<CoreTaskResult<T>> {
     if (!this.session) throw new Error("SESSION_INVALID");
@@ -104,7 +136,7 @@ export class CoreClient {
     throw new Error("RESULT_UNKNOWN");
   }
   request(op: string, params: unknown, projectId?: string, expectedRevision?: string): Record<string,unknown> {
-    return { protocolVersion:"1.0",requestId:crypto.randomUUID(),op,params,
+    return { protocolVersion:this.protocolVersion,requestId:crypto.randomUUID(),op,params,
       ...(projectId ? {projectId} : {}),...(expectedRevision !== undefined ? {expectedRevision} : {}) };
   }
   async edit(projectId: string,revision: string,operations: unknown[]): Promise<{revision:string;snapshotId:string;durable:boolean}> {
@@ -120,6 +152,6 @@ export class CoreClient {
   async close(): Promise<void> {
     if (!this.session) return;
     await this.call("session.close", {sessionToken:this.session,mode:"drain",deadlineMs:30000});
-    this.session = null; this.pending.clear();
+    this.session = null; this.pending.clear();this.protocolVersion='1.0';this.schemaCatalogHash=null;this.models.clear();this.negotiated=false;
   }
 }

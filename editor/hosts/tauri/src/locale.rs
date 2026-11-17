@@ -1,9 +1,9 @@
 // 设备语言与项目/课程文件隔离；只有实际替换确认后才改变effectiveLocale。
-use crate::wire::*;
+use crate::{wire::*,store_io::{write_new,replace}};
 use fs2::FileExt;
 use serde_json::{json,Value};
 use sha2::{Digest,Sha256};
-use std::{collections::{HashMap,VecDeque},fs::{self,File,OpenOptions},io::Write,path::{Path,PathBuf},
+use std::{collections::{HashMap,VecDeque},fs::{self,File,OpenOptions},path::{Path,PathBuf},
     sync::{Arc,Mutex,Condvar},thread::{self,JoinHandle}};
 const LOCALES:[(&str,&str);7]=[("en","English"),("zh-Hans","简体中文"),("zh-Hant","繁體中文"),
     ("ja","日本語"),("ko","한국어"),("es","Español"),("fr","Français")];
@@ -56,22 +56,6 @@ fn publish(d:&mut Data,kind:&str,intent:Option<&Intent>){
 fn outcome(d:&mut Data,intent:&Intent,result:&str,error:Option<&str>){
     d.state["lastOutcome"]=json!({"serviceInstanceId":d.service,"commandId":intent.command,
         "ticket":intent.ticket.to_string(),"outcome":result,"errorCode":error});
-}
-fn write_new(path:&Path,bytes:&[u8])->std::io::Result<()>{
-    let mut options=OpenOptions::new();options.create_new(true).write(true);
-    #[cfg(unix)]{use std::os::unix::fs::OpenOptionsExt;options.mode(0o600);}
-    let mut file=options.open(path)?;file.write_all(bytes)?;file.sync_all()
-}
-fn replace(from:&Path,to:&Path)->std::io::Result<()>{
-    #[cfg(windows)]{
-        use std::os::windows::ffi::OsStrExt;
-        #[link(name="kernel32")]extern "system"{fn MoveFileExW(a:*const u16,b:*const u16,flags:u32)->i32;}
-        let a:Vec<_>=from.as_os_str().encode_wide().chain(Some(0)).collect();
-        let b:Vec<_>=to.as_os_str().encode_wide().chain(Some(0)).collect();
-        if unsafe{MoveFileExW(a.as_ptr(),b.as_ptr(),1|8)}==0{return Err(std::io::Error::last_os_error());}
-        Ok(())
-    }
-    #[cfg(not(windows))]{fs::rename(from,to)?;File::open(to.parent().unwrap())?.sync_all()}
 }
 impl LocalUX {
     pub fn new(directory:PathBuf)->Self{

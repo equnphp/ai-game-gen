@@ -58,6 +58,7 @@ github.txt
 # 本机组装的原生运行制品不提交；应用图标保留最小运行集合
 /editor/hosts/tauri/resources/native/windows-x86_64/*.dll
 /editor/hosts/tauri/resources/native/windows-x86_64/core-artifact.json
+/editor/hosts/tauri/resources/native/windows-x86_64/native-runtime-bundle.json
 /editor/hosts/tauri/icons/*
 !/editor/hosts/tauri/icons/图标.svg
 !/editor/hosts/tauri/icons/icon.ico

@@ -13,7 +13,13 @@ module.exports = function createGameGenRuntime(safeGlobal, options) {
     console: safeGlobal.console,
     setTimeout: safeGlobal.setTimeout,
     clearTimeout: safeGlobal.clearTimeout,
-    Int32Array, Float64Array, TextDecoder: typeof TextDecoder === 'function' ? TextDecoder : undefined
+    // 构造器与静态glue处在同一realm；不从别的窗口借用数组构造器。
+    ArrayBuffer, DataView, Int8Array, Uint8Array, Uint8ClampedArray, Int16Array, Uint16Array,
+    Int32Array, Uint32Array, Float32Array, Float64Array,
+    TextDecoder: typeof TextDecoder === 'function' ? TextDecoder : undefined,
+    TextEncoder: typeof TextEncoder === 'function' ? TextEncoder : undefined,
+    Promise, Object, Array, Math, Number, String, Boolean, JSON, Error, TypeError, RangeError,
+    Map, Set, Symbol, Reflect, RegExp
   });
   const globalThis = facade;
   const window = facade.window;

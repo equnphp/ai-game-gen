@@ -46,7 +46,8 @@ gg::runtime::RuntimePort& runtime(State& value) {
 }
 uint32_t gg_game_abi_version(){return 0x00010001;}
 void* gg_game_alloc(uint32_t bytes) {
-    auto& value=state();if(value.busy || value.failed || bytes==0 || bytes>8388608 || value.owned.size()>=128 || bytes>33554432-value.owned_bytes)return nullptr;
+    // 调用方存活分配严格沿profile的64项/16MiB，结果槽与完成队列另行计量。
+    auto& value=state();if(value.busy || value.failed || bytes==0 || bytes>8388608 || value.owned.size()>=64 || bytes>16777216-value.owned_bytes)return nullptr;
     void* buffer=std::malloc(bytes);if(!buffer)return nullptr;
     try{value.owned.emplace(buffer,bytes);value.owned_bytes+=bytes;return buffer;}catch(...){std::free(buffer);return nullptr;}
 }

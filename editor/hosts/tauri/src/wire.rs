@@ -17,7 +17,9 @@ impl Fault {
         self
     }
     pub fn value(&self) -> Value {
-        let mut v=json!({"code":self.code,"messageKey":format!("host.{}",self.code),
+        // 组件诊断保留专用messageKey，公开错误仍使用冻结Host1.0的LIBRARY_INVALID枚举。
+        let code=if self.code.starts_with("SQLITE_"){"LIBRARY_INVALID"}else{self.code.as_str()};
+        let mut v=json!({"code":code,"messageKey":format!("host.{}",self.code),
             "retryable":matches!(self.code.as_str(),"QUEUE_FULL"|"NOT_READY"|"BUSY"),"outcome":self.outcome});
         if let Some((status, bytes))=&self.native { v["coreStatus"]=json!(status); v["coreErrorJson"]=blob(bytes); }
         v

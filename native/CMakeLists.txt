@@ -81,8 +81,10 @@ if(GG_BUILD_DRIVER)
   add_executable(gg-core-driver tools/core-driver/main.cpp)
   target_link_libraries(gg-core-driver PRIVATE ggcore)
 endif()
-install(TARGETS ggcore RUNTIME DESTINATION bin LIBRARY DESTINATION lib)
+install(TARGETS ggcore gg_sqlite ggartifact RUNTIME DESTINATION bin LIBRARY DESTINATION lib)
 install(FILES sdk/include/gg_core_v1.h DESTINATION include)
+include(cmake/NativeIdentity.cmake)
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/native-runtime-bundle.json" DESTINATION .)
 
 # Android薄桥单独成库，领域规则继续只在ggcore中。
 if(ANDROID)

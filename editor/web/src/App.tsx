@@ -11,15 +11,19 @@ import { LocaleProvider,useLocale } from "./localization";
 import { Dialog,Icon,LanguagePicker } from "./components";
 import { AssetPreview,type Asset } from "./AssetPreview";
 import { HistoryPanel } from "./HistoryPanel";
-type Transform = {x:number;y:number;rotation:number;scaleX:number;scaleY:number};
-type Entity = {name:string;parentId:string|null;transform:Transform;sprite:{assetId:string}|null;extensions:Record<string,unknown>};
-type Scene = {name:string;entities:Record<string,Entity>;extensions:Record<string,unknown>};
-type Document = {documentId:string;body:Scene;versionId:string;revision:string};
-type Project = {id:string;name:string;headRevision:string;rootDocuments:{settingsId:string;defaultSceneId:string};readOnlyReasons:string[]};
+import { ComponentInspector } from "./ComponentInspector";
+import type {Entity,Scene,NumberDraft} from './scene-model';
+type Document = {documentId:string;body:Scene;schemaVersion:number;versionId:string;revision:string};
+type Project = {id:string;name:string;formatVersion:number;headRevision:string;rootDocuments:{settingsId:string;defaultSceneId:string};readOnlyReasons:string[]};
 type Page = "projects"|"scene"|"tasks"|"assets"|"settings"|"history";
 type SaveState = "saved"|"dirty"|"saving"|"error"|"unknown";
 type Unknown = {ticket?:TaskTicket;originCallId?:string;coreRequestId?:string;projectId?:string;requestUtf8?:{decodedBytes:number;base64:string}};
 const copy = <T,>(value:T):T => structuredClone(value);
+// 已删对象/组件的旧输入框不再阻断保存；仍存在的非法数字草稿必须先修正。
+function numberDraftActive(scene:Scene,key:string):boolean {
+  const parts=key.split(':');if(parts[0]==='plane')return !!scene.planes?.[parts[1]];
+  const entity=scene.entities[parts[0]];return !!entity && (parts.length===2 || !!entity.components?.[parts[1]]);
+}
 function errorCode(error:unknown):string {return error instanceof Error ? error.message : String(error);}
 export default function App() {
   const [boot,setBoot] = useState<{connected:boolean;grant:string|null;error:string|null}>({connected:false,grant:null,error:null});
@@ -42,7 +46,8 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
   const [document,setDocument] = useState<Document|null>(null);
   const [draft,setDraft] = useState<Scene|null>(null);
   const [selected,setSelected] = useState<string|null>(null);
-  const [numberText,setNumberText] = useState<Record<string,string>>({});
+  const [activePlane,setActivePlane] = useState<string|null>(null);
+  const [numberText,setNumberText] = useState<Record<string,NumberDraft>>({});
   const numberTextRef=useRef(numberText);numberTextRef.current=numberText;
   const [busy,setBusy] = useState(false);
   const working = useRef(false);
@@ -81,6 +86,7 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
       if (!boot.grant) throw new Error("NATIVE_HOST_REQUIRED");
       await client.open(boot.grant);
     }
+    await client.negotiateModels();
   }
   async function loadProject() {
     const old=current.current.project;
@@ -100,6 +106,7 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
       current.current={project:next,document:null,draft:null,saveState:"saved"};return;
     }
     setProject(next);setDocument(doc.data);setDraft(copy(doc.data.body));setNumberText({});setSaveState("saved");
+    setActivePlane(previous=>previous&&doc.data!.body.planes?.[previous]?previous:Object.keys(doc.data!.body.planes??{})[0]??null);
     current.current={project:next,document:doc.data,draft:copy(doc.data.body),saveState:"saved"};
   }
   async function openProject(event:FormEvent) {
@@ -124,17 +131,22 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
     const {project:p,document:doc,draft:scene}=current.current;
     if(!p || !doc || !scene || readOnly) return;
     for(const [key,value] of Object.entries(numberTextRef.current)){
-      if(scene.entities[key.split(":")[0]] && (!value.trim() || !Number.isFinite(Number(value))))throw new Error("TYPE_MISMATCH");
+      if(numberDraftActive(scene,key) && !value.valid)throw new Error("TYPE_MISMATCH");
     }
     const operations:unknown[]=[];
     if(scene.name!==doc.body.name)operations.push({kind:"set_field",documentId:doc.documentId,path:"/name",value:scene.name});
+    if(scene.planes && JSON.stringify(scene.planes)!==JSON.stringify(doc.body.planes))operations.push({kind:'set_field',documentId:doc.documentId,path:'/planes',value:scene.planes});
+    const entityOperations:unknown[]=[];
     for(const id of Object.keys(doc.body.entities))if(!scene.entities[id])
-      operations.push({kind:"remove_field",documentId:doc.documentId,path:"/entities/"+id});
+      entityOperations.push({kind:"remove_field",documentId:doc.documentId,path:"/entities/"+id});
     for(const [id,value] of Object.entries(scene.entities)){
       if(Object.values(value.transform).some(number=>!Number.isFinite(number)))throw new Error("TYPE_MISMATCH");
       if(JSON.stringify(value)!==JSON.stringify(doc.body.entities[id]))
-        operations.push({kind:"set_field",documentId:doc.documentId,path:"/entities/"+id,value});
+        entityOperations.push({kind:"set_field",documentId:doc.documentId,path:"/entities/"+id,value});
     }
+    if(doc.schemaVersion===2 && operations.length+entityOperations.length>64)
+      operations.push({kind:'set_field',documentId:doc.documentId,path:'/entities',value:scene.entities});
+    else operations.push(...entityOperations);
     if(!operations.length){setSaveState("saved");return;}
     setSaveState("saving");
     try {await client.edit(p.id,p.headRevision,operations);await refreshProject(p.id);}
@@ -142,7 +154,7 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
   }
   useEffect(()=>{
     if(saveState!=="dirty" || busy || readOnly)return;
-    if(Object.entries(numberText).some(([key,value])=>draft?.entities[key.split(":")[0]] && (!value.trim() || !Number.isFinite(Number(value)))))return;
+    if(draft&&Object.entries(numberText).some(([key,value])=>numberDraftActive(draft,key)&&!value.valid))return;
     const timer=setTimeout(()=>{void withWork(save);},1900);
     return()=>clearTimeout(timer);
   },[draft,numberText,saveState,busy,readOnly]);
@@ -167,8 +179,10 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
   function addEntity() {
     if(!draft)return;
     const id=crypto.randomUUID();
+    if(draft.planes && (!activePlane || !draft.planes[activePlane])){setError('INVALID_PLANE');return;}
+    const spatial=draft.planes?{planeId:activePlane!,heightOffset:0,vertical:{min:0,max:0},visualOffset:{x:0,y:0}}:undefined;
     updateDraft({...draft,entities:{...draft.entities,[id]:{name:t("newObject"),parentId:null,
-      transform:{x:0,y:0,rotation:0,scaleX:1,scaleY:1},sprite:null,extensions:{}}}});
+      transform:{x:0,y:0,rotation:0,scaleX:1,scaleY:1},...(spatial?{spatial,components:{}}:{sprite:null}),extensions:{}}}});
     setSelected(id);
   }
   async function history(direction:"undo"|"redo") {
@@ -256,11 +270,13 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
           {!project ? <section className="panel empty-project"><div className="sparkle" aria-hidden="true">✧</div><h2>{t("emptyProjects")}</h2><p>{t("emptyProjectsBody")}</p>
             <button className="button primary large" data-testid="new-project" disabled={unavailable||busy} onClick={()=>setForm("new")}>{t("newProject")}</button></section>
             : <section className="panel project-card"><Icon name="folder"/><div><p className="eyebrow">{t("currentProject")}</p><h2>{project.name}</h2><p>{t("saved")} · r{project.headRevision}</p></div><button className="button primary" onClick={()=>setPage("scene")}>{t("scene")}</button><button className="button" disabled={busy} onClick={()=>guardLeave(closeProject)}>{t("close")}</button></section>}
-          {welcome && <section className="welcome-card"><Icon name="help"/><div><h2>{t("welcome")}</h2><p>{t("welcomeBody")}</p><p className="muted">{t("unavailable")}</p></div><button className="button" onClick={()=>setShowLanguage(true)}>{t("language")}</button><button className="text-button" onClick={()=>setWelcome(false)}>{t("skip")}</button></section>}
+          {welcome && <section className="welcome-card"><Icon name="help"/><div><h2>{t("welcome")}</h2><p>{t("welcomeBody")}</p></div><button className="button" onClick={()=>setShowLanguage(true)}>{t("language")}</button><button className="text-button" onClick={()=>setWelcome(false)}>{t("skip")}</button></section>}
         </>}
         {page==="scene" && project && draft && <><div className="page-heading"><div><h1>{t("scene")}</h1><p>{readOnly?t("readOnly"):t("autoSave")}</p></div>
           <div className="toolbar"><button className="button" disabled={busy||readOnly} onClick={()=>guardLeave(()=>history("undo"))}>{t("undo")}</button><button className="button" disabled={busy||readOnly} onClick={()=>guardLeave(()=>history("redo"))}>{t("redo")}</button>
           <button className="button primary" disabled={busy||readOnly||saveState==="unknown"} onClick={()=>void withWork(save)} data-testid="save-scene">{t("save")}</button></div></div>
+          {draft.planes&&<div className="plane-toolbar"><label>{t('activePlane')}<select value={activePlane??''} onChange={event=>setActivePlane(event.target.value)}>
+            {Object.entries(draft.planes).map(([id,plane])=><option key={id} value={id}>{plane.name}</option>)}</select></label></div>}
           <section className="scene-layout">
             <aside className="panel scene-tree"><div className="panel-heading"><h2>{t("objects")}</h2><button className="icon-button" disabled={busy||readOnly} aria-label={t("addEntity")} onClick={addEntity} data-testid="add-entity">+</button></div>
               <div role="tree" aria-label={t("objects")}>{Object.entries(draft.entities).map(([id,item])=><button key={id} role="treeitem" aria-selected={selected===id}
@@ -278,19 +294,29 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
               </div><p className="model-note">{t("noPreview")}</p>
             </div>
             <aside className="panel inspector"><div className="panel-heading"><h2>{t("properties")}</h2></div>
-              {!entity ? <p className="empty-note">{t("selectObject")}</p> : <fieldset disabled={busy||readOnly||saveState==="unknown"}>
+              {!entity ? <p className="empty-note">{t("selectObject")}</p> : <><fieldset disabled={busy||readOnly||saveState==="unknown"}>
                 <label>{t("objectName")}<input value={entity.name} maxLength={80} onChange={e=>updateEntity({name:e.target.value})} data-testid="property-name"/></label>
                 {(["x","y","rotation","scaleX","scaleY"] as const).map(key=><label key={key}>{t(key==="x"?"positionX":key==="y"?"positionY":key)}
-                  <input type="text" inputMode="decimal" value={numberText[selected!+":"+key] ?? String(entity.transform[key])} data-testid={"property-"+key}
-                    onChange={e=>{const text=e.target.value;setNumberText(previous=>({...previous,[selected!+":"+key]:text}));
-                      if(text.trim() && Number.isFinite(Number(text)))updateEntity({transform:{...entity.transform,[key]:Number(text)}});
+                  <input type="text" inputMode="decimal" value={numberText[selected!+":"+key]?.text ?? String(entity.transform[key])} data-testid={"property-"+key}
+                    aria-invalid={numberText[selected!+':'+key]?!numberText[selected!+':'+key].valid:undefined}
+                    onChange={e=>{const text=e.target.value;const valid=!!text.trim()&&Number.isFinite(Number(text))&&(!['scaleX','scaleY'].includes(key)||Number(text)!==0);
+                      setNumberText(previous=>({...previous,[selected!+":"+key]:{text,valid}}));
+                      if(valid)updateEntity({transform:{...entity.transform,[key]:Number(text)}});
                       else setSaveState("dirty");}}/></label>)}
-                <label>{t("sprite")}<select value={entity.sprite?.assetId ?? ""} onChange={e=>updateEntity({sprite:e.target.value?{assetId:e.target.value}:null})}>
+                {entity.spatial&&draft.planes&&<><label>{t('objectPlane')}<select value={entity.spatial.planeId} onChange={event=>updateEntity({spatial:{...entity.spatial!,planeId:event.target.value}})}>
+                  {Object.entries(draft.planes).map(([id,plane])=><option key={id} value={id}>{plane.name}</option>)}</select></label>
+                  <label>{t('heightOffset')}<input type="text" inputMode="decimal" value={numberText[selected!+':heightOffset']?.text??String(entity.spatial.heightOffset)}
+                    onChange={event=>{const text=event.target.value,valid=!!text.trim()&&Number.isFinite(Number(text));setNumberText(previous=>({...previous,[selected!+':heightOffset']:{text,valid}}));
+                      if(valid)updateEntity({spatial:{...entity.spatial!,heightOffset:Number(text)}});else setSaveState('dirty');}}/></label></>}
+                {!entity.components&&<label>{t("sprite")}<select value={entity.sprite?.assetId ?? ""} onChange={e=>updateEntity({sprite:e.target.value?{assetId:e.target.value}:null})}>
                   <option value="">{t("none")}</option>{assets.map(a=><option key={a.assetId} value={a.assetId}>{a.source.displayName}</option>)}
                   {entity.sprite && !assets.some(a=>a.assetId===entity.sprite!.assetId) && <option value={entity.sprite.assetId}>{entity.sprite.assetId}</option>}
-                </select></label>
+                </select></label>}
                 <button className="button danger full" onClick={()=>{const entities={...draft.entities};delete entities[selected!];updateDraft({...draft,entities});setSelected(null);}}>{t("deleteObject")}</button>
-              </fieldset>}
+              </fieldset>{entity.components&&document&&<ComponentInspector client={client} projectId={project.id} sceneId={document.documentId} entityId={selected!}
+                entity={entity} entities={draft.entities} disabled={busy||readOnly||saveState==='unknown'} numbers={numberText}
+                onNumber={(key,text,valid)=>{setNumberText(previous=>({...previous,[key]:{text,valid}}));if(!valid)setSaveState('dirty');}}
+                onChange={components=>updateEntity({components})}/>}</>}
             </aside>
           </section></>}
         {page==="assets" && <><div className="page-heading"><div><h1>{t("assets")}</h1><p>{t("assetNote")}</p></div></div>

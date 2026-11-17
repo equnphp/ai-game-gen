@@ -29,7 +29,8 @@ BuildPlan prepare(SnapshotReadPort& source,const std::string& settings_id,const 
     require(source.reference().at("schemaCatalogHash")==model_catalog_hash(),"SNAPSHOT_CATALOG_UNSUPPORTED");
     require(options.at("catalogHash")==contracts::graph_nodes_hash(),"CATALOG_MISMATCH");
     require(options.at("compilerBuild")==compiler_build,"COMPILER_BUILD_MISMATCH");
-    require((options.at("runtimeProfileId")=="gg-wasm32-scalar-js-eh-1" || options.at("runtimeProfileId")=="gg-wasm32-scalar-js-eh-2") &&
+    require((options.at("runtimeProfileId")=="gg-wasm32-scalar-js-eh-1" || options.at("runtimeProfileId")=="gg-wasm32-scalar-js-eh-2" ||
+        options.at("runtimeProfileId")=="gg-wasm32-scalar-js-eh-2a") &&
         content_hash(text(options.at("runtimeProfileHash"))),"RUNTIME_PROFILE_UNSUPPORTED");
     const auto& settings=select_document(state,settings_id,"project.settings",2);
     const auto& scene=select_document(state,text(options.at("entrySceneId")),"scene",2);

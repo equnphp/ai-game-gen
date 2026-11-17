@@ -3,11 +3,13 @@ mod wire;
 mod ffi;
 mod core;
 mod locale;
-use crate::{core::Host,locale::LocalUX,wire::*};
+mod store_io;
+mod workspace;
+use crate::{core::Host,locale::LocalUX,wire::*,workspace::Workspace};
 use serde_json::{json,Value};
 use std::{sync::{Arc,Mutex,atomic::{AtomicUsize,Ordering}},time::{Instant,Duration}};
 use tauri::{Manager,Emitter};
-struct AppState { host:Mutex<Host>,ux:LocalUX,pending:AtomicUsize }
+struct AppState { host:Mutex<Host>,ux:LocalUX,workspace:Arc<Mutex<Workspace>>,pending:AtomicUsize }
 struct Permit(Arc<AppState>);
 impl Drop for Permit {fn drop(&mut self){self.0.pending.fetch_sub(1,Ordering::AcqRel);}}
 fn permit(state:&Arc<AppState>)->Result<Permit>{
@@ -28,9 +30,26 @@ async fn host_bootstrap(window:tauri::WebviewWindow,state:tauri::State<'_,Arc<Ap
     let state=state.inner().clone();
     tauri::async_runtime::spawn_blocking(move||{
         state.ux.bind("main").map_err(|e|e.code)?;
+        state.workspace.lock().map_err(|_|"INTERNAL_ERROR".to_string())?.bind();
         let host=state.host.lock().map_err(|_|"INTERNAL_ERROR".to_string())?;
         Ok(json!({"grantRef":host.grant(),"hostKind":"tauri-native"}))
     }).await.map_err(|_|"INTERNAL_ERROR".to_string())?
+}
+#[tauri::command]
+async fn workspace_dispatch(window:tauri::WebviewWindow,state:tauri::State<'_,Arc<AppState>>,request:Value)->std::result::Result<Value,String>{
+    fn failure(r:&Value,code:&str)->Value {json!({"workspaceProtocol":"1.0","callId":r["callId"],"method":r["method"],"ok":false,
+        "error":{"code":code,"messageKey":format!("workspace.{code}"),"retryable":false,"outcome":"not_applicable","operationId":null,"coreRequestId":null}})}
+    if window.label()!="main"{return Ok(failure(&request,"PERMISSION_DENIED"));}
+    let state=state.inner().clone();let guard=match permit(&state){Ok(p)=>p,Err(_)=>return Ok(failure(&request,"QUEUE_FULL"))};
+    let fallback=request.clone();
+    let response=tauri::async_runtime::spawn_blocking(move||{
+        let _guard=guard;
+        std::panic::catch_unwind(std::panic::AssertUnwindSafe(||{
+            if serde_json::to_vec(&request).map(|b|b.len()>65536).unwrap_or(true){return failure(&request,"LIMIT_EXCEEDED");}
+            let response=match state.workspace.lock(){Ok(mut workspace)=>workspace.dispatch(&request),Err(_)=>return failure(&request,"INTERNAL_ERROR")};
+            if serde_json::to_vec(&response).map(|b|b.len()>524288).unwrap_or(true){return failure(&request,"LIMIT_EXCEEDED");}response
+        })).unwrap_or_else(|_|failure(&request,"INTERNAL_ERROR"))
+    }).await.unwrap_or_else(|_|failure(&fallback,"INTERNAL_ERROR"));Ok(response)
 }
 #[tauri::command]
 async fn core_dispatch(window:tauri::WebviewWindow,state:tauri::State<'_,Arc<AppState>>,request:Value)->std::result::Result<Value,String>{
@@ -100,7 +119,8 @@ pub fn run(){
             let projects=app_data.join("projects");
             std::fs::create_dir_all(&projects)?;
             let library=app.path().resource_dir()?.join("native/windows-x86_64");
-            let state=Arc::new(AppState{host:Mutex::new(Host::new(projects,library)),
+            let workspace=Arc::new(Mutex::new(Workspace::new(projects.clone(),app_data.join("workspace"))));
+            let state=Arc::new(AppState{host:Mutex::new(Host::new(projects,library,workspace.clone())),workspace,
                 ux:LocalUX::new(app_data.join("editor-profile")),pending:AtomicUsize::new(0)});
             app.manage(state);Ok(())
         })
@@ -116,7 +136,7 @@ pub fn run(){
                 }
             }
         })
-        .invoke_handler(tauri::generate_handler![host_bootstrap,core_dispatch,ux_dispatch])
+        .invoke_handler(tauri::generate_handler![host_bootstrap,core_dispatch,ux_dispatch,workspace_dispatch])
         .run(tauri::generate_context!())
         .expect("GameGen host startup failed");
 }
