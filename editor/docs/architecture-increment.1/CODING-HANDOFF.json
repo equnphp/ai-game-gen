@@ -1,0 +1,102 @@
+{
+  "version": "editor-increment.1-architecture.draft.1",
+  "project_root": "I:/code/GameGen/editor",
+  "iteration": "ITER-EDITOR-INCREMENT-1",
+  "technical_contracts_provided": true,
+  "ready_for_coding": false,
+  "readiness_reason": "正式产品增量规格/当前批准与UI最终状态绑定尚未闭合；不伪造前序接收",
+  "architecture_manifest": ".architecture-mcp.json",
+  "architecture_document": "docs/architecture-increment.1/ARCHITECTURE.md",
+  "upstream_receipt": "docs/architecture-increment.1/UPSTREAM-RECEIPT.json",
+  "source_writeback_review": "docs/architecture-increment.1/WRITEBACK-REVIEW.json",
+  "product_and_ui_actions": "docs/architecture-increment.1/ROLE-HANDOFF.md",
+  "constraints": {
+    "core_abi": "1.0 unchanged",
+    "core_message": "1.0 unchanged",
+    "core_ddl": "1 unchanged",
+    "host_protocol": "1.0 / 12 methods",
+    "ux_protocol": "1.1 / 4 methods actually declared, full7 not claimed",
+    "root_M1_unchanged": true,
+    "cloud": "defer",
+    "platform_now": "Windows x64 source only",
+    "android_core": "defer actual host integration",
+    "locale_ids": [
+      "en",
+      "zh-Hans",
+      "zh-Hant",
+      "ja",
+      "ko",
+      "es",
+      "fr"
+    ],
+    "locale_default": "en",
+    "locale_apply": "after_confirmed_local_commit",
+    "limits": {
+      "coreTasks": 32,
+      "frontendPending": 16,
+      "resultSlots": 1,
+      "resultDecodedBytes": 8388608,
+      "chunkBytes": 1048576,
+      "coreJsonBytes": 2097152,
+      "wireBytes": 16777216,
+      "eventRing": 256,
+      "eventRead": 100,
+      "localeFileBytes": 8192,
+      "localeWriteJobs": 1,
+      "localePending": 1,
+      "localeChannels": 32,
+      "uxReceipts": 128
+    }
+  },
+  "increments": [
+    {
+      "id": "EW-I1",
+      "owner": "coding宿主",
+      "goal": "Host/FFI/会话/任务",
+      "depends_on": [],
+      "status": "source_written_not_built",
+      "acceptance": "Host闭合契约/单槽/原请求恢复/关闭与租约，基础文案对应B01/06/12/13/15",
+      "rollback": "匹配UI/宿主/Core制品组合回退，原任务与数据库保留"
+    },
+    {
+      "id": "EW-I2",
+      "owner": "coding前端/应用",
+      "goal": "项目/Scene/历史/资源常规入口",
+      "depends_on": [
+        "EW-I1"
+      ],
+      "status": "source_written_not_built",
+      "acceptance": "正常提案/校验/durable与读回；B02—05，未覆盖完整产品",
+      "rollback": "回退入口实现，保留项目/元信息/资源字节"
+    },
+    {
+      "id": "EW-I3",
+      "owner": "coding前端/宿主",
+      "goal": "七语本机选择与真实反馈",
+      "depends_on": [
+        "EW-I1"
+      ],
+      "status": "source_written_not_built",
+      "acceptance": "commit后应用、最新意图/同ticket、只本机、七项；B07—11/14/16/17；文本草稿未审",
+      "rollback": "保留配置原件并回退兼容组合，不用课程reset改项目"
+    },
+    {
+      "id": "EW-I4",
+      "owner": "各角色",
+      "goal": "正式上游/设计/兼容锁/责任接收闭合",
+      "depends_on": [
+        "EW-I1",
+        "EW-I2",
+        "EW-I3"
+      ],
+      "status": "documentation_incomplete",
+      "acceptance": "按ROLE-HANDOFF真实写回；基础/系统执行另授权",
+      "rollback": "保留所有历史冻结与现有源码，不编造批准"
+    }
+  ],
+  "actual_role_reviews": [],
+  "execution_policy": "documentation_only",
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

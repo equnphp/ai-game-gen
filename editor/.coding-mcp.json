@@ -10,7 +10,7 @@
       "owner": "coding",
       "path": "docs/basic-self-check.md",
       "version": "editor-increment.1",
-      "sha256": "bf3d0416d3e9d603459929523a844f3da0ca61a142c35a59463062c6b308d4e3"
+      "sha256": "8f22dbbd78be4a7e658a51c5a1cd0247824659b60714c9250baafd1a52053434"
     }
   ],
   "execution_policy": "documentation_only",
@@ -251,7 +251,7 @@
     {
       "id": "B-EW-17",
       "category": "main_path",
-      "requirement_id": "LANG-REQ-02",
+      "requirement_id": "LANG-REQ-03",
       "acceptance_id": "LANG-AC-07",
       "title": "语言成功反馈",
       "data": "committed/unchanged/accepted/旧意图/重启历史回执",
@@ -267,7 +267,7 @@
     "code_author_role": "engineering",
     "has_ui": true,
     "requires_code": true,
-    "design_version": "ui-full-20261117-draft.2 + LANG-draft.1",
+    "design_version": "editor-increment.1-acceptance-plan",
     "implementation_status": "source_written_not_built",
     "deliverables": [
       {
@@ -296,7 +296,8 @@
           ".workflow-mcp.json"
         ]
       }
-    ]
+    ],
+    "ui_source_version": "ui-full-20261117-draft.2 + LANG-draft.1"
   },
   "implementation_status": "source_written_not_built",
   "execution_status": "not_run",

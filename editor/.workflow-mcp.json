@@ -77,23 +77,23 @@
     "architecture": {
       "artifacts": {
         "architecture_spec": {
-          "owner": "",
-          "path": "",
-          "sha256": "",
-          "version": ""
+          "path": ".architecture-mcp.json",
+          "version": "editor-increment.1-architecture.draft.1",
+          "owner": "architecture编制角色",
+          "sha256": "91b2a081643929ef8a4138382bd47159d4771f85afa38e5bc968c28a76ce51e9"
         },
         "document": {
-          "path": "docs/inputs/architecture/editor-web-v1/revisions/draft.4/UX-CONTRACTS.md",
-          "version": "editor-increment.1",
-          "owner": "上游文档受领，真实接收未登记",
-          "sha256": "b3c50dfffc8d406681d1f227533657334a7ab869dcab805cc43573e0490a0367"
+          "path": "docs/architecture-increment.1/ARCHITECTURE.md",
+          "version": "editor-increment.1-architecture.draft.1",
+          "owner": "architecture编制角色",
+          "sha256": "cba99b0d4b42f01c7af93e5d3c069c54ea6dbb43cfc40cb6fa8129930594d692"
         }
       },
       "inputs": {},
       "reviews": [],
       "status": "in_progress",
-      "version": "editor-increment.1",
-      "declared_delivery_status": "received_unapproved"
+      "version": "editor-increment.1-architecture.draft.1",
+      "declared_delivery_status": "architecture_documents_received_unapproved"
     },
     "development": {
       "artifacts": {
@@ -101,25 +101,25 @@
           "path": ".coding-mcp.json",
           "version": "editor-increment.1",
           "owner": "coding",
-          "sha256": "dbc5296981c9afcccc268f38beca5338d7e4ac765d9a3e6033ff1f2a480c9d7f"
+          "sha256": "91d9f734386661beca9ac9a1ec5f1afbff24e3e74439ab47b352cf24c1484469"
         },
         "design_acceptance_plan": {
           "path": ".design-mcp.json",
           "version": "editor-increment.1",
           "owner": "coding",
-          "sha256": "9171b8b1852e9adaf80b7e3d6db0deb13493a385e33edde8ecfbe7a70eef3434"
+          "sha256": "77b519fed3fbc7a128d0145e0022c284c19df31367abe1913877a7595c646921"
         },
         "document": {
           "path": "docs/development.md",
           "version": "editor-increment.1",
           "owner": "coding",
-          "sha256": "ab7d1cae0e5dfe400ec08b1ae22743323b7f22109abed0e7875bb0b3530710e8"
+          "sha256": "1a44ee937560e4cb10b2f04e07cfef28f17af7b016bfe5cc7c6ea969c71abab5"
         },
         "quality_plan": {
           "path": ".quality-plan-mcp.json",
           "version": "editor-increment.1",
           "owner": "independent_quality",
-          "sha256": "21c642113c6c35f775033fa1ddd7893d7e2707b2dfd8a77ae642ab1f3d8190ef"
+          "sha256": "b14aaf9a243e55248368df249425c15029af18f178592d0192e35f34c50dc0c9"
         }
       },
       "inputs": {},
@@ -175,7 +175,7 @@
     "code_author_role": "engineering",
     "has_ui": true,
     "requires_code": true,
-    "design_version": "ui-full-20261117-draft.2 + LANG-draft.1",
+    "design_version": "editor-increment.1-acceptance-plan",
     "implementation_status": "source_written_not_built",
     "deliverables": [
       {
@@ -204,7 +204,8 @@
           ".workflow-mcp.json"
         ]
       }
-    ]
+    ],
+    "ui_source_version": "ui-full-20261117-draft.2 + LANG-draft.1"
   },
   "inherited_inputs": [
     {
@@ -300,5 +301,13 @@
       "scope": "source_commit_and_push",
       "permits_test_execution": false
     }
+  },
+  "integration_receipt": {
+    "architecture_version": "editor-increment.1-architecture.draft.1",
+    "proposal_path": "docs/architecture-increment.1/WORKFLOW-INTEGRATION.json",
+    "previous_workflow_sha256": "5f2ef08bb0e4d7e6f27d0b11ac5dafaabf2763177c2a64b4b4c1addce41496b3",
+    "proposal_observed_workflow_sha256": "f277e03b400466d7710fca4bc02a0e1aa57005dd5ddb2346373b29a30c080cfe",
+    "rebased_own_changes": "B-EW-17需求追溯、设计计划版本与原稿版本区分；未加入批准",
+    "status": "artifacts_bound_pending_product_ui_and_approvals"
   }
 }

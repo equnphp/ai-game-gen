@@ -1,0 +1,111 @@
+{
+  "version": "editor-increment.1-architecture.draft.1",
+  "root": "I:/code/GameGen/editor",
+  "scope": "只读文档门禁，不运行代码，不认证审批身份",
+  "inspect": {
+    "root": "I:\\code\\GameGen\\editor",
+    "version": "editor-increment.1-architecture.draft.1",
+    "status": "documents_incomplete",
+    "baseline_sha256": "fde4694f24c7b5f2080ae278f40098e87feeb6362b20f422940e688fcf0f581b",
+    "documents_ready": false,
+    "issues": [
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: architecture",
+        "path": "$.reviews"
+      },
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: product",
+        "path": "$.reviews"
+      }
+    ]
+  },
+  "review": {
+    "root": "I:\\code\\GameGen\\editor",
+    "version": "editor-increment.1-architecture.draft.1",
+    "status": "documents_incomplete",
+    "baseline_sha256": "fde4694f24c7b5f2080ae278f40098e87feeb6362b20f422940e688fcf0f581b",
+    "documents_ready": false,
+    "issues": [
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: architecture",
+        "path": "$.reviews"
+      },
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: engineering",
+        "path": "$.reviews"
+      },
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: product",
+        "path": "$.reviews"
+      },
+      {
+        "code": "approval_missing",
+        "message": "缺少当前基线审批: qa",
+        "path": "$.reviews"
+      }
+    ]
+  },
+  "coding_handoff": {
+    "project": {
+      "id": "gamegen-editor-increment-1",
+      "name": "GameGen编辑器首增量架构交接",
+      "owner": "architecture编制角色，真实版本接收未登记",
+      "version": "editor-increment.1-architecture.draft.1"
+    },
+    "ready_for_coding": false,
+    "gate": {
+      "root": "I:\\code\\GameGen\\editor",
+      "version": "editor-increment.1-architecture.draft.1",
+      "status": "documents_incomplete",
+      "baseline_sha256": "fde4694f24c7b5f2080ae278f40098e87feeb6362b20f422940e688fcf0f581b",
+      "documents_ready": false,
+      "issues": [
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: architecture",
+          "path": "$.reviews"
+        },
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: engineering",
+          "path": "$.reviews"
+        },
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: product",
+          "path": "$.reviews"
+        },
+        {
+          "code": "approval_missing",
+          "message": "缺少当前基线审批: qa",
+          "path": "$.reviews"
+        }
+      ]
+    }
+  },
+  "workflow_before_integration": {
+    "status": "documents_incomplete",
+    "ready_for_stage": false,
+    "issue_count": 59,
+    "codes": [
+      "predecessor_incomplete",
+      "document_section",
+      "required_text",
+      "artifact_file",
+      "module_gate",
+      "review_missing",
+      "stage_inputs",
+      "upstream_changed",
+      "coding_handoff"
+    ],
+    "meaning": "仍指旧受领件/空spec/空inputs，流程所有者按WORKFLOW-INTEGRATION合入并重算；不代表新ARCHITECTURE.md缺章"
+  },
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

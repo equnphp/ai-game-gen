@@ -27,7 +27,7 @@
 
 |B-EW-15|failure_path|关闭态/队列满/非法请求/假token后提交；模拟原生成功但回执损坏|受理前not_submitted；受理后submitted_unknown；读取失败不声称领域写状态|AR-INC-01 / LC-AC-13|
 |B-EW-16|failure_path|afterSeq超出真实事件尾，再取得snapshot并读取后续新增事件|gap=true；nextSeq回到实际尾，可继续推进|AR-INC-02 / LANG-AC-05|
-|B-EW-17|main_path|选择新语言/同语言；accepted、真实committed、unchanged、迟到旧意图及重启历史收据|只对当前最新真实成功显示一次新语言提示；4.5秒后消失|AR-INC-03 / LANG-AC-07|
+|B-EW-17|main_path|选择新语言/同语言；accepted、真实committed、unchanged、迟到旧意图及重启历史收据|只对当前最新真实成功显示一次新语言提示；4.5秒后消失|AR-INC-03 / LANG-REQ-03 / LANG-AC-07|
 
 ## 正常与失败路径
 

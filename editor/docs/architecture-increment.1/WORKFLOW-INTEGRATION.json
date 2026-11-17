@@ -1,0 +1,46 @@
+{
+  "version": "editor-increment.1-architecture.draft.1",
+  "target": ".workflow-mcp.json",
+  "writer": "原流程所有者/程序员，architecture不修改该共享文件",
+  "observed_workflow_sha256": "f277e03b400466d7710fca4bc02a0e1aa57005dd5ddb2346373b29a30c080cfe",
+  "status": "proposed_not_applied",
+  "architecture_artifacts": {
+    "document": {
+      "path": "docs/architecture-increment.1/ARCHITECTURE.md",
+      "version": "editor-increment.1-architecture.draft.1",
+      "owner": "architecture编制角色",
+      "sha256": "cba99b0d4b42f01c7af93e5d3c069c54ea6dbb43cfc40cb6fa8129930594d692"
+    },
+    "architecture_spec": {
+      "path": ".architecture-mcp.json",
+      "version": "editor-increment.1-architecture.draft.1",
+      "owner": "architecture编制角色",
+      "sha256": "91b2a081643929ef8a4138382bd47159d4771f85afa38e5bc968c28a76ce51e9"
+    }
+  },
+  "architecture_inputs": {
+    "required_prior_keys": [
+      "requirements"
+    ],
+    "binding": "产品增量规格/真实当前接收提供后再重算要求阶段基线，不把旧占位摘要作批准"
+  },
+  "reviews": [],
+  "delivery_reference": "现有EW-IMPL-01/EW-DOC-01 engineering条目与原workflow保持相同，不修改其他清单",
+  "instructions": [
+    "合入前重读当前.workflow版本/hash，若变化重新对照",
+    "绑定本架构document/spec实际路径/version/hash",
+    "由产品提供product_spec/完整需求doc及实际范围接收",
+    "依序重算stage_baselines和architecture/ui/development inputs，真实角色按当前版本/hash接收",
+    "UI绑定最终场景/资源/七语和环境；development重绑基础/系统/design文档",
+    "不把源码开发/Git授权等同运行/发布许可，不代签批准"
+  ],
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "design_reference": {
+    "plan_version": "editor-increment.1-acceptance-plan",
+    "source_versions": "ui-full-20261117-draft.2 + LANG-draft.1",
+    "status": "planning_not_final_or_approved",
+    "instruction": "各角色接续时区分design plan版本与原画稿来源版本，不把计划版本当最终设计接收"
+  }
+}

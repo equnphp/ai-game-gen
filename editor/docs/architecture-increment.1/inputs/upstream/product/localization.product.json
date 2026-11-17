@@ -1,0 +1,1076 @@
+{
+  "assumptions": [],
+  "changes": [],
+  "definition_of_done": "七语集合/默认/保存/恢复/覆盖和受影响交接编制完毕；文档检查留证，不代表翻译、实现或发布完成。",
+  "delivery": {
+    "has_ui": false,
+    "target_has_ui": true,
+    "requires_code": false,
+    "design_version": "localization-20261117-draft.1；planned_not_drawn",
+    "platforms": "Windows/Android优先，macOS/Linux编辑器沿既有范围",
+    "iteration_kind": "documentation_only",
+    "code_author_role": "product",
+    "deliverables": [
+      {
+        "id": "LANG-DOCS",
+        "code_author_role": "product",
+        "paths": [
+          "README.md",
+          "LANGUAGE-SETTINGS.md",
+          "language-settings.json",
+          "INPUT-BASELINES.json",
+          ".product-mcp.json",
+          "DOCUMENT-CHECKS.json"
+        ]
+      }
+    ]
+  },
+  "delivery_identity": {
+    "artifact_sha256": "",
+    "build_id": "",
+    "source_revision": "",
+    "actual_build_declared": false
+  },
+  "dependencies": [
+    "现有本机用户设置、稳定UI资源键/对象身份、任务与新手进度合同。",
+    "后续架构/设计/实现受影响版本需实际接收与审阅。"
+  ],
+  "evidence": [
+    {
+      "id": "LANG-E-01",
+      "kind": "product_spec",
+      "path": "INPUT-BASELINES.json",
+      "sha256": "ea8f1e0d11f494ef8dc7a89bc3ae5f6daca0dc5eea321f92b98e3a7bdf2d951c",
+      "summary": "真实消息来源与旧输入基线",
+      "owner": "Codex产品文档编制；非人员批准",
+      "collected_at": "2026-11-17",
+      "build_id": ""
+    },
+    {
+      "id": "LANG-E-02",
+      "kind": "product_spec",
+      "path": "LANGUAGE-SETTINGS.md",
+      "sha256": "ccbb263f220747cce3eccd2f884f15b44302bb65f6675be6a27ce05715a604ce",
+      "summary": "七语默认/持久化/状态/覆盖及交接规格",
+      "owner": "Codex产品文档编制；非人员批准",
+      "collected_at": "2026-11-17",
+      "build_id": ""
+    },
+    {
+      "id": "LANG-E-03",
+      "kind": "product_spec",
+      "path": "language-settings.json",
+      "sha256": "c3c0e34a74042ede73d5c733bb699466f4c041f63c1c82d026b878b93b93a6bf",
+      "summary": "稳定语言集合及选择优先级机器索引",
+      "owner": "Codex产品文档编制；非人员批准",
+      "collected_at": "2026-11-17",
+      "build_id": ""
+    }
+  ],
+  "execution_policy": "documentation_only",
+  "metrics": [
+    {
+      "id": "LANG-MET-01",
+      "name": "七语内置文字与语言记忆覆盖",
+      "definition": "适用内置资源键/界面状态覆盖七语；首启与有效已存选择按规定优先级，实际验证另记。",
+      "baseline": "旧规格四语，中文画板不代表四语或七语已交付；无当前全量翻译/运行覆盖数据。",
+      "target": "验收目标：所有纳入范围的内置键具备七语；关键选择/保存/恢复场景满足9条AC，缺译不能仅靠回退宣称完成。",
+      "source": "后续本地资源清单和经会话授权的真实验收；本轮只产品定义。",
+      "segment": "语言/平台/工具/正常及异常状态分别记录。",
+      "window": "后续UI与实现交接，当前未执行。",
+      "guardrail": "不修改用户原文/项目机器值、不上传内容、不伪造覆盖或保存成功。",
+      "owner": "产品定义；实际交付/验收负责人待登记。"
+    }
+  ],
+  "outcomes": [
+    "七语和语言持久化详细规格已写入文件；无新画板/全量翻译/代码。"
+  ],
+  "problem": {
+    "target_users": "七种目标语言的桌面和Android创作者，包括新手",
+    "scenario": "首次启动、主动切换、重启/升级保留、离线和新手引导内切换",
+    "statement": "用户明确新增默认英文和持久化选择，并将旧中英日韩范围扩展为简体、繁体、英文、日、韩、西班牙、法文七种。",
+    "business_value": "首次语言和跨启动行为可预期，用户可用熟悉语言创作；尚无实际用户收益测量。",
+    "alternatives": "跟随系统且每次选择；仅保留四语；七语且用户选择本机持久化优先。",
+    "selection_reason": "采用用户明确要求的七语/英文首启/保存设定；离线可用并沿共享UI资源。",
+    "priority_reason": "P0完整产品与新手体验需求，不扩大当前无GUI M1实现。",
+    "opportunity_cost": "新增简繁/西法文案、布局与字体覆盖维护；没有当前工期/费用测量。",
+    "evidence_ids": [
+      "LANG-E-01",
+      "LANG-E-02",
+      "LANG-E-03"
+    ]
+  },
+  "project": {
+    "id": "gamegen-localization",
+    "name": "GameGen七语言与保存语言设置",
+    "owner": "Codex产品编制",
+    "decision_owner": "用户；正式版本评审未代签",
+    "version": "localization-20261117-draft.1"
+  },
+  "release": {
+    "alerts": "",
+    "approved_at": "",
+    "approved_by": "",
+    "baseline_sha256": "",
+    "build_id": "",
+    "compatibility": "语言资源标识映射由后续架构承接，不改变游戏格式",
+    "decision": "not_requested",
+    "environment": "未构建/未部署",
+    "evidence_id": "",
+    "migration": "",
+    "monitoring": "",
+    "observation_window": "",
+    "owner": "",
+    "product_version": "localization-20261117-draft.1",
+    "quality_report_path": "",
+    "review_at": "",
+    "rollback": "独立增量，旧基线/代码未改",
+    "rollout": "",
+    "scope": "需求增量文档",
+    "stop_conditions": "",
+    "support": ""
+  },
+  "requirements": [
+    {
+      "id": "LANG-REQ-01",
+      "title": "七语言与默认英文",
+      "main_flow": "首次无选择英文→从首页/欢迎/设置打开同一语言面板→七项本语言名称选择→持久化后生效",
+      "acceptance": [
+        {
+          "id": "LANG-AC-01",
+          "given": "首次安装/无有效已存语言，系统为任意语言",
+          "when": "启动编辑器或跳过新手引导",
+          "then": "默认英文，首页/欢迎及设置语言入口可达，无强制登录或先选语言；七项包含独立简繁。"
+        },
+        {
+          "id": "LANG-AC-02",
+          "given": "已有任意一种有效语言选择",
+          "when": "重开应用、重启设备、升级、切项目或登录/退出",
+          "then": "沿用已存选择，系统/项目/对端语言不覆盖；布局恢复不重置语言。"
+        },
+        {
+          "id": "LANG-AC-03",
+          "given": "语言配置缺失/无效/读取失败",
+          "when": "启动或恢复",
+          "then": "安全回退英文并保留语言入口，不将缺译/读取失败当作已明确选英文而静默覆盖可恢复配置。"
+        }
+      ],
+      "source": "INPUT-BASELINES.json记录的本轮真实消息",
+      "owner": "Codex产品编制；真实角色审阅待登记",
+      "priority": "P0",
+      "priority_reason": "明确用户要求和基础可用性补全",
+      "status": "in_scope",
+      "evidence_ids": [
+        "LANG-E-01",
+        "LANG-E-02",
+        "LANG-E-03"
+      ],
+      "roles_permissions": "本机编辑器用户可改自身语言，无登录/项目写权限前置；无新增云端授权。",
+      "preconditions": "本机编辑器语言资源/设置能力；无有效选择默认英文。",
+      "exceptions": "见LANGUAGE-SETTINGS.md第4节：缺失/损坏/权限/连选/中断/缺译分别恢复。",
+      "data_rules": "本机偏好与项目/游戏语言分离；稳定身份与用户内容不改写；只认成功持久化的选择。",
+      "constraints": "不自动下载/上传或调用模型；界面切换不执行业务副作用；没有实际翻译/运行证明。",
+      "state_coverage": {
+        "first_use": {
+          "applicability": "applicable",
+          "reason": "首次无配置：读取有效选择优先，否则英文；第4节及原操作面共同承接。"
+        },
+        "normal": {
+          "applicability": "applicable",
+          "reason": "正常使用：当前项目与任务不变；第4节及原操作面共同承接。"
+        },
+        "loading": {
+          "applicability": "applicable",
+          "reason": "读取或保存中：以持久化结果为准，旧响应不盖新选择；第4节及原操作面共同承接。"
+        },
+        "empty": {
+          "applicability": "applicable",
+          "reason": "配置/资源为空：不联网下载或伪装已保存；第4节及原操作面共同承接。"
+        },
+        "no_results": {
+          "applicability": "applicable",
+          "reason": "已翻译的搜索无结果状态：七项语言面板本身默认完整列表无需搜索；第4节及原操作面共同承接。"
+        },
+        "unauthenticated": {
+          "applicability": "applicable",
+          "reason": "未登录：不要求账户；第4节及原操作面共同承接。"
+        },
+        "permission_denied": {
+          "applicability": "applicable",
+          "reason": "存储拒绝：不假保存；第4节及原操作面共同承接。"
+        },
+        "offline": {
+          "applicability": "applicable",
+          "reason": "离线：不触发云模型/资源下载；第4节及原操作面共同承接。"
+        },
+        "error_timeout": {
+          "applicability": "applicable",
+          "reason": "失败/结果未知：不改业务任务；第4节及原操作面共同承接。"
+        },
+        "duplicate": {
+          "applicability": "applicable",
+          "reason": "重复/快速选择：幂等，不重复业务请求；第4节及原操作面共同承接。"
+        },
+        "interrupted": {
+          "applicability": "applicable",
+          "reason": "切换中中断：未完成写入不算成功；第4节及原操作面共同承接。"
+        },
+        "success": {
+          "applicability": "applicable",
+          "reason": "保存成功：下次启动保持；第4节及原操作面共同承接。"
+        }
+      },
+      "states": [
+        {
+          "id": "LANG-R1-first_use",
+          "page": "editor-language-settings",
+          "state": "first_use",
+          "entry": "首次无配置",
+          "content": "英文与七项入口",
+          "actions": "正常进入/选择/跳过引导",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "读取有效选择优先，否则英文",
+          "design_scenario_id": "planned-language-first_use"
+        },
+        {
+          "id": "LANG-R1-normal",
+          "page": "editor-language-settings",
+          "state": "normal",
+          "entry": "正常使用",
+          "content": "有效语言与选中标记",
+          "actions": "切换/关闭",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "当前项目与任务不变",
+          "design_scenario_id": "planned-language-normal"
+        },
+        {
+          "id": "LANG-R1-loading",
+          "page": "editor-language-settings",
+          "state": "loading",
+          "entry": "读取或保存中",
+          "content": "实际读写阶段及待保存选择",
+          "actions": "等待/关闭面板",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "以持久化结果为准，旧响应不盖新选择",
+          "design_scenario_id": "planned-language-loading"
+        },
+        {
+          "id": "LANG-R1-empty",
+          "page": "editor-language-settings",
+          "state": "empty",
+          "entry": "配置/资源为空",
+          "content": "英文安全回退与入口",
+          "actions": "选择/修复本机组件",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不联网下载或伪装已保存",
+          "design_scenario_id": "planned-language-empty"
+        },
+        {
+          "id": "LANG-R1-no_results",
+          "page": "editor-language-settings",
+          "state": "no_results",
+          "entry": "已翻译的搜索无结果状态",
+          "content": "原工具保留查询与清除",
+          "actions": "清条件/返回",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "七项语言面板本身默认完整列表无需搜索",
+          "design_scenario_id": "planned-language-no_results"
+        },
+        {
+          "id": "LANG-R1-unauthenticated",
+          "page": "editor-language-settings",
+          "state": "unauthenticated",
+          "entry": "未登录",
+          "content": "本机语言选项正常可用",
+          "actions": "正常选择",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不要求账户",
+          "design_scenario_id": "planned-language-unauthenticated"
+        },
+        {
+          "id": "LANG-R1-permission_denied",
+          "page": "editor-language-settings",
+          "state": "permission_denied",
+          "entry": "存储拒绝",
+          "content": "原有效设置及失败原因",
+          "actions": "重试/关闭",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不假保存",
+          "design_scenario_id": "planned-language-permission_denied"
+        },
+        {
+          "id": "LANG-R1-offline",
+          "page": "editor-language-settings",
+          "state": "offline",
+          "entry": "离线",
+          "content": "内置七语与正常设置",
+          "actions": "正常选择",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不触发云模型/资源下载",
+          "design_scenario_id": "planned-language-offline"
+        },
+        {
+          "id": "LANG-R1-error_timeout",
+          "page": "editor-language-settings",
+          "state": "error_timeout",
+          "entry": "失败/结果未知",
+          "content": "读失败回退/写失败或未知说明",
+          "actions": "核对本机已存值/重试",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不改业务任务",
+          "design_scenario_id": "planned-language-error_timeout"
+        },
+        {
+          "id": "LANG-R1-duplicate",
+          "page": "editor-language-settings",
+          "state": "duplicate",
+          "entry": "重复/快速选择",
+          "content": "最新用户选择与真实保存状态",
+          "actions": "继续/关闭",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "幂等，不重复业务请求",
+          "design_scenario_id": "planned-language-duplicate"
+        },
+        {
+          "id": "LANG-R1-interrupted",
+          "page": "editor-language-settings",
+          "state": "interrupted",
+          "entry": "切换中中断",
+          "content": "实际已存语言、原项目和任务",
+          "actions": "恢复",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "未完成写入不算成功",
+          "design_scenario_id": "planned-language-interrupted"
+        },
+        {
+          "id": "LANG-R1-success",
+          "page": "editor-language-settings",
+          "state": "success",
+          "entry": "保存成功",
+          "content": "新语言与成功提示",
+          "actions": "继续创作",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "下次启动保持",
+          "design_scenario_id": "planned-language-success"
+        }
+      ]
+    },
+    {
+      "id": "LANG-REQ-02",
+      "title": "本机自动保存与不打断任务的切换",
+      "main_flow": "选择→本机设置保存→成功立即应用→提示；失败保留原有效设置并可重试",
+      "acceptance": [
+        {
+          "id": "LANG-AC-04",
+          "given": "离线、无账户，当前有项目/草稿/任务或新手步骤",
+          "when": "用户选择新语言且本机保存成功",
+          "then": "无需重启即生效；保持页/选区/视口/草稿/撤销历史/任务/引导进度，不重复业务请求。"
+        },
+        {
+          "id": "LANG-AC-05",
+          "given": "写入拒绝/空间不足、快速连选或写入中断",
+          "when": "观察保存状态或重新启动",
+          "then": "只认实际持久化结果；失败不报已保存；旧响应不覆盖新选择，未知先核已存值，允许重试。"
+        },
+        {
+          "id": "LANG-AC-06",
+          "given": "任意设备上已选语言",
+          "when": "打包项目、LAN同步、游戏导出或在另一设备打开",
+          "then": "偏好仅本机当前编辑器用户配置；不随项目/LAN/成品/云端自动复制，各端独立保存。"
+        }
+      ],
+      "source": "INPUT-BASELINES.json记录的本轮真实消息",
+      "owner": "Codex产品编制；真实角色审阅待登记",
+      "priority": "P0",
+      "priority_reason": "明确用户要求和基础可用性补全",
+      "status": "in_scope",
+      "evidence_ids": [
+        "LANG-E-01",
+        "LANG-E-02",
+        "LANG-E-03"
+      ],
+      "roles_permissions": "本机编辑器用户可改自身语言，无登录/项目写权限前置；无新增云端授权。",
+      "preconditions": "本机编辑器语言资源/设置能力；无有效选择默认英文。",
+      "exceptions": "见LANGUAGE-SETTINGS.md第4节：缺失/损坏/权限/连选/中断/缺译分别恢复。",
+      "data_rules": "本机偏好与项目/游戏语言分离；稳定身份与用户内容不改写；只认成功持久化的选择。",
+      "constraints": "不自动下载/上传或调用模型；界面切换不执行业务副作用；没有实际翻译/运行证明。",
+      "state_coverage": {
+        "first_use": {
+          "applicability": "applicable",
+          "reason": "首次无配置：读取有效选择优先，否则英文；第4节及原操作面共同承接。"
+        },
+        "normal": {
+          "applicability": "applicable",
+          "reason": "正常使用：当前项目与任务不变；第4节及原操作面共同承接。"
+        },
+        "loading": {
+          "applicability": "applicable",
+          "reason": "读取或保存中：以持久化结果为准，旧响应不盖新选择；第4节及原操作面共同承接。"
+        },
+        "empty": {
+          "applicability": "applicable",
+          "reason": "配置/资源为空：不联网下载或伪装已保存；第4节及原操作面共同承接。"
+        },
+        "no_results": {
+          "applicability": "applicable",
+          "reason": "已翻译的搜索无结果状态：七项语言面板本身默认完整列表无需搜索；第4节及原操作面共同承接。"
+        },
+        "unauthenticated": {
+          "applicability": "applicable",
+          "reason": "未登录：不要求账户；第4节及原操作面共同承接。"
+        },
+        "permission_denied": {
+          "applicability": "applicable",
+          "reason": "存储拒绝：不假保存；第4节及原操作面共同承接。"
+        },
+        "offline": {
+          "applicability": "applicable",
+          "reason": "离线：不触发云模型/资源下载；第4节及原操作面共同承接。"
+        },
+        "error_timeout": {
+          "applicability": "applicable",
+          "reason": "失败/结果未知：不改业务任务；第4节及原操作面共同承接。"
+        },
+        "duplicate": {
+          "applicability": "applicable",
+          "reason": "重复/快速选择：幂等，不重复业务请求；第4节及原操作面共同承接。"
+        },
+        "interrupted": {
+          "applicability": "applicable",
+          "reason": "切换中中断：未完成写入不算成功；第4节及原操作面共同承接。"
+        },
+        "success": {
+          "applicability": "applicable",
+          "reason": "保存成功：下次启动保持；第4节及原操作面共同承接。"
+        }
+      },
+      "states": [
+        {
+          "id": "LANG-R2-first_use",
+          "page": "editor-language-settings",
+          "state": "first_use",
+          "entry": "首次无配置",
+          "content": "英文与七项入口",
+          "actions": "正常进入/选择/跳过引导",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "读取有效选择优先，否则英文",
+          "design_scenario_id": "planned-language-first_use"
+        },
+        {
+          "id": "LANG-R2-normal",
+          "page": "editor-language-settings",
+          "state": "normal",
+          "entry": "正常使用",
+          "content": "有效语言与选中标记",
+          "actions": "切换/关闭",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "当前项目与任务不变",
+          "design_scenario_id": "planned-language-normal"
+        },
+        {
+          "id": "LANG-R2-loading",
+          "page": "editor-language-settings",
+          "state": "loading",
+          "entry": "读取或保存中",
+          "content": "实际读写阶段及待保存选择",
+          "actions": "等待/关闭面板",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "以持久化结果为准，旧响应不盖新选择",
+          "design_scenario_id": "planned-language-loading"
+        },
+        {
+          "id": "LANG-R2-empty",
+          "page": "editor-language-settings",
+          "state": "empty",
+          "entry": "配置/资源为空",
+          "content": "英文安全回退与入口",
+          "actions": "选择/修复本机组件",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不联网下载或伪装已保存",
+          "design_scenario_id": "planned-language-empty"
+        },
+        {
+          "id": "LANG-R2-no_results",
+          "page": "editor-language-settings",
+          "state": "no_results",
+          "entry": "已翻译的搜索无结果状态",
+          "content": "原工具保留查询与清除",
+          "actions": "清条件/返回",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "七项语言面板本身默认完整列表无需搜索",
+          "design_scenario_id": "planned-language-no_results"
+        },
+        {
+          "id": "LANG-R2-unauthenticated",
+          "page": "editor-language-settings",
+          "state": "unauthenticated",
+          "entry": "未登录",
+          "content": "本机语言选项正常可用",
+          "actions": "正常选择",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不要求账户",
+          "design_scenario_id": "planned-language-unauthenticated"
+        },
+        {
+          "id": "LANG-R2-permission_denied",
+          "page": "editor-language-settings",
+          "state": "permission_denied",
+          "entry": "存储拒绝",
+          "content": "原有效设置及失败原因",
+          "actions": "重试/关闭",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不假保存",
+          "design_scenario_id": "planned-language-permission_denied"
+        },
+        {
+          "id": "LANG-R2-offline",
+          "page": "editor-language-settings",
+          "state": "offline",
+          "entry": "离线",
+          "content": "内置七语与正常设置",
+          "actions": "正常选择",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不触发云模型/资源下载",
+          "design_scenario_id": "planned-language-offline"
+        },
+        {
+          "id": "LANG-R2-error_timeout",
+          "page": "editor-language-settings",
+          "state": "error_timeout",
+          "entry": "失败/结果未知",
+          "content": "读失败回退/写失败或未知说明",
+          "actions": "核对本机已存值/重试",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不改业务任务",
+          "design_scenario_id": "planned-language-error_timeout"
+        },
+        {
+          "id": "LANG-R2-duplicate",
+          "page": "editor-language-settings",
+          "state": "duplicate",
+          "entry": "重复/快速选择",
+          "content": "最新用户选择与真实保存状态",
+          "actions": "继续/关闭",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "幂等，不重复业务请求",
+          "design_scenario_id": "planned-language-duplicate"
+        },
+        {
+          "id": "LANG-R2-interrupted",
+          "page": "editor-language-settings",
+          "state": "interrupted",
+          "entry": "切换中中断",
+          "content": "实际已存语言、原项目和任务",
+          "actions": "恢复",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "未完成写入不算成功",
+          "design_scenario_id": "planned-language-interrupted"
+        },
+        {
+          "id": "LANG-R2-success",
+          "page": "editor-language-settings",
+          "state": "success",
+          "entry": "保存成功",
+          "content": "新语言与成功提示",
+          "actions": "继续创作",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "下次启动保持",
+          "design_scenario_id": "planned-language-success"
+        }
+      ]
+    },
+    {
+      "id": "LANG-REQ-03",
+      "title": "所有编辑器状态及新手引导的七语覆盖",
+      "main_flow": "共享资源键应用所有内置UI→保持机器身份及用户内容→缺译英文回退→覆盖跨端文字布局",
+      "acceptance": [
+        {
+          "id": "LANG-AC-07",
+          "given": "任一所选语言及高级/错误/空态/通知/帮助/新手界面",
+          "when": "进入相应工具或中途切换",
+          "then": "内置文字与无障碍标签按该语言；简繁独立；步骤不重置，离线资源不因切换而自动下载或扣费。"
+        },
+        {
+          "id": "LANG-AC-08",
+          "given": "工程内容/聊天历史/第三方文本、稳定节点身份和游戏本地化配置",
+          "when": "切换编辑器语言或遇到缺译",
+          "then": "用户/第三方原文和项目机器值不变；游戏语言不被改写；缺键逐键回退英文，不显示裸键或假称七语已完成。"
+        },
+        {
+          "id": "LANG-AC-09",
+          "given": "法/西长文、日韩/简繁字体、手机横竖屏/键盘/大字号或读屏",
+          "when": "打开语言选择和关键操作界面",
+          "then": "七项可辨认可选，关键按钮及跳过入口可达；焦点与阅读顺序保持，不靠固定文本/像素定位工具。"
+        }
+      ],
+      "source": "INPUT-BASELINES.json记录的本轮真实消息",
+      "owner": "Codex产品编制；真实角色审阅待登记",
+      "priority": "P0",
+      "priority_reason": "明确用户要求和基础可用性补全",
+      "status": "in_scope",
+      "evidence_ids": [
+        "LANG-E-01",
+        "LANG-E-02",
+        "LANG-E-03"
+      ],
+      "roles_permissions": "本机编辑器用户可改自身语言，无登录/项目写权限前置；无新增云端授权。",
+      "preconditions": "本机编辑器语言资源/设置能力；无有效选择默认英文。",
+      "exceptions": "见LANGUAGE-SETTINGS.md第4节：缺失/损坏/权限/连选/中断/缺译分别恢复。",
+      "data_rules": "本机偏好与项目/游戏语言分离；稳定身份与用户内容不改写；只认成功持久化的选择。",
+      "constraints": "不自动下载/上传或调用模型；界面切换不执行业务副作用；没有实际翻译/运行证明。",
+      "state_coverage": {
+        "first_use": {
+          "applicability": "applicable",
+          "reason": "首次无配置：读取有效选择优先，否则英文；第4节及原操作面共同承接。"
+        },
+        "normal": {
+          "applicability": "applicable",
+          "reason": "正常使用：当前项目与任务不变；第4节及原操作面共同承接。"
+        },
+        "loading": {
+          "applicability": "applicable",
+          "reason": "读取或保存中：以持久化结果为准，旧响应不盖新选择；第4节及原操作面共同承接。"
+        },
+        "empty": {
+          "applicability": "applicable",
+          "reason": "配置/资源为空：不联网下载或伪装已保存；第4节及原操作面共同承接。"
+        },
+        "no_results": {
+          "applicability": "applicable",
+          "reason": "已翻译的搜索无结果状态：七项语言面板本身默认完整列表无需搜索；第4节及原操作面共同承接。"
+        },
+        "unauthenticated": {
+          "applicability": "applicable",
+          "reason": "未登录：不要求账户；第4节及原操作面共同承接。"
+        },
+        "permission_denied": {
+          "applicability": "applicable",
+          "reason": "存储拒绝：不假保存；第4节及原操作面共同承接。"
+        },
+        "offline": {
+          "applicability": "applicable",
+          "reason": "离线：不触发云模型/资源下载；第4节及原操作面共同承接。"
+        },
+        "error_timeout": {
+          "applicability": "applicable",
+          "reason": "失败/结果未知：不改业务任务；第4节及原操作面共同承接。"
+        },
+        "duplicate": {
+          "applicability": "applicable",
+          "reason": "重复/快速选择：幂等，不重复业务请求；第4节及原操作面共同承接。"
+        },
+        "interrupted": {
+          "applicability": "applicable",
+          "reason": "切换中中断：未完成写入不算成功；第4节及原操作面共同承接。"
+        },
+        "success": {
+          "applicability": "applicable",
+          "reason": "保存成功：下次启动保持；第4节及原操作面共同承接。"
+        }
+      },
+      "states": [
+        {
+          "id": "LANG-R3-first_use",
+          "page": "editor-language-settings",
+          "state": "first_use",
+          "entry": "首次无配置",
+          "content": "英文与七项入口",
+          "actions": "正常进入/选择/跳过引导",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "读取有效选择优先，否则英文",
+          "design_scenario_id": "planned-language-first_use"
+        },
+        {
+          "id": "LANG-R3-normal",
+          "page": "editor-language-settings",
+          "state": "normal",
+          "entry": "正常使用",
+          "content": "有效语言与选中标记",
+          "actions": "切换/关闭",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "当前项目与任务不变",
+          "design_scenario_id": "planned-language-normal"
+        },
+        {
+          "id": "LANG-R3-loading",
+          "page": "editor-language-settings",
+          "state": "loading",
+          "entry": "读取或保存中",
+          "content": "实际读写阶段及待保存选择",
+          "actions": "等待/关闭面板",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "以持久化结果为准，旧响应不盖新选择",
+          "design_scenario_id": "planned-language-loading"
+        },
+        {
+          "id": "LANG-R3-empty",
+          "page": "editor-language-settings",
+          "state": "empty",
+          "entry": "配置/资源为空",
+          "content": "英文安全回退与入口",
+          "actions": "选择/修复本机组件",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不联网下载或伪装已保存",
+          "design_scenario_id": "planned-language-empty"
+        },
+        {
+          "id": "LANG-R3-no_results",
+          "page": "editor-language-settings",
+          "state": "no_results",
+          "entry": "已翻译的搜索无结果状态",
+          "content": "原工具保留查询与清除",
+          "actions": "清条件/返回",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "七项语言面板本身默认完整列表无需搜索",
+          "design_scenario_id": "planned-language-no_results"
+        },
+        {
+          "id": "LANG-R3-unauthenticated",
+          "page": "editor-language-settings",
+          "state": "unauthenticated",
+          "entry": "未登录",
+          "content": "本机语言选项正常可用",
+          "actions": "正常选择",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不要求账户",
+          "design_scenario_id": "planned-language-unauthenticated"
+        },
+        {
+          "id": "LANG-R3-permission_denied",
+          "page": "editor-language-settings",
+          "state": "permission_denied",
+          "entry": "存储拒绝",
+          "content": "原有效设置及失败原因",
+          "actions": "重试/关闭",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不假保存",
+          "design_scenario_id": "planned-language-permission_denied"
+        },
+        {
+          "id": "LANG-R3-offline",
+          "page": "editor-language-settings",
+          "state": "offline",
+          "entry": "离线",
+          "content": "内置七语与正常设置",
+          "actions": "正常选择",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不触发云模型/资源下载",
+          "design_scenario_id": "planned-language-offline"
+        },
+        {
+          "id": "LANG-R3-error_timeout",
+          "page": "editor-language-settings",
+          "state": "error_timeout",
+          "entry": "失败/结果未知",
+          "content": "读失败回退/写失败或未知说明",
+          "actions": "核对本机已存值/重试",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "不改业务任务",
+          "design_scenario_id": "planned-language-error_timeout"
+        },
+        {
+          "id": "LANG-R3-duplicate",
+          "page": "editor-language-settings",
+          "state": "duplicate",
+          "entry": "重复/快速选择",
+          "content": "最新用户选择与真实保存状态",
+          "actions": "继续/关闭",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "幂等，不重复业务请求",
+          "design_scenario_id": "planned-language-duplicate"
+        },
+        {
+          "id": "LANG-R3-interrupted",
+          "page": "editor-language-settings",
+          "state": "interrupted",
+          "entry": "切换中中断",
+          "content": "实际已存语言、原项目和任务",
+          "actions": "恢复",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "未完成写入不算成功",
+          "design_scenario_id": "planned-language-interrupted"
+        },
+        {
+          "id": "LANG-R3-success",
+          "page": "editor-language-settings",
+          "state": "success",
+          "entry": "保存成功",
+          "content": "新语言与成功提示",
+          "actions": "继续创作",
+          "exit": "真实设置/导航结果确定，业务任务不重放。",
+          "recovery": "下次启动保持",
+          "design_scenario_id": "planned-language-success"
+        }
+      ]
+    }
+  ],
+  "research": [],
+  "retrospective": {},
+  "reviews": [
+    {
+      "at": "",
+      "baseline_sha256": "",
+      "decision": "pending",
+      "evidence_id": "",
+      "product_version": "localization-20261117-draft.1",
+      "reviewer": "",
+      "role": "product"
+    },
+    {
+      "at": "",
+      "baseline_sha256": "",
+      "decision": "pending",
+      "evidence_id": "",
+      "product_version": "localization-20261117-draft.1",
+      "reviewer": "",
+      "role": "design"
+    },
+    {
+      "at": "",
+      "baseline_sha256": "",
+      "decision": "pending",
+      "evidence_id": "",
+      "product_version": "localization-20261117-draft.1",
+      "reviewer": "",
+      "role": "engineering"
+    },
+    {
+      "at": "",
+      "baseline_sha256": "",
+      "decision": "pending",
+      "evidence_id": "",
+      "product_version": "localization-20261117-draft.1",
+      "reviewer": "",
+      "role": "qa"
+    }
+  ],
+  "risk_assessment": "覆盖缺译/简繁混用、保存失败或旧响应覆盖、系统语言覆盖用户选择、切换重发业务、原文误译、长文/字体/读屏及本机隐私；规则已写，未运行验证。",
+  "risks": [
+    "七语资源/画稿尚未实际交付；逐键英文回退不能作为完成证明。",
+    "旧冻结基线不修改，后续接续必须采用本增量而非旧四语范围。"
+  ],
+  "schema_version": 1,
+  "scope": {
+    "included": "七语集合、英文首启、自动保存/即时生效、跨启动保留、所有编辑器状态及引导的覆盖和受影响交接。",
+    "excluded": "全量翻译资源、实际画板、客户端/引擎代码、游戏文案自动翻译、账号或LAN同步语言偏好、测试/扫描/构建/设备操作。",
+    "constraints": "独立增量；旧四语在后续交接统一升级七语；不覆盖冻结包与M1根清单，不新增游戏输出平台。",
+    "code_author_role": "product",
+    "deliverables": [
+      {
+        "id": "LANG-DOCS",
+        "code_author_role": "product",
+        "paths": [
+          "README.md",
+          "LANGUAGE-SETTINGS.md",
+          "language-settings.json",
+          "INPUT-BASELINES.json",
+          ".product-mcp.json",
+          "DOCUMENT-CHECKS.json"
+        ]
+      }
+    ]
+  },
+  "test_cases": [
+    {
+      "id": "LANG-TEST-01",
+      "requirement_id": "LANG-REQ-01",
+      "acceptance_id": "LANG-AC-01",
+      "method": "产品验收定义，按对应given/when/then；系统质量方案归独立quality，未执行。",
+      "environment": "后续固定桌面/Android及七语、离线/重启/异常存储环境；当前只有文档。",
+      "test_data": "首次安装/无有效已存语言，系统为任意语言",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "LANG-TEST-02",
+      "requirement_id": "LANG-REQ-01",
+      "acceptance_id": "LANG-AC-02",
+      "method": "产品验收定义，按对应given/when/then；系统质量方案归独立quality，未执行。",
+      "environment": "后续固定桌面/Android及七语、离线/重启/异常存储环境；当前只有文档。",
+      "test_data": "已有任意一种有效语言选择",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "LANG-TEST-03",
+      "requirement_id": "LANG-REQ-01",
+      "acceptance_id": "LANG-AC-03",
+      "method": "产品验收定义，按对应given/when/then；系统质量方案归独立quality，未执行。",
+      "environment": "后续固定桌面/Android及七语、离线/重启/异常存储环境；当前只有文档。",
+      "test_data": "语言配置缺失/无效/读取失败",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "LANG-TEST-04",
+      "requirement_id": "LANG-REQ-02",
+      "acceptance_id": "LANG-AC-04",
+      "method": "产品验收定义，按对应given/when/then；系统质量方案归独立quality，未执行。",
+      "environment": "后续固定桌面/Android及七语、离线/重启/异常存储环境；当前只有文档。",
+      "test_data": "离线、无账户，当前有项目/草稿/任务或新手步骤",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "LANG-TEST-05",
+      "requirement_id": "LANG-REQ-02",
+      "acceptance_id": "LANG-AC-05",
+      "method": "产品验收定义，按对应given/when/then；系统质量方案归独立quality，未执行。",
+      "environment": "后续固定桌面/Android及七语、离线/重启/异常存储环境；当前只有文档。",
+      "test_data": "写入拒绝/空间不足、快速连选或写入中断",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "LANG-TEST-06",
+      "requirement_id": "LANG-REQ-02",
+      "acceptance_id": "LANG-AC-06",
+      "method": "产品验收定义，按对应given/when/then；系统质量方案归独立quality，未执行。",
+      "environment": "后续固定桌面/Android及七语、离线/重启/异常存储环境；当前只有文档。",
+      "test_data": "任意设备上已选语言",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "LANG-TEST-07",
+      "requirement_id": "LANG-REQ-03",
+      "acceptance_id": "LANG-AC-07",
+      "method": "产品验收定义，按对应given/when/then；系统质量方案归独立quality，未执行。",
+      "environment": "后续固定桌面/Android及七语、离线/重启/异常存储环境；当前只有文档。",
+      "test_data": "任一所选语言及高级/错误/空态/通知/帮助/新手界面",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "LANG-TEST-08",
+      "requirement_id": "LANG-REQ-03",
+      "acceptance_id": "LANG-AC-08",
+      "method": "产品验收定义，按对应given/when/then；系统质量方案归独立quality，未执行。",
+      "environment": "后续固定桌面/Android及七语、离线/重启/异常存储环境；当前只有文档。",
+      "test_data": "工程内容/聊天历史/第三方文本、稳定节点身份和游戏本地化配置",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    },
+    {
+      "id": "LANG-TEST-09",
+      "requirement_id": "LANG-REQ-03",
+      "acceptance_id": "LANG-AC-09",
+      "method": "产品验收定义，按对应given/when/then；系统质量方案归独立quality，未执行。",
+      "environment": "后续固定桌面/Android及七语、离线/重启/异常存储环境；当前只有文档。",
+      "test_data": "法/西长文、日韩/简繁字体、手机横竖屏/键盘/大字号或读屏",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "build_id": "",
+      "evidence_id": ""
+    }
+  ],
+  "verification": {
+    "accessibility": {
+      "applicable": true,
+      "approved_by": "",
+      "build_id": "",
+      "environment": "",
+      "evidence_id": "",
+      "reason": "本轮只有产品详细需求与UI交接；没有实际翻译资源、实现或运行验证。",
+      "result": "not_run",
+      "reviewer": ""
+    },
+    "device": {
+      "applicable": true,
+      "approved_by": "",
+      "build_id": "",
+      "environment": "",
+      "evidence_id": "",
+      "reason": "本轮只有产品详细需求与UI交接；没有实际翻译资源、实现或运行验证。",
+      "result": "not_run",
+      "reviewer": ""
+    },
+    "functional": {
+      "applicable": true,
+      "approved_by": "",
+      "build_id": "",
+      "environment": "",
+      "evidence_id": "",
+      "reason": "本轮只有产品详细需求与UI交接；没有实际翻译资源、实现或运行验证。",
+      "result": "not_run",
+      "reviewer": ""
+    },
+    "interaction": {
+      "applicable": true,
+      "approved_by": "",
+      "build_id": "",
+      "environment": "",
+      "evidence_id": "",
+      "reason": "本轮只有产品详细需求与UI交接；没有实际翻译资源、实现或运行验证。",
+      "result": "not_run",
+      "reviewer": ""
+    },
+    "performance": {
+      "applicable": true,
+      "approved_by": "",
+      "build_id": "",
+      "environment": "",
+      "evidence_id": "",
+      "reason": "本轮只有产品详细需求与UI交接；没有实际翻译资源、实现或运行验证。",
+      "result": "not_run",
+      "reviewer": ""
+    },
+    "user_task": {
+      "applicable": true,
+      "approved_by": "",
+      "build_id": "",
+      "environment": "",
+      "evidence_id": "",
+      "reason": "本轮只有产品详细需求与UI交接；没有实际翻译资源、实现或运行验证。",
+      "result": "not_run",
+      "reviewer": ""
+    }
+  },
+  "change_proposals": [
+    {
+      "id": "CHG-LANG-001",
+      "from": "既有四语规格与onboarding-20261117-draft.1",
+      "to": "localization-20261117-draft.1",
+      "source": "用户明确七语/英文默认/保存选择",
+      "status": "requirements_written_formal_baseline_review_pending",
+      "affected_stages": [
+        "product",
+        "architecture",
+        "ui",
+        "development",
+        "quality_documentation"
+      ],
+      "impact": {
+        "scope": "所有适用内置编辑器文案与引导",
+        "users": "无需登录选择；重启保留；各端独立",
+        "design": "七语入口与长文/字体/失败/旋转状态需补稿",
+        "schedule": "未估工期",
+        "cost": "翻译、字体及布局维护，未测费用",
+        "tests": "9条产品验收定义；详细质量文案归独立quality，not_run",
+        "release": "仅文档，无发布许可"
+      },
+      "approved_by": "",
+      "approved_at": ""
+    }
+  ],
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "documentation_status": "prepared"
+}

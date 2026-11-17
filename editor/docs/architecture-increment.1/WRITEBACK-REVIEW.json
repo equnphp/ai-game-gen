@@ -1,0 +1,89 @@
+{
+  "version": "editor-increment.1-architecture.draft.1",
+  "parent_review": "architecture/editor-web-v1/reviews/editor-increment-20261117-draft.1/findings.json",
+  "developer_receipt": "docs/architect-writeback.md",
+  "review_method": "manual_source_read_only",
+  "source_proof": [
+    {
+      "path": "hosts/tauri/src/wire.rs",
+      "snapshot": "docs/architecture-increment.1/inputs/source/hosts/tauri/src/wire.rs",
+      "sha256": "7bb48fa9193d1f56043331eee3b86445758348228de5c3b789ec143f0f108202",
+      "bytes": 5522
+    },
+    {
+      "path": "hosts/tauri/src/core.rs",
+      "snapshot": "docs/architecture-increment.1/inputs/source/hosts/tauri/src/core.rs",
+      "sha256": "158e1826b169ab3250724ed20e942a7cdeed13b4acd4276ee20a7975734d9c0f",
+      "bytes": 19583
+    },
+    {
+      "path": "hosts/tauri/src/lib.rs",
+      "snapshot": "docs/architecture-increment.1/inputs/source/hosts/tauri/src/lib.rs",
+      "sha256": "75437309e4fe0af422a0c9a8e5c40f2969071be29f790f948ea0b0b7ec52300d",
+      "bytes": 7277
+    },
+    {
+      "path": "hosts/tauri/src/locale.rs",
+      "snapshot": "docs/architecture-increment.1/inputs/source/hosts/tauri/src/locale.rs",
+      "sha256": "d8604ecd7a000423cb93c2956f3d1296e1261ec263d9f9bf21a344c4ab6fbedd",
+      "bytes": 19589
+    },
+    {
+      "path": "web/src/localization.tsx",
+      "snapshot": "docs/architecture-increment.1/inputs/source/web/src/localization.tsx",
+      "sha256": "3fd9e464af2ad43af0589a0858f5161bb1c9d9b1e932fd872d425cc449f2d743",
+      "bytes": 7962
+    },
+    {
+      "path": "web/src/components.tsx",
+      "snapshot": "docs/architecture-increment.1/inputs/source/web/src/components.tsx",
+      "sha256": "3bfaa091f351fa06b903233a1c71b76cedb5cac7001db0064c2ea6231491251c",
+      "bytes": 3410
+    },
+    {
+      "path": "web/src/locales/catalogue.json",
+      "snapshot": "docs/architecture-increment.1/inputs/source/web/src/locales/catalogue.json",
+      "sha256": "a8d1c49c1d47209c71e1a3c775a97c806f1fc75351101d77cb3d991e27f2c87e",
+      "bytes": 1946
+    },
+    {
+      "path": "docs/architect-writeback.md",
+      "snapshot": "docs/architecture-increment.1/inputs/source/docs/architect-writeback.md",
+      "sha256": "dac645c797b3d91f72cededab5cf6d236f51f7351dcf8c60be6335c61bd77ba7",
+      "bytes": 1203
+    }
+  ],
+  "items": [
+    {
+      "id": "AR-INC-01",
+      "source_status": "correction_observed",
+      "status": "source_correction_reviewed_not_executed",
+      "evidence": "wire.at_submission + core accepted=code==0 + lib提交前拒绝和不明panic/join分类",
+      "basic_plan_id": "B-EW-15",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "AR-INC-02",
+      "source_status": "correction_observed",
+      "status": "source_correction_reviewed_not_executed",
+      "evidence": "nextSeq空批使用after.min(d.seq)，gap保留超前判断",
+      "basic_plan_id": "B-EW-16",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "AR-INC-03",
+      "source_status": "correction_observed",
+      "status": "source_correction_reviewed_not_executed",
+      "evidence": "最新本窗口service/command/ticket、真实committed/unchanged、persisted/effective一致且idle后一次通知；LanguagePicker role=status呈现",
+      "basic_plan_id": "B-EW-17",
+      "execution_status": "not_run"
+    }
+  ],
+  "catalogue_declared_keys": 82,
+  "translation_review": "draft_not_human_reviewed",
+  "runtime_defect_resolution_proven": false,
+  "formal_acceptance": false,
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false
+}

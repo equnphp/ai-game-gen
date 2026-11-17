@@ -1,0 +1,88 @@
+{
+  "product": {
+    "thread": {
+      "id": "01a1d3e8-579f-7a21-a371-354a0d5c5b88",
+      "title": "产品经理",
+      "status": {
+        "type": "idle"
+      }
+    },
+    "messages": [
+      {
+        "id": "01a1e900-4743-7441-a333-2782ae6517a1",
+        "status": "completed",
+        "messages": [
+          {
+            "type": "userMessage",
+            "id": "01a1e900-477f-7461-9734-32bd0a6cb620",
+            "text": [
+              {
+                "type": "text",
+                "text": "继续，还要加繁体中文\n"
+              }
+            ]
+          },
+          {
+            "type": "agentMessage",
+            "id": "msg_070d25982eed930c016afc2a0cf1c087d09a3dd943f916ef29",
+            "text": "已加入**繁体中文**，中文分为简体、繁体两个独立选项。最终支持 **7种界面语言**：\n\n| 语言 | 选择器显示名称 |\n|---|---|\n| **英文，首次默认** | English |\n| 简体中文 | 简体中文 |\n| 繁体中文 | 繁體中文 |\n| 日文 | 日本語 |\n| 韩文 | 한국어 |\n| 西班牙文 | Español |\n| 法文 | Français |\n\n语言设置统一按以下规则执行：\n\n- **首次启动默认英文**，用户可以在首页、新手引导或设置中切换。\n- **选择后自动保存并立即生效**，无需重启；下次打开、设备重启和软件升级后继续沿用。\n- 已保存的选择优先，系统语言、切换项目或登录账号不会自动覆盖它。\n- 编辑器全部内置界面、提示、帮助和新手引导都覆盖这七种语言，包括高级功能及异常状态。\n- 切换语言保留当前页面、草稿、运行任务和引导进度；已有聊天内容、项目内容与游戏内语言配置保持原样。\n- 语言偏好保存在本机，离线可用；Windows与Android分别记住各自的选择。\n- 简繁体分别维护文案；某条翻译缺失时回退英文，不因此重置用户选择。\n\n已写入[七语言与语言设置需求](I:/code/GameGen/design/ui-full-20261117-draft.1/review/localization-20261117-draft.1/LANGUAGE-SETTINGS.md)，作为此前“四语”规格的最新增补。**本次完成的是需求与界面交接更新，七语完整画稿、翻译资源和客户端功能尚未交付。**\n\n"
+          }
+        ]
+      }
+    ]
+  },
+  "ui": {
+    "thread": {
+      "id": "01a1e812-06d4-75e2-9a8d-50def6ad56eb",
+      "title": "UI设计师",
+      "status": {
+        "type": "idle"
+      }
+    },
+    "messages": [
+      {
+        "id": "01a1e941-c6ed-73d1-9938-a3ef7f2a06d8",
+        "status": "completed",
+        "messages": [
+          {
+            "type": "userMessage",
+            "id": "01a1e941-c733-7522-93f5-21253d35f622",
+            "text": [
+              {
+                "type": "text",
+                "text": "svg文件名都改成中文\n"
+              }
+            ]
+          },
+          {
+            "type": "agentMessage",
+            "id": "msg_0f000a91ee889387016afc3b3baeec87d0869d0d1e72d6f1df",
+            "text": "已改好。**当前 `draft.2` 交付包中的 4,405 个 SVG 文件名已全部改为中文**，图库、索引和压缩包中的引用也已同步更新。\n\n你可以直接使用：\n\n- **[桌面界面 SVG 文件夹](I:/code/GameGen/design/ui-full-20261117-draft.2/import-pack/boards/desktop)**\n- **[手机界面 SVG 文件夹](I:/code/GameGen/design/ui-full-20261117-draft.2/import-pack/boards/android)**\n- **[独立素材文件夹](I:/code/GameGen/design/ui-full-20261117-draft.2/import-pack/assets)**\n- **[重新下载中文文件名导入包 ZIP](I:/code/GameGen/design/ui-full-20261117-draft.2/GameGen-四平台SVG与素材-draft.2.zip)**\n\n界面文件现在按这种方式命名：\n\n```text\n桌面—蒙皮网格、绑定与顶点权重—默认界面—0517.svg\n手机—蒙皮网格、绑定与顶点权重—默认界面—0521.svg\n```\n\n素材使用“返回.svg”“文件夹.svg”“引导冒险家.svg”“蓝色星晶.svg”等名称。\n\n已核对文件名和索引引用，**SVG 图形、文字和图层内容保持不变**。如果之前下载过 ZIP，请重新下载这一份。\n\n"
+          }
+        ]
+      },
+      {
+        "id": "01a1e93e-9d3b-7aa0-a28f-3912d35f0ace",
+        "status": "completed",
+        "messages": [
+          {
+            "type": "userMessage",
+            "id": "01a1e93e-9d9d-73b3-9729-738f97ea4363",
+            "text": [
+              {
+                "type": "text",
+                "text": "OK  知道了\n"
+              }
+            ]
+          },
+          {
+            "type": "agentMessage",
+            "id": "msg_0f000a91ee889387016afc3904f3e487d0a0c50c58891d88d3",
+            "text": "好的。"
+          }
+        ]
+      }
+    ]
+  },
+  "scope": "只读真实会话来源；未向这些会话发送接收请求，也不从确认知晓推断正式批准"
+}

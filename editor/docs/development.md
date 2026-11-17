@@ -43,8 +43,12 @@ buildId为空，当前没有制品。计划Windows11 1440×960/100%缩放和390�
 
 ## 文档检查与正式接收
 
-17项基础自测和系统质量策略/容量/安全/缺陷计划经文档检查为documents_ready；全为not_run。独立editor根的正式workflow仍documents_incomplete：上游模块清单与阶段哈希交接、实际角色批准、各状态最终设计图绑定尚未完备，未伪造批准。原始结果见docs/document-checks.json；缺项已按会话授权反馈架构师补齐。源码提交不等于正式接收或发布。
+17项基础自测和系统质量策略/容量/安全/缺陷计划经文档检查为documents_ready；全为not_run。独立editor根的正式workflow仍documents_incomplete：正式产品增量清单与阶段哈希交接、实际角色批准、各状态最终设计图绑定尚未完备，未伪造批准。原始结果见docs/document-checks.json；缺项已按会话授权反馈架构师补齐。源码提交不等于正式接收或发布。
 
 ## 中文SVG文件名修订
 
 接收UI draft.2 filename_revision=cn.1，当前图标资源与代码引用均同步为界面图标集.svg；完整画稿引用以中文文件名对照为准，历史/冻结快照不覆盖。详见docs/ui-filenames-cn.1.md；未执行渲染或比较。
+
+## 架构增量交接接收
+
+架构师已补齐.architecture-mcp.json与docs/architecture-increment.1详细设计、编码交接、职责缺项和三项源码复核。流程已按实际SHA绑定架构document/spec；未代填前序产品、UI或角色批准。三项状态为source_correction_reviewed_not_executed，ready_for_coding=false与正式交接未完成的记录保留。

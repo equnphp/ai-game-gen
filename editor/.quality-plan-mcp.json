@@ -228,7 +228,7 @@
     "code_author_role": "engineering",
     "has_ui": true,
     "requires_code": true,
-    "design_version": "ui-full-20261117-draft.2 + LANG-draft.1",
+    "design_version": "editor-increment.1-acceptance-plan",
     "implementation_status": "source_written_not_built",
     "deliverables": [
       {
@@ -257,7 +257,8 @@
           ".workflow-mcp.json"
         ]
       }
-    ]
+    ],
+    "ui_source_version": "ui-full-20261117-draft.2 + LANG-draft.1"
   },
   "execution_status": "not_run",
   "quality_verified": false,

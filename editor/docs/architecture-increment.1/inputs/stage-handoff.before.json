@@ -1,0 +1,189 @@
+{
+  "approval_identity_verified": false,
+  "baseline_sha256": "",
+  "complete": false,
+  "completion_scope": "当前迭代声明范围的文档、记录与交接，不含实际验证和发布许可",
+  "documents_ready": false,
+  "downstream": {
+    "delivery_identity": {
+      "actual_build_declared": false,
+      "artifact_verified": false,
+      "consistent": true,
+      "declarations": {
+        ".coding-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".design-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".quality-plan-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        },
+        ".workflow-mcp.json": {
+          "artifact_sha256": "",
+          "build_id": "",
+          "source_revision": ""
+        }
+      },
+      "issues": []
+    }
+  },
+  "execution_status": "not_run",
+  "execution_verified": false,
+  "gate_kind": "documentation",
+  "issues": [
+    {
+      "code": "predecessor_incomplete",
+      "message": "必须先完成前序阶段并保留当前批准",
+      "path": "requirements"
+    },
+    {
+      "code": "document_section",
+      "message": "详细文档章节缺失或仍为模板: 问题与证据",
+      "path": "requirements.document"
+    },
+    {
+      "code": "document_section",
+      "message": "详细文档章节缺失或仍为模板: 用户与场景",
+      "path": "requirements.document"
+    },
+    {
+      "code": "document_section",
+      "message": "详细文档章节缺失或仍为模板: 目标与指标",
+      "path": "requirements.document"
+    },
+    {
+      "code": "document_section",
+      "message": "详细文档章节缺失或仍为模板: 范围与取舍",
+      "path": "requirements.document"
+    },
+    {
+      "code": "document_section",
+      "message": "详细文档章节缺失或仍为模板: 功能与业务规则",
+      "path": "requirements.document"
+    },
+    {
+      "code": "document_section",
+      "message": "详细文档章节缺失或仍为模板: 页面与状态",
+      "path": "requirements.document"
+    },
+    {
+      "code": "document_section",
+      "message": "详细文档章节缺失或仍为模板: 权限与数据",
+      "path": "requirements.document"
+    },
+    {
+      "code": "document_section",
+      "message": "详细文档章节缺失或仍为模板: 非功能要求",
+      "path": "requirements.document"
+    },
+    {
+      "code": "document_section",
+      "message": "详细文档章节缺失或仍为模板: 验收标准与追溯",
+      "path": "requirements.document"
+    },
+    {
+      "code": "document_section",
+      "message": "详细文档章节缺失或仍为模板: 风险依赖与变更",
+      "path": "requirements.document"
+    },
+    {
+      "code": "required_text",
+      "message": "必须填写非空文字",
+      "path": "requirements.product_spec.path"
+    },
+    {
+      "code": "required_text",
+      "message": "必须填写非空文字",
+      "path": "requirements.product_spec.version"
+    },
+    {
+      "code": "required_text",
+      "message": "必须填写非空文字",
+      "path": "requirements.product_spec.owner"
+    },
+    {
+      "code": "required_text",
+      "message": "必须填写非空文字",
+      "path": "requirements.product_spec.sha256"
+    },
+    {
+      "code": "artifact_file",
+      "message": "项目内路径不能为空",
+      "path": "requirements.product_spec"
+    },
+    {
+      "code": "module_gate",
+      "message": "invalid map<K, T> key",
+      "path": "requirements"
+    },
+    {
+      "code": "review_missing",
+      "message": "缺少交付/接收确认: product",
+      "path": "requirements"
+    },
+    {
+      "code": "review_missing",
+      "message": "缺少交付/接收确认: user",
+      "path": "requirements"
+    },
+    {
+      "code": "stage_inputs",
+      "message": "目标阶段必须精确绑定全部前序基线",
+      "path": "architecture"
+    },
+    {
+      "code": "upstream_changed",
+      "message": "目标阶段未接收当前前序交接基线",
+      "path": "architecture"
+    },
+    {
+      "code": "stage_order",
+      "message": "只能进入当前明确声明的阶段",
+      "path": "$.current_stage"
+    }
+  ],
+  "limits": [
+    "通过只表示声明范围的文档检查就绪，不表示测试、压测、安全或UI实测通过",
+    "本工具不执行项目命令；自动化只能由用户会话明确要求并限定范围",
+    "审批记录和证据真实性须由实际负责人确认"
+  ],
+  "module": "workflow",
+  "passed": false,
+  "quality_verified": false,
+  "question_routes": {
+    "architecture": [
+      "product",
+      "user"
+    ],
+    "backend": [
+      "architecture"
+    ],
+    "frontend": [
+      "architecture"
+    ],
+    "product": [
+      "user"
+    ],
+    "ui": [
+      "product"
+    ]
+  },
+  "ready_for_stage": false,
+  "release_permitted": false,
+  "root": "I:\\code\\GameGen\\editor",
+  "stage": "architecture",
+  "stage_baselines": {
+    "architecture": "1ef27d0feb032e768271671b185d5df89b58ddacd914ccfe36a5f7c57f6ed8da",
+    "development": "6d8085a69ec1e76f4bb17f1c6227cc2120e7e1f93208a8b65dc02c247e703ede",
+    "requirements": "cf2941d10b1c82c6a47994e811b0b65edfe24ab630b2cddba440e159acf6645d",
+    "ui": "764378d363d6eeed56ae562f81135dc01f39a6ebea2816a2372ba20f4c0b9e5f"
+  },
+  "status": "documents_incomplete"
+}

@@ -1,0 +1,807 @@
+{
+  "agile": {
+    "wip_limit": "主要1，最多2待集成",
+    "cadence": "EW-I1—4按依赖，小增量可回退",
+    "definition_of_done": "契约/来源/源码状态/文案与真实接收分开，不伪造运行",
+    "fitness_checks": "基础17/系统八类/最终UI状态计划，均未执行",
+    "feedback": "开发技术回架构，业务回产品/用户，UI回产品"
+  },
+  "capacity": {
+    "current_load": "未运行；当前一个Core/项目和有界前端/语言入口",
+    "target_load": "任务32、前端16、结果1槽8MiB、块1MiB、JSON2MiB、wire16MiB、事件256/read100、语言8KiB/1写/1待存/32通道",
+    "load_model": "LC固定fixture/当前33UI场景，完整产品与Android另包",
+    "forecast": "无用户研究/测量，超预算先拒绝/回架构",
+    "measurement_method": "后续真实授权范围内基础/系统分工记录，目前not_run",
+    "bottlenecks": "FFI/存储/结果槽/语言原子替换和WebView未知",
+    "complexity_budget": "WIP1，本机模块化单体，无分布式新增",
+    "cost_budget": "必要依赖免费候选，许可证/实际制品/工具资格待接收",
+    "evidence_ids": [
+      "E-EI-CORE",
+      "E-EI-UPSTREAM"
+    ]
+  },
+  "changes": [
+    {
+      "id": "CHG-EI-ARCH-01",
+      "from_version": "editor-web-v1-draft.4 inherited",
+      "to_version": "editor-increment.1-architecture.draft.1",
+      "owner": "architecture",
+      "reason": "独立editor根补齐技术交接；源三项写回复核",
+      "affected_stages": [
+        "architecture",
+        "ui",
+        "development"
+      ],
+      "impact": {
+        "scope": "首增量不扩完整产品",
+        "data": "Core ABI/消息/DDL不变",
+        "workflow": "提供候选集成，不替其他写者改清单",
+        "approval": "真实版本接收仍空，未执行/未发布"
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "UI",
+      "kind": "frontend",
+      "owner": "frontend/UI",
+      "technology": "React + TypeScript DOM/SVG",
+      "version": "source_written_not_built",
+      "responsibility": "项目/Scene/属性/资源/任务和语言面板，草稿/语义投影",
+      "ui": {
+        "state_model": "docs/architecture-increment.1/ARCHITECTURE.md + .design planning33场景",
+        "target_environments": "计划Windows11 1440x960/100%和390x844，实际WebView/字体待填",
+        "async_lifecycle": "不以locale重挂根，保持草稿/IME/任务；未知查原请求",
+        "security_boundary": "受限Tauri invoke，不能任意路径/SQL/shell",
+        "assets": "受领UI draft.2 tokens/资源，中文SVG索引与七语新稿待UI接收",
+        "accessibility": "语义DOM/稳定ID/根lang/真实成功role=status；设备实测未执行",
+        "packaging": "随包离线资源，与宿主/Core兼容组合",
+        "compatibility": "C1候选精确直接声明，完整锁/构建未接收"
+      }
+    },
+    {
+      "id": "HOST",
+      "kind": "backend",
+      "owner": "engineering宿主",
+      "technology": "Tauri2/Rust/纯C ABI",
+      "version": "source_written_not_built",
+      "responsibility": "唯一Core会话/token/task/租约/单槽与关闭；平台薄端口"
+    },
+    {
+      "id": "UX",
+      "kind": "backend",
+      "owner": "engineering宿主",
+      "technology": "Rust LocalPreferencesActor + UX1.1",
+      "version": "source_written_not_built",
+      "responsibility": "实际四方法，独立本机语言单写/真实提交，课程未声明"
+    },
+    {
+      "id": "CORE",
+      "kind": "external",
+      "owner": "既有M1工程",
+      "technology": "C++20/SQLite/ABI1.0",
+      "version": "local-core-v1-draft.2 external artifact",
+      "responsibility": "项目/文档/资源/历史权威，现有源码不在本包修改"
+    }
+  ],
+  "context": {
+    "business_goals": "独立editor根承接Windows常规编辑主路径与七语本机选择，保持共享领域与真实状态",
+    "scope": "LC-REQ01/02/03/04/07及LANG-REQ01—03的当前部分入口，完整产品与其他平台另包保留",
+    "constraints": "Core ABI1.0/消息1.0/DDL1不变；无云/微服务/强制付费依赖；只写交接，不执行/不操作Git",
+    "stakeholders": "用户/产品/架构/UI/engineering/独立quality；正式接收待登记",
+    "risk_assessment": "源码未构建、兼容锁/制品/七语UI/正式产品及真实角色接收未闭合"
+  },
+  "data": {
+    "ownership": "Core项目/文档/资源权威；UI草稿和设备语言独立",
+    "consistency": "durable确认才报项目保存；语言真实本机提交后应用；原请求幂等与单写",
+    "migration": "本包不改Core DDL；语言schema1独立，未知未来版本保留不强写",
+    "classification": "localOnly，本机语言排除工程/LAN/游戏/云/遥测",
+    "retention": "Core现有历史/快照域继承；UX128回执/256事件，语言8KiB/有界旧副本",
+    "backup_restore": "Core事务恢复沿冻结文件；语言临时同步替换和原提交核对，未运行恢复"
+  },
+  "decisions": [
+    {
+      "id": "ADR-EI-01",
+      "context": "用户已指令继续开发，当前独立editor实际根需要有界接续",
+      "selected": "复用第四版路线的本机模块化单体/共享Core",
+      "owner": "architecture技术编制，非真实人员批准",
+      "reason": "保留跨端一致，不把新GUI扩入根M1",
+      "options": [
+        {
+          "name": "同源表现+薄宿主+纯C ABI",
+          "benefits": "边界稳定，可逐包回退",
+          "costs": "FFI/平台/资源接收维护",
+          "risks": "未集成验证"
+        },
+        {
+          "name": "独立重复领域/服务拆分",
+          "benefits": "不采用",
+          "costs": "一致性/运维复杂",
+          "risks": "没有必要性或批准"
+        }
+      ],
+      "consequences": "当前Windows首增量，Android及完整能力仍独立接收",
+      "reversal": "回退匹配UI/宿主/Core组合，原数据保留"
+    },
+    {
+      "id": "ADR-EI-02",
+      "context": "七语英文默认/成功保存后应用，全部UX尚未实现",
+      "selected": "独立语言文件和UX1.1实际四方法声明",
+      "owner": "architecture技术编制",
+      "reason": "不以accepted冒充持久化，不假报全七方法/课程",
+      "options": [
+        {
+          "name": "本机actor与真实能力声明",
+          "benefits": "失败/排序/恢复明确",
+          "costs": "目录/状态/兼容维护",
+          "risks": "七语翻译和存储未测"
+        },
+        {
+          "name": "localStorage即时切换并假报全能力",
+          "benefits": "原型快",
+          "costs": "不符业务/契约",
+          "risks": "不采用"
+        }
+      ],
+      "consequences": "语言与项目/学习进度分离，三AR写回仅源级复核",
+      "reversal": "保留语言原件/兼容组合，不用课程reset改项目"
+    }
+  ],
+  "delivery": {
+    "code_author_role": "engineering",
+    "has_ui": true,
+    "requires_code": true,
+    "design_version": "ui-full-20261117-draft.2 + LANG-draft.1",
+    "implementation_status": "source_written_not_built",
+    "deliverables": [
+      {
+        "id": "EW-IMPL-01",
+        "code_author_role": "engineering",
+        "paths": [
+          "web/",
+          "host-contract/",
+          "hosts/",
+          "package.json",
+          "tsconfig.json",
+          ".node-version",
+          ".npmrc",
+          ".gitignore"
+        ]
+      },
+      {
+        "id": "EW-DOC-01",
+        "code_author_role": "engineering",
+        "paths": [
+          "docs/",
+          "README.md",
+          ".coding-mcp.json",
+          ".quality-plan-mcp.json",
+          ".design-mcp.json",
+          ".workflow-mcp.json"
+        ]
+      }
+    ]
+  },
+  "delivery_identity": {
+    "build_id": "",
+    "source_revision": "",
+    "artifact_sha256": ""
+  },
+  "evidence": [
+    {
+      "id": "E-EI-UPSTREAM",
+      "kind": "frozen_received_inputs",
+      "path": "docs/architecture-increment.1/UPSTREAM-RECEIPT.json",
+      "sha256": "afb7aa58fdcc59b69e8bad92a9207fe832c421c07201a5c009d3b77551f2d907",
+      "owner": "architecture受领，非审批",
+      "collected_at": "2026-11-17",
+      "summary": "上级架构/原文和本地快照，formal product pending",
+      "build_id": ""
+    },
+    {
+      "id": "E-EI-CORE",
+      "kind": "frozen_core_contract",
+      "path": "docs/architecture-increment.1/inputs/upstream/core/api.md",
+      "sha256": "674e4d9169090abdaf1a7195e4398b7270f40cd872dd76d93ac41b4f3b7fc7be",
+      "owner": "architecture",
+      "collected_at": "2026-11-17",
+      "summary": "Core1.0冻结契约，非构建证明",
+      "build_id": ""
+    },
+    {
+      "id": "E-EI-WRITEBACK",
+      "kind": "manual_source_review",
+      "path": "docs/architecture-increment.1/WRITEBACK-REVIEW.json",
+      "sha256": "b197423e53589e3d2b1252d3c2cb700b5b591b994be695e7fec80f21d6169961",
+      "owner": "architecture源级复核",
+      "collected_at": "2026-11-17",
+      "summary": "三AR源码修正存在，不是运行关闭",
+      "build_id": ""
+    }
+  ],
+  "execution_policy": "documentation_only",
+  "increments": [
+    {
+      "id": "EW-I1",
+      "owner": "coding宿主",
+      "goal": "Host/FFI/会话/任务",
+      "depends_on": [],
+      "status": "source_written_not_built",
+      "acceptance": "Host闭合契约/单槽/原请求恢复/关闭与租约，基础文案对应B01/06/12/13/15",
+      "rollback": "匹配UI/宿主/Core制品组合回退，原任务与数据库保留",
+      "iteration": "ITER-EDITOR-INCREMENT-1",
+      "decision_ids": [
+        "ADR-EI-01",
+        "ADR-EI-02"
+      ],
+      "quality_ids": [
+        "Q-EI-FUNC",
+        "Q-EI-PERF",
+        "Q-EI-EXT",
+        "Q-EI-HA",
+        "Q-EI-LOAD",
+        "Q-EI-CONC",
+        "Q-EI-SEC",
+        "Q-EI-MAINT"
+      ],
+      "verification_ids": [
+        "V-EI-FUNC",
+        "V-EI-PERF",
+        "V-EI-EXT",
+        "V-EI-HA",
+        "V-EI-LOAD",
+        "V-EI-CONC",
+        "V-EI-SEC",
+        "V-EI-MAINT"
+      ],
+      "validation": "documentation_only/not_run"
+    },
+    {
+      "id": "EW-I2",
+      "owner": "coding前端/应用",
+      "goal": "项目/Scene/历史/资源常规入口",
+      "depends_on": [
+        "EW-I1"
+      ],
+      "status": "source_written_not_built",
+      "acceptance": "正常提案/校验/durable与读回；B02—05，未覆盖完整产品",
+      "rollback": "回退入口实现，保留项目/元信息/资源字节",
+      "iteration": "ITER-EDITOR-INCREMENT-1",
+      "decision_ids": [
+        "ADR-EI-01",
+        "ADR-EI-02"
+      ],
+      "quality_ids": [
+        "Q-EI-FUNC",
+        "Q-EI-PERF",
+        "Q-EI-EXT",
+        "Q-EI-HA",
+        "Q-EI-LOAD",
+        "Q-EI-CONC",
+        "Q-EI-SEC",
+        "Q-EI-MAINT"
+      ],
+      "verification_ids": [
+        "V-EI-FUNC",
+        "V-EI-PERF",
+        "V-EI-EXT",
+        "V-EI-HA",
+        "V-EI-LOAD",
+        "V-EI-CONC",
+        "V-EI-SEC",
+        "V-EI-MAINT"
+      ],
+      "validation": "documentation_only/not_run"
+    },
+    {
+      "id": "EW-I3",
+      "owner": "coding前端/宿主",
+      "goal": "七语本机选择与真实反馈",
+      "depends_on": [
+        "EW-I1"
+      ],
+      "status": "source_written_not_built",
+      "acceptance": "commit后应用、最新意图/同ticket、只本机、七项；B07—11/14/16/17；文本草稿未审",
+      "rollback": "保留配置原件并回退兼容组合，不用课程reset改项目",
+      "iteration": "ITER-EDITOR-INCREMENT-1",
+      "decision_ids": [
+        "ADR-EI-01",
+        "ADR-EI-02"
+      ],
+      "quality_ids": [
+        "Q-EI-FUNC",
+        "Q-EI-PERF",
+        "Q-EI-EXT",
+        "Q-EI-HA",
+        "Q-EI-LOAD",
+        "Q-EI-CONC",
+        "Q-EI-SEC",
+        "Q-EI-MAINT"
+      ],
+      "verification_ids": [
+        "V-EI-FUNC",
+        "V-EI-PERF",
+        "V-EI-EXT",
+        "V-EI-HA",
+        "V-EI-LOAD",
+        "V-EI-CONC",
+        "V-EI-SEC",
+        "V-EI-MAINT"
+      ],
+      "validation": "documentation_only/not_run"
+    },
+    {
+      "id": "EW-I4",
+      "owner": "各角色",
+      "goal": "正式上游/设计/兼容锁/责任接收闭合",
+      "depends_on": [
+        "EW-I1",
+        "EW-I2",
+        "EW-I3"
+      ],
+      "status": "documentation_incomplete",
+      "acceptance": "按ROLE-HANDOFF真实写回；基础/系统执行另授权",
+      "rollback": "保留所有历史冻结与现有源码，不编造批准",
+      "iteration": "ITER-EDITOR-INCREMENT-1",
+      "decision_ids": [
+        "ADR-EI-01",
+        "ADR-EI-02"
+      ],
+      "quality_ids": [
+        "Q-EI-FUNC",
+        "Q-EI-PERF",
+        "Q-EI-EXT",
+        "Q-EI-HA",
+        "Q-EI-LOAD",
+        "Q-EI-CONC",
+        "Q-EI-SEC",
+        "Q-EI-MAINT"
+      ],
+      "verification_ids": [
+        "V-EI-FUNC",
+        "V-EI-PERF",
+        "V-EI-EXT",
+        "V-EI-HA",
+        "V-EI-LOAD",
+        "V-EI-CONC",
+        "V-EI-SEC",
+        "V-EI-MAINT"
+      ],
+      "validation": "documentation_only/not_run"
+    }
+  ],
+  "interfaces": [
+    {
+      "id": "I-EI-HOST",
+      "from": "UI",
+      "to": "HOST",
+      "owner": "architecture",
+      "version": "1.0",
+      "protocol": "受限Tauri IPC / UTF8规范Base64",
+      "contract": "host-contract/host.schema.json / editor-host.d.ts；docs/inputs/architecture/editor-web-v1/revisions/draft.2/CONTRACT.md",
+      "authentication": "可信main窗口/宿主grant，随机代次token不代替授权",
+      "authorization": "宿主私有项目根和一个会话；UI不能自报路径能力",
+      "validation": "闭合字段/UUID/u64/字节/槽及Core合法性",
+      "errors": "提交类按实际边界区分not_submitted/submitted_unknown，读取not_applicable",
+      "idempotency": "Core请求原字节/ID，未知先task或request.lookup",
+      "retry": "不换ID盲重放",
+      "timeout": "close最长30000ms仍不自动成功，保留CLOSING",
+      "compatibility": "原Host12方法不加UX字段"
+    },
+    {
+      "id": "I-EI-UX",
+      "from": "UI",
+      "to": "UX",
+      "owner": "architecture",
+      "version": "1.1",
+      "protocol": "独立UX envelope",
+      "contract": "host-contract/editor-ux.schema.json / editor-ux.d.ts；docs/inputs/architecture/editor-web-v1/revisions/draft.4/UX-CONTRACTS.md",
+      "authentication": "可信UI通道/服务实例",
+      "authorization": "本机profile，不能注入完成/任意路径",
+      "validation": "七规范ID、通道seq/ticket/store/revision、8KiB与有界队列",
+      "errors": "accepted非committed，未知核对，超前游标gap回实际尾",
+      "idempotency": "128回执窗口及commandId/seq；超窗口先读状态",
+      "retry": "原请求核对后主动新意图，不重发业务",
+      "timeout": "无假保存；失败原有效值，重建换服务实例",
+      "compatibility": "只声明四方法；旧1.0和课程未实现不声明"
+    }
+  ],
+  "modularity": {
+    "boundaries": "web→host-contract→Rust Host/UX→纯C ABI→C++领域；本机profile不进入工程",
+    "dependency_rules": "C++无UI/Rust/JNI类型，Rust不复制领域规则",
+    "extension_points": "Host/UX版本、能力、LocaleCatalog及系统薄端口",
+    "contract_versioning": "Core1.0/DDL1不变；UX1.1实际四方法，原闭合协议不静默加字段",
+    "change_scenarios": "语言切换/重建/未知请求/原生库不符/资源输入与后续平台",
+    "migration_exit": "兼容组合回退，保留原项目/语言/请求和冻结基线"
+  },
+  "operation": {
+    "owner": "平台coding",
+    "window": "本轮源级首增量",
+    "reason": "未运行操作观察",
+    "sample_limits": "无运行样本",
+    "confounders": "无测量/构建",
+    "evidence_ids": [],
+    "decision": "仅文档，操作状态not_run",
+    "actions": []
+  },
+  "operation_plan": {
+    "owner": "平台coding，实际人待登记",
+    "observation": "本轮仅源级/文档",
+    "monitoring": "脱敏本机记录与版本/任务引用",
+    "alerts": "按存储/兼容/结果未知向用户给恢复入口",
+    "on_call": "本机维护；不新增云值班",
+    "incident_response": "停止相关写，保留原库/任务/文件与错误",
+    "backup_restore": "Core既有事务恢复和语言有界原件，未演练",
+    "recovery_objectives": "继承未测目标，不以设计保证断电RPO",
+    "security_maintenance": "固定依赖/SDK/资源许可与实际制品接收",
+    "capacity_triggers": "TR-EI-LIMIT/LOCALE/BREAK/LOSS",
+    "review": "真实版本/hash接收和实际环境待办"
+  },
+  "operations": {
+    "sli_slo": "继承计划阈值，未实测无在线SLA",
+    "monitoring": "本机脱敏诊断，默认不上传",
+    "alerts": "IOERR/FULL/坏库/未知提交/不兼容停止相关写/能力并保留原件",
+    "on_call": "本机维护角色，实际人员待登记，无云值班",
+    "capacity": "槽/文件预算达到则背压/拒绝",
+    "degradation": "未知版本只读/拒绝；缺Core显示不可用，不静默mock",
+    "recovery": "原task/request.lookup/语言原提交核对，不盲重放",
+    "rpo": "确认durable目标0，未执行；草稿不算保存",
+    "rto": "正常fixture打开目标<=2s，损坏自动修复无承诺",
+    "runbook": "docs/architecture-increment.1/ARCHITECTURE.md"
+  },
+  "project": {
+    "id": "gamegen-editor-increment-1",
+    "name": "GameGen编辑器首增量架构交接",
+    "version": "editor-increment.1-architecture.draft.1",
+    "owner": "architecture编制角色，真实版本接收未登记"
+  },
+  "quality_attributes": [
+    {
+      "id": "Q-EI-FUNC",
+      "dimension": "functional",
+      "metric": "项目/语言真实收据",
+      "target": "0假保存/假取消/未知重放",
+      "load": "当前首增量/LC固定fixture和计划33状态，实际未运行",
+      "environment": "Windows计划环境/C1/实际制品与WebView待接收",
+      "method": "coding基础/独立quality系统计划，本轮仅文档",
+      "owner": "architecture技术阈值，产品业务目标，各实现与独立quality"
+    },
+    {
+      "id": "Q-EI-PERF",
+      "dimension": "performance",
+      "metric": "固定fixture打开/普通提交/查询/取消",
+      "target": "p95<=2s/200ms/10ms，可取消阶段<=1s，未测",
+      "load": "当前首增量/LC固定fixture和计划33状态，实际未运行",
+      "environment": "Windows计划环境/C1/实际制品与WebView待接收",
+      "method": "coding基础/独立quality系统计划，本轮仅文档",
+      "owner": "architecture技术阈值，产品业务目标，各实现与独立quality"
+    },
+    {
+      "id": "Q-EI-EXT",
+      "dimension": "extensibility",
+      "metric": "平台/UI类型侵入与破坏变更",
+      "target": "0平台UI类型进入Core，变化升版",
+      "load": "当前首增量/LC固定fixture和计划33状态，实际未运行",
+      "environment": "Windows计划环境/C1/实际制品与WebView待接收",
+      "method": "coding基础/独立quality系统计划，本轮仅文档",
+      "owner": "architecture技术阈值，产品业务目标，各实现与独立quality"
+    },
+    {
+      "id": "Q-EI-HA",
+      "dimension": "high_availability",
+      "metric": "已确认durable事务丢失",
+      "target": "目标0，仅本机，未测RPO/RTO",
+      "load": "当前首增量/LC固定fixture和计划33状态，实际未运行",
+      "environment": "Windows计划环境/C1/实际制品与WebView待接收",
+      "method": "coding基础/独立quality系统计划，本轮仅文档",
+      "owner": "architecture技术阈值，产品业务目标，各实现与独立quality"
+    },
+    {
+      "id": "Q-EI-LOAD",
+      "dimension": "high_load",
+      "metric": "槽/字节/文件超限",
+      "target": "达到预算即背压/拒绝，不静默丢结果",
+      "load": "当前首增量/LC固定fixture和计划33状态，实际未运行",
+      "environment": "Windows计划环境/C1/实际制品与WebView待接收",
+      "method": "coding基础/独立quality系统计划，本轮仅文档",
+      "owner": "architecture技术阈值，产品业务目标，各实现与独立quality"
+    },
+    {
+      "id": "Q-EI-CONC",
+      "dimension": "high_concurrency",
+      "metric": "写者/语言排序",
+      "target": "每项目1写者，旧意图覆盖新已存值=0",
+      "load": "当前首增量/LC固定fixture和计划33状态，实际未运行",
+      "environment": "Windows计划环境/C1/实际制品与WebView待接收",
+      "method": "coding基础/独立quality系统计划，本轮仅文档",
+      "owner": "architecture技术阈值，产品业务目标，各实现与独立quality"
+    },
+    {
+      "id": "Q-EI-SEC",
+      "dimension": "security",
+      "metric": "越权/自动出站/付费依赖",
+      "target": "目标0，未安全验证",
+      "load": "当前首增量/LC固定fixture和计划33状态，实际未运行",
+      "environment": "Windows计划环境/C1/实际制品与WebView待接收",
+      "method": "coding基础/独立quality系统计划，本轮仅文档",
+      "owner": "architecture技术阈值，产品业务目标，各实现与独立quality"
+    },
+    {
+      "id": "Q-EI-MAINT",
+      "dimension": "maintainability",
+      "metric": "领域重复/接收漂移",
+      "target": "0重复领域规则，版本/摘要/回退齐备",
+      "load": "当前首增量/LC固定fixture和计划33状态，实际未运行",
+      "environment": "Windows计划环境/C1/实际制品与WebView待接收",
+      "method": "coding基础/独立quality系统计划，本轮仅文档",
+      "owner": "architecture技术阈值，产品业务目标，各实现与独立quality"
+    }
+  ],
+  "release": {
+    "build_id": "",
+    "environment": "实际构建环境未填",
+    "owner": "实际发布负责人未登记",
+    "quality_report_path": "",
+    "rollout": "当前仅源码交接，平台包兼容组合后续接收",
+    "stop_conditions": "不兼容/伪成功/已确认数据丢失/非法出站停止对应放行",
+    "recovery": "旧兼容组合与原数据，禁止强行降级写"
+  },
+  "reviews": [],
+  "risks": [
+    {
+      "id": "R-EI-UPSTREAM",
+      "severity": "high",
+      "owner": "product/workflow/UI",
+      "description": "正式增量产品文档/.product及上游/最终设计绑定未闭合",
+      "mitigation": "ROLE-HANDOFF各自写回，重算stage哈希/真实接收"
+    },
+    {
+      "id": "R-EI-BUILD",
+      "severity": "high",
+      "owner": "coding/platform",
+      "description": "未构建/完整锁和原生制品未接收",
+      "mitigation": "保留source_written_not_built，执行需真实会话授权"
+    },
+    {
+      "id": "R-EI-LOCALE",
+      "severity": "medium",
+      "owner": "product/UI/资产",
+      "description": "82键七语草稿未审，非全产品/最终画稿",
+      "mitigation": "逐状态资源/字体/翻译接收，不能把英文回退当完成"
+    }
+  ],
+  "scale_triggers": [
+    {
+      "id": "TR-EI-BREAK",
+      "metric": "incompatible contract change",
+      "operator": "gte",
+      "threshold": 1,
+      "unit": "change",
+      "window": "每次接口/数据变更",
+      "owner": "architecture",
+      "action": "升版并重交接相关阶段",
+      "rollback": "旧兼容组合/原数据保留"
+    },
+    {
+      "id": "TR-EI-LOSS",
+      "metric": "lost acknowledged durable transaction",
+      "operator": "gte",
+      "threshold": 1,
+      "unit": "transaction",
+      "window": "任一已授权恢复场景",
+      "owner": "architecture/coding",
+      "action": "停止对应组合接收，定位并留证据",
+      "rollback": "保留旧制品/故障原件"
+    },
+    {
+      "id": "TR-EI-LIMIT",
+      "metric": "core active tasks",
+      "operator": "gte",
+      "threshold": 32,
+      "unit": "tasks",
+      "window": "每次受理",
+      "owner": "coding",
+      "action": "背压/明确拒绝，先消费结果",
+      "rollback": "不丢旧任务/不扩无界队列"
+    },
+    {
+      "id": "TR-EI-LOCALE",
+      "metric": "older intent overwrites newer persisted locale",
+      "operator": "gte",
+      "threshold": 1,
+      "unit": "occurrence",
+      "window": "任一已授权场景",
+      "owner": "architecture/coding",
+      "action": "停止该组合接收，核对排序/提交闸门",
+      "rollback": "保留语言原件和原意图"
+    }
+  ],
+  "scaling": {
+    "extensibility": {
+      "mode": "now",
+      "reason": "版本/能力/共享Core；其他平台与完整功能defer，成本为维护适配",
+      "decision_id": "ADR-EI-01",
+      "evidence_ids": [
+        "E-EI-UPSTREAM"
+      ],
+      "trigger_ids": [
+        "TR-EI-BREAK"
+      ]
+    },
+    "high_availability": {
+      "mode": "now",
+      "reason": "仅本机恢复，云HA/deploy defer，无在线SLA",
+      "decision_id": "ADR-EI-01",
+      "evidence_ids": [
+        "E-EI-CORE"
+      ],
+      "trigger_ids": [
+        "TR-EI-LOSS"
+      ]
+    },
+    "high_load": {
+      "mode": "now",
+      "reason": "有界预算先行；海量优化defer，无测量不拆服务",
+      "decision_id": "ADR-EI-01",
+      "evidence_ids": [
+        "E-EI-CORE"
+      ],
+      "trigger_ids": [
+        "TR-EI-LIMIT"
+      ]
+    },
+    "high_concurrency": {
+      "mode": "now",
+      "reason": "单写/背压/原请求/最新语言意图；多人同编defer",
+      "decision_id": "ADR-EI-02",
+      "evidence_ids": [
+        "E-EI-WRITEBACK"
+      ],
+      "trigger_ids": [
+        "TR-EI-LOCALE",
+        "TR-EI-LIMIT"
+      ]
+    }
+  },
+  "schema_version": 1,
+  "security": {
+    "trust_boundaries": "不可信UI/工程→受限宿主→Core与设备store；预览/远程通道另包",
+    "authorization": "私有授权根/代次token/Schema/容量，不给任意shell/SQL/路径",
+    "identity": "本机grant/session/task与UX服务/channel，非云账户",
+    "privacy": "localOnly派生内容不外传，语言不触发模型/下载/计费",
+    "secrets": "Key不入DOM/工程/日志；当前无云认证要求",
+    "supply_chain": "受控DLL目录/符号/ABI/清单；C1直接声明候选，完整锁与实际LICENSE/NOTICE/制品摘要待收",
+    "threat_model": "越界路径/恶意输入/过期代次/未知重放/原生库替换/资源与语言文件损坏",
+    "verification": "仅源码/文档，不是安全扫描/运行验证"
+  },
+  "topology": {
+    "pattern": "modular_monolith",
+    "reason": "一个本机项目权威，受限表现/宿主/共享Core，不新增服务",
+    "team_capacity": "主要WIP1、最多2待集成；实际人员待登记",
+    "operations_cost": "本机包/依赖/资源/存储恢复维护；无新增云值班成本",
+    "deployment_units": [
+      {
+        "id": "EDITOR-LOCAL",
+        "component_ids": [
+          "UI",
+          "HOST",
+          "UX",
+          "CORE"
+        ],
+        "owner": "engineering平台",
+        "responsibility": "当前Windows源级首增量，Android Core后包",
+        "boundary_reason": "同一项目领域与存储所有者"
+      }
+    ]
+  },
+  "verification": [
+    {
+      "id": "V-EI-FUNC",
+      "kind": "functional",
+      "owner": "coding基础/独立quality系统",
+      "environment": "实际OS/WebView/字体/制品未绑定",
+      "method": "现有17基础计划与8系统类别，具体覆盖/排除由原角色维护",
+      "expected": "0假保存/假取消/未知重放",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "evidence_ids": [],
+      "build_id": ""
+    },
+    {
+      "id": "V-EI-PERF",
+      "kind": "performance",
+      "owner": "coding基础/独立quality系统",
+      "environment": "实际OS/WebView/字体/制品未绑定",
+      "method": "现有17基础计划与8系统类别，具体覆盖/排除由原角色维护",
+      "expected": "p95<=2s/200ms/10ms，可取消阶段<=1s，未测",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "evidence_ids": [],
+      "build_id": ""
+    },
+    {
+      "id": "V-EI-EXT",
+      "kind": "extensibility",
+      "owner": "coding基础/独立quality系统",
+      "environment": "实际OS/WebView/字体/制品未绑定",
+      "method": "现有17基础计划与8系统类别，具体覆盖/排除由原角色维护",
+      "expected": "0平台UI类型进入Core，变化升版",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "evidence_ids": [],
+      "build_id": ""
+    },
+    {
+      "id": "V-EI-HA",
+      "kind": "high_availability",
+      "owner": "coding基础/独立quality系统",
+      "environment": "实际OS/WebView/字体/制品未绑定",
+      "method": "现有17基础计划与8系统类别，具体覆盖/排除由原角色维护",
+      "expected": "目标0，仅本机，未测RPO/RTO",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "evidence_ids": [],
+      "build_id": ""
+    },
+    {
+      "id": "V-EI-LOAD",
+      "kind": "high_load",
+      "owner": "coding基础/独立quality系统",
+      "environment": "实际OS/WebView/字体/制品未绑定",
+      "method": "现有17基础计划与8系统类别，具体覆盖/排除由原角色维护",
+      "expected": "达到预算即背压/拒绝，不静默丢结果",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "evidence_ids": [],
+      "build_id": ""
+    },
+    {
+      "id": "V-EI-CONC",
+      "kind": "high_concurrency",
+      "owner": "coding基础/独立quality系统",
+      "environment": "实际OS/WebView/字体/制品未绑定",
+      "method": "现有17基础计划与8系统类别，具体覆盖/排除由原角色维护",
+      "expected": "每项目1写者，旧意图覆盖新已存值=0",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "evidence_ids": [],
+      "build_id": ""
+    },
+    {
+      "id": "V-EI-SEC",
+      "kind": "security",
+      "owner": "coding基础/独立quality系统",
+      "environment": "实际OS/WebView/字体/制品未绑定",
+      "method": "现有17基础计划与8系统类别，具体覆盖/排除由原角色维护",
+      "expected": "目标0，未安全验证",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "evidence_ids": [],
+      "build_id": ""
+    },
+    {
+      "id": "V-EI-MAINT",
+      "kind": "maintainability",
+      "owner": "coding基础/独立quality系统",
+      "environment": "实际OS/WebView/字体/制品未绑定",
+      "method": "现有17基础计划与8系统类别，具体覆盖/排除由原角色维护",
+      "expected": "0重复领域规则，版本/摘要/回退齐备",
+      "result": "not_run",
+      "execution_status": "not_run",
+      "evidence_ids": [],
+      "build_id": ""
+    }
+  ],
+  "execution_status": "not_run",
+  "quality_verified": false,
+  "release_permitted": false,
+  "ready_for_coding": false,
+  "readiness_reason": "技术材料已提供；正式产品前置/当前hash接收、UI状态绑定与各角色整版接收仍待写回",
+  "handoff": {
+    "document": "docs/architecture-increment.1/ARCHITECTURE.md",
+    "coding": "docs/architecture-increment.1/CODING-HANDOFF.json",
+    "role_actions": "docs/architecture-increment.1/ROLE-HANDOFF.md",
+    "workflow_integration": "docs/architecture-increment.1/WORKFLOW-INTEGRATION.json",
+    "formal_stage_approval": false
+  }
+}
