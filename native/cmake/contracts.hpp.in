@@ -2,5 +2,9 @@
 #pragma once
 namespace gg {
 inline constexpr char ddl[] = R"GGDDL(@GG_DDL@)GGDDL";
+inline constexpr char ddl_v2[] = R"GGDDL(@GG_DDL_V2@)GGDDL";
 inline constexpr char message_schema[] = R"GGMSG(@GG_MESSAGES@)GGMSG";
+inline constexpr char document_schema_v2[] = R"GGDOC(@GG_DOCUMENTS_V2@)GGDOC";
+inline constexpr char message_schema_v1_1[] = R"GGMSG(@GG_MESSAGES_V1_1@)GGMSG";
+inline constexpr char graph_node_catalog[] = R"GGNODE(@GG_NODE_CATALOG@)GGNODE";
 }

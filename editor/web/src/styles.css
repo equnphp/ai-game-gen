@@ -65,3 +65,9 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:20px;bo
 .startup{min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;color:var(--muted)}.startup strong{font-size:28px;color:var(--ink)}
 
 @media(max-width:700px){.breadcrumb strong{max-width:95px}.status-pill{max-width:70px}}
+
+/* 资源预览限制在面板内，媒体由用户明确操作后播放。 */
+.asset-preview{margin-top:24px;border-top:1px solid var(--border,#e2e9f2);padding-top:20px}.asset-preview img,.asset-preview video{display:block;max-width:100%;max-height:440px;object-fit:contain;background:#edf4ff;border-radius:8px}.asset-preview audio{width:100%;max-width:560px}.asset-row .button{margin-left:auto;flex-shrink:0}
+
+/* 历史与恢复点共用实时Core记录，小屏下按顺序排列。 */
+.history-layout{display:grid;grid-template-columns:minmax(260px,1fr) minmax(380px,1.5fr);gap:16px}.history-row{display:flex;align-items:center;gap:16px;padding:16px;border-bottom:1px solid var(--border,#e2e9f2)}.history-row details code{display:block;overflow-wrap:anywhere;margin-top:8px}.history-row .toolbar{margin-left:auto;flex-wrap:wrap}.snapshot-row{flex-wrap:wrap}@media(max-width:1000px){.history-layout{grid-template-columns:1fr}}

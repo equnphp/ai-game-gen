@@ -9,13 +9,28 @@ struct Document {
     int schema = 1;
     Json body;
 };
+struct AssetVersion {
+    std::string version, content_hash, media_type;
+    Json metadata, source, license;
+    std::uint64_t bytes = 0;
+    std::string metadata_hash;
+};
 struct State {
     std::map<std::string, Document> documents;
     std::set<std::string> assets;
+    int format = 1;
+    // 新格式的类型取自冻结资产版本，不能根据当前文件名推断引用兼容性。
+    std::map<std::string, std::string> asset_types;
+    std::map<std::string, AssetVersion> asset_versions;
 };
-struct Reference { std::string path, kind, target; };
+struct Reference {
+    std::string path, kind, target;
+    std::string expected_type, scope_document;
+    bool required = true;
+};
 std::vector<Reference> references(const Document& document);
 bool known_document(const Document& document);
+void validate_document(const Document& document);
 void validate_state(const State& state, const std::string& settings_id);
 void apply_operations(State& state, const Json& operations);
 Json delta(const State& before, const State& after);

@@ -40,55 +40,10 @@ Json parse(std::string_view s, std::size_t limit) {
         return v;
     } catch (const Json::exception&) { throw Error("INVALID_MESSAGE"); }
 }
-void schema_check(const Json& v, const Json& s) {
-    if (s.contains("oneOf")) {
-        int count = 0;
-        for (const auto& item : s.at("oneOf")) {
-            try { schema_check(v, item); ++count; } catch (const Error&) {}
-        }
-        require(count == 1, "INVALID_MESSAGE");
-        return;
-    }
-    if (s.contains("const")) require(v == s.at("const"), "INVALID_MESSAGE");
-    if (s.contains("enum"))
-        require(std::find(s.at("enum").begin(), s.at("enum").end(), v) != s.at("enum").end(), "INVALID_MESSAGE");
-    if (s.contains("type")) {
-        const auto t = s.at("type").get<std::string>();
-        require((t == "object" && v.is_object()) || (t == "array" && v.is_array()) ||
-                (t == "string" && v.is_string()) || (t == "boolean" && v.is_boolean()) ||
-                (t == "integer" && v.is_number_integer()) || (t == "number" && v.is_number()) ||
-                (t == "null" && v.is_null()), "TYPE_MISMATCH");
-    }
-    if (v.is_object()) {
-        if (s.contains("required")) for (const auto& k : s.at("required"))
-            require(v.contains(k.get<std::string>()), "INVALID_MESSAGE");
-        for (auto it = v.begin(); it != v.end(); ++it) {
-            if (s.contains("properties") && s.at("properties").contains(it.key()))
-                schema_check(it.value(), s.at("properties").at(it.key()));
-            else if (s.value("additionalProperties", true) == false) throw Error("INVALID_MESSAGE");
-        }
-    }
-    if (v.is_array()) {
-        require(v.size() >= s.value("minItems", std::size_t{0}) &&
-                v.size() <= s.value("maxItems", std::numeric_limits<std::size_t>::max()), "LIMIT_EXCEEDED");
-        if (s.contains("items")) for (const auto& x : v) schema_check(x, s.at("items"));
-    }
-    if (v.is_string()) {
-        const auto& str = v.get_ref<const std::string&>();
-        const auto length = characters(str);
-        require(length >= s.value("minLength", std::size_t{0}) &&
-                length <= s.value("maxLength", std::numeric_limits<std::size_t>::max()), "LIMIT_EXCEEDED");
-        if (s.contains("pattern"))
-            require(std::regex_search(str, std::regex(s.at("pattern").get<std::string>())), "INVALID_MESSAGE");
-    }
-    if (v.is_number()) {
-        if (s.contains("minimum")) require(v.get<double>() >= s.at("minimum").get<double>(), "LIMIT_EXCEEDED");
-        if (s.contains("maximum")) require(v.get<double>() <= s.at("maximum").get<double>(), "LIMIT_EXCEEDED");
-    }
-}
 void request_check(const Json& request) {
     static const Json schema = parse(message_schema, 1048576);
-    schema_check(request, schema);
+    static const Json schema_v1_1 = parse(message_schema_v1_1, 1048576);
+    schema_check(request, request.is_object() && request.value("protocolVersion", "") == "1.1" ? schema_v1_1 : schema);
 }
 bool uuid(std::string_view s) {
     static const std::regex re("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");

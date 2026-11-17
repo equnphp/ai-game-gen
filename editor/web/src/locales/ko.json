@@ -80,5 +80,18 @@
   "license": "라이선스 식별자",
   "uploading": "로컬 데이터 가져오는 중…",
   "unknownLicense": "라이선스 미확인: 로컬 초안 전용.",
-  "languageSaved": "언어가 저장되었습니다."
+  "languageSaved": "언어가 저장되었습니다.",
+  "assetPreview": "에셋 미리보기",
+  "previewUnsupported": "이 파일 형식은 미리 볼 수 없습니다.",
+  "previewLimit": "8 MiB 이하 파일만 미리 볼 수 있습니다. 원본 에셋은 변경되지 않습니다.",
+  "historyNote": "확정된 프로젝트 변경 이력입니다. 복원하면 새 리비전이 생성됩니다.",
+  "historyEmpty": "아직 기록이 없습니다.",
+  "loadMore": "더 불러오기",
+  "snapshots": "복원 지점",
+  "lockSnapshot": "잠금",
+  "unlockSnapshot": "잠금 해제",
+  "restoreSnapshot": "복원",
+  "restoreTitle": "이 버전을 복원할까요?",
+  "restoreBody": "리비전 {revision}을 새 확정 버전으로 복원합니다. 저장하지 않은 변경 사항은 복원 전에 처리합니다.",
+  "historyEdit": "편집"
 }

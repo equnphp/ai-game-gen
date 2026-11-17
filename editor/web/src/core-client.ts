@@ -5,6 +5,7 @@ export type CoreResult<T = Record<string, unknown>> = {
   ok: boolean; requestId: string; op: string; data: T | null;
   error: { code: string; messageKey: string; retryable: boolean } | null;
 };
+export type CoreTaskResult<T> = CoreResult<T> & {binary:Uint8Array|null};
 export class CoreFailure extends Error {
   constructor(readonly response: CoreResult) { super(response.error?.code ?? "CORE_ERROR"); }
 }
@@ -23,7 +24,7 @@ export class CoreClient {
     const result = await this.call("session.open", { grantRef,requiredCapabilities:["core.project_store","core.scene_documents"] });
     this.session = result.sessionToken;
   }
-  async wait<T>(ticket: TaskTicket, original: Bytes | null = null, signal?: AbortSignal): Promise<CoreResult<T>> {
+  async wait<T>(ticket: TaskTicket, original: Bytes | null = null, signal?: AbortSignal): Promise<CoreTaskResult<T>> {
     if (!this.session) throw new Error("SESSION_INVALID");
     this.pending.set(ticket.taskRef, { ticket,original:original ? decodeBytes(original) : null });
     const started = performance.now();
@@ -39,10 +40,15 @@ export class CoreClient {
         if (terminal) {
           let result;
           try { result = await this.call("task.result", { sessionToken:this.session,taskRef:ticket.taskRef }); }
-          catch(error){throw Object.assign(new Error("RESULT_UNKNOWN"),{ticket,requestUtf8:original,cause:error});}
-          const value = decodeJSON<CoreResult<T>>(result.coreResultUtf8);received=true;
+          catch(error){
+            // BUSY/NOT_READY是明确的槽背压，等待原任务即可，不重发领域请求。
+            if(["BUSY","NOT_READY"].includes((error as Error).message)){await new Promise<void>(resolve=>setTimeout(resolve,30));continue;}
+            throw Object.assign(new Error("RESULT_UNKNOWN"),{ticket,requestUtf8:original,cause:error});
+          }
+          const value = decodeJSON<CoreResult<T>>(result.coreResultUtf8);
+          const binary=result.binary===null?null:decodeBytes(result.binary,1048576);received=true;
           if (!value.ok) throw new CoreFailure(value as CoreResult);
-          return value;
+          return {...value,binary};
         }
         // 计时器仅节流；成功始终由真实终态与结果决定。
         await new Promise<void>(resolve => setTimeout(resolve, 30));
@@ -73,6 +79,14 @@ export class CoreClient {
         coreRequestId:request.requestId,projectId:request.projectId ?? (request.params as {projectId?:string})?.projectId,cause:error });
     }
     return this.wait<T>(ticket,payload);
+  }
+  async readBlobChunk(contentHash:string,offset:number,maxBytes:number):Promise<Uint8Array>{
+    if(!this.session)throw new Error("SESSION_INVALID");
+    const ticket=await this.call("blob.read",{sessionToken:this.session,contentHash,offset:String(offset),maxBytes});
+    const response=await this.wait<{offset:string;byteLength:string;contentHash:string;eof:boolean}>(ticket);
+    if(!response.binary || response.data?.offset!==String(offset)||response.data.contentHash!==contentHash||
+      Number(response.data.byteLength)!==response.binary.length||response.binary.length>maxBytes)throw new Error("CORE_CONTRACT_VIOLATION");
+    return response.binary;
   }
   async confirm(unknown: { ticket?:TaskTicket;originCallId?:string;coreRequestId?:string;projectId?:string;requestUtf8?:Bytes }): Promise<CoreResult> {
     if (!this.session) throw new Error("SESSION_INVALID");

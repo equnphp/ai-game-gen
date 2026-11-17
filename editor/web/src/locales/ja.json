@@ -80,5 +80,18 @@
   "license": "ライセンスID",
   "uploading": "ローカルデータを取り込み中…",
   "unknownLicense": "ライセンス不明。ローカル下書きのみ。",
-  "languageSaved": "言語を保存しました。"
+  "languageSaved": "言語を保存しました。",
+  "assetPreview": "アセットのプレビュー",
+  "previewUnsupported": "このファイル形式はプレビューできません。",
+  "previewLimit": "プレビューは8 MiB以下のファイルに対応しています。元のアセットは変更されません。",
+  "historyNote": "履歴には確定したプロジェクト変更を表示します。復元すると新しいリビジョンが作成されます。",
+  "historyEmpty": "記録はありません。",
+  "loadMore": "さらに読み込む",
+  "snapshots": "復元ポイント",
+  "lockSnapshot": "ロック",
+  "unlockSnapshot": "ロック解除",
+  "restoreSnapshot": "復元",
+  "restoreTitle": "このバージョンを復元しますか？",
+  "restoreBody": "リビジョン{revision}を新しい確定バージョンとして復元します。未保存の変更は復元前に処理します。",
+  "historyEdit": "編集"
 }

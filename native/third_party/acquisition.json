@@ -40,6 +40,42 @@
       "url": "https://raw.githubusercontent.com/Mbed-TLS/mbedtls/v3.6.7/library/platform.c",
       "sha256": "69f5e0c95478d792ac5654af56817c8272a68c322010e342afacc90e6d57524d",
       "purpose": "Windows MinGW平台兼容层；沿用原Mbed TLS许可"
+    },
+    {
+      "path": "utf8proc/utf8proc.c",
+      "version": "2.12.0",
+      "commit": "79cdd5ab40c79afa559f689ffc13b76812dee1ac",
+      "url": "https://raw.githubusercontent.com/JuliaStrings/utf8proc/79cdd5ab40c79afa559f689ffc13b76812dee1ac/utf8proc.c",
+      "bytes": 33831,
+      "sha256": "f38438eb986ba7eedad0f2e820a70fae1aaf05197364ba0381a5e84775099ef8",
+      "purpose": "同源Unicode18 NFC与casefold；保留MIT和Unicode数据许可"
+    },
+    {
+      "path": "utf8proc/utf8proc.h",
+      "version": "2.12.0",
+      "commit": "79cdd5ab40c79afa559f689ffc13b76812dee1ac",
+      "url": "https://raw.githubusercontent.com/JuliaStrings/utf8proc/79cdd5ab40c79afa559f689ffc13b76812dee1ac/utf8proc.h",
+      "bytes": 34834,
+      "sha256": "08da85e820efaa3613500946c26b2dc427a07f76001ed7c16bc90f298b814c35",
+      "purpose": "同源Unicode18 NFC与casefold；保留MIT和Unicode数据许可"
+    },
+    {
+      "path": "utf8proc/utf8proc_data.c",
+      "version": "2.12.0",
+      "commit": "79cdd5ab40c79afa559f689ffc13b76812dee1ac",
+      "url": "https://raw.githubusercontent.com/JuliaStrings/utf8proc/79cdd5ab40c79afa559f689ffc13b76812dee1ac/utf8proc_data.c",
+      "bytes": 2409012,
+      "sha256": "b4911d4162d216afa612317a9b981851e15d672f4d93b25f3a1eb986f8c0aedb",
+      "purpose": "同源Unicode18 NFC与casefold；保留MIT和Unicode数据许可"
+    },
+    {
+      "path": "utf8proc/LICENSE.md",
+      "version": "2.12.0",
+      "commit": "79cdd5ab40c79afa559f689ffc13b76812dee1ac",
+      "url": "https://raw.githubusercontent.com/JuliaStrings/utf8proc/79cdd5ab40c79afa559f689ffc13b76812dee1ac/LICENSE.md",
+      "bytes": 5125,
+      "sha256": "3b510150d34f248a221bb88e1d811238d6c6c18b51231822c42974c39bb07256",
+      "purpose": "同源Unicode18 NFC与casefold；保留MIT和Unicode数据许可"
     }
   ]
 }

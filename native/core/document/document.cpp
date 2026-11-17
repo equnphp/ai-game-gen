@@ -1,5 +1,6 @@
 // 仅白名单字段可以编辑；extensions只保存语义值，永不执行。
 #include "core/document/document.hpp"
+#include "core/document/model_v2.hpp"
 #include <cmath>
 #include <set>
 #include <sstream>
@@ -22,7 +23,8 @@ bool known_entity(const Json& e) {
         keys(e.at("transform"), {"x","y","rotation","scaleX","scaleY"}) &&
         (e.at("sprite").is_null() || keys(e.at("sprite"), {"assetId"}));
 }
-void validate_document(const Document& d) {
+void validate_document_impl(const Document& d) {
+    if (registered_model(d)) { validate_model(d); return; }
     require(uuid(d.id) && d.schema == 1 && known_document(d), "UNSUPPORTED_SCHEMA");
     require(d.body.dump().size() <= 1048576, "LIMIT_EXCEEDED");
     name(d.body.at("name"));
@@ -52,6 +54,7 @@ void validate_document(const Document& d) {
     }
 }
 std::vector<std::string> field_path(const Document& d, const std::string& p) {
+    if (registered_model(d)) return model_field_path(d, p);
     require(!p.empty() && p[0] == '/' && p.find('~') == std::string::npos, "INVALID_PATH");
     std::vector<std::string> parts;
     std::stringstream stream(p.substr(1)); std::string part;
@@ -73,7 +76,9 @@ std::vector<std::string> field_path(const Document& d, const std::string& p) {
     return parts;
 }
 }
+void validate_document(const Document& d) { validate_document_impl(d); }
 bool known_document(const Document& d) {
+    if (registered_model(d)) return true;
     if (d.schema != 1 || !d.body.is_object()) return false;
     if (d.kind == "project.settings") return keys(d.body, {"name","defaultSceneId","extensions"});
     if (d.kind != "scene" || !keys(d.body, {"name","entities","extensions"}) || !d.body.at("entities").is_object()) return false;
@@ -81,6 +86,7 @@ bool known_document(const Document& d) {
     return true;
 }
 std::vector<Reference> references(const Document& d) {
+    if (registered_model(d)) return model_references(d);
     std::vector<Reference> refs;
     if (d.kind == "project.settings") refs.push_back({"/defaultSceneId", "document", text(d.body.at("defaultSceneId"))});
     else if (d.kind == "scene") for (auto it = d.body.at("entities").begin(); it != d.body.at("entities").end(); ++it) {
@@ -94,19 +100,45 @@ void validate_state(const State& s, const std::string& settings_id) {
     require(s.documents.size() <= 500 && s.documents.contains(settings_id), "LIMIT_EXCEEDED");
     require(s.documents.at(settings_id).kind == "project.settings", "INVALID_REFERENCE");
     std::set<std::string> identities = s.assets;
+    std::map<std::string, ObjectIdentity> targets;
+    for (const auto& asset : s.assets) targets.emplace(asset,ObjectIdentity{asset,"asset",
+        s.asset_types.contains(asset)?s.asset_types.at(asset):"asset",""});
     for (const auto& [id,d] : s.documents) {
+        require(!registered_model(d) || s.format == 2, "FORMAT_UPGRADE_REQUIRED");
         require(identities.insert(id).second, "INVALID_REFERENCE"); validate_document(d);
+        targets.emplace(id,ObjectIdentity{id,"document",d.kind,""});
         if (d.kind == "project.settings") require(id == settings_id, "INVALID_REFERENCE");
-        else for (auto it = d.body.at("entities").begin(); it != d.body.at("entities").end(); ++it)
+        if (registered_model(d)) {
+            for (const auto& object : model_identities(d)) {
+                require(uuid(object.id) && identities.insert(object.id).second, "INVALID_REFERENCE");
+                targets.emplace(object.id,object);
+            }
+        } else if (d.kind == "scene") for (auto it = d.body.at("entities").begin(); it != d.body.at("entities").end(); ++it) {
             require(identities.insert(it.key()).second, "INVALID_REFERENCE");
+            targets.emplace(it.key(),ObjectIdentity{it.key(),"entity","entity",id});
+        }
     }
     for (const auto& [id,d] : s.documents) for (const auto& ref : references(d)) {
-        require(uuid(ref.target), "INVALID_REFERENCE");
-        if (ref.kind == "document")
-            require(s.documents.contains(ref.target) && s.documents.at(ref.target).kind == "scene", "INVALID_REFERENCE");
-        else if (ref.kind == "asset") require(s.assets.contains(ref.target), "INVALID_REFERENCE");
-        else require(d.body.at("entities").contains(ref.target), "INVALID_REFERENCE");
+        require(uuid(ref.target) && targets.contains(ref.target), "INVALID_REFERENCE");
+        const auto& target = targets.at(ref.target);
+        require(target.kind == ref.kind, "INVALID_REFERENCE");
+        if (!ref.expected_type.empty()) require(target.type == ref.expected_type, "INVALID_REFERENCE");
+        else if (ref.kind == "document") require(target.type == "scene", "INVALID_REFERENCE");
+        const auto scope = ref.scope_document.empty() && ref.kind == "entity" ? id : ref.scope_document;
+        if (ref.kind == "entity" || ref.kind == "subobject") require(target.scope == scope, "INVALID_REFERENCE");
+        // 行为组件只接受behavior图，结构上同为graph并不足以获得游戏执行权限。
+        if (registered_model(d) && ref.expected_type == "graph" && ref.path.find("/components/") != std::string::npos)
+            require(s.documents.at(ref.target).body.at("graphType") == "behavior", "INVALID_REFERENCE");
     }
+    for (const auto& [id,d]:s.documents) if (registered_model(d) && (d.kind=="scene" || d.kind=="prefab"))
+        for (const auto& entity:d.body.at("entities")) for (const auto& component:entity.at("components"))
+            if (component.at("type")=="graph.behavior") {
+                const auto& data=component.at("data");
+                const auto& variables=s.documents.at(text(data.at("graph").at("id"))).body.at("variables");
+                for (auto value=data.at("initialVariables").begin();value!=data.at("initialVariables").end();++value)
+                    require(uuid(value.key()) && variables.contains(value.key()) &&
+                        variables.at(value.key()).at("value").at("type")==value.value().at("type"),"TYPE_MISMATCH");
+            }
 }
 void apply_operations(State& s, const Json& operations) {
     for (const auto& op : operations) {
@@ -134,11 +166,28 @@ Json delta(const State& before, const State& after) {
     for (const auto& [id,d] : before.documents) if (!after.documents.contains(id)) result["documentHeads"][id] = nullptr;
     for (const auto& [id,d] : after.documents)
         if (!before.documents.contains(id) || before.documents.at(id).version != d.version) result["documentHeads"][id] = d.version;
-    for (const auto& id : before.assets) if (!after.assets.contains(id)) result["assetHeads"][id] = false;
-    for (const auto& id : after.assets) if (!before.assets.contains(id)) result["assetHeads"][id] = true;
+    if (after.format == 2) {
+        result["dataVersion"] = 2;
+        for (const auto& id : before.assets) if (!after.assets.contains(id)) result["assetHeads"][id] = nullptr;
+        for (const auto& [id,asset] : after.asset_versions)
+            if (!before.asset_versions.contains(id) || before.asset_versions.at(id).version != asset.version)
+                result["assetHeads"][id] = asset.version;
+    } else {
+        for (const auto& id : before.assets) if (!after.assets.contains(id)) result["assetHeads"][id] = false;
+        for (const auto& id : after.assets) if (!before.assets.contains(id)) result["assetHeads"][id] = true;
+    }
     return result;
 }
 Json manifest(const State& state, const std::string& project, const std::string& branch, std::int64_t revision) {
+    if (state.format == 2) {
+        Json m = {{"manifestFormat",2},{"projectId",project},{"branchId",branch},{"headRevision",std::to_string(revision)},
+            {"projectFormat",2},{"schemaCatalogHash",model_catalog_hash()},{"documents",Json::array()},{"assets",Json::array()}};
+        for (const auto& [id,d] : state.documents) m["documents"].push_back({{"documentId",id},{"versionId",d.version},
+            {"kind",d.kind},{"schemaVersion",d.schema},{"contentHash",d.content_hash}});
+        for (const auto& [id,asset] : state.asset_versions) m["assets"].push_back({{"assetId",id},{"assetVersionId",asset.version},
+            {"contentHash",asset.content_hash},{"metadataHash",asset.metadata_hash.empty()?hash(asset.metadata.dump()):asset.metadata_hash}});
+        return m;
+    }
     Json m = {{"formatVersion",1},{"projectId",project},{"branchId",branch},{"revision",std::to_string(revision)},
               {"documents",Json::array()},{"assets",Json::array()}};
     for (const auto& [id,d] : state.documents) m["documents"].push_back({{"id",id},{"versionId",d.version},{"hash",d.content_hash}});

@@ -26,6 +26,7 @@ public:
         std::string relative;
     };
     BackupFile new_backup(const std::string& name);
+    BackupFile existing_backup(const std::string& relative);
 };
 std::string file_hash(const std::string& path, const std::function<void()>& checkpoint);
 }

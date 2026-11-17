@@ -17,15 +17,36 @@ struct Proposal {
     std::int64_t base = 0;
     Json operations;
     std::chrono::steady_clock::time_point expires;
+    std::string registry_hash;
+    std::vector<std::string> planned_versions;
 };
 class Session {
     RootGrant& root_;
     Store store_;
     std::unique_ptr<ProjectLocation> location_;
     std::string project_, branch_, settings_;
+    int format_ = 1;
     Json read_only_ = Json::array();
     bool recovery_required_ = false;
     std::map<std::string, Proposal> proposals_;
+    struct AssetReadView {
+        std::string filter_hash;
+        std::int64_t revision;
+        std::vector<std::pair<std::string,std::string>> versions;
+        std::map<std::string,std::size_t> uses;
+        std::chrono::steady_clock::time_point expires;
+    };
+    std::map<std::string,AssetReadView> asset_reads_;
+    struct UpgradePlan {
+        std::string id, hash, source_hash, migration_id;
+        std::string request_id, request_hash, result;
+        std::int64_t revision = 0;
+        std::uint64_t required_bytes = 0;
+        Json maps;
+        std::map<std::string,AssetVersion> assets;
+        std::chrono::steady_clock::time_point expires;
+    };
+    std::optional<UpgradePlan> upgrade_plan_;
     struct Cached { std::string digest, result, proposal; };
     std::map<std::string, Cached> volatile_requests_;
     void open_metadata();
@@ -38,7 +59,8 @@ class Session {
                       const Json& revision = nullptr);
     std::string commit(const Json& request, const std::string& digest, State candidate,
                        const std::string& kind, const Control& control,
-                       const std::string& source = "", const std::function<void(std::int64_t)>& extra = {});
+                       const std::string& source = "", const std::function<void(std::int64_t)>& extra = {},
+                       const std::function<void()>& before_persist = {}, const std::function<void()>& final_check = {});
     Json query(const Json& request, const Control& control);
     std::string create(const Json& request, const std::string& digest, const Control& control);
     std::string operate(const Json& request, const std::string& digest, const Control& control);
@@ -46,7 +68,15 @@ class Session {
     void writable();
     void expected(const Json& request);
     void expire_proposals();
-    Json asset_metadata(const std::string& id);
+    Json asset_metadata(const std::string& id, const std::string& version = "");
+    AssetVersion load_asset_version(const std::string& id, const std::string& version);
+    void apply_proposal(State& state, const Json& operations, const std::vector<std::string>& versions);
+    void adopt_uploads(const Json& operations);
+    Json list_assets(const Json& params);
+    std::string upgrade(const Json& request, const std::string& digest, const Control& control);
+    std::string migration_source_hash();
+    State upgrade_state(State state, const Json& maps);
+    State upgrade_legacy_state(State state);
     std::string maintenance(const Json& request, const std::string& digest, const Control& control);
 public:
     explicit Session(RootGrant& grant) : root_(grant) {}

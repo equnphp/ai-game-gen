@@ -80,5 +80,18 @@
   "license": "License identifier",
   "uploading": "Importing local bytes…",
   "unknownLicense": "Unknown license; keep for local drafting only.",
-  "languageSaved": "Language saved."
+  "languageSaved": "Language saved.",
+  "assetPreview": "Asset preview",
+  "previewUnsupported": "Preview is not available for this file format.",
+  "previewLimit": "This preview is limited to files up to 8 MiB. The original asset is unchanged.",
+  "historyNote": "History comes from committed project changes. Restoring creates a new revision.",
+  "historyEmpty": "No records yet.",
+  "loadMore": "Load more",
+  "snapshots": "Recovery points",
+  "lockSnapshot": "Lock",
+  "unlockSnapshot": "Unlock",
+  "restoreSnapshot": "Restore",
+  "restoreTitle": "Restore this version?",
+  "restoreBody": "Restore revision {revision} as a new committed revision. Unsaved changes are handled before restoring.",
+  "historyEdit": "Edit"
 }

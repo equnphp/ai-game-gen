@@ -60,7 +60,8 @@ void Store::open(const std::string& path, bool create, bool read_only) {
         sqlite3_extended_result_codes(db_, 1);
         sql_check(sqlite3_db_config(db_, SQLITE_DBCONFIG_DEFENSIVE, 1, nullptr));
         sql_check(sqlite3_db_config(db_, SQLITE_DBCONFIG_TRUSTED_SCHEMA, 0, nullptr));
-        sqlite3_limit(db_, SQLITE_LIMIT_LENGTH, 4194304);
+        // manifest原文最多8MiB；行上限额外容纳索引元数据，消息边界仍由各端口单独限制。
+        sqlite3_limit(db_, SQLITE_LIMIT_LENGTH, 9437184);
         sqlite3_limit(db_, SQLITE_LIMIT_SQL_LENGTH, 131072);
         sqlite3_limit(db_, SQLITE_LIMIT_VARIABLE_NUMBER, 128);
         sqlite3_busy_timeout(db_, 1000);
@@ -86,9 +87,9 @@ Json Store::scalar(const char* sql, const std::vector<Json>& args) {
 void Store::verify_structure() {
     require(scalar("PRAGMA application_id") == 1195853134, "UNSUPPORTED_FORMAT");
     const auto v = scalar("PRAGMA user_version").get<int>();
-    require(v <= 1, "UNSUPPORTED_FORMAT"); require(v == 1, "MIGRATION_REQUIRED");
+    require(v <= 2, "UNSUPPORTED_FORMAT"); require(v >= 1, "MIGRATION_REQUIRED");
     // 从内置DDL构建预期结构，拒绝额外触发器/视图，避免执行项目自带SQL。
-    Store expected; expected.open(":memory:", true, false); expected.exec(ddl);
+    Store expected; expected.open(":memory:", true, false); expected.exec(v == 2 ? ddl_v2 : ddl);
     const char* schema = "SELECT type,name,tbl_name,sql FROM sqlite_schema WHERE name NOT LIKE 'sqlite_%' ORDER BY type,name";
     require(query(schema) == expected.query(schema), "UNSUPPORTED_SCHEMA");
     require(scalar("PRAGMA quick_check") == "ok", "DATABASE_CORRUPT");

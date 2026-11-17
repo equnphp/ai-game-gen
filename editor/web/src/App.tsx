@@ -9,14 +9,15 @@ import { TauriHost,nativeHostAvailable } from "../../host-contract/tauri";
 import { CoreClient } from "./core-client";
 import { LocaleProvider,useLocale } from "./localization";
 import { Dialog,Icon,LanguagePicker } from "./components";
+import { AssetPreview,type Asset } from "./AssetPreview";
+import { HistoryPanel } from "./HistoryPanel";
 type Transform = {x:number;y:number;rotation:number;scaleX:number;scaleY:number};
 type Entity = {name:string;parentId:string|null;transform:Transform;sprite:{assetId:string}|null;extensions:Record<string,unknown>};
 type Scene = {name:string;entities:Record<string,Entity>;extensions:Record<string,unknown>};
 type Document = {documentId:string;body:Scene;versionId:string;revision:string};
 type Project = {id:string;name:string;headRevision:string;rootDocuments:{settingsId:string;defaultSceneId:string};readOnlyReasons:string[]};
-type Page = "projects"|"scene"|"tasks"|"assets"|"settings";
+type Page = "projects"|"scene"|"tasks"|"assets"|"settings"|"history";
 type SaveState = "saved"|"dirty"|"saving"|"error"|"unknown";
-type Asset = {assetId:string;hash:string;byteLength:string;mediaType:string;source:{displayName:string};license:{identifier:string;status:string}};
 type Unknown = {ticket?:TaskTicket;originCallId?:string;coreRequestId?:string;projectId?:string;requestUtf8?:{decodedBytes:number;base64:string}};
 const copy = <T,>(value:T):T => structuredClone(value);
 function errorCode(error:unknown):string {return error instanceof Error ? error.message : String(error);}
@@ -55,6 +56,7 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
   const [directory,setDirectory] = useState("");
   const [session,setSession] = useState<SessionInfo|null>(null);
   const [assets,setAssets] = useState<Asset[]>([]);
+  const [previewAssetId,setPreviewAssetId] = useState<string|null>(null);
   const [license,setLicense] = useState("unknown");
   const [leave,setLeave] = useState<(()=>Promise<void>)|null>(null);
   const current = useRef({project,document,draft,saveState});
@@ -109,7 +111,7 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
       const response=await client.submit<{projectId:string}>(client.request(form==="new"?"project.create":"project.open",params));
       if(!response.data)throw new Error("CORE_CONTRACT_VIOLATION");
       await refreshProject(response.data.projectId);setPage("scene");setForm(null);setWelcome(false);
-      setName("");setDirectory("");setSelected(null);setAssets([]);
+      setName("");setDirectory("");setSelected(null);setAssets([]);setPreviewAssetId(null);
     });
   }
   function updateDraft(next:Scene) {setDraft(next);setSaveState("dirty");}
@@ -145,7 +147,7 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
   },[draft,numberText,saveState,busy,readOnly]);
   async function closeProject() {
     await client.close();
-    setProject(null);setDocument(null);setDraft(null);setSelected(null);setSaveState("saved");setPage("projects");setAssets([]);
+    setProject(null);setDocument(null);setDraft(null);setSelected(null);setSaveState("saved");setPage("projects");setAssets([]);setPreviewAssetId(null);
     current.current={project:null,document:null,draft:null,saveState:"saved"};
   }
   function guardLeave(action:()=>Promise<void>) {
@@ -224,6 +226,7 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
       })}</nav>
       <div className="nav-divider"/>
       <p className="nav-caption">{t("workspace")}</p>
+      <button className={"nav-item "+(page==="history"?"active":"")} disabled={!project} onClick={()=>setPage("history")} data-testid="nav-history"><Icon name="history"/>{t("history")}</button>
       <button className={"nav-item "+(page==="tasks"?"active":"")} onClick={()=>{setPage("tasks");void withWork(refreshTasks);}} data-testid="nav-tasks"><Icon name="clock"/>{t("tasks")}</button>
       <button className="nav-item" disabled title={t("unavailable")}><Icon name="sync"/>{t("devices")}</button>
       <button className="nav-item" disabled title={t("unavailable")}><Icon name="help"/>{t("learn")}</button>
@@ -291,8 +294,12 @@ function Workspace({boot}:{boot:{connected:boolean;grant:string|null;error:strin
           <section className="panel asset-panel"><label>{t("license")}<input value={license} onChange={e=>setLicense(e.target.value)} maxLength={128}/></label><p className="muted">{t("unknownLicense")}</p>
             <label className="button primary file-picker" aria-disabled={busy||readOnly}>{busy?t("uploading"):t("upload")}<input type="file" disabled={busy||readOnly||!project}
               onChange={e=>{const file=e.target.files?.[0];if(file)guardLeave(()=>upload(file));e.target.value="";}}/></label>
-            <div className="asset-list">{assets.map(asset=><article className="asset-row" key={asset.assetId}><Icon name="assets"/><div><strong>{asset.source.displayName}</strong><p>{asset.mediaType} · {Number(asset.byteLength).toLocaleString(locale.effectiveLocale)} B</p><code>{asset.hash}</code></div></article>)}</div>
+            <div className="asset-list">{assets.map(asset=><article className="asset-row" key={asset.assetId}><Icon name="assets"/><div><strong>{asset.source.displayName}</strong><p>{asset.mediaType} · {Number(asset.byteLength).toLocaleString(locale.effectiveLocale)} B</p><code>{asset.hash}</code></div><button className="button" onClick={()=>setPreviewAssetId(asset.assetId)}>{t("assetPreview")}</button></article>)}</div>
+            {assets.find(a=>a.assetId===previewAssetId) && <AssetPreview key={previewAssetId} asset={assets.find(a=>a.assetId===previewAssetId)!} client={client}/>}
           </section></>}
+        {page==="history" && project && <HistoryPanel client={client} projectId={project.id} revision={project.headRevision} busy={busy} readOnly={readOnly}
+          onRestore={id=>guardLeave(async()=>{const active=current.current.project;if(!active)return;await client.submit(client.request("snapshot.restore",{snapshotId:id},active.id,active.headRevision));await refreshProject(active.id);setSelected(null);})}
+          onPin={(snapshotId,locked)=>withWork(async()=>{const active=current.current.project;if(active)await client.submit(client.request("snapshot.pin",{snapshotId,locked},active.id));})}/>}
         {page==="tasks" && <><div className="page-heading"><h1>{t("tasks")}</h1><button className="button" onClick={()=>void withWork(refreshTasks)} disabled={busy}>{t("refresh")}</button></div>
           <section className="panel">{!session?.tasks.length ? <p className="empty-note">{t("noTasks")}</p> : session.tasks.map(task=><article className="task-row" key={task.taskRef}><Icon name="clock"/><div><code>{task.coreRequestId ?? task.taskRef}</code><p>{session.state}</p></div>
             <button className="button" disabled={busy} onClick={()=>void withWork(async()=>{const confirmed=await client.confirm({ticket:task});await refreshTasks();if(current.current.project)await loadProject();else if(typeof confirmed.data?.projectId==="string")await refreshProject(confirmed.data.projectId);setUnknown(null);})}>{t("checkResult")}</button>

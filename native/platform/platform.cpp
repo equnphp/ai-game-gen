@@ -209,6 +209,21 @@ RootGrant::BackupFile RootGrant::new_backup(const std::string& name) {
 #endif
     return {dir, dir->child_path(name), "backups/" + name};
 }
+RootGrant::BackupFile RootGrant::existing_backup(const std::string& relative) {
+    require(relative.starts_with("backups/"),"INVALID_PATH");
+    const auto name=relative.substr(8);
+    safe_name(name,"^[a-zA-Z0-9_-]{1,64}\\.sqlite$");
+    directory_->verify();
+    const auto p=directory_->path/"backups";
+#ifdef _WIN32
+    auto dir=std::make_shared<Directory>(p);
+#else
+    auto dir=std::make_shared<Directory>(p,directory_->fd,"backups");
+#endif
+    dir->verify_file(name);
+    require(std::filesystem::is_regular_file(std::filesystem::u8path(dir->child_path(name))),"NOT_FOUND");
+    return {dir,dir->child_path(name),relative};
+}
 std::string random_uuid() {
     std::array<unsigned char, 16> b{};
 #ifdef _WIN32

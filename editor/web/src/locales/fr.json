@@ -80,5 +80,18 @@
   "license": "Identifiant de licence",
   "uploading": "Importation des données locales…",
   "unknownLicense": "Licence inconnue : brouillon local uniquement.",
-  "languageSaved": "Langue enregistrée."
+  "languageSaved": "Langue enregistrée.",
+  "assetPreview": "Aperçu de la ressource",
+  "previewUnsupported": "L’aperçu n’est pas disponible pour ce format de fichier.",
+  "previewLimit": "L’aperçu est limité aux fichiers de 8 Mio maximum. La ressource originale reste inchangée.",
+  "historyNote": "L’historique affiche les modifications validées. Une restauration crée une nouvelle révision.",
+  "historyEmpty": "Aucun enregistrement.",
+  "loadMore": "Charger plus",
+  "snapshots": "Points de restauration",
+  "lockSnapshot": "Verrouiller",
+  "unlockSnapshot": "Déverrouiller",
+  "restoreSnapshot": "Restaurer",
+  "restoreTitle": "Restaurer cette version ?",
+  "restoreBody": "Restaurer la révision {revision} comme nouvelle version validée. Les modifications non enregistrées sont traitées auparavant.",
+  "historyEdit": "Modification"
 }

@@ -1,0 +1,376 @@
+{
+  "schema": "gamegen.graph-node-catalog.v1",
+  "version": "1.1",
+  "nodes": [
+    {
+      "id": "event.start",
+      "version": 1,
+      "inputs": {},
+      "outputs": {
+        "next": "exec"
+      },
+      "parameters": {},
+      "effect": "event",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "event.tick",
+      "version": 1,
+      "inputs": {},
+      "outputs": {
+        "next": "exec",
+        "dt": "f64",
+        "tick": "i32"
+      },
+      "parameters": {},
+      "effect": "event",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "event.input",
+      "version": 1,
+      "inputs": {},
+      "outputs": {
+        "next": "exec",
+        "value": "vec2"
+      },
+      "parameters": {
+        "action": "string"
+      },
+      "effect": "event",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "event.interval",
+      "version": 1,
+      "inputs": {},
+      "outputs": {
+        "next": "exec"
+      },
+      "parameters": {
+        "ticks": "i32[1..3600000]"
+      },
+      "effect": "event",
+      "supportedGraphSchemas": [
+        2
+      ]
+    },
+    {
+      "id": "value.constant",
+      "version": 1,
+      "inputs": {},
+      "outputs": {
+        "value": "T"
+      },
+      "parameters": {
+        "value": "T"
+      },
+      "effect": "pure",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "variable.read",
+      "version": 1,
+      "inputs": {},
+      "outputs": {
+        "value": "T"
+      },
+      "parameters": {
+        "variableId": "subobject/graph.variable"
+      },
+      "effect": "pure",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "variable.write",
+      "version": 1,
+      "inputs": {
+        "in": "exec",
+        "value": "T"
+      },
+      "outputs": {
+        "next": "exec"
+      },
+      "parameters": {
+        "variableId": "subobject/graph.variable"
+      },
+      "effect": "state",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "math.add",
+      "version": 1,
+      "inputs": {
+        "a": "T",
+        "b": "T"
+      },
+      "outputs": {
+        "value": "T"
+      },
+      "parameters": {
+        "valueType": "enum(i32|f64|vec2)"
+      },
+      "effect": "pure",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "math.multiply",
+      "version": 1,
+      "inputs": {
+        "a": "f64",
+        "b": "f64"
+      },
+      "outputs": {
+        "value": "f64"
+      },
+      "parameters": {},
+      "effect": "pure",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "vector.scale",
+      "version": 1,
+      "inputs": {
+        "vector": "vec2",
+        "scale": "f64"
+      },
+      "outputs": {
+        "value": "vec2"
+      },
+      "parameters": {},
+      "effect": "pure",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "vector.compose",
+      "version": 1,
+      "inputs": {
+        "x": "f64",
+        "y": "f64"
+      },
+      "outputs": {
+        "value": "vec2"
+      },
+      "parameters": {},
+      "effect": "pure",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "compare.less",
+      "version": 1,
+      "inputs": {
+        "a": "f64",
+        "b": "f64"
+      },
+      "outputs": {
+        "value": "bool"
+      },
+      "parameters": {},
+      "effect": "pure",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "logic.and",
+      "version": 1,
+      "inputs": {
+        "a": "bool",
+        "b": "bool"
+      },
+      "outputs": {
+        "value": "bool"
+      },
+      "parameters": {},
+      "effect": "pure",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "flow.branch",
+      "version": 1,
+      "inputs": {
+        "in": "exec",
+        "condition": "bool"
+      },
+      "outputs": {
+        "whenTrue": "exec",
+        "whenFalse": "exec"
+      },
+      "parameters": {},
+      "effect": "control",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "flow.sequence",
+      "version": 1,
+      "inputs": {
+        "in": "exec"
+      },
+      "outputs": {
+        "first": "exec",
+        "second": "exec"
+      },
+      "parameters": {},
+      "effect": "control",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "input.read",
+      "version": 1,
+      "inputs": {},
+      "outputs": {
+        "value": "vec2"
+      },
+      "parameters": {
+        "action": "string"
+      },
+      "effect": "query",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "entity.position",
+      "version": 1,
+      "inputs": {
+        "entity": "entity"
+      },
+      "outputs": {
+        "value": "vec2"
+      },
+      "parameters": {},
+      "effect": "query",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "entity.self",
+      "version": 1,
+      "inputs": {},
+      "outputs": {
+        "value": "entity"
+      },
+      "parameters": {},
+      "effect": "query",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "entity.translate",
+      "version": 1,
+      "inputs": {
+        "in": "exec",
+        "entity": "entity",
+        "delta": "vec2"
+      },
+      "outputs": {
+        "next": "exec"
+      },
+      "parameters": {},
+      "effect": "command",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "audio.play",
+      "version": 1,
+      "inputs": {
+        "in": "exec",
+        "entity": "entity"
+      },
+      "outputs": {
+        "next": "exec"
+      },
+      "parameters": {
+        "componentId": "subobject/audio.source"
+      },
+      "effect": "command",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "signal.emit",
+      "version": 1,
+      "inputs": {
+        "in": "exec"
+      },
+      "outputs": {
+        "next": "exec"
+      },
+      "parameters": {
+        "name": "string"
+      },
+      "effect": "command",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "event.signal",
+      "version": 1,
+      "inputs": {},
+      "outputs": {
+        "next": "exec"
+      },
+      "parameters": {
+        "name": "string"
+      },
+      "effect": "event",
+      "supportedGraphSchemas": [
+        1,
+        2
+      ]
+    }
+  ],
+  "entry_rules": "见MIGRATION.md；Graph1的interval明确不支持，不再将其视为四固定入口的第五入口"
+}

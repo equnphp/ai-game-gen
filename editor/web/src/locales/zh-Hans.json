@@ -80,5 +80,18 @@
   "license": "许可标识",
   "uploading": "正在导入本地字节…",
   "unknownLicense": "许可未知，仅用于本地草稿。",
-  "languageSaved": "语言已保存。"
+  "languageSaved": "语言已保存。",
+  "assetPreview": "资源预览",
+  "previewUnsupported": "此文件格式暂不支持预览。",
+  "previewLimit": "预览仅支持不超过8 MiB的文件，原始资源保持不变。",
+  "historyNote": "历史来自已提交的项目修改，恢复会生成新修订。",
+  "historyEmpty": "暂无记录。",
+  "loadMore": "加载更多",
+  "snapshots": "恢复点",
+  "lockSnapshot": "锁定",
+  "unlockSnapshot": "解锁",
+  "restoreSnapshot": "恢复",
+  "restoreTitle": "恢复这个版本？",
+  "restoreBody": "将修订{revision}恢复为新的已提交版本。未保存修改会在恢复前处理。",
+  "historyEdit": "编辑"
 }

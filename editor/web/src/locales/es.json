@@ -80,5 +80,18 @@
   "license": "Identificador de licencia",
   "uploading": "Importando datos locales…",
   "unknownLicense": "Licencia desconocida: solo borradores locales.",
-  "languageSaved": "Idioma guardado."
+  "languageSaved": "Idioma guardado.",
+  "assetPreview": "Vista previa del recurso",
+  "previewUnsupported": "Este formato de archivo no permite vista previa.",
+  "previewLimit": "La vista previa admite archivos de hasta 8 MiB. El recurso original no cambia.",
+  "historyNote": "El historial muestra cambios confirmados. Restaurar crea una revisión nueva.",
+  "historyEmpty": "Todavía no hay registros.",
+  "loadMore": "Cargar más",
+  "snapshots": "Puntos de recuperación",
+  "lockSnapshot": "Bloquear",
+  "unlockSnapshot": "Desbloquear",
+  "restoreSnapshot": "Restaurar",
+  "restoreTitle": "¿Restaurar esta versión?",
+  "restoreBody": "Restaurar la revisión {revision} como una nueva versión confirmada. Los cambios sin guardar se gestionan antes.",
+  "historyEdit": "Edición"
 }

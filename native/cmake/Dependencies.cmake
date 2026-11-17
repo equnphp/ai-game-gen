@@ -1,6 +1,6 @@
 # 固定vendor路径，源码缺失时明确停止，不漂移到系统库。
 set(GG_VENDOR "${CMAKE_CURRENT_LIST_DIR}/../third_party")
-foreach(p sqlite/sqlite3.c json/nlohmann/json.hpp mbedtls/library/sha256.c)
+foreach(p sqlite/sqlite3.c json/nlohmann/json.hpp mbedtls/library/sha256.c utf8proc/utf8proc.c utf8proc/utf8proc_data.c)
   if(NOT EXISTS "${GG_VENDOR}/${p}")
     message(FATAL_ERROR "Missing pinned dependency: ${p}. See third_party/README.md")
   endif()
@@ -24,3 +24,7 @@ target_include_directories(gg_hash PUBLIC "${GG_VENDOR}/mbedtls/include")
 target_include_directories(gg_hash PRIVATE "${GG_VENDOR}/mbedtls/library")
 target_include_directories(gg_hash PUBLIC "${CMAKE_CURRENT_LIST_DIR}")
 target_compile_definitions(gg_hash PUBLIC MBEDTLS_CONFIG_FILE="gg_mbedtls_config.h")
+# 固定Unicode表，两端使用同一规则，不读取OS locale或系统ICU。
+add_library(gg_unicode STATIC "${GG_VENDOR}/utf8proc/utf8proc.c")
+target_include_directories(gg_unicode PUBLIC "${GG_VENDOR}/utf8proc")
+target_compile_definitions(gg_unicode PUBLIC UTF8PROC_STATIC)

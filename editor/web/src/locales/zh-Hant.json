@@ -80,5 +80,18 @@
   "license": "授權標識",
   "uploading": "正在匯入本機資料…",
   "unknownLicense": "授權未知，僅用於本機草稿。",
-  "languageSaved": "語言已儲存。"
+  "languageSaved": "語言已儲存。",
+  "assetPreview": "資源預覽",
+  "previewUnsupported": "此檔案格式暫不支援預覽。",
+  "previewLimit": "預覽僅支援不超過8 MiB的檔案，原始資源保持不變。",
+  "historyNote": "歷史來自已提交的專案修改，還原會建立新修訂。",
+  "historyEmpty": "暫無記錄。",
+  "loadMore": "載入更多",
+  "snapshots": "還原點",
+  "lockSnapshot": "鎖定",
+  "unlockSnapshot": "解除鎖定",
+  "restoreSnapshot": "還原",
+  "restoreTitle": "還原此版本？",
+  "restoreBody": "將修訂{revision}還原為新的已提交版本。未儲存修改會在還原前處理。",
+  "historyEdit": "編輯"
 }

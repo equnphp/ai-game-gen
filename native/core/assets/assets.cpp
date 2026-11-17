@@ -11,7 +11,23 @@ void metadata_string(const Json& value, std::size_t maximum) {
             s.find(':')==std::string::npos,"INVALID_PATH");
 }
 }
-Json Session::asset_metadata(const std::string& id) {
+AssetVersion Session::load_asset_version(const std::string& id, const std::string& version) {
+    const auto rows = store_.query("SELECT a.content_hash,a.media_type,a.metadata_json,a.source_json,a.license_json,b.expected_size "
+        "FROM asset_versions a JOIN blob_objects b ON b.content_hash=a.content_hash AND b.state='READY' "
+        "WHERE a.asset_id=? AND a.asset_version_id=?", {id,version});
+    require(rows.size() == 1, "NOT_FOUND");
+    const auto& row = rows.front();
+    return {version,text(row[0]),text(row[1]),parse(text(row[2]),262144),parse(text(row[3])),parse(text(row[4])),row[5].get<std::uint64_t>(),hash(text(row[2]))};
+}
+Json Session::asset_metadata(const std::string& id, const std::string& version) {
+    if (format_ == 2) {
+        const auto selected = version.empty() ? text(store_.scalar("SELECT asset_version_id FROM asset_heads WHERE asset_id=?", {id})) : version;
+        const auto asset = load_asset_version(id,selected);
+        return {{"assetId",id},{"versionId",selected},{"hash",asset.content_hash},{"contentHash",asset.content_hash},
+            {"byteLength",std::to_string(asset.bytes)},{"mediaType",asset.media_type},{"metadata",asset.metadata},
+            {"source",asset.source},{"license",asset.license},{"localOnly",true},{"headRevision",std::to_string(head())},
+            {"decodedInfo",{{"kind","binary"},{"mediaType",asset.media_type},{"status","not_decoded"}}}};
+    }
     const auto rows=store_.query("SELECT a.content_hash,b.expected_size,a.media_type,a.source_json,a.license_json "
         "FROM assets a JOIN blob_objects b ON b.content_hash=a.content_hash AND b.state='READY' WHERE a.asset_id=?", {id});
     require(rows.size()==1,"NOT_FOUND"); const auto& x=rows[0];
@@ -34,7 +50,7 @@ std::string Session::asset_command(const Json& r, const std::string& digest, con
         auto result=envelope(r,{{"uploadId",upload},{"chunkBytes",1048576},{"nextOffset","0"}});
         control.checkpoint();control.commit_gate();Transaction tx(store_);
         store_.run("INSERT INTO blob_objects VALUES(?,NULL,?,0,'STAGING',?)", {blob,size,now_ms()});
-        store_.run("INSERT INTO uploads VALUES(?,?,?,?,?,?,?,'UPLOADING',?)",
+        store_.run("INSERT INTO uploads(upload_id,blob_id,asset_id,media_type,source_json,license_json,expected_hash,state,created_at_ms) VALUES(?,?,?,?,?,?,?,'UPLOADING',?)",
                    {upload,blob,p.at("assetId"),p.at("mediaType"),p.at("source").dump(),p.at("license").dump(),
                     p.value("expectedHash",Json(nullptr)),now_ms()});
         save_request(r,digest,result);tx.commit();return result;
@@ -52,6 +68,22 @@ std::string Session::asset_command(const Json& r, const std::string& digest, con
     writable();require(state!="CANCELLED","CANCELLED");
     if (op=="asset.attach") {
         expected(r); require(state=="READY","UPLOAD_INCOMPLETE");
+        if (format_==2) {
+            const auto metadata=store_.query("SELECT source_json,license_json FROM uploads WHERE upload_id=?",{upload});
+            const auto source=parse(text(metadata[0][0])),license=parse(text(metadata[0][1]));
+            auto display=text(source.at("displayName"));
+            std::size_t count=0,position=0;
+            for (;position<display.size();++position) if ((static_cast<unsigned char>(display[position])&0xc0)!=0x80 && ++count>80) break;
+            display.resize(position);if(display.empty())display="Imported";
+            // 未完成受管解码前仅保留原始二进制，不根据扩展名宣告图片/音频可运行。
+            Json info={{"name",display},{"logicalPath","/Imported/"+text(x[1])},{"tags",Json::array()},
+                {"favorite",false},{"assetType","binary"},{"importSettings",{{"settingsKind","binary.default"},{"settingsVersion",1},{"values",Json::object()}}},
+                {"provenance",{{"sourceKind","local_file"},{"sourceName",source.at("displayName")},{"sourceHash",x[6]},
+                    {"licenseId",license.at("identifier")},{"attribution",""},{"commercialUse","unknown"},{"localOnly",true}}}};
+            const Json operations=Json::array({{{"kind","attach_asset"},{"uploadId",upload},{"metadata",info}}});
+            auto next=load_state();apply_proposal(next,operations,{random_uuid()});
+            return commit(r,digest,std::move(next),"attach",control,"",[&](std::int64_t){adopt_uploads(operations);});
+        }
         auto next=load_state();require(!next.assets.contains(text(x[1])),"INVALID_REFERENCE");next.assets.insert(text(x[1]));
         return commit(r,digest,std::move(next),"attach",control,"",[&](std::int64_t revision){
             store_.run("INSERT INTO assets SELECT asset_id,b.content_hash,media_type,source_json,license_json,1,? "
@@ -118,12 +150,15 @@ std::pair<std::string,std::string> Session::blob_read(const std::string& content
                                                     std::uint32_t maximum,const Control& control) {
     require(is_open(),"NOT_FOUND");require(content_hash(content),"INVALID_MESSAGE");
     require(maximum>=1 && maximum<=1048576,"RANGE_ERROR");
-    const auto rows=store_.query("SELECT blob_id,expected_size FROM blob_objects b WHERE content_hash=? AND state='READY' AND EXISTS "
+    const char* legacy_query="SELECT blob_id,expected_size FROM blob_objects b WHERE content_hash=? AND state='READY' AND EXISTS "
         "(SELECT 1 FROM assets a WHERE a.content_hash=b.content_hash AND (EXISTS(SELECT 1 FROM asset_heads h WHERE h.asset_id=a.asset_id) "
         "OR EXISTS(SELECT 1 FROM snapshot_assets s WHERE s.asset_id=a.asset_id) OR EXISTS "
         "(SELECT 1 FROM history_entries he JOIN transactions t USING(transaction_id),json_each(json_extract(t.forward_json,'$.assetHeads')) j "
         "WHERE j.key=a.asset_id) OR EXISTS(SELECT 1 FROM history_entries he JOIN transactions t USING(transaction_id),"
-        "json_each(json_extract(t.inverse_json,'$.assetHeads')) j WHERE j.key=a.asset_id)))", {content});
+        "json_each(json_extract(t.inverse_json,'$.assetHeads')) j WHERE j.key=a.asset_id)))";
+    const auto rows=store_.query(format_==1?legacy_query:
+        "SELECT blob_id,expected_size FROM blob_objects b WHERE content_hash=? AND state='READY' AND EXISTS "
+        "(SELECT 1 FROM asset_versions a WHERE a.content_hash=b.content_hash)",{content});
     require(rows.size()==1,"NOT_FOUND");const auto size=rows[0][1].get<std::uint64_t>();
     require(offset<=size,"RANGE_ERROR");std::string bytes; const auto end=std::min(size,offset+maximum);
     while (offset+bytes.size()<end) {
@@ -152,8 +187,10 @@ std::string Session::maintenance(const Json& r, const std::string& digest, const
         auto result=envelope(r,{{"snapshotId",p.at("snapshotId")},{"locked",p.at("locked")}});
         control.checkpoint();control.commit_gate();Transaction tx(store_);
         store_.run("UPDATE snapshots SET locked=? WHERE snapshot_id=?", {p.at("locked"),p.at("snapshotId")});
-        store_.run("DELETE FROM snapshots WHERE locked=0 AND snapshot_id NOT IN "
-                   "(SELECT snapshot_id FROM snapshots WHERE locked=0 ORDER BY revision DESC LIMIT 20)");
+        store_.run(format_ == 1 ? "DELETE FROM snapshots WHERE locked=0 AND snapshot_id NOT IN "
+            "(SELECT snapshot_id FROM snapshots WHERE locked=0 ORDER BY revision DESC LIMIT 20)" :
+            "DELETE FROM snapshots WHERE locked=0 AND snapshot_id NOT IN (SELECT snapshot_id FROM snapshot_consumers) AND snapshot_id NOT IN "
+            "(SELECT snapshot_id FROM snapshots WHERE locked=0 ORDER BY revision DESC LIMIT 20)");
         save_request(r,digest,result);tx.commit();return result;
     }
     if(op=="maintenance.backup") {

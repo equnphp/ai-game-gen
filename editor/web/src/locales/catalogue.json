@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": "editor-locales-increment.1-receipt.1",
-  "hash": "sha256:e6588a8e44e2e1335b9e3d0c82d5d4ecc0410c36c9a11c5a58b8e090e81b115e",
+  "version": "editor-locales-history.1",
+  "hash": "sha256:3ce29e93462f671bcd45286bc59ed062c51e0a854a1bbb165c0d92726c74e4b9",
   "locales": [
     "en",
     "zh-Hans",
@@ -93,7 +93,20 @@
     "license",
     "uploading",
     "unknownLicense",
-    "languageSaved"
+    "languageSaved",
+    "assetPreview",
+    "previewUnsupported",
+    "previewLimit",
+    "historyNote",
+    "historyEmpty",
+    "loadMore",
+    "snapshots",
+    "lockSnapshot",
+    "unlockSnapshot",
+    "restoreSnapshot",
+    "restoreTitle",
+    "restoreBody",
+    "historyEdit"
   ],
   "coverage": "Implemented editor increment only; remaining product surfaces not translated here",
   "translationReview": "draft_not_human_reviewed",
