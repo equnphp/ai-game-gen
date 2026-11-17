@@ -31,3 +31,26 @@ github.txt
 
 # Tauri生成绑定及平台生成目录
 /editor/hosts/tauri/gen/
+
+# 产品、UI、架构及研发过程资料仅保留在本机
+/.architecture-mcp/
+/.design-mcp/
+/.product-mcp/
+/.quality-mcp/
+.*-mcp.json
+/architecture/
+/design/
+/handoff/
+/docs/
+/native/docs/
+/editor/docs/
+
+# 根目录只提交使用入口和必要的项目/许可说明
+/*.md
+!/README.md
+!/AGENTS.md
+!/LICENSE.md
+!/NOTICE.md
+
+# 旧界面审阅目录仅在本机保留
+/gallery.html

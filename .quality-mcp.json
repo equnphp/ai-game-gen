@@ -1,6 +1,0 @@
-{
-  "version": 1,
-  "tools": {
-    "eslint": "I:/code/GameGen/node_modules/.bin/eslint.cmd"
-  }
-}

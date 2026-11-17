@@ -1,9 +1,0 @@
-{
-  "blocking_findings": 0,
-  "complete": true,
-  "passed": true,
-  "snapshot": "ccf216a622570931",
-  "stale": false,
-  "status": "passed",
-  "threshold": "warning"
-}
