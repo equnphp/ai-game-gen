@@ -1,0 +1,6 @@
+# 打包工具覆盖 rustflags 时必须保留插件核验器的固定后端。
+[target.x86_64-pc-windows-msvc]
+rustflags = ["--cfg", 'curve25519_dalek_backend="serial"', "--cfg", 'curve25519_dalek_bits="64"']
+
+[target.aarch64-linux-android]
+rustflags = ["--cfg", 'curve25519_dalek_backend="serial"', "--cfg", 'curve25519_dalek_bits="64"']

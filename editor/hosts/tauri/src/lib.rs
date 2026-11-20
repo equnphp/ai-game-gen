@@ -7,6 +7,7 @@ mod store_io;
 mod workspace;
 mod artifact_bridge;
 mod sqlite;
+mod plugin_registry;
 mod source_lease;
 mod artifact_store;
 mod compiler_component;
@@ -15,7 +16,7 @@ use crate::{core::Host,locale::LocalUX,wire::*,workspace::Workspace};
 use serde_json::{json,Value};
 use std::{sync::{Arc,Mutex,atomic::{AtomicUsize,Ordering}},time::{Instant,Duration}};
 use tauri::{Manager,Emitter};
-struct AppState { host:Mutex<Host>,ux:LocalUX,workspace:Arc<Mutex<Workspace>>,components:Arc<compiler_component::CompilerComponents>,pending:AtomicUsize }
+struct AppState { host:Mutex<Host>,ux:LocalUX,workspace:Arc<Mutex<Workspace>>,components:Arc<compiler_component::CompilerComponents>,_plugins:plugin_registry::Registry,pending:AtomicUsize }
 struct Permit(Arc<AppState>);
 impl Drop for Permit {fn drop(&mut self){self.0.pending.fetch_sub(1,Ordering::AcqRel);}}
 fn permit(state:&Arc<AppState>)->Result<Permit>{
@@ -158,7 +159,7 @@ pub fn run(){
             let library=app.path().resource_dir()?.join("native/windows-x86_64");
             let workspace=Arc::new(Mutex::new(Workspace::new(projects.clone(),app_data.join("workspace"))));
             let state=Arc::new(AppState{host:Mutex::new(Host::new(projects,library,workspace.clone())),workspace,
-                ux:LocalUX::new(app_data.join("editor-profile")),components:Arc::new(compiler_component::CompilerComponents::default()),pending:AtomicUsize::new(0)});
+                ux:LocalUX::new(app_data.join("editor-profile")),components:Arc::new(compiler_component::CompilerComponents::default()),_plugins:plugin_registry::Registry::new(),pending:AtomicUsize::new(0)});
             app.manage(state);Ok(())
         })
         .on_window_event(|window,event|{

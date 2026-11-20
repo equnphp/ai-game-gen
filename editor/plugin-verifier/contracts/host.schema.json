@@ -1,0 +1,1874 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gamegen.invalid/contracts/plugin-s1/host.schema.json",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "direction": {
+          "const": "host_to_guest"
+        },
+        "body": {
+          "$ref": "#/$defs/hostInput"
+        }
+      },
+      "required": [
+        "direction",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "direction": {
+          "const": "guest_to_host"
+        },
+        "body": {
+          "$ref": "#/$defs/guestOutput"
+        }
+      },
+      "required": [
+        "direction",
+        "body"
+      ],
+      "additionalProperties": false
+    }
+  ],
+  "$defs": {
+    "error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "enum": [
+            "INVALID_MESSAGE",
+            "UNSUPPORTED_VERSION",
+            "INVALID_PACKAGE",
+            "HASH_MISMATCH",
+            "SIGNATURE_INVALID",
+            "SIGNER_UNTRUSTED",
+            "SIGNER_CONFLICT",
+            "DEPENDENCY_MISSING",
+            "DEPENDENCY_CONFLICT",
+            "DEPENDENCY_CYCLE",
+            "PLATFORM_UNAVAILABLE",
+            "ISOLATION_UNAVAILABLE",
+            "DISABLED",
+            "PERMISSION_REQUIRED",
+            "PERMISSION_DENIED",
+            "GRANT_EXPIRED",
+            "GRANT_REVOKED",
+            "STALE_CONTEXT",
+            "CONTRIBUTION_CONFLICT",
+            "NOT_FOUND",
+            "QUEUE_FULL",
+            "RESOURCE_LIMIT",
+            "TIMEOUT",
+            "CANCELLED",
+            "PLUGIN_TRAP",
+            "WORKER_LOST",
+            "INVALID_OUTPUT",
+            "PLAN_STALE",
+            "STORE_INCOMPATIBLE",
+            "IO_FAILURE",
+            "EFFECT_UNKNOWN",
+            "IDEMPOTENCY_CONFLICT"
+          ]
+        },
+        "outcome": {
+          "enum": [
+            "not_submitted",
+            "known_failure",
+            "submitted_unknown"
+          ]
+        },
+        "messageKey": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 96,
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+        },
+        "args": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[a-z][a-z0-9_-]{0,47}$"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 256
+          },
+          "maxProperties": 12
+        }
+      },
+      "required": [
+        "code",
+        "outcome",
+        "messageKey",
+        "args"
+      ],
+      "additionalProperties": false
+    },
+    "snapshot": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "branchId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "snapshotId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "headRevision": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        },
+        "manifestHash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "schemaCatalogHash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "projectId",
+        "branchId",
+        "snapshotId",
+        "headRevision",
+        "manifestHash",
+        "schemaCatalogHash"
+      ],
+      "additionalProperties": false
+    },
+    "proposal": {
+      "type": "object",
+      "properties": {
+        "expectedRevision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 19,
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "create_document"
+                  },
+                  "documentId": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                  },
+                  "schemaVersion": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "body": {
+                    "type": "object"
+                  },
+                  "documentKind": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9.]*$"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "documentId",
+                  "documentKind",
+                  "schemaVersion",
+                  "body"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "set_field"
+                  },
+                  "documentId": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "value": {}
+                },
+                "required": [
+                  "kind",
+                  "documentId",
+                  "path",
+                  "value"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "remove_field"
+                  },
+                  "documentId": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "documentId",
+                  "path"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "delete_document"
+                  },
+                  "documentId": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "documentId"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 64
+        }
+      },
+      "required": [
+        "expectedRevision",
+        "operations"
+      ],
+      "additionalProperties": false
+    },
+    "block": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 268435456
+        },
+        "eof": {
+          "type": "boolean"
+        },
+        "dataBase64": {
+          "type": "string",
+          "maxLength": 43692,
+          "pattern": "^[A-Za-z0-9+/]*={0,2}$"
+        }
+      },
+      "required": [
+        "offset",
+        "eof",
+        "dataBase64"
+      ],
+      "additionalProperties": false
+    },
+    "diagnostic": {
+      "type": "object",
+      "properties": {
+        "severity": {
+          "enum": [
+            "info",
+            "warning",
+            "error"
+          ]
+        },
+        "messageKey": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 96,
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+        },
+        "params": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "minItems": 0,
+          "maxItems": 12
+        }
+      },
+      "required": [
+        "severity",
+        "messageKey",
+        "params"
+      ],
+      "additionalProperties": false
+    },
+    "object": {
+      "type": "object",
+      "properties": {
+        "handle": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 96,
+          "pattern": "^[A-Za-z0-9_-]{22,96}$"
+        },
+        "kind": {
+          "enum": [
+            "typed_config",
+            "sem",
+            "runtime_bundle",
+            "asset",
+            "source",
+            "report"
+          ]
+        },
+        "sha256": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 71,
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 268435456
+        }
+      },
+      "required": [
+        "handle",
+        "kind",
+        "sha256",
+        "bytes"
+      ],
+      "additionalProperties": false
+    },
+    "stage": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[a-z0-9][a-z0-9._-]*(?:/[a-z0-9][a-z0-9._-]*)*$"
+        },
+        "sha256": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 71,
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 268435456
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "bytes"
+      ],
+      "additionalProperties": false
+    },
+    "invocation": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "editor.command"
+            },
+            "contributionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 96,
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "selectionId": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 36,
+                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "documentId": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 36,
+                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "selectionId",
+                "documentId"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "kind",
+            "contributionId",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "editor.view"
+            },
+            "contributionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 96,
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "$ref": "https://gamegen.invalid/contracts/plugin-s1/view.schema.json#/$defs/action"
+                }
+              },
+              "required": [
+                "action"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "kind",
+            "contributionId",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "editor.inspector"
+            },
+            "contributionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 96,
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "$ref": "https://gamegen.invalid/contracts/plugin-s1/view.schema.json#/$defs/action"
+                },
+                "documentId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 36,
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                }
+              },
+              "required": [
+                "action",
+                "documentId"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "kind",
+            "contributionId",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "asset.processor"
+            },
+            "contributionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 96,
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "format": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+                },
+                "inputs": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/object"
+                  },
+                  "minItems": 1,
+                  "maxItems": 32
+                }
+              },
+              "required": [
+                "format",
+                "inputs"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "kind",
+            "contributionId",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "project.reader"
+            },
+            "contributionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 96,
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "format": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+                },
+                "source": {
+                  "$ref": "#/$defs/object"
+                }
+              },
+              "required": [
+                "format",
+                "source"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "kind",
+            "contributionId",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "project.writer"
+            },
+            "contributionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 96,
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "phase": {
+                  "enum": [
+                    "analyze",
+                    "emit"
+                  ]
+                },
+                "targetProfileId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+                },
+                "input": {
+                  "$ref": "#/$defs/object"
+                },
+                "config": {
+                  "$ref": "#/$defs/object"
+                },
+                "analysisHash": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 71,
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "phase",
+                "targetProfileId",
+                "input",
+                "config",
+                "analysisHash"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "kind",
+            "contributionId",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "export.target"
+            },
+            "contributionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 96,
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "phase": {
+                  "enum": [
+                    "analyze",
+                    "emit"
+                  ]
+                },
+                "targetProfileId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+                },
+                "input": {
+                  "$ref": "#/$defs/object"
+                },
+                "config": {
+                  "$ref": "#/$defs/object"
+                },
+                "analysisHash": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 71,
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "phase",
+                "targetProfileId",
+                "input",
+                "config",
+                "analysisHash"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "kind",
+            "contributionId",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "model.provider"
+            },
+            "contributionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 96,
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "adapterId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+                },
+                "input": {
+                  "$ref": "#/$defs/object"
+                }
+              },
+              "required": [
+                "adapterId",
+                "input"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "kind",
+            "contributionId",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "tool.adapter"
+            },
+            "contributionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 96,
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "adapterId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+                },
+                "input": {
+                  "$ref": "#/$defs/object"
+                }
+              },
+              "required": [
+                "adapterId",
+                "input"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "kind",
+            "contributionId",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "authoring.template"
+            },
+            "contributionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 96,
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "templateId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+                }
+              },
+              "required": [
+                "templateId"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "kind",
+            "contributionId",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "subgraph"
+            },
+            "contributionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 96,
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "templateId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+                }
+              },
+              "required": [
+                "templateId"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "kind",
+            "contributionId",
+            "params"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "finish": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "const": "proposal"
+            },
+            "proposal": {
+              "$ref": "#/$defs/proposal"
+            }
+          },
+          "required": [
+            "result",
+            "proposal"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "const": "view"
+            },
+            "view": {
+              "$ref": "https://gamegen.invalid/contracts/plugin-s1/view.schema.json"
+            }
+          },
+          "required": [
+            "result",
+            "view"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "const": "analysis"
+            },
+            "report": {
+              "$ref": "#/$defs/object"
+            },
+            "analysisHash": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 71,
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "result",
+            "report",
+            "analysisHash"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "const": "staged"
+            },
+            "files": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/stage"
+              },
+              "minItems": 1,
+              "maxItems": 256
+            }
+          },
+          "required": [
+            "result",
+            "files"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "const": "object"
+            },
+            "object": {
+              "$ref": "#/$defs/object"
+            }
+          },
+          "required": [
+            "result",
+            "object"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "const": "none"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "brokerRequest": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "effectSeq": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16384
+            },
+            "method": {
+              "const": "snapshot.read"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "handle": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[A-Za-z0-9_-]{22,96}$"
+                },
+                "documentId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 36,
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1048576
+                },
+                "maxBytes": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 32768
+                }
+              },
+              "required": [
+                "handle",
+                "documentId",
+                "offset",
+                "maxBytes"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "effectSeq",
+            "method",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "effectSeq": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16384
+            },
+            "method": {
+              "const": "selection.read"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "handle": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[A-Za-z0-9_-]{22,96}$"
+                },
+                "selectionId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 36,
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                }
+              },
+              "required": [
+                "handle",
+                "selectionId"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "effectSeq",
+            "method",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "effectSeq": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16384
+            },
+            "method": {
+              "const": "input.read"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "handle": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[A-Za-z0-9_-]{22,96}$"
+                },
+                "objectRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[A-Za-z0-9_-]{22,96}$"
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 268435456
+                },
+                "maxBytes": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 32768
+                }
+              },
+              "required": [
+                "handle",
+                "objectRef",
+                "offset",
+                "maxBytes"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "effectSeq",
+            "method",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "effectSeq": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16384
+            },
+            "method": {
+              "const": "staging.write"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "handle": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[A-Za-z0-9_-]{22,96}$"
+                },
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "pattern": "^[a-z0-9][a-z0-9._-]*(?:/[a-z0-9][a-z0-9._-]*)*$"
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 268435456
+                },
+                "dataBase64": {
+                  "type": "string",
+                  "maxLength": 43692,
+                  "pattern": "^[A-Za-z0-9+/]*={0,2}$"
+                },
+                "final": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "handle",
+                "path",
+                "offset",
+                "dataBase64",
+                "final"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "effectSeq",
+            "method",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "effectSeq": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16384
+            },
+            "method": {
+              "const": "provider.invoke"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "handle": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[A-Za-z0-9_-]{22,96}$"
+                },
+                "input": {
+                  "$ref": "#/$defs/object"
+                }
+              },
+              "required": [
+                "handle",
+                "input"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "effectSeq",
+            "method",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "effectSeq": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16384
+            },
+            "method": {
+              "const": "tool.invoke"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "handle": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^[A-Za-z0-9_-]{22,96}$"
+                },
+                "input": {
+                  "$ref": "#/$defs/object"
+                }
+              },
+              "required": [
+                "handle",
+                "input"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "effectSeq",
+            "method",
+            "params"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "brokerResult": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "effectSeq": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16384
+            },
+            "method": {
+              "const": "snapshot.read"
+            },
+            "reply": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "const": true
+                    },
+                    "data": {
+                      "$ref": "#/$defs/block"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "data"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "const": false
+                    },
+                    "error": {
+                      "$ref": "#/$defs/error"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "error"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "effectSeq",
+            "method",
+            "reply"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "effectSeq": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16384
+            },
+            "method": {
+              "const": "selection.read"
+            },
+            "reply": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "const": true
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "documentIds": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 36,
+                            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                          },
+                          "minItems": 0,
+                          "maxItems": 128
+                        }
+                      },
+                      "required": [
+                        "documentIds"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "data"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "const": false
+                    },
+                    "error": {
+                      "$ref": "#/$defs/error"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "error"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "effectSeq",
+            "method",
+            "reply"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "effectSeq": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16384
+            },
+            "method": {
+              "const": "input.read"
+            },
+            "reply": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "const": true
+                    },
+                    "data": {
+                      "$ref": "#/$defs/block"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "data"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "const": false
+                    },
+                    "error": {
+                      "$ref": "#/$defs/error"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "error"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "effectSeq",
+            "method",
+            "reply"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "effectSeq": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16384
+            },
+            "method": {
+              "const": "staging.write"
+            },
+            "reply": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "const": true
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "nextOffset": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 268435456
+                        },
+                        "file": {
+                          "anyOf": [
+                            {
+                              "$ref": "#/$defs/stage"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "object": {
+                          "anyOf": [
+                            {
+                              "$ref": "#/$defs/object"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "nextOffset",
+                        "file",
+                        "object"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "data"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "const": false
+                    },
+                    "error": {
+                      "$ref": "#/$defs/error"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "error"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "effectSeq",
+            "method",
+            "reply"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "effectSeq": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16384
+            },
+            "method": {
+              "const": "provider.invoke"
+            },
+            "reply": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "const": true
+                    },
+                    "data": {
+                      "$ref": "#/$defs/object"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "data"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "const": false
+                    },
+                    "error": {
+                      "$ref": "#/$defs/error"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "error"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "effectSeq",
+            "method",
+            "reply"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "effectSeq": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16384
+            },
+            "method": {
+              "const": "tool.invoke"
+            },
+            "reply": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "const": true
+                    },
+                    "data": {
+                      "$ref": "#/$defs/object"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "data"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "const": false
+                    },
+                    "error": {
+                      "$ref": "#/$defs/error"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "error"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "effectSeq",
+            "method",
+            "reply"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "jobId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36,
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "instanceId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36,
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "generation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 19,
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        "snapshot": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/snapshot"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "handles": {
+          "type": "array",
+          "items": {
+            "$ref": "https://gamegen.invalid/contracts/plugin-s1/authorization.schema.json#/$defs/holder"
+          },
+          "minItems": 0,
+          "maxItems": 16
+        },
+        "newDocumentIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+          },
+          "minItems": 0,
+          "maxItems": 64
+        }
+      },
+      "required": [
+        "jobId",
+        "instanceId",
+        "generation",
+        "snapshot",
+        "handles",
+        "newDocumentIds"
+      ],
+      "additionalProperties": false
+    },
+    "hostInput": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "step": {
+              "const": "begin"
+            },
+            "context": {
+              "$ref": "#/$defs/context"
+            },
+            "call": {
+              "$ref": "#/$defs/invocation"
+            }
+          },
+          "required": [
+            "step",
+            "context",
+            "call"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "step": {
+              "const": "resume"
+            },
+            "result": {
+              "$ref": "#/$defs/brokerResult"
+            }
+          },
+          "required": [
+            "step",
+            "result"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "guestOutput": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "step": {
+              "const": "need"
+            },
+            "request": {
+              "$ref": "#/$defs/brokerRequest"
+            }
+          },
+          "required": [
+            "step",
+            "request"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "step": {
+              "const": "done"
+            },
+            "value": {
+              "$ref": "#/$defs/finish"
+            },
+            "diagnostics": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/diagnostic"
+              },
+              "minItems": 0,
+              "maxItems": 64
+            }
+          },
+          "required": [
+            "step",
+            "value",
+            "diagnostics"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "step": {
+              "const": "failed"
+            },
+            "diagnostics": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/diagnostic"
+              },
+              "minItems": 1,
+              "maxItems": 64
+            }
+          },
+          "required": [
+            "step",
+            "diagnostics"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "consumableResult": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "const": "proposal"
+            },
+            "proposal": {
+              "$ref": "#/$defs/proposal"
+            }
+          },
+          "required": [
+            "result",
+            "proposal"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "const": "view"
+            },
+            "view": {
+              "$ref": "https://gamegen.invalid/contracts/plugin-s1/view.schema.json"
+            }
+          },
+          "required": [
+            "result",
+            "view"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "const": "none"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}
