@@ -20,6 +20,14 @@ impl Source for Input {
 #[no_mangle]
 pub extern "C" fn ggpv_abi_version()->u32{1}
 
+#[no_mangle]
+pub unsafe extern "C" fn ggpv_build_id_v1(out:*mut u8,cap:u32,length:*mut u32)->i32{
+    if length.is_null(){return 8;}*length=0;
+    if out.is_null(){return 8;}if cap<77{return LIMIT;}
+    // 真实构建输入与发行锚点尚未接通；开发产物绝不能冒充可激活组件。
+    9
+}
+
 unsafe fn output(bytes:&[u8],out:*mut u8,cap:u32,length:*mut u32)->Result<(),i32>{
     if length.is_null(){return Err(8);}
     if bytes.len()>cap as usize || bytes.len()>u32::MAX as usize{return Err(LIMIT);}

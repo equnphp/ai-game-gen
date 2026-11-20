@@ -7,6 +7,7 @@ extern "C" {
 #endif
 typedef int32_t (*ggpv_read_v1)(void *ctx, uint8_t *dst, uint32_t cap, uint32_t *written);
 uint32_t ggpv_abi_version(void);
+int32_t ggpv_build_id_v1(uint8_t *out, uint32_t cap, uint32_t *out_len);
 int32_t ggpv_verify_stream_v1(ggpv_read_v1 read, void *ctx, uint8_t *out, uint32_t out_cap, uint32_t *out_len);
 int32_t ggpv_canonicalize_v1(const uint8_t *in, uint32_t in_len, uint8_t *out, uint32_t out_cap, uint32_t *out_len);
 #ifdef __cplusplus
